@@ -8,7 +8,7 @@ EventScript_SetDefeatedEliteFourFlagsVars::
 	return
 
 EventScript_SetReadyTryGiveNationalDexScene::
-	setvar VAR_MAP_SCENE_PALLET_TOWN_OAK, 2
+	setvar VAR_STORYLINE_LAB_INVASION, 2
 	return
 
 EventScript_ResetLegendaries::

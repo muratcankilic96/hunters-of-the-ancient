@@ -545,7 +545,6 @@ static const u8 sSeviiMapsecs[3][30] = {
     {
         MAPSEC_FOUR_ISLAND,
         MAPSEC_FIVE_ISLAND,
-        MAPSEC_SEVII_ISLE_6,
         MAPSEC_SEVII_ISLE_7,
         MAPSEC_SEVII_ISLE_8,
         MAPSEC_SEVII_ISLE_9,
@@ -571,7 +570,7 @@ static const u8 sSeviiMapsecs[3][30] = {
         MAPSEC_CANYON_ENTRANCE,
         MAPSEC_SEVAULT_CANYON,
         MAPSEC_TANOBY_RUINS,
-        MAPSEC_SEVII_ISLE_22,
+        MAPSEC_RECRUIT_BASE,
         MAPSEC_SEVII_ISLE_23,
         MAPSEC_SEVII_ISLE_24,
         MAPSEC_TRAINER_TOWER_2,
@@ -893,7 +892,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_CAPE_BRINK          - MAPSECS_KANTO] = {MAP(TWO_ISLAND_CAPE_BRINK),                 0},
     [MAPSEC_BOND_BRIDGE         - MAPSECS_KANTO] = {MAP(THREE_ISLAND_BOND_BRIDGE),              0},
     [MAPSEC_THREE_ISLE_PORT     - MAPSECS_KANTO] = {MAP(THREE_ISLAND_PORT),                     0},
-    [MAPSEC_SEVII_ISLE_6        - MAPSECS_KANTO] = {MAP(PROTOTYPE_SEVII_ISLE_6),                0},
+    [MAPSEC_SECRET_WOODS        - MAPSECS_KANTO] = {MAP(SECRET_WOODS),                          0},
     [MAPSEC_SEVII_ISLE_7        - MAPSECS_KANTO] = {MAP(PROTOTYPE_SEVII_ISLE_7),                0},
     [MAPSEC_SEVII_ISLE_8        - MAPSECS_KANTO] = {MAP(PROTOTYPE_SEVII_ISLE_8),                0},
     [MAPSEC_SEVII_ISLE_9        - MAPSECS_KANTO] = {MAP(PROTOTYPE_SEVII_ISLE_9),                0},
@@ -909,7 +908,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_CANYON_ENTRANCE     - MAPSECS_KANTO] = {MAP(SEVEN_ISLAND_SEVAULT_CANYON_ENTRANCE),  0},
     [MAPSEC_SEVAULT_CANYON      - MAPSECS_KANTO] = {MAP(SEVEN_ISLAND_SEVAULT_CANYON),           0},
     [MAPSEC_TANOBY_RUINS        - MAPSECS_KANTO] = {MAP(SEVEN_ISLAND_TANOBY_RUINS),             0},
-    [MAPSEC_SEVII_ISLE_22       - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
+    [MAPSEC_RECRUIT_BASE        - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_SEVII_ISLE_23       - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_SEVII_ISLE_24       - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_NAVEL_ROCK          - MAPSECS_KANTO] = {MAP(NAVEL_ROCK_EXTERIOR),                   0},
@@ -2953,8 +2952,8 @@ static u8 GetMapsecType(u8 mapsec)
 {
     switch (mapsec)
     {
-    case MAPSEC_PALLET_TOWN:
-        return FlagGet(FLAG_WORLD_MAP_PALLET_TOWN) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_SECRET_WOODS:
+        return FlagGet(FLAG_WORLD_MAP_SECRET_WOODS) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_VIRIDIAN_CITY:
         return FlagGet(FLAG_WORLD_MAP_VIRIDIAN_CITY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_PEWTER_CITY:
@@ -2988,7 +2987,7 @@ static u8 GetMapsecType(u8 mapsec)
     case MAPSEC_SEVEN_ISLAND:
         return FlagGet(FLAG_WORLD_MAP_SEVEN_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_SIX_ISLAND:
-        return FlagGet(FLAG_WORLD_MAP_SIX_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+        return FlagGet(FLAG_WORLD_MAP_SECRET_WOODS) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_ROUTE_4_POKECENTER:
         if (!GetRegionMapPermission(MAPPERM_HAS_FLY_DESTINATIONS))
             return MAPSECTYPE_NONE;

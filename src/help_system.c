@@ -1849,8 +1849,8 @@ static bool8 IsInDungeonMap(void)
 #define IN_PLAYERS_HOUSE \
     ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PALLET_TOWN_PLAYERS_HOUSE_1F) \
   && gSaveBlock1Ptr->location.mapNum == MAP_NUM(PALLET_TOWN_PLAYERS_HOUSE_1F))     \
- || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PALLET_TOWN_PLAYERS_HOUSE_2F)  \
-  && gSaveBlock1Ptr->location.mapNum == MAP_NUM(PALLET_TOWN_PLAYERS_HOUSE_2F)))    \
+ || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(RECRUIT_BASE_REGISTRATION_ROOM)  \
+  && gSaveBlock1Ptr->location.mapNum == MAP_NUM(RECRUIT_BASE_REGISTRATION_ROOM)))    \
 
  #define IN_OAKS_LAB \
     (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PALLET_TOWN_PROFESSOR_OAKS_LAB) \

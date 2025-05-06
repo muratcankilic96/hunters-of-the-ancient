@@ -57,7 +57,7 @@
 #define FLAG_HIDE_SQUIRTLE_BALL                            0x029
 #define FLAG_HIDE_CHARMANDER_BALL                          0x02A
 #define FLAG_HIDE_OAK_IN_HIS_LAB                           0x02B
-#define FLAG_HIDE_OAK_IN_PALLET_TOWN                       0x02C
+#define FLAG_HIDE_GIOVANNI_IN_REGISTRATION_ROOM            0x02C
 #define FLAG_HIDE_RIVAL_IN_LAB                             0x02D
 #define FLAG_HIDE_PEWTER_CITY_GYM_GUIDE                    0x02E
 #define FLAG_HIDE_DOME_FOSSIL                              0x02F
@@ -272,7 +272,7 @@
 #define FLAG_0x0FE               0x0FE
 #define FLAG_0x0FF               0x0FF
 #define FLAG_0x100               0x100
-#define FLAG_0x101               0x101
+#define FLAG_BEFORE_RECRUIT_BASE 0x101
 #define FLAG_0x102               0x102
 #define FLAG_0x103               0x103
 #define FLAG_0x104               0x104
@@ -1409,7 +1409,7 @@
 #define FLAG_ENABLE_SHIP_BIRTH_ISLAND                               (SYS_FLAGS + 0x4B)
 
 // World Map Flags
-#define FLAG_WORLD_MAP_PALLET_TOWN                                  (SYS_FLAGS + 0x90)
+#define FLAG_WORLD_MAP_SECRET_WOODS                                 (SYS_FLAGS + 0x90)
 #define FLAG_WORLD_MAP_VIRIDIAN_CITY                                (SYS_FLAGS + 0x91)
 #define FLAG_WORLD_MAP_PEWTER_CITY                                  (SYS_FLAGS + 0x92)
 #define FLAG_WORLD_MAP_CERULEAN_CITY                                (SYS_FLAGS + 0x93)

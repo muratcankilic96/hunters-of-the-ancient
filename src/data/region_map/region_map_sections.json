@@ -668,12 +668,12 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_SEVII_ISLE_22",
-      "name": "SEVII ISLE 22",
+      "map_section": "MAPSEC_RECRUIT_BASE",
+      "name": "RECRUIT BASE",
       "x": 9,
       "y": 12,
       "width": 1,
-      "height": 3
+      "height": 1
     },
     {
       "map_section": "MAPSEC_SEVII_ISLE_23",

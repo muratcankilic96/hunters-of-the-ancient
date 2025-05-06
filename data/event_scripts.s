@@ -275,6 +275,7 @@ gStdScriptsEnd::
 	.include "data/maps/OneIsland_KindleRoad_EmberSpa/scripts.inc"
 	.include "data/maps/BirthIsland_Harbor/scripts.inc"
 	.include "data/maps/NavelRock_Harbor/scripts.inc"
+	.include "data/maps/SecretWoods/scripts.inc"
 	.include "data/maps/PalletTown/scripts.inc"
 	.include "data/maps/ViridianCity/scripts.inc"
 	.include "data/maps/PewterCity/scripts.inc"
@@ -325,7 +326,6 @@ gStdScriptsEnd::
 	.include "data/maps/TwoIsland_CapeBrink/scripts.inc"
 	.include "data/maps/ThreeIsland_BondBridge/scripts.inc"
 	.include "data/maps/ThreeIsland_Port/scripts.inc"
-	.include "data/maps/Prototype_SeviiIsle_6/scripts.inc"
 	.include "data/maps/Prototype_SeviiIsle_7/scripts.inc"
 	.include "data/maps/Prototype_SeviiIsle_8/scripts.inc"
 	.include "data/maps/Prototype_SeviiIsle_9/scripts.inc"
@@ -342,7 +342,7 @@ gStdScriptsEnd::
 	.include "data/maps/SevenIsland_SevaultCanyon/scripts.inc"
 	.include "data/maps/SevenIsland_TanobyRuins/scripts.inc"
 	.include "data/maps/PalletTown_PlayersHouse_1F/scripts.inc"
-	.include "data/maps/PalletTown_PlayersHouse_2F/scripts.inc"
+	.include "data/maps/RecruitBase_RegistrationRoom/scripts.inc"
 	.include "data/maps/PalletTown_RivalsHouse/scripts.inc"
 	.include "data/maps/PalletTown_ProfessorOaksLab/scripts.inc"
 	.include "data/maps/ViridianCity_House/scripts.inc"
@@ -608,6 +608,7 @@ gStdScriptsEnd::
 	.include "data/maps/ThreeIsland_DunsparceTunnel/text.inc"
 	.include "data/maps/SevenIsland_SevaultCanyon_TanobyKey/text.inc"
 	.include "data/maps/OneIsland_KindleRoad_EmberSpa/text.inc"
+	.include "data/maps/SecretWoods/text.inc"
 	.include "data/maps/PalletTown/text.inc"
 	.include "data/maps/ViridianCity/text.inc"
 	.include "data/maps/PewterCity/text.inc"
@@ -668,7 +669,7 @@ gStdScriptsEnd::
 	.include "data/maps/SevenIsland_SevaultCanyon/text.inc"
 	.include "data/maps/SevenIsland_TanobyRuins/text.inc"
 	.include "data/maps/PalletTown_PlayersHouse_1F/text.inc"
-	.include "data/maps/PalletTown_PlayersHouse_2F/text.inc"
+	.include "data/maps/RecruitBase_RegistrationRoom/text.inc"
 	.include "data/maps/PalletTown_RivalsHouse/text.inc"
 	.include "data/maps/PalletTown_ProfessorOaksLab/text.inc"
 	.include "data/maps/ViridianCity_House/text.inc"
@@ -1012,7 +1013,7 @@ Text_MoveCanOnlyBeLearnedOnce::
 
 EventScript_ResetAllMapFlags::
 	setflag FLAG_HIDE_OAK_IN_HIS_LAB
-	setflag FLAG_HIDE_OAK_IN_PALLET_TOWN
+	setflag FLAG_HIDE_GIOVANNI_IN_REGISTRATION_ROOM
 	setflag FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE
 	setflag FLAG_HIDE_PEWTER_CITY_RUNNING_SHOES_GUY
 	setflag FLAG_HIDE_POKEHOUSE_FUJI
@@ -1360,3 +1361,12 @@ Text_TestMsg::
 	.include "data/text/save.inc"
 	.include "data/text/new_game_intro.inc"
 	.include "data/text/pokedude.inc"
+
+	.include "data/maps/ViridianCity_ViridianBase_HealingCenter/scripts.inc"
+	.include "data/maps/ViridianCity_ViridianBase_HealingCenter/text.inc"
+
+	.include "data/maps/ViridianCity_ViridianBase/scripts.inc"
+	.include "data/maps/ViridianCity_ViridianBase/text.inc"
+
+	.include "data/maps/RecruitBase_MainHall/scripts.inc"
+	.include "data/maps/RecruitBase_MainHall/text.inc"

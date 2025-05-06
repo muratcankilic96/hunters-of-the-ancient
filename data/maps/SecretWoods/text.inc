@@ -21,3 +21,4 @@ SecretWoods_Text_RecruitBaseSign::
 SecretWoods_Text_RecruitHelpSign::
     .string "RECRUIT HELP\p"
 	.string "To open MENU, press START.$"
+    

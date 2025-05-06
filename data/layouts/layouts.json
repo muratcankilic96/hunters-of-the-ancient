@@ -14,16 +14,16 @@
       "blockdata_filepath": "data/layouts/PalletTown_PlayersHouse_1F/map.bin"
     },
     {
-      "id": "LAYOUT_PALLET_TOWN_PLAYERS_HOUSE_2F",
-      "name": "PalletTown_PlayersHouse_2F_Layout",
-      "width": 12,
-      "height": 9,
+      "id": "LAYOUT_RECRUIT_BASE_REGISTRATION_ROOM",
+      "name": "RecruitBase_RegistrationRoom_Layout",
+      "width": 18,
+      "height": 12,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding1",
-      "border_filepath": "data/layouts/PalletTown_PlayersHouse_2F/border.bin",
-      "blockdata_filepath": "data/layouts/PalletTown_PlayersHouse_2F/map.bin"
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/RecruitBase_RegistrationRoom/border.bin",
+      "blockdata_filepath": "data/layouts/RecruitBase_RegistrationRoom/map.bin"
     },
     {
       "id": "LAYOUT_PALLET_TOWN_RIVALS_HOUSE",
@@ -2870,7 +2870,7 @@
       "blockdata_filepath": "data/layouts/SevenIsland_TanobyRuins/map.bin"
     },
     {
-      "id": "LAYOUT_PROTOTYPE_SEVII_ISLE_22",
+      "id": "LAYOUT_PROTOTYPE_RECRUIT_BASE",
       "name": "Prototype_SeviiIsle_22_Layout",
       "width": 24,
       "height": 60,
@@ -4380,6 +4380,42 @@
       "secondary_tileset": "gTileset_MtEmber",
       "border_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa/border.bin",
       "blockdata_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_CITY_VIRIDIAN_BASE_HEALING_CENTER",
+      "name": "ViridianCity_ViridianBase_HealingCenter_Layout",
+      "width": 15,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/ViridianCity_ViridianBase_HealingCenter/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianCity_ViridianBase_HealingCenter/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_CITY_VIRIDIAN_BASE",
+      "name": "ViridianCity_ViridianBase_Layout",
+      "width": 15,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/ViridianCity_ViridianBase/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianCity_ViridianBase/map.bin"
+    },
+    {
+      "id": "LAYOUT_RECRUIT_BASE_MAIN_HALL",
+      "name": "RecruitBase_MainHall_Layout",
+      "width": 25,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/RecruitBase_MainHall/border.bin",
+      "blockdata_filepath": "data/layouts/RecruitBase_MainHall/map.bin"
     }
   ]
 }

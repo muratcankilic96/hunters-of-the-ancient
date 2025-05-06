@@ -162,7 +162,7 @@
 #define MAPSEC_CAPE_BRINK                   0x98
 #define MAPSEC_BOND_BRIDGE                  0x99
 #define MAPSEC_THREE_ISLE_PORT              0x9A
-#define MAPSEC_SEVII_ISLE_6                 0x9B
+#define MAPSEC_SECRET_WOODS                 0x9B
 #define MAPSEC_SEVII_ISLE_7                 0x9C
 #define MAPSEC_SEVII_ISLE_8                 0x9D
 #define MAPSEC_SEVII_ISLE_9                 0x9E
@@ -178,7 +178,7 @@
 #define MAPSEC_CANYON_ENTRANCE              0xA8
 #define MAPSEC_SEVAULT_CANYON               0xA9
 #define MAPSEC_TANOBY_RUINS                 0xAA
-#define MAPSEC_SEVII_ISLE_22                0xAB
+#define MAPSEC_RECRUIT_BASE                 0xAB
 #define MAPSEC_SEVII_ISLE_23                0xAC
 #define MAPSEC_SEVII_ISLE_24                0xAD
 #define MAPSEC_NAVEL_ROCK                   0xAE
