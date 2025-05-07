@@ -19,7 +19,7 @@ SecretWoods_EventScript_MaleRocketAfterInvasion::
 	msgbox SecretWoods_Text_MaleRocketAfterLabInvasion, MSGBOX_NPC
 
 SecretWoods_EventScript_FlagUnsetBeforeRecruitBase::
-	clearflag FLAG_BEFORE_RECRUIT_BASE
+	clearflag FLAG_HIDE_SCIENTIST_IN_RECRUIT_BASE
 	setvar VAR_STORYLINE_LAB_INVASION, 7
 
 SecretWoods_EventScript_BaseSign::

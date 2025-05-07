@@ -1,52 +1,95 @@
+.set LOCALID_GIOVANNI, 1
+.set LOCALID_RECRUITMENT_OFFICER, 2
+
 RecruitBase_RegistrationRoom_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, PalletTown_PlayersHouse_2F_OnTransition
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, PalletTown_PlayersHouse_2F_OnWarp
+	map_script MAP_SCRIPT_ON_TRANSITION, RecruitBase_RegistrationRoom_OnTransition
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, RecruitBase_RegistrationRoom_OnWarp
 	.byte 0
 
-PalletTown_PlayersHouse_2F_OnTransition::
-	call_if_eq VAR_0x4056, 0, PalletTown_PlayersHouse_2F_EventScript_SetRespawn
+RecruitBase_RegistrationRoom_OnTransition::
+	call_if_eq WARP_REGISTRATION_ROOM, 0, RecruitBase_RegistrationRoom_EventScript_SetRespawn
 	end
 
-PalletTown_PlayersHouse_2F_EventScript_SetRespawn::
+RecruitBase_RegistrationRoom_EventScript_SetRespawn::
 	setrespawn SPAWN_RECRUIT_BASE
 	return
 
-PalletTown_PlayersHouse_2F_OnWarp::
-	map_script_2 VAR_0x4056, 0, PalletTown_PlayersHouse_2F_FirstWarpIn
+RecruitBase_RegistrationRoom_OnWarp::
+	map_script_2 WARP_REGISTRATION_ROOM, 0, RecruitBase_RegistrationRoom_FirstWarpIn
 	.2byte 0
 
-PalletTown_PlayersHouse_2F_FirstWarpIn::
+RecruitBase_RegistrationRoom_FirstWarpIn::
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
-	setvar VAR_0x4056, 1
+	setvar WARP_REGISTRATION_ROOM, 1
 	end
 
-PalletTown_PlayersHouse_2F_EventScript_NES::
-	msgbox PalletTown_PlayersHouse_2F_Text_PlayedWithNES, MSGBOX_SIGN
+RecruitBase_RegistrationRoom_Sign_NoSmoking::
+	msgbox RecruitBase_RegistrationRoom_Text_NoSmoking, MSGBOX_SIGN
 	end
 
-PalletTown_PlayersHouse_2F_EventScript_Sign::
-	msgbox PalletTown_PlayersHouse_2F_Text_PressLRForHelp, MSGBOX_SIGN
+RecruitBase_RegistrationRoom_RecruitmentOfficer::
+	lock
+	faceplayer
+	goto_if_ge VAR_TEAM_ROCKET_RANK, 1, RecruitBase_RegistrationRoom_RecruitWelcome
+	msgbox RecruitBase_RegistrationRoom_Text_GoToFront, MSGBOX_NPC
+	applymovement LOCALID_RECRUITMENT_OFFICER, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release
 	end
 
-PalletTown_PlayersHouse_2F_EventScript_PC::
-	goto_if_questlog EventScript_ReleaseEnd
-	lockall
-	setvar VAR_0x8004, HELPCONTEXT_BEDROOM_PC
-	special Script_SetHelpContext
-	setvar VAR_0x8004, 1
-	special AnimatePcTurnOn
-	playse SE_PC_ON
-	msgbox Text_PlayerBootedUpPC
-	special BedroomPC
-	waitstate
-	special SetHelpContextForMap
-	releaseall
+RecruitBase_RegistrationRoom_RecruitWelcome::
+	goto_if_ge VAR_TEAM_ROCKET_RANK, 2, RecruitBase_RegistrationRoom_MemberWelcome
+	textcolor NPC_TEXT_COLOR_MALE
+	msgbox RecruitBase_RegistrationRoom_Text_RecruitWelcome, MSGBOX_NPC
+	applymovement LOCALID_RECRUITMENT_OFFICER, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release
 	end
 
-EventScript_PalletTown_PlayersHouse_2F_ShutDownPC::
-	setvar VAR_0x8004, 1
-	playse SE_PC_OFF
-	special AnimatePcTurnOff
-	special SetHelpContextForMap
-	releaseall
+RecruitBase_RegistrationRoom_MemberWelcome::
+	textcolor NPC_TEXT_COLOR_MALE
+	msgbox RecruitBase_RegistrationRoom_Text_MemberWelcome, MSGBOX_NPC
+	applymovement LOCALID_RECRUITMENT_OFFICER, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release
 	end
+
+RecruitBase_RegistrationRoom_RegistrationPaperworkProcess::
+	textcolor NPC_TEXT_COLOR_MALE
+	goto_if_ge VAR_TEAM_ROCKET_RANK, 1, RecruitBase_RegistrationRoom_RecruitWelcome
+	msgbox RecruitBase_RegistrationRoom_Text_RegistrationFinalRemarks, MSGBOX_NPC
+	playse SE_DOOR
+	delay 30
+	addobject LOCALID_GIOVANNI
+	applymovement LOCALID_GIOVANNI, RecruitBase_Movement_GiovanniEntersRegistrationRoom
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	waitmovement 0
+	msgbox RecruitBase_RegistrationRoom_Text_GiovanniIntroduction, MSGBOX_NPC
+	applymovement LOCALID_GIOVANNI, RecruitBase_Movement_GiovanniLeavesRegistrationRoom
+	waitmovement 0
+	removeobject LOCALID_GIOVANNI
+	playse SE_DOOR
+	delay 30
+	setvar VAR_TEAM_ROCKET_RANK, 1
+	setflag FLAG_HIDE_POKEDEX_IN_RECRUIT_BASE
+    setflag FLAG_HIDE_SCIENTIST_IN_RECRUIT_BASE
+	end
+
+RecruitBase_RegistrationRoom_PreventLeavingBeforeCompletion::
+	msgbox RecruitBase_RegistrationRoom_Text_ShouldCompleteRegistrationFirst, MSGBOX_NPC
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
+	end
+
+RecruitBase_Movement_GiovanniEntersRegistrationRoom::
+	set_visible
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+RecruitBase_Movement_GiovanniLeavesRegistrationRoom::
+	walk_right
+	walk_right
+	walk_right
+	step_end

@@ -56,9 +56,9 @@
 #define FLAG_HIDE_BULBASAUR_BALL                           0x028
 #define FLAG_HIDE_SQUIRTLE_BALL                            0x029
 #define FLAG_HIDE_CHARMANDER_BALL                          0x02A
-#define FLAG_HIDE_OAK_IN_HIS_LAB                           0x02B
+#define FLAG_HIDE_POKEDEX_IN_RECRUIT_BASE                  0x02B
 #define FLAG_HIDE_GIOVANNI_IN_REGISTRATION_ROOM            0x02C
-#define FLAG_HIDE_RIVAL_IN_LAB                             0x02D
+#define FLAG_HIDE_SCIENTIST_IN_RECRUIT_BASE                0x02D
 #define FLAG_HIDE_PEWTER_CITY_GYM_GUIDE                    0x02E
 #define FLAG_HIDE_DOME_FOSSIL                              0x02F
 #define FLAG_HIDE_HELIX_FOSSIL                             0x030
@@ -272,7 +272,7 @@
 #define FLAG_0x0FE               0x0FE
 #define FLAG_0x0FF               0x0FF
 #define FLAG_0x100               0x100
-#define FLAG_BEFORE_RECRUIT_BASE 0x101
+#define FLAG_0x101               0x101
 #define FLAG_0x102               0x102
 #define FLAG_0x103               0x103
 #define FLAG_0x104               0x104

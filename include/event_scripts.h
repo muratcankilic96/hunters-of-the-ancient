@@ -1146,9 +1146,6 @@ extern const u8 EventScript_TestSignpostMsg[];
 // new_game
 extern const u8 EventScript_ResetAllMapFlags[];
 
-// player_pc
-extern const u8 EventScript_PalletTown_PlayersHouse_2F_ShutDownPC[];
-
 // field_screen_effect
 extern const u8 EventScript_AfterWhiteOutRecruitNurseHeal[];
 extern const u8 EventScript_AfterWhiteOutHeal[];
@@ -1194,7 +1191,6 @@ extern const u8 EventScript_FldEffFlash[];
 
 // field_control_avatar
 extern const u8 EventScript_CancelMessageBox[];
-extern const u8 PalletTown_PlayersHouse_2F_EventScript_PC[];
 extern const u8 EventScript_HiddenItemScript[];
 extern const u8 EventScript_PC[];
 extern const u8 EventScript_WallTownMap[];

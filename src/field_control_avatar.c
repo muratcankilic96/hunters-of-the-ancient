@@ -375,8 +375,7 @@ static bool8 TryStartInteractionScript(struct MapPosition *position, u16 metatil
         return FALSE;
 
     // Don't play interaction sound for certain scripts.
-    if (script != PalletTown_PlayersHouse_2F_EventScript_PC
-        && script != EventScript_PC)
+    if (script != EventScript_PC)
         PlaySE(SE_SELECT);
 
     ScriptContext_SetupScript(script);

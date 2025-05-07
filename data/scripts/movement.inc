@@ -57,6 +57,10 @@ Common_Movement_WalkUp5::
 	walk_up
 	step_end
 
+Common_Movement_WalkLeft::
+	walk_left
+	step_end
+
 @ Unused
 Common_Movement_WalkUp4::
 	walk_up

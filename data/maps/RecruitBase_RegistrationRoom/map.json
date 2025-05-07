@@ -26,7 +26,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "0x0",
       "flag": "FLAG_HIDE_GIOVANNI_IN_REGISTRATION_ROOM"
     },
     {
@@ -36,11 +36,11 @@
       "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_range_x": 1,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "RecruitBase_RegistrationRoom_RecruitmentOfficer",
       "flag": "0"
     }
   ],
@@ -59,9 +59,9 @@
       "x": 10,
       "y": 6,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_TEAM_ROCKET_RANK",
       "var_value": "0",
-      "script": "NULL"
+      "script": "RecruitBase_RegistrationRoom_PreventLeavingBeforeCompletion"
     }
   ],
   "bg_events": [
@@ -71,7 +71,7 @@
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "RecruitBase_RegistrationRoom_RegistrationPaperworkProcess"
     },
     {
       "type": "sign",
@@ -79,7 +79,7 @@
       "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "RecruitBase_RegistrationRoom_Sign_NoSmoking"
     }
   ]
 }
