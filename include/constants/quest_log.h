@@ -71,7 +71,7 @@
 #define IS_LINK_QL_EVENT(event)((event) >= QL_EVENT_LINK_TRADED && (event) <= QL_EVENT_LINK_BATTLED_UNION)
 #define IS_VALID_QL_EVENT(event)((event) >= QL_EVENT_SWITCHED_PARTY_ORDER && (event) <= QL_EVENT_ARRIVED)
 
-#define QL_LOCATION_HOME                0
+#define QL_LOCATION_RECRUIT_BASE        0
 #define QL_LOCATION_OAKS_LAB            1
 #define QL_LOCATION_VIRIDIAN_GYM        2
 #define QL_LOCATION_LEAGUE_GATE_1       3
@@ -126,7 +126,7 @@
 #define QL_DEPARTED_TOWN_BUILDING    0
 #define QL_DEPARTED_MUSEUM           1
 #define QL_DEPARTED_GAME_CORNER      2
-#define QL_DEPARTED_HOME             3
+#define QL_DEPARTED_RECRUIT_BASE     3
 #define QL_DEPARTED_OAKS_LAB         4
 #define QL_DEPARTED_GYM              5
 #define QL_DEPARTED_SAFARI_ZONE      6

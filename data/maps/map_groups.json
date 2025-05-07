@@ -4,6 +4,7 @@
     "gMapGroup_Dungeons",
     "gMapGroup_SpecialArea",
     "gMapGroup_TownsAndRoutes",
+    "gMapGroup_IndoorSecretWoods",
     "gMapGroup_IndoorPallet",
     "gMapGroup_IndoorViridian",
     "gMapGroup_IndoorPewter",
@@ -258,6 +259,7 @@
     "FiveIsland",
     "SevenIsland",
     "SixIsland",
+    "SecretWoods",
     "Route1",
     "Route2",
     "Route3",
@@ -289,7 +291,6 @@
     "TwoIsland_CapeBrink",
     "ThreeIsland_BondBridge",
     "ThreeIsland_Port",
-    "SecretWoods",
     "Prototype_SeviiIsle_7",
     "Prototype_SeviiIsle_8",
     "Prototype_SeviiIsle_9",
@@ -306,14 +307,14 @@
     "SevenIsland_SevaultCanyon",
     "SevenIsland_TanobyRuins"
   ],
+  "gMapGroup_IndoorSecretWoods": [
+    "RecruitBase_Entrance",
+    "RecruitBase_MainHall",
+    "RecruitBase_RegistrationRoom"
+  ],
   "gMapGroup_IndoorPallet": [
-    "PalletTown_PlayersHouse_1F",
-    "RecruitBase_RegistrationRoom",
     "PalletTown_RivalsHouse",
-    "PalletTown_ProfessorOaksLab",
-    "ViridianCity_ViridianBase_HealingCenter",
-    "ViridianCity_ViridianBase",
-    "RecruitBase_MainHall"
+    "PalletTown_ProfessorOaksLab"
   ],
   "gMapGroup_IndoorViridian": [
     "ViridianCity_House",
@@ -321,7 +322,9 @@
     "ViridianCity_School",
     "ViridianCity_Mart",
     "ViridianCity_PokemonCenter_1F",
-    "ViridianCity_PokemonCenter_2F"
+    "ViridianCity_PokemonCenter_2F",
+    "ViridianCity_ViridianBase",
+    "ViridianCity_ViridianBase_HealingCenter"
   ],
   "gMapGroup_IndoorPewter": [
     "PewterCity_Museum_1F",

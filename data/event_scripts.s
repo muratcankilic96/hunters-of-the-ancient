@@ -341,7 +341,6 @@ gStdScriptsEnd::
 	.include "data/maps/SevenIsland_SevaultCanyon_Entrance/scripts.inc"
 	.include "data/maps/SevenIsland_SevaultCanyon/scripts.inc"
 	.include "data/maps/SevenIsland_TanobyRuins/scripts.inc"
-	.include "data/maps/PalletTown_PlayersHouse_1F/scripts.inc"
 	.include "data/maps/RecruitBase_RegistrationRoom/scripts.inc"
 	.include "data/maps/PalletTown_RivalsHouse/scripts.inc"
 	.include "data/maps/PalletTown_ProfessorOaksLab/scripts.inc"
@@ -668,7 +667,6 @@ gStdScriptsEnd::
 	.include "data/maps/SevenIsland_SevaultCanyon_Entrance/text.inc"
 	.include "data/maps/SevenIsland_SevaultCanyon/text.inc"
 	.include "data/maps/SevenIsland_TanobyRuins/text.inc"
-	.include "data/maps/PalletTown_PlayersHouse_1F/text.inc"
 	.include "data/maps/RecruitBase_RegistrationRoom/text.inc"
 	.include "data/maps/PalletTown_RivalsHouse/text.inc"
 	.include "data/maps/PalletTown_ProfessorOaksLab/text.inc"
@@ -1370,3 +1368,6 @@ Text_TestMsg::
 
 	.include "data/maps/RecruitBase_MainHall/scripts.inc"
 	.include "data/maps/RecruitBase_MainHall/text.inc"
+
+	.include "data/maps/RecruitBase_Entrance/scripts.inc"
+	.include "data/maps/RecruitBase_Entrance/text.inc"

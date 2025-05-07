@@ -2,16 +2,28 @@
   "layouts_table_label": "gMapLayouts",
   "layouts": [
     {
-      "id": "LAYOUT_PALLET_TOWN_PLAYERS_HOUSE_1F",
-      "name": "PalletTown_PlayersHouse_1F_Layout",
+      "id": "LAYOUT_RECRUIT_BASE_ENTRANCE",
+      "name": "RecruitBase_Entrance_Layout",
       "width": 13,
       "height": 10,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding1",
-      "border_filepath": "data/layouts/PalletTown_PlayersHouse_1F/border.bin",
-      "blockdata_filepath": "data/layouts/PalletTown_PlayersHouse_1F/map.bin"
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/RecruitBase_Entrance/border.bin",
+      "blockdata_filepath": "data/layouts/RecruitBase_Entrance/map.bin"
+    },
+    {
+      "id": "LAYOUT_RECRUIT_BASE_MAIN_HALL",
+      "name": "RecruitBase_MainHall_Layout",
+      "width": 25,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/RecruitBase_MainHall/border.bin",
+      "blockdata_filepath": "data/layouts/RecruitBase_MainHall/map.bin"
     },
     {
       "id": "LAYOUT_RECRUIT_BASE_REGISTRATION_ROOM",
@@ -852,6 +864,18 @@
       "secondary_tileset": "gTileset_SaffronCity",
       "border_filepath": "data/layouts/SaffronCity_Connection/border.bin",
       "blockdata_filepath": "data/layouts/SaffronCity_Connection/map.bin"
+    },
+    {
+      "id": "LAYOUT_SECRET_WOODS",
+      "name": "SecretWoods_Layout",
+      "width": 30,
+      "height": 30,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/SecretWoods/border.bin",
+      "blockdata_filepath": "data/layouts/SecretWoods/map.bin"
     },
     {
       "id": "LAYOUT_ROUTE1",
@@ -2678,18 +2702,6 @@
       "blockdata_filepath": "data/layouts/ThreeIsland_Port/map.bin"
     },
     {
-      "id": "LAYOUT_SECRET_WOODS",
-      "name": "SecretWoods_Layout",
-      "width": 30,
-      "height": 30,
-      "border_width": 2,
-      "border_height": 2,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_PalletTown",
-      "border_filepath": "data/layouts/SecretWoods/border.bin",
-      "blockdata_filepath": "data/layouts/SecretWoods/map.bin"
-    },
-    {
       "id": "LAYOUT_PROTOTYPE_SEVII_ISLE_7",
       "name": "Prototype_SeviiIsle_7_Layout",
       "width": 1,
@@ -3096,6 +3108,30 @@
       "secondary_tileset": "gTileset_GenericBuilding2",
       "border_filepath": "data/layouts/ViridianCity_House/border.bin",
       "blockdata_filepath": "data/layouts/ViridianCity_House/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_CITY_VIRIDIAN_BASE",
+      "name": "ViridianCity_ViridianBase_Layout",
+      "width": 15,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/ViridianCity_ViridianBase/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianCity_ViridianBase/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_CITY_VIRIDIAN_BASE_HEALING_CENTER",
+      "name": "ViridianCity_ViridianBase_HealingCenter_Layout",
+      "width": 15,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/ViridianCity_ViridianBase_HealingCenter/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianCity_ViridianBase_HealingCenter/map.bin"
     },
     {
       "id": "LAYOUT_FOUR_ISLAND_POKEMON_DAY_CARE",
@@ -4380,42 +4416,6 @@
       "secondary_tileset": "gTileset_MtEmber",
       "border_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa/border.bin",
       "blockdata_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa/map.bin"
-    },
-    {
-      "id": "LAYOUT_VIRIDIAN_CITY_VIRIDIAN_BASE_HEALING_CENTER",
-      "name": "ViridianCity_ViridianBase_HealingCenter_Layout",
-      "width": 15,
-      "height": 10,
-      "border_width": 2,
-      "border_height": 2,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
-      "border_filepath": "data/layouts/ViridianCity_ViridianBase_HealingCenter/border.bin",
-      "blockdata_filepath": "data/layouts/ViridianCity_ViridianBase_HealingCenter/map.bin"
-    },
-    {
-      "id": "LAYOUT_VIRIDIAN_CITY_VIRIDIAN_BASE",
-      "name": "ViridianCity_ViridianBase_Layout",
-      "width": 15,
-      "height": 20,
-      "border_width": 2,
-      "border_height": 2,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Lab",
-      "border_filepath": "data/layouts/ViridianCity_ViridianBase/border.bin",
-      "blockdata_filepath": "data/layouts/ViridianCity_ViridianBase/map.bin"
-    },
-    {
-      "id": "LAYOUT_RECRUIT_BASE_MAIN_HALL",
-      "name": "RecruitBase_MainHall_Layout",
-      "width": 25,
-      "height": 20,
-      "border_width": 2,
-      "border_height": 2,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Lab",
-      "border_filepath": "data/layouts/RecruitBase_MainHall/border.bin",
-      "blockdata_filepath": "data/layouts/RecruitBase_MainHall/map.bin"
     }
   ]
 }

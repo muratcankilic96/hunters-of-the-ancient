@@ -19,12 +19,12 @@ EventScript_AfterWhiteOutHealMsg::
 	msgbox Text_MonsHealed
 	return
 
-@ LOCALID_MOM set by PalletTown_PlayersHouse_1F
+@ LOCALID_ROCKET_NURSE set by RecruitBase_Entrance
 
-EventScript_AfterWhiteOutMomHeal::
+EventScript_AfterWhiteOutRecruitNurseHeal::
 	lockall
 	textcolor NPC_TEXT_COLOR_FEMALE
-	applymovement LOCALID_MOM, Common_Movement_WalkInPlaceFasterDown
+	applymovement LOCALID_ROCKET_NURSE, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
 	msgbox Text_HadQuiteAnExperienceTakeRest
 	call EventScript_OutOfCenterPartyHeal

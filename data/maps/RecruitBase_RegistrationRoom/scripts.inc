@@ -8,7 +8,7 @@ PalletTown_PlayersHouse_2F_OnTransition::
 	end
 
 PalletTown_PlayersHouse_2F_EventScript_SetRespawn::
-	setrespawn SPAWN_PALLET_TOWN
+	setrespawn SPAWN_RECRUIT_BASE
 	return
 
 PalletTown_PlayersHouse_2F_OnWarp::

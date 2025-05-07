@@ -14,13 +14,13 @@ static void SetWhiteoutRespawnHealerNpcAsLastTalked(u32 healLocationIdx);
 // sWhiteoutRespawnHealCenterMapIdxs
 // This array defines the map where you actually respawn when you white out,
 // based on where you last checkpointed.
-// This is either the player's house or a Pokémon Center.
+// This is either the recruit base or a Healing Center in a secret Team Rocket hideout.
 // The data are u16 instead of u8 for reasons unknown.
 
 // sWhiteoutRespawnHealerNpcIds
-// When you respawn, your character scurries back to either their house
-// or a Pokémon Center, and hands their fainted Pokémon to their mother
-// or the Nurse for healing.
+// When you respawn, your character scurries back to a secret base which is
+// the recruit base or another secret hideout, and hands their fainted Pokémon
+// to the Team Rocket nurse for healing.
 // This array defines the index of the NPC on the map defined above
 // with whom your character interacts in this cutscene.
 
@@ -80,7 +80,7 @@ void SetWhiteoutRespawnWarpAndHealerNpc(struct WarpData * warp)
         warp->mapNum = sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1];
         warp->warpId = 0xFF;
 
-        if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(PALLET_TOWN_PLAYERS_HOUSE_1F) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(PALLET_TOWN_PLAYERS_HOUSE_1F))
+        if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(RECRUIT_BASE_ENTRANCE) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(RECRUIT_BASE_ENTRANCE))
         {
             warp->x = 8;
             warp->y = 5;

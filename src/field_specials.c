@@ -1813,7 +1813,7 @@ static const struct {
     u16 outside_grp;
     u16 outside_num;
 } sInsideOutsidePairs[] = {
-    [QL_LOCATION_HOME]               = {MAP(PALLET_TOWN_PLAYERS_HOUSE_1F),          MAP(PALLET_TOWN)},
+    [QL_LOCATION_RECRUIT_BASE]       = {MAP(RECRUIT_BASE_REGISTRATION_ROOM),          MAP(SECRET_WOODS)},
     [QL_LOCATION_OAKS_LAB]           = {MAP(PALLET_TOWN_PROFESSOR_OAKS_LAB),        MAP(PALLET_TOWN)},
     [QL_LOCATION_VIRIDIAN_GYM]       = {MAP(VIRIDIAN_CITY_GYM),                     MAP(VIRIDIAN_CITY)},
     [QL_LOCATION_LEAGUE_GATE_1]      = {MAP(ROUTE22_NORTH_ENTRANCE),                MAP(ROUTE22)},

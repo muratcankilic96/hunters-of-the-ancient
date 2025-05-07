@@ -400,7 +400,7 @@ static void Task_RushInjuredPokemonToCenter(u8 taskId)
         CopyWindowToVram(windowId, COPYWIN_FULL);
 
         // Scene changes if last heal location was the player's house
-        loc = GetHealLocation(SPAWN_PALLET_TOWN);
+        loc = GetHealLocation(SPAWN_RECRUIT_BASE);
         if (gSaveBlock1Ptr->lastHealLocation.mapGroup == loc->group
          && gSaveBlock1Ptr->lastHealLocation.mapNum == loc->map
          && gSaveBlock1Ptr->lastHealLocation.warpId == WARP_ID_NONE
@@ -445,7 +445,7 @@ static void Task_RushInjuredPokemonToCenter(u8 taskId)
         if (FieldFadeTransitionBackgroundEffectIsFinished() == TRUE)
         {
             DestroyTask(taskId);
-            ScriptContext_SetupScript(EventScript_AfterWhiteOutMomHeal);
+            ScriptContext_SetupScript(EventScript_AfterWhiteOutRecruitNurseHeal);
         }
         break;
     }

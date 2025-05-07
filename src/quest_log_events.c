@@ -290,7 +290,7 @@ static const u8 *const sBattleOutcomeTexts[] = {
 
 static const u8 *const sLocationNameTexts[] =
 {
-    [QL_LOCATION_HOME]               = gText_QuestLog_Home,
+    [QL_LOCATION_RECRUIT_BASE]       = gText_QuestLog_RecruitBase,
     [QL_LOCATION_OAKS_LAB]           = gText_QuestLog_OakResearchLab,
     [QL_LOCATION_VIRIDIAN_GYM]       = gText_QuestLog_Gym,
     [QL_LOCATION_LEAGUE_GATE_1]      = gText_QuestLog_PokemonLeagueGate,
@@ -348,7 +348,7 @@ static const u8 *const sDepartedLocationTexts[] =
     [QL_DEPARTED_TOWN_BUILDING]   = gText_QuestLog_DepartedPlaceInTownForNextDestination,
     [QL_DEPARTED_MUSEUM]          = gText_QuestLog_LeftTownsLocationForNextDestination,
     [QL_DEPARTED_GAME_CORNER]     = gText_QuestLog_PlayedGamesAtGameCorner,
-    [QL_DEPARTED_HOME]            = gText_QuestLog_RestedAtHome,
+    [QL_DEPARTED_RECRUIT_BASE]    = gText_QuestLog_CompletedRegistrations,
     [QL_DEPARTED_OAKS_LAB]        = gText_QuestLog_LeftOaksLab,
     [QL_DEPARTED_GYM]             = gText_QuestLog_GymWasFullOfToughTrainers,
     [QL_DEPARTED_SAFARI_ZONE]     = gText_QuestLog_HadGreatTimeInSafariZone,
@@ -359,7 +359,7 @@ static const u8 *const sDepartedLocationTexts[] =
 
 static const u8 sLocationToDepartedTextId[] =
 {
-    [QL_LOCATION_HOME]               = QL_DEPARTED_HOME,
+    [QL_LOCATION_RECRUIT_BASE]       = QL_DEPARTED_RECRUIT_BASE,
     [QL_LOCATION_OAKS_LAB]           = QL_DEPARTED_OAKS_LAB,
     [QL_LOCATION_VIRIDIAN_GYM]       = QL_DEPARTED_GYM,
     [QL_LOCATION_LEAGUE_GATE_1]      = QL_DEPARTED_MISC_BUILDING_1,
@@ -2063,7 +2063,7 @@ static const u16 *LoadEvent_UsedFieldMove(const u16 *eventData)
     if (r5[0] == FIELD_MOVE_TELEPORT)
     {
         if (r5[1] == MAPSEC_PALLET_TOWN)
-            StringCopy(gStringVar3, gText_QuestLog_Home);
+            StringCopy(gStringVar3, gText_QuestLog_RecruitBase);
         else
             StringCopy(gStringVar3, gText_PokemonCenter);
     }
