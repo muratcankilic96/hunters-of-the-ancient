@@ -1,11 +1,11 @@
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedNormal;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerMNormal;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedBike;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedSurf;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedFieldMove;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedFish;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedVSSeeker;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedVSSeekerBike;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GreenNormal;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerFNormal;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GreenBike;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GreenSurf;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GreenFieldMove;
@@ -70,7 +70,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Clerk;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MGDeliveryman;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TrainerTowerDude;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ProfOak;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Blue;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Black;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bill;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lance;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Agatha;
@@ -153,14 +153,14 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SSAnne;
 
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
-    [OBJ_EVENT_GFX_RED_NORMAL]               = &gObjectEventGraphicsInfo_RedNormal,
+    [OBJ_EVENT_GFX_PLAYER_M_NORMAL]          = &gObjectEventGraphicsInfo_PlayerMNormal,
     [OBJ_EVENT_GFX_RED_BIKE]                 = &gObjectEventGraphicsInfo_RedBike,
     [OBJ_EVENT_GFX_RED_SURF]                 = &gObjectEventGraphicsInfo_RedSurf,
     [OBJ_EVENT_GFX_RED_FIELD_MOVE]           = &gObjectEventGraphicsInfo_RedFieldMove,
     [OBJ_EVENT_GFX_RED_FISH]                 = &gObjectEventGraphicsInfo_RedFish,
     [OBJ_EVENT_GFX_RED_VS_SEEKER]            = &gObjectEventGraphicsInfo_RedVSSeeker,
     [OBJ_EVENT_GFX_RED_VS_SEEKER_BIKE]       = &gObjectEventGraphicsInfo_RedVSSeekerBike,
-    [OBJ_EVENT_GFX_GREEN_NORMAL]             = &gObjectEventGraphicsInfo_GreenNormal,
+    [OBJ_EVENT_GFX_PLAYER_F_NORMAL]          = &gObjectEventGraphicsInfo_PlayerFNormal,
     [OBJ_EVENT_GFX_GREEN_BIKE]               = &gObjectEventGraphicsInfo_GreenBike,
     [OBJ_EVENT_GFX_GREEN_SURF]               = &gObjectEventGraphicsInfo_GreenSurf,
     [OBJ_EVENT_GFX_GREEN_FIELD_MOVE]         = &gObjectEventGraphicsInfo_GreenFieldMove,
@@ -225,7 +225,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MG_DELIVERYMAN]           = &gObjectEventGraphicsInfo_MGDeliveryman,
     [OBJ_EVENT_GFX_TRAINER_TOWER_DUDE]       = &gObjectEventGraphicsInfo_TrainerTowerDude,
     [OBJ_EVENT_GFX_PROF_OAK]                 = &gObjectEventGraphicsInfo_ProfOak,
-    [OBJ_EVENT_GFX_BLUE]                     = &gObjectEventGraphicsInfo_Blue,
+    [OBJ_EVENT_GFX_BLACK]                    = &gObjectEventGraphicsInfo_Black,
     [OBJ_EVENT_GFX_BILL]                     = &gObjectEventGraphicsInfo_Bill,
     [OBJ_EVENT_GFX_LANCE]                    = &gObjectEventGraphicsInfo_Lance,
     [OBJ_EVENT_GFX_AGATHA]                   = &gObjectEventGraphicsInfo_Agatha,

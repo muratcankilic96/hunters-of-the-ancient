@@ -36,7 +36,7 @@
 #endif // NDEBUG
 
 // Define the game version for use elsewhere
-#if defined(FIRERED)
+#if defined(HOTA)
 #define GAME_VERSION VERSION_FIRE_RED
 #else // Default version seems to be LeafGreen
 #define GAME_VERSION VERSION_LEAF_GREEN

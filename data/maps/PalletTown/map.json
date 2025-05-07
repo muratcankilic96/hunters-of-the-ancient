@@ -28,7 +28,7 @@
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
+      "graphics_id": "OBJ_EVENT_GFX_PLAYER_M_NORMAL",
       "x": 3,
       "y": 10,
       "elevation": 3,
@@ -42,7 +42,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
+      "graphics_id": "OBJ_EVENT_GFX_PLAYER_F_NORMAL",
       "x": 13,
       "y": 17,
       "elevation": 3,

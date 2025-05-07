@@ -404,7 +404,7 @@ static u8 *ExpandPlaceholder_RivalName(void)
 
 static u8 *ExpandPlaceholder_Version(void)
 {
-#if defined(FIRERED)
+#if defined(HOTA)
     return gExpandedPlaceholder_Ruby;
 #elif defined(LEAFGREEN)
     return gExpandedPlaceholder_Sapphire;
@@ -413,7 +413,7 @@ static u8 *ExpandPlaceholder_Version(void)
 
 static u8 *ExpandPlaceholder_Magma(void)
 {
-#if defined(FIRERED)
+#if defined(HOTA)
     return gExpandedPlaceholder_Magma;
 #elif defined(LEAFGREEN)
     return gExpandedPlaceholder_Aqua;
@@ -422,7 +422,7 @@ static u8 *ExpandPlaceholder_Magma(void)
 
 static u8 *ExpandPlaceholder_Aqua(void)
 {
-#if defined(FIRERED)
+#if defined(HOTA)
     return gExpandedPlaceholder_Aqua;
 #elif defined(LEAFGREEN)
     return gExpandedPlaceholder_Magma;
@@ -431,7 +431,7 @@ static u8 *ExpandPlaceholder_Aqua(void)
 
 static u8 *ExpandPlaceholder_Maxie(void)
 {
-#if defined(FIRERED)
+#if defined(HOTA)
     return gExpandedPlaceholder_Maxie;
 #elif defined(LEAFGREEN)
     return gExpandedPlaceholder_Archie;
@@ -440,7 +440,7 @@ static u8 *ExpandPlaceholder_Maxie(void)
 
 static u8 *ExpandPlaceholder_Archie(void)
 {
-#if defined(FIRERED)
+#if defined(HOTA)
     return gExpandedPlaceholder_Archie;
 #elif defined(LEAFGREEN)
     return gExpandedPlaceholder_Maxie;
@@ -449,7 +449,7 @@ static u8 *ExpandPlaceholder_Archie(void)
 
 static u8 *ExpandPlaceholder_Groudon(void)
 {
-#if defined(FIRERED)
+#if defined(HOTA)
     return gExpandedPlaceholder_Groudon;
 #elif defined(LEAFGREEN)
     return gExpandedPlaceholder_Kyogre;
@@ -458,7 +458,7 @@ static u8 *ExpandPlaceholder_Groudon(void)
 
 static u8 *ExpandPlaceholder_Kyogre(void)
 {
-#if defined(FIRERED)
+#if defined(HOTA)
     return gExpandedPlaceholder_Kyogre;
 #elif defined(LEAFGREEN)
     return gExpandedPlaceholder_Groudon;

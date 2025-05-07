@@ -395,7 +395,7 @@ static const u16 sPayoutTable[] = {
     [PAYOUT_7]         = 300
 };
 
-#if defined(FIRERED)
+#if defined(HOTA)
 static const u16 sReelIcons_Pal[][16] = INCBIN_U16("graphics/slot_machine/firered/reel_icons.gbapal");
 static const u32 sReelIcons_Tiles[]   = INCBIN_U32("graphics/slot_machine/firered/reel_icons.4bpp.lz");
 static const u16 sClefairy_Pal[]      = INCBIN_U16("graphics/slot_machine/firered/clefairy.gbapal");
@@ -427,7 +427,7 @@ static const struct SpritePalette sSpritePalettes[] = {
 };
 
 static const u16 sReelIconPaletteTags[] = {
-#if defined(FIRERED)
+#if defined(HOTA)
     [ICON_7]         = PALTAG_REEL_ICONS_2,
     [ICON_ROCKET]    = PALTAG_REEL_ICONS_2,
     [ICON_PIKACHU]   = PALTAG_REEL_ICONS_0,
@@ -735,7 +735,7 @@ bool8 (*const sSlotMachineSetupTasks[])(u8 *, struct SlotMachineSetupTaskData *)
     [SLOTTASK_HIDEHELP] = SlotsTask_HideHelp
 };
 
-#if defined(FIRERED)
+#if defined(HOTA)
 static const u16 sBg_Pal[][16]             = INCBIN_U16("graphics/slot_machine/firered/bg.gbapal");
 static const u32 sBg_Tiles[]               = INCBIN_U32("graphics/slot_machine/firered/bg.4bpp.lz");
 static const u32 sBg_Tilemap[]             = INCBIN_U32("graphics/slot_machine/firered/bg.bin.lz");

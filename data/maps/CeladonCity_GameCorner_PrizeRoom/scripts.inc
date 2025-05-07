@@ -39,7 +39,7 @@ CeladonCity_GameCorner_PrizeRoom_EventScript_EndPrizeExchange::
 	end
 
 CeladonCity_GameCorner_PrizeRoom_EventScript_Abra::
-	.ifdef FIRERED
+	.ifdef HOTA
 	setvar VAR_TEMP_1, SPECIES_ABRA
 	setvar VAR_TEMP_2, 180
 	.else
@@ -52,7 +52,7 @@ CeladonCity_GameCorner_PrizeRoom_EventScript_Abra::
 	end
 
 CeladonCity_GameCorner_PrizeRoom_EventScript_Clefairy::
-	.ifdef FIRERED
+	.ifdef HOTA
 	setvar VAR_TEMP_1, SPECIES_CLEFAIRY
 	setvar VAR_TEMP_2, 500
 	.else
@@ -65,7 +65,7 @@ CeladonCity_GameCorner_PrizeRoom_EventScript_Clefairy::
 	end
 
 CeladonCity_GameCorner_PrizeRoom_EventScript_DratiniPinsir::
-	.ifdef FIRERED
+	.ifdef HOTA
 	setvar VAR_TEMP_1, SPECIES_DRATINI
 	setvar VAR_TEMP_2, 2800
 	.else
@@ -78,7 +78,7 @@ CeladonCity_GameCorner_PrizeRoom_EventScript_DratiniPinsir::
 	end
 
 CeladonCity_GameCorner_PrizeRoom_EventScript_ScytherDratini::
-	.ifdef FIRERED
+	.ifdef HOTA
 	setvar VAR_TEMP_1, SPECIES_SCYTHER
 	setvar VAR_TEMP_2, 5500
 	.else
@@ -91,7 +91,7 @@ CeladonCity_GameCorner_PrizeRoom_EventScript_ScytherDratini::
 	end
 
 CeladonCity_GameCorner_PrizeRoom_EventScript_Porygon::
-	.ifdef FIRERED
+	.ifdef HOTA
 	setvar VAR_TEMP_1, SPECIES_PORYGON
 	setvar VAR_TEMP_2, 9999
 	.else
@@ -120,7 +120,7 @@ CeladonCity_GameCorner_PrizeRoom_EventScript_ConfirmPrizeMon::
 	end
 
 CeladonCity_GameCorner_PrizeRoom_EventScript_GiveAbra::
-	.ifdef FIRERED
+	.ifdef HOTA
 	givemon VAR_TEMP_1, 9
 	.else
 	.ifdef LEAFGREEN
@@ -131,7 +131,7 @@ CeladonCity_GameCorner_PrizeRoom_EventScript_GiveAbra::
 	end
 
 CeladonCity_GameCorner_PrizeRoom_EventScript_GiveClefairy::
-	.ifdef FIRERED
+	.ifdef HOTA
 	givemon VAR_TEMP_1, 8
 	.else
 	.ifdef LEAFGREEN
@@ -142,7 +142,7 @@ CeladonCity_GameCorner_PrizeRoom_EventScript_GiveClefairy::
 	end
 
 CeladonCity_GameCorner_PrizeRoom_EventScript_GiveDratini::
-	.ifdef FIRERED
+	.ifdef HOTA
 	givemon VAR_TEMP_1, 18
 	.else
 	.ifdef LEAFGREEN
@@ -158,7 +158,7 @@ CeladonCity_GameCorner_PrizeRoom_EventScript_GiveScyther::
 	end
 
 CeladonCity_GameCorner_PrizeRoom_EventScript_GivePorygon::
-	.ifdef FIRERED
+	.ifdef HOTA
 	givemon VAR_TEMP_1, 26
 	.else
 	.ifdef LEAFGREEN

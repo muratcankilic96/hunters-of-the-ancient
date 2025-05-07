@@ -1,6 +1,6 @@
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedNormal = {
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerMNormal = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_RED,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_MALE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 512,
     .width = 16,
@@ -12,14 +12,14 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedNormal = {
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_16x32,
     .subspriteTables = gObjectEventSpriteOamTables_16x32,
-    .anims = sAnimTable_RedGreenNormal,
-    .images = sPicTable_RedNormal,
+    .anims = sAnimTable_PlayersNormal,
+    .images = sPicTable_PlayerMNormal,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedBike = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_RED,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_MALE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 512,
     .width = 32,
@@ -38,7 +38,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedBike = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedSurf = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_RED,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_MALE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,
@@ -57,7 +57,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedSurf = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedFieldMove = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_RED,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_MALE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 256,
     .width = 16,
@@ -1309,9 +1309,9 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_StrengthBoulder = 
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GreenNormal = {
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PlayerFNormal = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_GREEN,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_FEMALE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 512,
     .width = 16,
@@ -1323,14 +1323,14 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GreenNormal = {
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_16x32,
     .subspriteTables = gObjectEventSpriteOamTables_16x32,
-    .anims = sAnimTable_RedGreenNormal,
-    .images = sPicTable_GreenNormal,
+    .anims = sAnimTable_PlayersNormal,
+    .images = sPicTable_PlayerFNormal,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GreenBike = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_GREEN,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_FEMALE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 512,
     .width = 32,
@@ -1349,7 +1349,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GreenBike = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GreenSurf = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_GREEN,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_FEMALE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,
@@ -1368,7 +1368,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GreenSurf = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GreenFieldMove = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_GREEN,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_FEMALE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 256,
     .width = 16,
@@ -1387,7 +1387,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GreenFieldMove = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedBikeAlt = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_RED,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_MALE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 512,
     .width = 32,
@@ -1689,9 +1689,9 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lance = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Blue = {
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Black = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_GREEN,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_WHITE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,
@@ -1704,13 +1704,13 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Blue = {
     .oam = &gObjectEventBaseOam_16x32,
     .subspriteTables = gObjectEventSpriteOamTables_16x32,
     .anims = sAnimTable_Standard,
-    .images = sPicTable_Blue,
+    .images = sPicTable_Black,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedFish = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_RED,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_MALE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 512,
     .width = 32,
@@ -1729,7 +1729,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedFish = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GreenFish = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_GREEN,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_FEMALE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 512,
     .width = 32,
@@ -1748,7 +1748,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GreenFish = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedVSSeeker = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_RED,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_MALE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 256,
     .width = 16,
@@ -1767,7 +1767,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedVSSeeker = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedVSSeekerBike = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_RED,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_MALE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 512,
     .width = 32,
@@ -1786,7 +1786,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RedVSSeekerBike = 
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GreenVSSeeker = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_RED,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_MALE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 256,
     .width = 16,
@@ -1805,7 +1805,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GreenVSSeeker = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GreenVSSeekerBike = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_RED,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_MALE,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 512,
     .width = 32,

@@ -1,6 +1,6 @@
 # Default variables
 
-GAME_VERSION  ?= FIRERED
+GAME_VERSION  ?= HOTA
 GAME_REVISION ?= 0
 GAME_LANGUAGE ?= ENGLISH
 
@@ -24,10 +24,10 @@ MAKER_CODE := 01
 BUILD_DIR := build
 
 # Version
-ifeq ($(GAME_VERSION),FIRERED)
-  TITLE       := POKEMON FIRE
-  GAME_CODE   := BPR
-  BUILD_NAME  := firered
+ifeq ($(GAME_VERSION),HOTA)
+  TITLE       := POKEMON HOTA
+  GAME_CODE   := PHA
+  BUILD_NAME  := huntersoftheancient
 else
 ifeq ($(GAME_VERSION),LEAFGREEN)
   TITLE       := POKEMON LEAF

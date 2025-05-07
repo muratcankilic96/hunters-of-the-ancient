@@ -440,7 +440,7 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
     [MOVEMENT_TYPE_WANDER_AROUND_SLOWER] = DIR_SOUTH,
 };
 
-#define OBJ_EVENT_PAL_TAG_PLAYER_RED                  0x1100
+#define OBJ_EVENT_PAL_TAG_PLAYER_MALE                 0x1100
 #define OBJ_EVENT_PAL_TAG_PLAYER_RED_REFLECTION       0x1101
 #define OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION           0x1102
 #define OBJ_EVENT_PAL_TAG_NPC_BLUE                    0x1103
@@ -456,7 +456,7 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_RS_TRUCK                    0x110D
 #define OBJ_EVENT_PAL_TAG_RS_MACHOKE                  0x110E
 #define OBJ_EVENT_PAL_TAG_RS_POOCHYENA                0x110F
-#define OBJ_EVENT_PAL_TAG_PLAYER_GREEN                0x1110
+#define OBJ_EVENT_PAL_TAG_PLAYER_FEMALE               0x1110
 #define OBJ_EVENT_PAL_TAG_PLAYER_GREEN_REFLECTION     0x1111
 #define OBJ_EVENT_PAL_TAG_RS_MOVING_BOX               0x1112
 #define OBJ_EVENT_PAL_TAG_METEORITE                   0x1113
@@ -487,12 +487,12 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_NpcPinkReflection,       OBJ_EVENT_PAL_TAG_NPC_PINK_REFLECTION},
     {gObjectEventPal_NpcGreenReflection,      OBJ_EVENT_PAL_TAG_NPC_GREEN_REFLECTION},
     {gObjectEventPal_NpcWhiteReflection,      OBJ_EVENT_PAL_TAG_NPC_WHITE_REFLECTION},
-    {gObjectEventPal_Player,                  OBJ_EVENT_PAL_TAG_PLAYER_RED},
+    {gObjectEventPal_Player,                  OBJ_EVENT_PAL_TAG_PLAYER_MALE},
     {gObjectEventPal_PlayerReflection,        OBJ_EVENT_PAL_TAG_PLAYER_RED_REFLECTION},
     {gObjectEventPal_BridgeReflection,        OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION},
     {gObjectEventPal_RSQuintyPlump,           OBJ_EVENT_PAL_TAG_RS_QUINTY_PLUMP},
     {gObjectEventPal_RSQuintyPlumpReflection, OBJ_EVENT_PAL_TAG_RS_QUINTY_PLUMP_REFLECTION},
-    {gObjectEventPal_Player,                  OBJ_EVENT_PAL_TAG_PLAYER_GREEN},
+    {gObjectEventPal_Player,                  OBJ_EVENT_PAL_TAG_PLAYER_FEMALE},
     {gObjectEventPal_PlayerReflection,        OBJ_EVENT_PAL_TAG_PLAYER_GREEN_REFLECTION},
     {gObjectEventPal_Meteorite,               OBJ_EVENT_PAL_TAG_METEORITE},
     {gObjectEventPal_SSAnne,                  OBJ_EVENT_PAL_TAG_SS_ANNE},
@@ -522,8 +522,8 @@ static const u16 sPlayerUnderwaterReflectionPaletteTags[] = {
 };
 
 static const struct PairedPalettes gPlayerReflectionPaletteSets[] = {
-    {OBJ_EVENT_PAL_TAG_PLAYER_RED,           sPlayerReflectionPaletteTags},
-    {OBJ_EVENT_PAL_TAG_PLAYER_GREEN,         sPlayerReflectionPaletteTags},
+    {OBJ_EVENT_PAL_TAG_PLAYER_MALE,          sPlayerReflectionPaletteTags},
+    {OBJ_EVENT_PAL_TAG_PLAYER_FEMALE,        sPlayerReflectionPaletteTags},
     {OBJ_EVENT_PAL_TAG_RS_PLAYER_UNDERWATER, sPlayerUnderwaterReflectionPaletteTags},
     {OBJ_EVENT_PAL_TAG_NONE, NULL},
 };
@@ -599,8 +599,8 @@ static const u16 sGreenNPCReflectionPaletteTags[] = {
 };
 
 static const struct PairedPalettes gSpecialObjectReflectionPaletteSets[] = {
-    {OBJ_EVENT_PAL_TAG_PLAYER_RED,          sPlayerReflectionPaletteTags},
-    {OBJ_EVENT_PAL_TAG_PLAYER_GREEN,        sPlayerReflectionPaletteTags},
+    {OBJ_EVENT_PAL_TAG_PLAYER_MALE,         sPlayerReflectionPaletteTags},
+    {OBJ_EVENT_PAL_TAG_PLAYER_FEMALE,       sPlayerReflectionPaletteTags},
     {OBJ_EVENT_PAL_TAG_RS_QUINTY_PLUMP,     sRSQuintyPlumpReflectionPaletteTags},
     {OBJ_EVENT_PAL_TAG_RS_TRUCK,            sRSTruckReflectionPaletteTags},
     {OBJ_EVENT_PAL_TAG_RS_MACHOKE,          sRSMachokeReflectionPaletteTags},
@@ -615,7 +615,7 @@ static const struct PairedPalettes gSpecialObjectReflectionPaletteSets[] = {
 };
 
 static const u16 sObjectPaletteTags0[] = {
-    OBJ_EVENT_PAL_TAG_PLAYER_RED,
+    OBJ_EVENT_PAL_TAG_PLAYER_MALE,
     OBJ_EVENT_PAL_TAG_PLAYER_RED_REFLECTION,
     OBJ_EVENT_PAL_TAG_NPC_BLUE,
     OBJ_EVENT_PAL_TAG_NPC_PINK,
@@ -628,8 +628,8 @@ static const u16 sObjectPaletteTags0[] = {
 };
 
 static const u16 sObjectPaletteTags1[] = {
-    OBJ_EVENT_PAL_TAG_PLAYER_RED,
-    OBJ_EVENT_PAL_TAG_PLAYER_GREEN,
+    OBJ_EVENT_PAL_TAG_PLAYER_MALE,
+    OBJ_EVENT_PAL_TAG_PLAYER_FEMALE,
     OBJ_EVENT_PAL_TAG_NPC_BLUE,
     OBJ_EVENT_PAL_TAG_NPC_PINK,
     OBJ_EVENT_PAL_TAG_NPC_GREEN,
@@ -641,7 +641,7 @@ static const u16 sObjectPaletteTags1[] = {
 };
 
 static const u16 sObjectPaletteTags2[] = {
-    OBJ_EVENT_PAL_TAG_PLAYER_RED,
+    OBJ_EVENT_PAL_TAG_PLAYER_MALE,
     OBJ_EVENT_PAL_TAG_PLAYER_RED_REFLECTION,
     OBJ_EVENT_PAL_TAG_NPC_BLUE,
     OBJ_EVENT_PAL_TAG_NPC_PINK,
@@ -654,7 +654,7 @@ static const u16 sObjectPaletteTags2[] = {
 };
 
 static const u16 sObjectPaletteTags3[] = {
-    OBJ_EVENT_PAL_TAG_PLAYER_RED,
+    OBJ_EVENT_PAL_TAG_PLAYER_MALE,
     OBJ_EVENT_PAL_TAG_PLAYER_RED_REFLECTION,
     OBJ_EVENT_PAL_TAG_NPC_BLUE,
     OBJ_EVENT_PAL_TAG_NPC_PINK,

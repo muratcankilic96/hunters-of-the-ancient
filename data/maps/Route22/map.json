@@ -28,7 +28,7 @@
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_BLUE",
+      "graphics_id": "OBJ_EVENT_GFX_BLACK",
       "x": 25,
       "y": 4,
       "elevation": 3,

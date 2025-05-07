@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      GAME_VERSION: FIRERED
+      GAME_VERSION: HOTA
       GAME_LANGUAGE: ENGLISH
       GAME_REVISION: 0
       MODERN: 0

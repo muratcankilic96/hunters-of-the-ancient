@@ -16,7 +16,7 @@
 #include "constants/field_weather.h"
 #include "constants/sound.h"
 
-#if defined(FIRERED)
+#if defined(HOTA)
 #define TITLE_TEXT gString_PokemonFireRed_Staff
 #elif defined(LEAFGREEN)
 #define TITLE_TEXT gString_PokemonLeafGreen_Staff

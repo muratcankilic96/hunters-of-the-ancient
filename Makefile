@@ -222,18 +222,18 @@ tidy:
 	$(RM) -r $(BUILD_DIR)
 
 # "friendly" target names for convenience sake
-firered:                ; @$(MAKE) GAME_VERSION=FIRERED
-firered_rev1:           ; @$(MAKE) GAME_VERSION=FIRERED GAME_REVISION=1
+firered:                ; @$(MAKE) GAME_VERSION=HOTA
+firered_rev1:           ; @$(MAKE) GAME_VERSION=HOTA GAME_REVISION=1
 leafgreen:              ; @$(MAKE) GAME_VERSION=LEAFGREEN
 leafgreen_rev1:         ; @$(MAKE) GAME_VERSION=LEAFGREEN GAME_REVISION=1
 
-compare_firered:        ; @$(MAKE) GAME_VERSION=FIRERED COMPARE=1
-compare_firered_rev1:   ; @$(MAKE) GAME_VERSION=FIRERED GAME_REVISION=1 COMPARE=1
+compare_firered:        ; @$(MAKE) GAME_VERSION=HOTA COMPARE=1
+compare_firered_rev1:   ; @$(MAKE) GAME_VERSION=HOTA GAME_REVISION=1 COMPARE=1
 compare_leafgreen:      ; @$(MAKE) GAME_VERSION=LEAFGREEN COMPARE=1
 compare_leafgreen_rev1: ; @$(MAKE) GAME_VERSION=LEAFGREEN GAME_REVISION=1 COMPARE=1
 
-firered_modern:        ; @$(MAKE) GAME_VERSION=FIRERED MODERN=1
-firered_rev1_modern:   ; @$(MAKE) GAME_VERSION=FIRERED GAME_REVISION=1 MODERN=1
+firered_modern:        ; @$(MAKE) GAME_VERSION=HOTA MODERN=1
+firered_rev1_modern:   ; @$(MAKE) GAME_VERSION=HOTA GAME_REVISION=1 MODERN=1
 leafgreen_modern:      ; @$(MAKE) GAME_VERSION=LEAFGREEN MODERN=1
 leafgreen_rev1_modern: ; @$(MAKE) GAME_VERSION=LEAFGREEN GAME_REVISION=1 MODERN=1
 

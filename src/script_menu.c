@@ -315,7 +315,7 @@ static const struct MenuAction sMultichoiceList_BikeShop[] = {
 };
 
 static const struct MenuAction sMultichoiceList_GameCornerPokemonPrizes[] = {
-#if defined(FIRERED)
+#if defined(HOTA)
     { gText_Abra_180Coins },
     { gText_Clefairy_500Coins },
     { gText_Dratini_2800Coins },
