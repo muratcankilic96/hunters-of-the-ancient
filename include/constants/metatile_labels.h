@@ -190,10 +190,10 @@
 #define METATILE_SeafoamIslands_SlidingIce    0x34B
 #define METATILE_SeafoamIslands_UncrackedIce  0x359
 
-// gTileset_SeviiIslands123
-#define METATILE_SeviiIslands123_Door            0x297
-#define METATILE_SeviiIslands123_GameCornerDoor  0x29B
-#define METATILE_SeviiIslands123_PokeCenterDoor  0x2EB
+// gTileset_LilycoveCity
+#define METATILE_LilycoveCity_Door            0x297
+#define METATILE_LilycoveCity_GameCornerDoor  0x29B
+#define METATILE_LilycoveCity_PokeCenterDoor  0x2EB
 
 // gTileset_SeviiIslands45
 #define METATILE_SeviiIslands45_DayCareDoor                   0x2B9

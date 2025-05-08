@@ -181,8 +181,8 @@ const u32 gMetatileAttributes_NavelRock[] = INCBIN_U32("data/tilesets/secondary/
 const u16 gMetatiles_TanobyRuins[] = INCBIN_U16("data/tilesets/secondary/tanoby_ruins/metatiles.bin");
 const u32 gMetatileAttributes_TanobyRuins[] = INCBIN_U32("data/tilesets/secondary/tanoby_ruins/metatile_attributes.bin");
 
-const u16 gMetatiles_SeviiIslands123[] = INCBIN_U16("data/tilesets/secondary/sevii_islands_123/metatiles.bin");
-const u32 gMetatileAttributes_SeviiIslands123[] = INCBIN_U32("data/tilesets/secondary/sevii_islands_123/metatile_attributes.bin");
+const u16 gMetatiles_LilycoveCity[] = INCBIN_U16("data/tilesets/secondary/lilycove_city/metatiles.bin");
+const u32 gMetatileAttributes_LilycoveCity[] = INCBIN_U32("data/tilesets/secondary/lilycove_city/metatile_attributes.bin");
 
 const u16 gMetatiles_SeviiIslands45[] = INCBIN_U16("data/tilesets/secondary/sevii_islands_45/metatiles.bin");
 const u32 gMetatileAttributes_SeviiIslands45[] = INCBIN_U32("data/tilesets/secondary/sevii_islands_45/metatile_attributes.bin");

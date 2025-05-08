@@ -195,7 +195,7 @@ $(TILESETGFXDIR)/secondary/condominiums/tiles.4bpp: %.4bpp: %.png
 $(TILESETGFXDIR)/secondary/mt_ember/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 288 -Wnum_tiles
 
-$(TILESETGFXDIR)/secondary/sevii_islands_123/tiles.4bpp: %.4bpp: %.png
+$(TILESETGFXDIR)/secondary/lilycove_city/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 374 -Wnum_tiles
 
 $(TILESETGFXDIR)/secondary/island_harbor/tiles.4bpp: %.4bpp: %.png

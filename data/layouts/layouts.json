@@ -2565,7 +2565,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands123",
+      "secondary_tileset": "gTileset_LilycoveCity",
       "border_filepath": "data/layouts/OneIsland/border.bin",
       "blockdata_filepath": "data/layouts/OneIsland/map.bin"
     },
@@ -2577,7 +2577,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands123",
+      "secondary_tileset": "gTileset_LilycoveCity",
       "border_filepath": "data/layouts/TwoIsland/border.bin",
       "blockdata_filepath": "data/layouts/TwoIsland/map.bin"
     },
@@ -2589,7 +2589,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands123",
+      "secondary_tileset": "gTileset_LilycoveCity",
       "border_filepath": "data/layouts/ThreeIsland/border.bin",
       "blockdata_filepath": "data/layouts/ThreeIsland/map.bin"
     },
@@ -2649,7 +2649,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands123",
+      "secondary_tileset": "gTileset_LilycoveCity",
       "border_filepath": "data/layouts/OneIsland_KindleRoad/border.bin",
       "blockdata_filepath": "data/layouts/OneIsland_KindleRoad/map.bin"
     },
@@ -2661,7 +2661,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands123",
+      "secondary_tileset": "gTileset_LilycoveCity",
       "border_filepath": "data/layouts/OneIsland_TreasureBeach/border.bin",
       "blockdata_filepath": "data/layouts/OneIsland_TreasureBeach/map.bin"
     },
@@ -2673,7 +2673,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands123",
+      "secondary_tileset": "gTileset_LilycoveCity",
       "border_filepath": "data/layouts/TwoIsland_CapeBrink/border.bin",
       "blockdata_filepath": "data/layouts/TwoIsland_CapeBrink/map.bin"
     },
@@ -2685,7 +2685,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands123",
+      "secondary_tileset": "gTileset_LilycoveCity",
       "border_filepath": "data/layouts/ThreeIsland_BondBridge/border.bin",
       "blockdata_filepath": "data/layouts/ThreeIsland_BondBridge/map.bin"
     },
@@ -2697,7 +2697,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands123",
+      "secondary_tileset": "gTileset_LilycoveCity",
       "border_filepath": "data/layouts/ThreeIsland_Port/border.bin",
       "blockdata_filepath": "data/layouts/ThreeIsland_Port/map.bin"
     },
@@ -3177,7 +3177,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands123",
+      "secondary_tileset": "gTileset_LilycoveCity",
       "border_filepath": "data/layouts/MtEmber_Exterior/border.bin",
       "blockdata_filepath": "data/layouts/MtEmber_Exterior/map.bin"
     },
@@ -3189,7 +3189,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands123",
+      "secondary_tileset": "gTileset_LilycoveCity",
       "border_filepath": "data/layouts/MtEmber_Summit/border.bin",
       "blockdata_filepath": "data/layouts/MtEmber_Summit/map.bin"
     },
@@ -3933,7 +3933,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands123",
+      "secondary_tileset": "gTileset_LilycoveCity",
       "border_filepath": "data/layouts/NavelRock_Exterior/border.bin",
       "blockdata_filepath": "data/layouts/NavelRock_Exterior/map.bin"
     },
@@ -4437,7 +4437,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SeviiIslands123",
+      "secondary_tileset": "gTileset_LilycoveCity",
       "border_filepath": "data/layouts/Cinematic_LilycoveMagma/border.bin",
       "blockdata_filepath": "data/layouts/Cinematic_LilycoveMagma/map.bin"
     }

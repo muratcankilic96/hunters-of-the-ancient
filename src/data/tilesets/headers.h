@@ -669,14 +669,14 @@ const struct Tileset gTileset_TanobyRuins =
     .callback = NULL,
 };
 
-const struct Tileset gTileset_SeviiIslands123 =
+const struct Tileset gTileset_LilycoveCity =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
-    .tiles = gTilesetTiles_SeviiIslands123,
-    .palettes = gTilesetPalettes_SeviiIslands123,
-    .metatiles = gMetatiles_SeviiIslands123,
-    .metatileAttributes = gMetatileAttributes_SeviiIslands123,
+    .tiles = gTilesetTiles_LilycoveCity,
+    .palettes = gTilesetPalettes_LilycoveCity,
+    .metatiles = gMetatiles_LilycoveCity,
+    .metatileAttributes = gMetatileAttributes_LilycoveCity,
     .callback = NULL,
 };
 
