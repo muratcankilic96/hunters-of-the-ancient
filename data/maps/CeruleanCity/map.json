@@ -305,7 +305,7 @@
       "x": 22,
       "y": 6,
       "elevation": 3,
-      "var": "VAR_MAP_SCENE_CERULEAN_CITY_RIVAL",
+      "var": "VAR_STORYLINE_ALLOW_LEAVING_PEWTER",
       "var_value": "0",
       "script": "CeruleanCity_EventScript_RivalTriggerLeft"
     },
@@ -314,7 +314,7 @@
       "x": 23,
       "y": 6,
       "elevation": 3,
-      "var": "VAR_MAP_SCENE_CERULEAN_CITY_RIVAL",
+      "var": "VAR_STORYLINE_ALLOW_LEAVING_PEWTER",
       "var_value": "0",
       "script": "CeruleanCity_EventScript_RivalTriggerMid"
     },
@@ -323,7 +323,7 @@
       "x": 24,
       "y": 6,
       "elevation": 3,
-      "var": "VAR_MAP_SCENE_CERULEAN_CITY_RIVAL",
+      "var": "VAR_STORYLINE_ALLOW_LEAVING_PEWTER",
       "var_value": "0",
       "script": "CeruleanCity_EventScript_RivalTriggerRight"
     },

@@ -115,7 +115,20 @@
     }
   ],
   "warp_events": [
-
+    {
+      "x": 5,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_SECRET_WOODS",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 6,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_RECRUIT_BASE_MAIN_HALL",
+      "dest_warp_id": "1"
+    }
   ],
   "coord_events": [
 

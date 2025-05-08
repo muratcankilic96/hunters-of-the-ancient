@@ -61,12 +61,12 @@ RecruitBase_RegistrationRoom_RegistrationPaperworkProcess::
 	playse SE_DOOR
 	delay 30
 	addobject LOCALID_GIOVANNI
-	applymovement LOCALID_GIOVANNI, RecruitBase_Movement_GiovanniEntersRegistrationRoom
+	applymovement LOCALID_GIOVANNI, RecruitBase_Movement_EnterRegistrationRoom
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
 	waitmovement 0
 	msgbox RecruitBase_RegistrationRoom_Text_GiovanniIntroduction, MSGBOX_NPC
-	applymovement LOCALID_GIOVANNI, RecruitBase_Movement_GiovanniLeavesRegistrationRoom
+	applymovement LOCALID_GIOVANNI, RecruitBase_Movement_LeaveRegistrationRoom
 	waitmovement 0
 	removeobject LOCALID_GIOVANNI
 	playse SE_DOOR
@@ -81,14 +81,14 @@ RecruitBase_RegistrationRoom_PreventLeavingBeforeCompletion::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
 	end
 
-RecruitBase_Movement_GiovanniEntersRegistrationRoom::
+RecruitBase_Movement_EnterRegistrationRoom::
 	set_visible
 	walk_left
 	walk_left
 	walk_left
 	step_end
 
-RecruitBase_Movement_GiovanniLeavesRegistrationRoom::
+RecruitBase_Movement_LeaveRegistrationRoom::
 	walk_right
 	walk_right
 	walk_right

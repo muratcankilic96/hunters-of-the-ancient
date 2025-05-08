@@ -201,7 +201,7 @@
       "x": 22,
       "y": 11,
       "elevation": 3,
-      "var": "VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN",
+      "var": "VAR_STORYLINE_DEFEATED_BROCK",
       "var_value": "0",
       "script": "ViridianCity_EventScript_RoadBlocked"
     },
@@ -219,7 +219,7 @@
       "x": 20,
       "y": 8,
       "elevation": 3,
-      "var": "VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN",
+      "var": "VAR_STORYLINE_DEFEATED_BROCK",
       "var_value": "1",
       "script": "ViridianCity_EventScript_TutorialTriggerLeft"
     },
@@ -228,7 +228,7 @@
       "x": 22,
       "y": 8,
       "elevation": 3,
-      "var": "VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN",
+      "var": "VAR_STORYLINE_DEFEATED_BROCK",
       "var_value": "1",
       "script": "ViridianCity_EventScript_TutorialTriggerRight"
     }

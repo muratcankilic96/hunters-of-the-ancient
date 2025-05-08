@@ -1371,3 +1371,9 @@ Text_TestMsg::
 
 	.include "data/maps/RecruitBase_Entrance/scripts.inc"
 	.include "data/maps/RecruitBase_Entrance/text.inc"
+
+	.include "data/maps/Cinematic_BlackScreen/scripts.inc"
+	.include "data/maps/Cinematic_BlackScreen/text.inc"
+
+	.include "data/maps/Cinematic_LilycoveMagma/scripts.inc"
+	.include "data/maps/Cinematic_LilycoveMagma/text.inc"

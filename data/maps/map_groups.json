@@ -43,7 +43,8 @@
     "gMapGroup_IndoorFiveIslandRoute",
     "gMapGroup_IndoorTwoIslandRoute",
     "gMapGroup_IndoorSixIslandRoute",
-    "gMapGroup_IndoorSevenIslandRoute"
+    "gMapGroup_IndoorSevenIslandRoute",
+    "gMapGroup_Cinematics"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -560,5 +561,9 @@
   ],
   "gMapGroup_IndoorSevenIslandRoute": [
     "SevenIsland_SevaultCanyon_House"
+  ],
+  "gMapGroup_Cinematics": [
+    "Cinematic_BlackScreen",
+    "Cinematic_LilycoveMagma"
   ]
 }

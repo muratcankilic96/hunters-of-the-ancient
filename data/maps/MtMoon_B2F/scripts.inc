@@ -11,7 +11,7 @@ MtMoon_B2F_OnTransition::
 	end
 
 MtMoon_B2F_EventScript_ShowFossils::
-	clearflag FLAG_HIDE_DOME_FOSSIL
+	clearflag TEMP_FLAGS_START
 	clearflag FLAG_HIDE_HELIX_FOSSIL
 	return
 

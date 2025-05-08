@@ -60,7 +60,7 @@ CeruleanCity_EventScript_Rival::
 	call_if_eq VAR_TEMP_1, 1, CeruleanCity_EventScript_RivalStartExit
 	call_if_eq VAR_TEMP_1, 2, CeruleanCity_EventScript_RivalStartExitRight
 	msgbox CeruleanCity_Text_OhRightLittlePresentAsFavor
-	setvar VAR_MAP_SCENE_CERULEAN_CITY_RIVAL, 1
+	setvar VAR_STORYLINE_ALLOW_LEAVING_PEWTER, 1
 	setflag FLAG_GOT_FAME_CHECKER
 	giveitem ITEM_FAME_CHECKER
 	msgbox CeruleanCity_Text_ExplainFameCheckerSmellYa

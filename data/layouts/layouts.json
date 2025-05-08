@@ -4416,6 +4416,30 @@
       "secondary_tileset": "gTileset_MtEmber",
       "border_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa/border.bin",
       "blockdata_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa/map.bin"
+    },
+    {
+      "id": "LAYOUT_CINEMATIC_BLACK_SCREEN",
+      "name": "Cinematic_BlackScreen_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding1",
+      "border_filepath": "data/layouts/Cinematic_BlackScreen/border.bin",
+      "blockdata_filepath": "data/layouts/Cinematic_BlackScreen/map.bin"
+    },
+    {
+      "id": "LAYOUT_CINEMATIC_LILYCOVE_MAGMA",
+      "name": "Cinematic_LilycoveMagma_Layout",
+      "width": 30,
+      "height": 17,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SeviiIslands123",
+      "border_filepath": "data/layouts/Cinematic_LilycoveMagma/border.bin",
+      "blockdata_filepath": "data/layouts/Cinematic_LilycoveMagma/map.bin"
     }
   ]
 }
