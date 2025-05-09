@@ -185,7 +185,6 @@ VermilionCity_EventScript_CheckTicketRight::
 
 VermilionCity_EventScript_ExitedTicketCheck::
 	lockall
-	setvar VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER, 0
 	releaseall
 	end
 
@@ -198,7 +197,6 @@ VermilionCity_EventScript_CheckTicket::
 	msgbox VermilionCity_Text_DoYouHaveATicket
 	goto_if_unset FLAG_GOT_SS_TICKET, VermilionCity_EventScript_DontHaveSSTicket
 	msgbox VermilionCity_Text_FlashedSSTicket
-	setvar VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER, 1
 	releaseall
 	end
 

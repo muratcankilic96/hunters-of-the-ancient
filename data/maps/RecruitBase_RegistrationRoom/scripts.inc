@@ -73,7 +73,6 @@ RecruitBase_RegistrationRoom_RegistrationPaperworkProcess::
 	delay 30
 	setvar VAR_TEAM_ROCKET_RANK, 1
 	setflag FLAG_HIDE_POKEDEX_IN_RECRUIT_BASE
-    setflag FLAG_HIDE_SCIENTIST_IN_RECRUIT_BASE
 	end
 
 RecruitBase_RegistrationRoom_PreventLeavingBeforeCompletion::

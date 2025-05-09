@@ -58,9 +58,9 @@
 #define FLAG_HIDE_CHARMANDER_BALL                          0x02A
 #define FLAG_HIDE_POKEDEX_IN_RECRUIT_BASE                  0x02B
 #define FLAG_HIDE_GIOVANNI_IN_REGISTRATION_ROOM            0x02C
-#define FLAG_HIDE_SCIENTIST_IN_RECRUIT_BASE                0x02D
-#define FLAG_HIDE_PEWTER_CITY_EXIT_IPA_AGENT               0x02E
-#define FLAG_HIDE_PEWTER_CITY_GYM_FRONT_IPA_AGENTS         0x02F
+#define FLAG_HIDE_PEWTER_CITY_EXIT_IPA_AGENT               0x02D
+#define FLAG_HIDE_PEWTER_CITY_GYM_FRONT_IPA_AGENTS         0x02E
+#define FLAG_0x02F                                         0x02F
 #define FLAG_HIDE_HELIX_FOSSIL                             0x030
 #define FLAG_HIDE_NUGGET_BRIDGE_ROCKET                     0x031
 #define FLAG_HIDE_BILL_CLEFAIRY                            0x032

@@ -26,7 +26,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "RecruitBase_MainHall_Grunt1",
       "flag": "0"
     },
     {
@@ -40,7 +40,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "RecruitBase_MainHall_Grunt2",
       "flag": "0"
     },
     {
@@ -54,7 +54,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "RecruitBase_MainHall_Grunt3",
       "flag": "0"
     },
     {
@@ -68,7 +68,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "RecruitBase_MainHall_Grunt4",
       "flag": "0"
     },
     {
@@ -82,7 +82,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "RecruitBase_MainHall_Grunt5",
       "flag": "0"
     },
     {
@@ -138,7 +138,7 @@
       "elevation": 0,
       "var": "VAR_STORYLINE_DEFEATED_BROCK",
       "var_value": "1",
-      "script": "NULL"
+      "script": "RecruitBase_MainHall_TriggerEventFromLeft"
     },
     {
       "type": "trigger",
@@ -147,7 +147,7 @@
       "elevation": 0,
       "var": "VAR_STORYLINE_DEFEATED_BROCK",
       "var_value": "1",
-      "script": "NULL"
+      "script": "RecruitBase_MainHall_TriggerEventFromRight"
     },
     {
       "type": "trigger",
@@ -156,7 +156,7 @@
       "elevation": 0,
       "var": "VAR_STORYLINE_DEFEATED_BROCK",
       "var_value": "1",
-      "script": "NULL"
+      "script": "RecruitBase_MainHall_BlackCallsYou"
     }
   ],
   "bg_events": [
@@ -166,7 +166,7 @@
       "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "RecruitBase_MainHall_Computer"
     },
     {
       "type": "sign",
@@ -174,7 +174,7 @@
       "y": 18,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "RecruitBase_MainHall_Box_Empty"
     },
     {
       "type": "sign",
@@ -182,7 +182,7 @@
       "y": 18,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "RecruitBase_MainHall_Box_Pokeballs"
     },
     {
       "type": "sign",
@@ -190,7 +190,7 @@
       "y": 18,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "RecruitBase_MainHall_Box_Pokeballs"
     },
     {
       "type": "sign",
@@ -198,7 +198,7 @@
       "y": 18,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "RecruitBase_MainHall_Box_TeamRocketSuits"
     },
     {
       "type": "sign",
@@ -206,7 +206,7 @@
       "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "RecruitBase_MainHall_RecruitBaseSign"
     },
     {
       "type": "sign",
@@ -214,7 +214,7 @@
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "RecruitBase_MainHall_Box_TeamRocketSuits"
     },
     {
       "type": "sign",
@@ -222,7 +222,7 @@
       "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "RecruitBase_MainHall_Box_Empty"
     }
   ]
 }

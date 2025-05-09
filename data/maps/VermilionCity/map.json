@@ -217,7 +217,7 @@
       "x": 22,
       "y": 33,
       "elevation": 0,
-      "var": "VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER",
+      "var": "VAR_TEMP_1",
       "var_value": "0",
       "script": "VermilionCity_EventScript_CheckTicketLeft"
     },
@@ -226,7 +226,7 @@
       "x": 23,
       "y": 33,
       "elevation": 0,
-      "var": "VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER",
+      "var": "VAR_TEMP_1",
       "var_value": "0",
       "script": "VermilionCity_EventScript_CheckTicketRight"
     },

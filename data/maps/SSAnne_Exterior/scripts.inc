@@ -26,7 +26,6 @@ SSAnne_Exterior_ExitSSAnne::
 	applymovement OBJ_EVENT_ID_PLAYER, SSAnne_Exterior_Movement_Exit
 	waitmovement 0
 	setvar VAR_MAP_SCENE_VERMILION_CITY, 2
-	setvar VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER, 0
 	warp MAP_VERMILION_CITY, 23, 34
 	waitstate
 	releaseall
