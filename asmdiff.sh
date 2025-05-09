@@ -1,13 +1,13 @@
 #!/bin/bash
 
-if [ "$1" == "firered" ] || [ "$1" == "leafgreen" ] || [ "$1" == "firered_rev1" ] || [ "$1" == "leafgreen_rev1" ]; then
+if [ "$1" == "huntersoftheancient" ] || [ "$1" == "leafgreen" ] || [ "$1" == "firered_rev1" ] || [ "$1" == "leafgreen_rev1" ]; then
   buildname="$1"
   shift
 else
-  buildname=firered
+  buildname=huntersoftheancient
 fi
 
-if [ "$buildname" == "firered" ]; then
+if [ "$buildname" == "huntersoftheancient" ]; then
   baserom=baserom
 elif [ "$buildname" == "leafgreen" ]; then
   baserom=baserom_lg

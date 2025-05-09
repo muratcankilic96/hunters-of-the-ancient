@@ -1,7 +1,7 @@
 SecretWoods_Text_Scientist::
     .string "With the new technology, people\n"
 	.string "can store POKéMON and item in\l"
-	.string "their PC. I am a hacker in TEAM\n"
+	.string "their PC. I am a hacker in TEAM\l"
 	.string "ROCKET. We are researching to\l"
     .string "crack into those PCs I mentioned.$"
 
