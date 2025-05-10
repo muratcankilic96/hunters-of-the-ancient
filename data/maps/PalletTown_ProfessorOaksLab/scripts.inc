@@ -685,7 +685,6 @@ PalletTown_ProfessorOaksLab_EventScript_ReceiveDexScene::
 	setvar VAR_MAP_SCENE_VIRIDIAN_CITY_MART, 2
 	setvar VAR_STORYLINE_DEFEATED_BROCK, 1
 	setvar VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 1
-	setvar VAR_MAP_SCENE_ROUTE22, 1
 	release
 	end
 
@@ -932,7 +931,7 @@ PalletTown_ProfessorOaksLab_EventScript_CheckIfPlayerNeedsBalls::
 	end
 
 PalletTown_ProfessorOaksLab_EventScript_PlayerOutOfBalls::
-	goto_if_ge VAR_MAP_SCENE_ROUTE22, 2, PalletTown_ProfessorOaksLab_EventScript_GivePlayerMoreBalls
+	goto_if_ge VAR_TEMP_0, 2, PalletTown_ProfessorOaksLab_EventScript_GivePlayerMoreBalls
 	goto PalletTown_ProfessorOaksLab_EventScript_MonsAroundWorldWait
 	end
 

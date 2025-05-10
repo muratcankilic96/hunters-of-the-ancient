@@ -44,7 +44,7 @@ Route22_EventScript_EarlyRival::
 	call_if_eq VAR_TEMP_1, 2, Route22_EventScript_EarlyRivalExitBottom
 	fadedefaultbgm
 	removeobject LOCALID_RIVAL
-	setvar VAR_MAP_SCENE_ROUTE22, 2
+	setvar VAR_TEMP_0, 2
 	releaseall
 	end
 
@@ -194,7 +194,7 @@ Route22_EventScript_LateRival::
 	waitmovement 0
 	fadedefaultbgm
 	removeobject LOCALID_RIVAL
-	setvar VAR_MAP_SCENE_ROUTE22, 4
+	setvar VAR_TEMP_0, 4
 	releaseall
 	end
 

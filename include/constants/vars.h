@@ -133,7 +133,7 @@
 #define VAR_STORYLINE_DEFEATED_BROCK                                           0x4051
 #define VAR_STORYLINE_ALLOW_LEAVING_SECRET_PATH                                0x4052
 #define VAR_STORYLINE_ALLOW_LEAVING_PEWTER                                     0x4053
-#define VAR_MAP_SCENE_ROUTE22                                                  0x4054
+#define VAR_STORYLINE_GOT_FIRST_POKEMON                                        0x4054
 #define VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB                           0x4055
 #define WARP_REGISTRATION_ROOM                                                 0x4056
 #define VAR_MAP_SCENE_VIRIDIAN_CITY_MART                                       0x4057

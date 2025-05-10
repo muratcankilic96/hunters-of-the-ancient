@@ -41,6 +41,10 @@ Common_Movement_WalkInPlaceFasterDown::
 	walk_in_place_faster_down
 	step_end
 
+Common_Movement_WalkOppositeDirection::
+	walk_opposite_direction
+	step_end
+
 Common_Movement_FaceLeft::
 	face_left
 	step_end

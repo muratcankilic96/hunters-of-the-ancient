@@ -849,7 +849,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_VIAPOIS_CHAMBER",
+      "map_section": "MAPSEC_NONE",
       "name": "VIAPOIS CHAMBER",
       "x": 0,
       "y": 0,
@@ -871,6 +871,14 @@
       "y": 0,
       "width": 0,
       "height": 0
+    },
+    {
+      "map_section": "MAPSEC_SECRET_PATH",
+      "name": "SECRET PATH",
+      "x": 5,
+      "y": 10,
+      "width": 1,
+      "height": 2
     }
   ]
 }

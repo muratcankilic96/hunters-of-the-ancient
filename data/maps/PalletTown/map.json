@@ -23,6 +23,11 @@
       "map": "MAP_ROUTE21_NORTH",
       "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_SECRET_PATH_SOUTH",
+      "offset": 0,
+      "direction": "right"
     }
   ],
   "object_events": [

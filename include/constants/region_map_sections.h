@@ -201,7 +201,7 @@
 #define MAPSEC_DILFORD_CHAMBER              0xBF
 #define MAPSEC_SCUFIB_CHAMBER               0xC0
 #define MAPSEC_RIXY_CHAMBER                 0xC1
-#define MAPSEC_VIAPOIS_CHAMBER              0xC2
+#define MAPSEC_SECRET_PATH                  0xC2
 #define MAPSEC_EMBER_SPA                    0xC3
 #define MAPSEC_SPECIAL_AREA                 0xC4
 #define MAPSEC_NONE                         0xC5

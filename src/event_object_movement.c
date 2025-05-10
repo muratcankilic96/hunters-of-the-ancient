@@ -7222,19 +7222,17 @@ static bool8 MovementAction_ClearAffineAnim_Step0(struct ObjectEvent *objectEven
     return TRUE;
 }
 
-static bool8 MovementAction_WalkDownStartAffine_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+static bool8 MovementAction_WalkOppositeDirection_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
-    InitWalkSlower(objectEvent, sprite, DIR_SOUTH);
-    sprite->affineAnimPaused = FALSE;
-    StartSpriteAffineAnimIfDifferent(sprite, 0);
-    return MovementAction_WalkDownStartAffine_Step1(objectEvent, sprite);
+    u8 oppositeDirection = GetOppositeDirection(objectEvent->facingDirection);
+    InitMovementNormal(objectEvent, sprite, oppositeDirection, MOVE_SPEED_NORMAL);
+    return MovementAction_WalkOppositeDirection_Step1(objectEvent, sprite);
 }
 
-static bool8 MovementAction_WalkDownStartAffine_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+static bool8 MovementAction_WalkOppositeDirection_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
-    if (UpdateWalkSlower(objectEvent, sprite))
+    if (UpdateMovementNormal(objectEvent, sprite))
     {
-        sprite->affineAnimPaused = TRUE;
         sprite->data[2] = 2;
         return TRUE;
     }

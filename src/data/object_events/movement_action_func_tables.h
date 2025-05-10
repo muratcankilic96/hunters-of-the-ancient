@@ -173,8 +173,8 @@ static bool8 MovementAction_SetFixedPriority_Step0(struct ObjectEvent *, struct 
 static bool8 MovementAction_ClearFixedPriority_Step0(struct ObjectEvent *, struct Sprite *);
 static bool8 MovementAction_InitAffineAnim_Step0(struct ObjectEvent *, struct Sprite *);
 static bool8 MovementAction_ClearAffineAnim_Step0(struct ObjectEvent *, struct Sprite *);
-static bool8 MovementAction_WalkDownStartAffine_Step0(struct ObjectEvent *, struct Sprite *);
-static bool8 MovementAction_WalkDownStartAffine_Step1(struct ObjectEvent *, struct Sprite *);
+static bool8 MovementAction_WalkOppositeDirection_Step0(struct ObjectEvent *, struct Sprite *);
+static bool8 MovementAction_WalkOppositeDirection_Step1(struct ObjectEvent *, struct Sprite *);
 static bool8 MovementAction_WalkDownAffine_Step0(struct ObjectEvent *, struct Sprite *);
 static bool8 MovementAction_WalkDownAffine_Step1(struct ObjectEvent *, struct Sprite *);
 static bool8 MovementAction_AcroWheelieFaceDown_Step0(struct ObjectEvent *, struct Sprite *);
@@ -397,7 +397,7 @@ static bool8 (*const sMovementActionFuncs_SetFixedPriority[])(struct ObjectEvent
 static bool8 (*const sMovementActionFuncs_ClearFixedPriority[])(struct ObjectEvent *, struct Sprite *);
 static bool8 (*const sMovementActionFuncs_InitAffineAnim[])(struct ObjectEvent *, struct Sprite *);
 static bool8 (*const sMovementActionFuncs_ClearAffineAnim[])(struct ObjectEvent *, struct Sprite *);
-static bool8 (*const sMovementActionFuncs_WalkDownStartAffine[])(struct ObjectEvent *, struct Sprite *);
+static bool8 (*const sMovementActionFuncs_WalkOppositeDirection[])(struct ObjectEvent *, struct Sprite *);
 static bool8 (*const sMovementActionFuncs_WalkDownAffine[])(struct ObjectEvent *, struct Sprite *);
 static bool8 (*const sMovementActionFuncs_AcroWheelieFaceDown[])(struct ObjectEvent *, struct Sprite *);
 static bool8 (*const sMovementActionFuncs_AcroWheelieFaceUp[])(struct ObjectEvent *, struct Sprite *);
@@ -573,7 +573,7 @@ static bool8 (*const *const sMovementActionFuncs[])(struct ObjectEvent *, struct
     [MOVEMENT_ACTION_CLEAR_FIXED_PRIORITY]               = sMovementActionFuncs_ClearFixedPriority,
     [MOVEMENT_ACTION_INIT_AFFINE_ANIM]                   = sMovementActionFuncs_InitAffineAnim,
     [MOVEMENT_ACTION_CLEAR_AFFINE_ANIM]                  = sMovementActionFuncs_ClearAffineAnim,
-    [MOVEMENT_ACTION_WALK_DOWN_START_AFFINE]             = sMovementActionFuncs_WalkDownStartAffine,
+    [MOVEMENT_ACTION_WALK_OPPOSITE_DIRECTION]            = sMovementActionFuncs_WalkOppositeDirection,
     [MOVEMENT_ACTION_WALK_DOWN_AFFINE]                   = sMovementActionFuncs_WalkDownAffine,
     [MOVEMENT_ACTION_ACRO_WHEELIE_FACE_DOWN]             = sMovementActionFuncs_AcroWheelieFaceDown,
     [MOVEMENT_ACTION_ACRO_WHEELIE_FACE_UP]               = sMovementActionFuncs_AcroWheelieFaceUp,
@@ -1361,9 +1361,9 @@ static bool8 (*const sMovementActionFuncs_ClearAffineAnim[])(struct ObjectEvent 
     MovementAction_Finish,
 };
 
-static bool8 (*const sMovementActionFuncs_WalkDownStartAffine[])(struct ObjectEvent *, struct Sprite *) = {
-    MovementAction_WalkDownStartAffine_Step0,
-    MovementAction_WalkDownStartAffine_Step1,
+static bool8 (*const sMovementActionFuncs_WalkOppositeDirection[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementAction_WalkOppositeDirection_Step0,
+    MovementAction_WalkOppositeDirection_Step1,
     MovementAction_PauseSpriteAnim,
 };
 

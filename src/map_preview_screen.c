@@ -299,7 +299,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sMoneanChamberMapPreviewPalette
     },
     [MPS_VIAPOIS_CHAMBER] = {
-        .mapsec = MAPSEC_VIAPOIS_CHAMBER,
+        .mapsec = MAPSEC_NONE,
         .type = MPS_TYPE_CAVE,
         .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
         .tilesptr = sMoneanChamberMapPreviewTiles,

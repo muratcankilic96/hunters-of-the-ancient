@@ -1379,3 +1379,6 @@ Text_TestMsg::
 
 	.include "data/maps/Cinematic_LilycoveMagma/scripts.inc"
 	.include "data/maps/Cinematic_LilycoveMagma/text.inc"
+
+	.include "data/maps/SecretPath_South/scripts.inc"
+	.include "data/maps/SecretPath_South/text.inc"

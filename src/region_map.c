@@ -586,7 +586,6 @@ static const u8 sSeviiMapsecs[3][30] = {
         MAPSEC_DILFORD_CHAMBER,
         MAPSEC_SCUFIB_CHAMBER,
         MAPSEC_RIXY_CHAMBER,
-        MAPSEC_VIAPOIS_CHAMBER,
         MAPSEC_NONE
     }
 };
@@ -930,7 +929,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_DILFORD_CHAMBER     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_SCUFIB_CHAMBER      - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_RIXY_CHAMBER        - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_VIAPOIS_CHAMBER     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
+    [MAPSEC_SECRET_PATH         - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_EMBER_SPA           - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
 };
 
@@ -3257,7 +3256,7 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
     case MAPSEC_RIXY_CHAMBER:
     case MAPSEC_SCUFIB_CHAMBER:
     case MAPSEC_TANOBY_CHAMBERS:
-    case MAPSEC_VIAPOIS_CHAMBER:
+    case MAPSEC_SECRET_PATH:
     case MAPSEC_WEEPTH_CHAMBER:
         sMapCursor->x = 9;
         sMapCursor->y = 12;
