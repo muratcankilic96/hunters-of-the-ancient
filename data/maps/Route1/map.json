@@ -23,6 +23,11 @@
       "map": "MAP_PALLET_TOWN",
       "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_SECRET_PATH_NORTH",
+      "offset": 0,
+      "direction": "right"
     }
   ],
   "object_events": [

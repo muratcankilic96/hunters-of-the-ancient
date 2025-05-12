@@ -23,6 +23,11 @@
       "map": "MAP_PALLET_TOWN",
       "offset": 0,
       "direction": "left"
+    },
+    {
+      "map": "MAP_SECRET_PATH_NORTH",
+      "offset": 0,
+      "direction": "up"
     }
   ],
   "object_events": [
@@ -47,48 +52,48 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 20,
-      "y": 12,
+      "x": 0,
+      "y": 11,
       "elevation": 0,
       "var": "VAR_STORYLINE_GOT_FIRST_POKEMON",
+      "var_value": "1",
+      "script": "SecretPath_South_PreventLeavingPalletTown"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_STORYLINE_LAB_INVASION",
       "var_value": "0",
       "script": "SecretPath_South_PreventEnteringIntoWildGrass"
     },
     {
       "type": "trigger",
-      "x": 20,
-      "y": 12,
+      "x": 32,
+      "y": 17,
       "elevation": 0,
-      "var": "VAR_STORYLINE_GOT_FIRST_POKEMON",
+      "var": "VAR_STORYLINE_LAB_INVASION",
       "var_value": "0",
       "script": "SecretPath_South_PreventEnteringIntoWildGrass"
     },
     {
       "type": "trigger",
-      "x": 20,
-      "y": 12,
-      "elevation": 0,
-      "var": "VAR_STORYLINE_GOT_FIRST_POKEMON",
-      "var_value": "0",
-      "script": "SecretPath_South_PreventEnteringIntoWildGrass"
-    },
-    {
-      "type": "trigger",
-      "x": 28,
+      "x": 8,
       "y": 1,
       "elevation": 0,
       "var": "VAR_STORYLINE_ALLOW_LEAVING_SECRET_PATH",
       "var_value": "0",
-      "script": "SecretPath_South_PreventEnteringIntoWildGrass"
+      "script": "SecretPath_South_PreventLeavingSecretPath"
     },
     {
       "type": "trigger",
-      "x": 29,
+      "x": 9,
       "y": 1,
       "elevation": 0,
       "var": "VAR_STORYLINE_ALLOW_LEAVING_SECRET_PATH",
       "var_value": "0",
-      "script": "SecretPath_South_PreventEnteringIntoWildGrass"
+      "script": "SecretPath_South_PreventLeavingSecretPath"
     },
     {
       "type": "trigger",
@@ -245,7 +250,7 @@
     },
     {
       "type": "trigger",
-      "x": 29,
+      "x": 9,
       "y": 2,
       "elevation": 0,
       "var": "VAR_STORYLINE_GOT_FIRST_POKEMON",
@@ -254,7 +259,7 @@
     },
     {
       "type": "trigger",
-      "x": 28,
+      "x": 8,
       "y": 2,
       "elevation": 0,
       "var": "VAR_STORYLINE_GOT_FIRST_POKEMON",

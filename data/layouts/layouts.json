@@ -892,7 +892,7 @@
     {
       "id": "LAYOUT_ROUTE1",
       "name": "Route1_Layout",
-      "width": 24,
+      "width": 28,
       "height": 40,
       "border_width": 2,
       "border_height": 2,
@@ -4452,6 +4452,18 @@
       "secondary_tileset": "gTileset_LilycoveCity",
       "border_filepath": "data/layouts/Cinematic_LilycoveMagma/border.bin",
       "blockdata_filepath": "data/layouts/Cinematic_LilycoveMagma/map.bin"
+    },
+    {
+      "id": "LAYOUT_SECRET_PATH_NORTH",
+      "name": "SecretPath_North_Layout",
+      "width": 24,
+      "height": 40,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/SecretPath_North/border.bin",
+      "blockdata_filepath": "data/layouts/SecretPath_North/map.bin"
     }
   ]
 }
