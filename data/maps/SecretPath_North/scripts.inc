@@ -1,1 +1,2 @@
-mapscripts SecretPath_North_MapScripts {}
+SecretPath_North_MapScripts::
+    .byte 0

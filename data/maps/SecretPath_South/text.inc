@@ -9,4 +9,12 @@ SecretPath_South_Text_ThePoliceIsHere::
     .string "The police is here!$"
 
 SecretPath_South_Text_RivalIntroduction::
-    .string "[orange_fr]?????: [blue_fr]Oh, welcome! Do you have\nany POKéMON?\l... ... ... ... ... ... ... ...\l... ... ... ... ... ... ... ...\lMe neither. But, that's okay. Near\lhere, there is a POKéMON LAB.\lAnyway, my name is [rival]! Meet\lme at the entrance of PALLET TOWN!\lWe can steal some POKéMON there."
+    .string "{COLOR LIGHT_RED}?????: {COLOR BLUE}Oh, welcome! Do you have\n"
+    .string "any POKéMON?\l"
+    .string "... ... ... ... ... ... ... ...\l"
+    .string "... ... ... ... ... ... ... ...\l"
+    .string "Me neither. But, that's okay. Close\l"
+    .string "here, there is a POKéMON LAB.\l"
+    .string "Anyway, my name is {RIVAL}! Meet\l"
+    .string "me at the entrance of PALLET TOWN!\l"
+    .string "We can steal some POKéMON there."
