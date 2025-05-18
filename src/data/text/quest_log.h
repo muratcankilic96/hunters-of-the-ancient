@@ -1,4 +1,5 @@
-const u8 gText_QuestLog_PreviouslyOnYourQuest[] = _("Previously on your quest…");
+const u8 gText_QuestLog_PreviouslyOnHuntersOfTheAncient[] = _("Previously on Hunters of the Ancient…");
+const u8 gText_QuestLog_Parenthesis[] = _(" ({STR_VAR_1})");
 const u8 gText_QuestLog_SwitchMon1WithMon2[] = _("{PLAYER} switched the POKéMON\n{STR_VAR_1} with {STR_VAR_2}.");
 const u8 gText_QuestLog_SwappedHeldItemsOnMon[] = _("Took the item {STR_VAR_2} from\n{STR_VAR_1} and gave it the item\n{STR_VAR_3} to hold.");
 const u8 gText_QuestLog_TookHeldItemFromMon[] = _("Took the item {STR_VAR_2} from\n{STR_VAR_1}.");
@@ -71,8 +72,8 @@ const u8 gText_QuestLog_UsedSweetScent[] = _("{STR_VAR_1} used SWEET SCENT to at
 const u8 gText_QuestLog_UsedTeleportToLocation[] = _("{STR_VAR_1} used TELEPORT, transporting\nthe party to {STR_VAR_2}'s\n{STR_VAR_3}.");
 const u8 gText_QuestLog_LeftTownsLocationForNextDestination[] = _("{PLAYER} left {STR_VAR_1}'s\n{STR_VAR_2} for the next\ndestination.");
 const u8 gText_QuestLog_PlayedGamesAtGameCorner[] = _("Played a lot of games at the ROCKET\nGAME CORNER in {STR_VAR_1}.");
-const u8 gText_QuestLog_CompletedRegistrations[] = _("{PLAYER} completed registrations at recruit base.");
-const u8 gText_QuestLog_LeftOaksLab[] = _("{PLAYER} left PROF. OAK's POKéMON\nRESEARCH LAB.");
+const u8 gText_QuestLog_CompletedRegistrations[] = _("{PLAYER} completed the registrations at\nthe TEAM ROCKET recruit base.");
+const u8 gText_QuestLog_LeftOaksLab[] = _("{PLAYER} stole a POKéMON from PROF. OAK's\n POKéMON RESEARCH LAB.");
 const u8 gText_QuestLog_GymWasFullOfToughTrainers[] = _("The GYM in {STR_VAR_1} was full of\ntough TRAINERS…\nPreparations had to be made.");
 const u8 gText_QuestLog_DepartedGym[] = _("Departed the GYM in {STR_VAR_1}.");
 const u8 gText_QuestLog_HadGreatTimeInSafariZone[] = _("{PLAYER} had a great time with POKéMON\nin the SAFARI ZONE.");

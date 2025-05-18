@@ -27,12 +27,12 @@ PalletTown_Text_TownSign::
     .string "The village of beginnings!$"
 
 PalletTown_Text_YouCameAsExpected::
-    .string "= {COLOR LIGHT_RED}{RIVAL}: {COLOR BLUE}Oh!\n"
+    .string "{COLOR LIGHT_RED}{RIVAL}: {COLOR BLUE}Oh!\n"
     .string "You came, as I wanted.\l"
     .string "The LAB I mentioned is here! Let's\l"
-    .string "go!"
+    .string "go!$"
 
 PalletTown_Text_PoliceIsHere::
-    .string "{COLOR LIGHT_RED}{RIVAL}: {COLOR BLUE} Police may notice\n"
+    .string "{COLOR LIGHT_RED}{RIVAL}: {COLOR BLUE}The police may notice\n"
     .string "us, we must be careful.\l"
-    .string "Come on!"
+    .string "Come on!$"

@@ -40,7 +40,7 @@
       "movement_range_y": 4,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "PalletTown_ProfessorOaksLab_Woman",
       "flag": "0"
     },
     {
@@ -68,7 +68,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "PalletTown_ProfessorOaksLab_ProfessorOak",
       "flag": "0"
     },
     {
@@ -124,7 +124,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "PalletTown_ProfessorOaksLab_Black",
       "flag": "0"
     },
     {
@@ -151,9 +151,27 @@
       "x": 6,
       "y": 8,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
+      "var": "VAR_STORYLINE_LAB_INVASION",
+      "var_value": "3",
+      "script": "PalletTown_ProfessorOaksLab_TriggerOnLeavingLab"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_STORYLINE_LAB_INVASION",
+      "var_value": "3",
+      "script": "PalletTown_ProfessorOaksLab_PreventGoingToBasementSide"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_STORYLINE_LAB_INVASION",
+      "var_value": "3",
+      "script": "PalletTown_ProfessorOaksLab_PreventGoingToBasementSide"
     }
   ],
   "bg_events": [
@@ -163,7 +181,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "PalletTown_ProfessorOaksLab_Computer"
     },
     {
       "type": "sign",
@@ -171,7 +189,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "PalletTown_ProfessorOaksLab_Computer"
     }
   ]
 }

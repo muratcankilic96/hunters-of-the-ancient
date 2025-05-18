@@ -1212,7 +1212,8 @@ extern const u8 gText_CooperativeRankings[];
 extern const u8 gText_PressingPowerRankings[];
 
 // quest log
-extern const u8 gText_QuestLog_PreviouslyOnYourQuest[];
+extern const u8 gText_QuestLog_PreviouslyOnHuntersOfTheAncient[];
+extern const u8 gText_QuestLog_Parenthesis[];
 extern const u8 gText_QuestLog_SwitchMon1WithMon2[];
 extern const u8 gText_QuestLog_SwappedHeldItemsOnMon[];
 extern const u8 gText_QuestLog_TookHeldItemFromMon[];

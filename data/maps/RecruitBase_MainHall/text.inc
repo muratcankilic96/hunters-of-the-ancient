@@ -14,7 +14,8 @@ RecruitBase_MainHall_Text_Box_TeamRocketSuits::
     .string "“TEAM ROCKET SUITS”$"
 
 RecruitBase_MainHall_Text_Box_Pokeballs::
-    .string "Some POKéBALLs are stored in this box.$"
+    .string "Some POKéBALLs are stored in this\n"
+    .string "box.$"
 
 RecruitBase_MainHall_Text_AccordingToLegend::
     .string "According to the legend,\n"

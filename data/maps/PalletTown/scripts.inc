@@ -1,4 +1,4 @@
-.set LOCALID_BLACK, 4
+.set LOCALID_BLACK, 3
 
 PalletTown_MapScripts::
 	.byte 0
@@ -8,7 +8,7 @@ PalletTown_MeetWithBlackForLabInvasion::
 @ TODO: Find the purpose of this flag: setflag 0x105
 	lockall
 	faceplayer
-	playbgm MUS_ENCOUNTER_RIVAL, 1
+	playbgm MUS_ENCOUNTER_RIVAL, 0
 	applymovement LOCALID_BLACK, PalletTown_Movement_GetCloseToPlayer
 	waitmovement 0
 	msgbox PalletTown_Text_YouCameAsExpected

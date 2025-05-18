@@ -32,7 +32,7 @@ PalletTown_ProfessorOaksLab_BeginLabInvasion::
 	waitmovement 0
 	msgbox PalletTown_ProfessorOaksLab_Text_GiveMeYourPokemon
 	closemessage
-applymovement LOCALID_BLACK, PalletTown_ProfessorOaksLab_Movement_IntimidateOak
+	applymovement LOCALID_BLACK, PalletTown_ProfessorOaksLab_Movement_IntimidateOak
 	applymovement LOCALID_OAK, PalletTown_ProfessorOaksLab_Movement_GetScaredFromGun
 	waitmovement 0
 	msgbox PalletTown_ProfessorOaksLab_Text_ChooseFromTable
@@ -51,6 +51,20 @@ PalletTown_ProfessorOaksLab_ProfessorOak::
 
 PalletTown_ProfessorOaksLab_Black::
 	msgbox PalletTown_ProfessorOaksLab_Text_SmallTask, MSGBOX_AUTOCLOSE
+	end
+
+PalletTown_ProfessorOaksLab_Woman::
+	msgbox PalletTown_ProfessorOaksLab_Text_Scream, MSGBOX_NPC
+	end
+
+PalletTown_ProfessorOaksLab_PreventGoingToBasementSide::
+	msgbox PalletTown_ProfessorOaksLab_Text_WhereAreYouGoing, MSGBOX_NPC
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
+	waitmovement 0
+	end
+
+PalletTown_ProfessorOaksLab_TriggerOnLeavingLab::
 	end
 
 PalletTown_ProfessorOaksLab_Movement_WalkIntimidatingly::

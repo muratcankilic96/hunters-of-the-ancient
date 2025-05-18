@@ -10,7 +10,7 @@ PalletTown_ProfessorOaksLab_Text_GoAway::
     .string "Why did you came here? Go away!$"
 
 PalletTown_ProfessorOaksLab_Text_ShutYourMouth::
-    .string "Shut your mouth and\n"
+    .string "{COLOR LIGHT_RED}{RIVAL}:{COLOR BLUE} Shut your mouth and\n"
     .string "wait here. Don't move,\l"
     .string "or your end won't be so good.$"
 
@@ -31,3 +31,10 @@ PalletTown_ProfessorOaksLab_Text_ChooseFromTable::
 PalletTown_ProfessorOaksLab_Text_SmallTask::
     .string "{COLOR LIGHT_RED}{RIVAL}: {COLOR BLUE}Oh, it's a small\n"
     .string "task. Give me your POKéMON!$"
+
+PalletTown_ProfessorOaksLab_Text_Scream::
+    .string "EEEEEEEKK!$"
+
+PalletTown_ProfessorOaksLab_Text_WhereAreYouGoing::
+    .string "{COLOR LIGHT_RED}{RIVAL}: {COLOR BLUE}{PLAYER}! Where are you going?\n"
+    .string "We have unfinished business here.$"

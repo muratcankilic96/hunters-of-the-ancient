@@ -78,6 +78,7 @@ RecruitBase_RegistrationRoom_RegistrationPaperworkProcess::
 RecruitBase_RegistrationRoom_PreventLeavingBeforeCompletion::
 	msgbox RecruitBase_RegistrationRoom_Text_ShouldCompleteRegistrationFirst, MSGBOX_NPC
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
+	waitmovement 0
 	end
 
 RecruitBase_Movement_EnterRegistrationRoom::

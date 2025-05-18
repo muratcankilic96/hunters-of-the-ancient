@@ -519,13 +519,14 @@ void DrawPreviouslyOnQuestHeader(u8 sceneNum)
         FillWindowPixelRect(sWindowIds[i], 15, 0, 0, sWindowTemplates[i].width * 8, sWindowTemplates[i].height * 8);
     }
 
-    StringExpandPlaceholders(gStringVar4, gText_QuestLog_PreviouslyOnYourQuest);
+    StringExpandPlaceholders(gStringVar4, gText_QuestLog_PreviouslyOnHuntersOfTheAncient);
 
     // Scene numbers count from 4 to 0, 0 being where the player saved
     if (sceneNum != 0)
     {
         ConvertIntToDecimalStringN(gStringVar1, sceneNum, STR_CONV_MODE_LEFT_ALIGN, 1);
-        StringAppend(gStringVar4, gStringVar1);
+        StringExpandPlaceholders(gStringVar2, gText_QuestLog_Parenthesis);
+        StringAppend(gStringVar4, gStringVar2);
     }
 
     AddTextPrinterParameterized4(sWindowIds[WIN_TOP_BAR], FONT_NORMAL, 2, 2, 1, 2, sTextColors, 0, gStringVar4);

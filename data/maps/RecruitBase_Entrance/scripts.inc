@@ -53,7 +53,7 @@ RecruitBase_Entrance_GetPokedexFromBlack::
     faceplayer
     setflag FLAG_HIDE_POKEDEX_IN_RECRUIT_BASE
     setflag FLAG_SYS_POKEDEX_GET
-    playbgm MUS_OAK, 1
+    playbgm MUS_OAK, 0
     msgbox RecruitBase_Entrance_Text_IToldEverything, MSGBOX_AUTOCLOSE
     applymovement LOCALID_ROCKET_SCIENTIST, RecruitBase_Entrance_Movement_WalkToPokedex
     msgbox RecruitBase_Entrance_Text_HeardYouGotPokemon, MSGBOX_AUTOCLOSE

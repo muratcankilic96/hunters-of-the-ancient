@@ -36,7 +36,7 @@ SecretPath_South_InvitePlayerForStealing::
 @ TODO: Find the purpose of this flag: setflag 0x10A
     lockall
     faceplayer
-    playbgm MUS_ENCOUNTER_RIVAL, 1
+    playbgm MUS_ENCOUNTER_RIVAL, 0
     applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
     waitmovement 0
     msgbox SecretPath_South_Text_RivalIntroduction
