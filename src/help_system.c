@@ -2047,7 +2047,6 @@ static bool8 IsHelpSystemSubmenuEnabled(u8 id)
         case HELP_WANT_TO_END_SAFARI:
             return TRUE;
         case HELP_CANT_FIND_PERSON_I_WANT:
-            return FlagGet(FLAG_VISITED_OAKS_LAB);
         case HELP_SOMEONE_BLOCKING_MY_WAY:
         case HELP_WHAT_ARE_MY_ADVENTURE_BASICS:
         case HELP_HOW_DO_I_PREPARE_FOR_BATTLE:

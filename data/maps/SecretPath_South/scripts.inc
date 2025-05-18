@@ -33,13 +33,13 @@ SecretPath_South_TriggerEventFromRight::
 
 SecretPath_South_InvitePlayerForStealing::
     setflag FLAG_HIDE_BLACK_IN_SECRET_PATH
-@ TODO: Find the purpose of this flag; setflag 0x10A
+@ TODO: Find the purpose of this flag: setflag 0x10A
     lockall
     faceplayer
     playbgm MUS_ENCOUNTER_RIVAL, 1
     applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
     waitmovement 0
-    msgbox SecretPath_South_Text_RivalIntroduction, MSGBOX_DEFAULT
+    msgbox SecretPath_South_Text_RivalIntroduction
     closemessage
     applymovement LOCALID_BLACK, SecretPath_South_Movement_LeaveToPalletTown
     waitmovement 0

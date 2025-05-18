@@ -38,16 +38,16 @@
       "blockdata_filepath": "data/layouts/RecruitBase_RegistrationRoom/map.bin"
     },
     {
-      "id": "LAYOUT_PALLET_TOWN_RIVALS_HOUSE",
-      "name": "PalletTown_RivalsHouse_Layout",
+      "id": "LAYOUT_PALLET_TOWN_OAKS_HOUSE",
+      "name": "PalletTown_OaksHouse_Layout",
       "width": 13,
       "height": 10,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding2",
-      "border_filepath": "data/layouts/PalletTown_RivalsHouse/border.bin",
-      "blockdata_filepath": "data/layouts/PalletTown_RivalsHouse/map.bin"
+      "border_filepath": "data/layouts/PalletTown_OaksHouse/border.bin",
+      "blockdata_filepath": "data/layouts/PalletTown_OaksHouse/map.bin"
     },
     {
       "id": "LAYOUT_LITTLEROOT_TOWN_MAYS_HOUSE_2F",
@@ -64,7 +64,7 @@
     {
       "id": "LAYOUT_PALLET_TOWN_PROFESSOR_OAKS_LAB",
       "name": "PalletTown_ProfessorOaksLab_Layout",
-      "width": 13,
+      "width": 17,
       "height": 14,
       "border_width": 2,
       "border_height": 2,

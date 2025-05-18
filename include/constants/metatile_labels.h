@@ -77,6 +77,11 @@
 // gTileset_LavenderTown
 #define METATILE_LavenderTown_Door  0x2A2
 
+// gTileset_LilycoveCity
+#define METATILE_LilycoveCity_Door            0x297
+#define METATILE_LilycoveCity_GameCornerDoor  0x29B
+#define METATILE_LilycoveCity_PokeCenterDoor  0x2EB
+
 // gTileset_Mart
 #define METATILE_Mart_CounterMid_Bottom  0x2C0
 #define METATILE_Mart_CounterMid_Top     0x2BF
@@ -189,11 +194,6 @@
 #define METATILE_SeafoamIslands_IceHole       0x35B
 #define METATILE_SeafoamIslands_SlidingIce    0x34B
 #define METATILE_SeafoamIslands_UncrackedIce  0x359
-
-// gTileset_LilycoveCity
-#define METATILE_LilycoveCity_Door            0x297
-#define METATILE_LilycoveCity_GameCornerDoor  0x29B
-#define METATILE_LilycoveCity_PokeCenterDoor  0x2EB
 
 // gTileset_SeviiIslands45
 #define METATILE_SeviiIslands45_DayCareDoor                   0x2B9

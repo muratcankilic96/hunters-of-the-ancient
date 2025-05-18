@@ -9,11 +9,11 @@ RecruitBase_Entrance_MapScripts::
     .byte 0
 
 RecruitBase_Entrance_OnTransition::
-    goto_if_ge VAR_STORYLINE_LAB_INVASION, 7, RecruitBase_Entrance_RepositionScientist
+    goto_if_ge VAR_STORYLINE_LAB_INVASION, 6, RecruitBase_Entrance_RepositionScientist
     end
 
 RecruitBase_Entrance_RepositionScientist::
-    setobjectxyperm LOCALID_ROCKET_SCIENTIST, 10, 7
+    setobjectxyperm LOCALID_ROCKET_SCIENTIST, 10, 6
     setobjectmovementtype LOCALID_ROCKET_SCIENTIST, MOVEMENT_TYPE_WANDER_AROUND 
     end
 

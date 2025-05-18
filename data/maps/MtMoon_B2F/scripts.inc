@@ -12,7 +12,6 @@ MtMoon_B2F_OnTransition::
 
 MtMoon_B2F_EventScript_ShowFossils::
 	clearflag TEMP_FLAGS_START
-	clearflag FLAG_HIDE_HELIX_FOSSIL
 	return
 
 MtMoon_B2F_EventScript_MiguelTrigger::

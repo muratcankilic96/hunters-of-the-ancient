@@ -75,7 +75,7 @@ RecruitBase_MainHall_RunningShoes::
 	message RecruitBase_MainHall_Text_PlayerGetsRunningShoes
 	waitmessage
 	waitfanfare
-	msgbox RecruitBase_MainHall_Text_PlayerSwitchesRunningShoes, MSGBOX_DEFAULT
+	msgbox RecruitBase_MainHall_Text_PlayerSwitchesRunningShoes
 	setflag FLAG_SYS_B_DASH
 	msgbox RecruitBase_MainHall_Text_GiovanniDismissesPlayer, MSGBOX_AUTOCLOSE
 	applymovement LOCALID_GIOVANNI, RecruitBase_MainHall_Movement_GoRecruitBaseUnderground
@@ -86,7 +86,7 @@ RecruitBase_MainHall_RunningShoes::
 	waitmovement 0
 	msgbox RecruitBase_MainHall_Text_BlackGoesAhead, MSGBOX_AUTOCLOSE
 	fadescreen FADE_FROM_BLACK
-	warp MAP_CINEMATIC_BLACK_SCREEN, 255, 9, 9
+	warp MAP_CINEMATIC_BLACK_SCREEN, 9, 9
 	releaseall
 	end
 

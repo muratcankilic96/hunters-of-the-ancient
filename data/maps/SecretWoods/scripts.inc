@@ -23,10 +23,6 @@ SecretWoods_EventScript_MaleRocketAfterInvasion::
 	msgbox SecretWoods_Text_MaleRocketAfterLabInvasion, MSGBOX_NPC
 	end
 
-SecretWoods_EventScript_FlagUnsetBeforeRecruitBase::
-	setvar VAR_STORYLINE_LAB_INVASION, 7
-	end
-
 SecretWoods_EventScript_BaseSign::
 	msgbox SecretWoods_Text_RecruitBaseSign, MSGBOX_SIGN
 	end

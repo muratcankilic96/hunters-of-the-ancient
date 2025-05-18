@@ -74,33 +74,7 @@
     }
   ],
   "coord_events": [
-    {
-      "type": "trigger",
-      "x": 14,
-      "y": 17,
-      "elevation": 0,
-      "var": "VAR_STORYLINE_LAB_INVASION",
-      "var_value": "6",
-      "script": "SecretWoods_EventScript_FlagUnsetBeforeRecruitBase"
-    },
-    {
-      "type": "trigger",
-      "x": 13,
-      "y": 16,
-      "elevation": 0,
-      "var": "VAR_STORYLINE_LAB_INVASION",
-      "var_value": "6",
-      "script": "SecretWoods_EventScript_FlagUnsetBeforeRecruitBase"
-    },
-    {
-      "type": "trigger",
-      "x": 15,
-      "y": 16,
-      "elevation": 0,
-      "var": "VAR_STORYLINE_LAB_INVASION",
-      "var_value": "6",
-      "script": "SecretWoods_EventScript_FlagUnsetBeforeRecruitBase"
-    }
+
   ],
   "bg_events": [
     {

@@ -53,15 +53,15 @@
 #define FLAG_0x027               0x027
 
 // Hide/show flags
-#define FLAG_HIDE_BULBASAUR_BALL                           0x028
-#define FLAG_HIDE_SQUIRTLE_BALL                            0x029
-#define FLAG_HIDE_CHARMANDER_BALL                          0x02A
+#define FLAG_HIDE_CHIKORITA_BALL                           0x028
+#define FLAG_HIDE_TOTODILE_BALL                            0x029
+#define FLAG_HIDE_CYNDAQUIL_BALL                           0x02A
 #define FLAG_HIDE_POKEDEX_IN_RECRUIT_BASE                  0x02B
 #define FLAG_HIDE_GIOVANNI_IN_REGISTRATION_ROOM            0x02C
 #define FLAG_HIDE_BLACK_IN_SECRET_PATH                     0x02D
-#define FLAG_HIDE_PEWTER_CITY_EXIT_IPA_AGENT               0x02E
-#define FLAG_HIDE_PEWTER_CITY_GYM_FRONT_IPA_AGENTS         0x02F
-#define FLAG_HIDE_HELIX_FOSSIL                             0x030
+#define FLAG_HIDE_BLACK_IN_PALLET_TOWN                     0x02E
+#define FLAG_HIDE_PEWTER_CITY_EXIT_IPA_AGENT               0x02F
+#define FLAG_HIDE_PEWTER_CITY_GYM_FRONT_IPA_AGENTS         0x030
 #define FLAG_HIDE_NUGGET_BRIDGE_ROCKET                     0x031
 #define FLAG_HIDE_BILL_CLEFAIRY                            0x032
 #define FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE                   0x033
@@ -743,7 +743,7 @@
 #define FLAG_TUTOR_METRONOME                             0x2CC
 #define FLAG_TUTOR_MIMIC                                 0x2CD
 #define FLAG_TUTOR_BODY_SLAM                             0x2CE
-#define FLAG_VISITED_OAKS_LAB                            0x2CF
+#define FLAG_0x2CF                                       0x2CF
 #define FLAG_FOUGHT_POWER_PLANT_ELECTRODE_1              0x2D0
 #define FLAG_FOUGHT_POWER_PLANT_ELECTRODE_2              0x2D1
 #define FLAG_STOPPED_SEAFOAM_B3F_CURRENT                 0x2D2
