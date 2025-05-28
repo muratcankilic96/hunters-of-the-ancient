@@ -95,7 +95,7 @@
 #define VAR_0x402F                         0x402F
 
 #define VAR_ICE_STEP_COUNT                 0x4030
-#define VAR_STARTER_MON                    0x4031 // 0: Bulbasaur, 1: Squirtle, 2: Charmander
+#define VAR_STARTER_MON                    0x4031 // 0: Chikorita, 1: Totodile, 2: Cyndaquil
 #define VAR_RESET_RTC_ENABLE               0x4032
 #define VAR_ENIGMA_BERRY_AVAILABLE         0x4033
 
@@ -137,7 +137,7 @@
 #define VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB                           0x4055
 #define WARP_REGISTRATION_ROOM                                                 0x4056
 #define VAR_MAP_SCENE_VIRIDIAN_CITY_MART                                       0x4057
-#define VAR_MAP_SCENE_PALLET_TOWN_OAKS_HOUSE                                 0x4058
+#define VAR_MAP_SCENE_PALLET_TOWN_OAKS_HOUSE                                   0x4058
 #define VAR_MAP_SCENE_POKEMON_TOWER_6F                                         0x4059
 #define VAR_MAP_SCENE_VIRIDIAN_CITY_GYM_DOOR                                   0x405A
 #define VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR                                     0x405B

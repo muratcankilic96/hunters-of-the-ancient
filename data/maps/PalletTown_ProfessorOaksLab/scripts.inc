@@ -42,7 +42,7 @@ PalletTown_ProfessorOaksLab_BeginLabInvasion::
 	end
 
 PalletTown_ProfessorOaksLab_Computer::
-	msgbox PalletTown_ProfessorOaksLab_Text_ComputerShutDown, MSGBOX_SIGN
+	msgbox PalletTown_ProfessorOaksLab_Text_ElmsEmail, MSGBOX_SIGN
 	end
 
 PalletTown_ProfessorOaksLab_ProfessorOak::
@@ -64,7 +64,72 @@ PalletTown_ProfessorOaksLab_PreventGoingToBasementSide::
 	waitmovement 0
 	end
 
+PalletTown_ProfessorOaksLab_PickChikorita::
+	goto_if_ge VAR_STORYLINE_GOT_FIRST_POKEMON, 1, PalletTown_ProfessorOaksLab_AlreadyPickedPokemon
+	setvar VAR_TEMP_1, SPECIES_CHIKORITA
+	goto PalletTown_ProfessorOaksLab_ShowPokemonPicture
+
+PalletTown_ProfessorOaksLab_PickTotodile::
+	goto_if_ge VAR_STORYLINE_GOT_FIRST_POKEMON, 1, PalletTown_ProfessorOaksLab_AlreadyPickedPokemon
+	setvar VAR_TEMP_1, SPECIES_TOTODILE
+	goto PalletTown_ProfessorOaksLab_ShowPokemonPicture
+
+PalletTown_ProfessorOaksLab_PickCyndaquil::
+	goto_if_ge VAR_STORYLINE_GOT_FIRST_POKEMON, 1, PalletTown_ProfessorOaksLab_AlreadyPickedPokemon
+	setvar VAR_TEMP_1, SPECIES_CYNDAQUIL
+	goto PalletTown_ProfessorOaksLab_ShowPokemonPicture
+
+PalletTown_ProfessorOaksLab_ShowPokemonPicture::
+	showmonpic VAR_TEMP_1, 10, 3
+	bufferspeciesname STR_VAR_1, VAR_TEMP_1
+	goto PalletTown_ProfessorOaksLab_MakeStealingDecision
+
+PalletTown_ProfessorOaksLab_MakeStealingDecision::
+	msgbox PalletTown_ProfessorOaksLab_Text_StealingDecision, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, PalletTown_ProfessorOaksLab_StealPokemon
+	hidemonpic
+	release
+	end
+
+PalletTown_ProfessorOaksLab_StealPokemon::
+	hidemonpic
+	removeobject VAR_LAST_TALKED
+	givemon VAR_TEMP_1, 5
+	message PalletTown_ProfessorOaksLab_Text_StolePokemon
+	waitmessage
+	playfanfare MUS_OBTAIN_KEY_ITEM
+	waitfanfare
+	msgbox PalletTown_ProfessorOaksLab_Text_Nickname, MSGBOX_YESNO
+	call_if_eq VAR_RESULT, 1, PalletTown_ProfessorOaksLab_Nickname
+	closemessage
+	setvar VAR_STORYLINE_GOT_FIRST_POKEMON, 1
+	clearflag FLAG_HIDE_BLACK_IN_PALLET_TOWN
+@ TODO: Find the purpose of these variables and flags:
+@ setvar 0x5003 0x1
+@ setvar 0x5000 0x1
+@ setflag 0x100E
+@ setflag 0x1065
+	copyvar VAR_STARTER_MON, VAR_TEMP_1
+	setflag FLAG_SYS_POKEMON_GET
+	end
+
+PalletTown_ProfessorOaksLab_Nickname::
+	setvar VAR_0x8004, 0
+	call EventScript_ChangePokemonNickname
+	return
+
+PalletTown_ProfessorOaksLab_AlreadyPickedPokemon::
+	msgbox PalletTown_ProfessorOaksLab_Text_AlreadyGotOne, MSGBOX_AUTOCLOSE
+	end
+
 PalletTown_ProfessorOaksLab_TriggerOnLeavingLab::
+	goto_if_ge VAR_STORYLINE_GOT_FIRST_POKEMON, 1, PalletTown_ProfessorOaksLab_PoliceBattleEvent
+	msgbox PalletTown_ProfessorOaksLab_Text_FirstShouldStealPokemon, MSGBOX_AUTOCLOSE
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
+	waitmovement 0
+	end
+
+PalletTown_ProfessorOaksLab_PoliceBattleEvent::
 	end
 
 PalletTown_ProfessorOaksLab_Movement_WalkIntimidatingly::

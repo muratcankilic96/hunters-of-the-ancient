@@ -82,7 +82,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "PalletTown_ProfessorOaksLab_PickChikorita",
       "flag": "FLAG_HIDE_CHIKORITA_BALL"
     },
     {
@@ -96,7 +96,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "PalletTown_ProfessorOaksLab_PickTotodile",
       "flag": "FLAG_HIDE_TOTODILE_BALL"
     },
     {
@@ -110,7 +110,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "PalletTown_ProfessorOaksLab_PickCyndaquil",
       "flag": "FLAG_HIDE_CYNDAQUIL_BALL"
     },
     {

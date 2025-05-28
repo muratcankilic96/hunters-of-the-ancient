@@ -80,10 +80,10 @@ PalletTown_Movement_GetCloseToPlayer::
 
 PalletTown_Movement_MoveTowardsOaksLab::
 	walk_left
+	walk_down
+	walk_down
+	walk_down
 	walk_left
-	walk_down
-	walk_down
-	walk_down
 	walk_left
 	walk_left
 	walk_left
@@ -91,10 +91,10 @@ PalletTown_Movement_MoveTowardsOaksLab::
 
 PalletTown_Movement_FollowTowardsOaksLab::
 	walk_left
-	walk_down
-	walk_down
-	walk_down
 	walk_left
+	walk_down
+	walk_down
+	walk_down
 	walk_left
 	walk_left
 	walk_left
