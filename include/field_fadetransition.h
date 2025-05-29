@@ -3,7 +3,7 @@
 
 #include "global.h"
 
-void FieldCB_RushInjuredPokemonToCenter(void);
+void FieldCB_RushInjuredPokemonToHideout(void);
 void DoWarp(void);
 void DoDiveWarp(void);
 void DoDoorWarp(void);

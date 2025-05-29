@@ -1385,3 +1385,6 @@ Text_TestMsg::
 
 	.include "data/maps/SecretPath_North/scripts.inc"
 	.include "data/maps/SecretPath_North/text.inc"
+
+	.include "data/maps/Void/scripts.inc"
+	.include "data/maps/Void/text.inc"

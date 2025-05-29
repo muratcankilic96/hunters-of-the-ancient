@@ -384,10 +384,10 @@ static bool8 PrintWhiteOutRecoveryMessage(u8 taskId, const u8 *text, u8 x, u8 y)
     return FALSE;
 }
 
-static void Task_RushInjuredPokemonToCenter(u8 taskId)
+static void Task_RushInjuredPokemonToHideout(u8 taskId)
 {
     u8 windowId;
-    const struct HealLocation *loc;
+    const struct HealLocation *loc, *gameOver;
 
     switch (gTasks[taskId].tState)
     {
@@ -399,32 +399,44 @@ static void Task_RushInjuredPokemonToCenter(u8 taskId)
         PutWindowTilemap(windowId);
         CopyWindowToVram(windowId, COPYWIN_FULL);
 
-        // Scene changes if last heal location was the player's house
+        // Scene changes if last heal location was the recruit base
         loc = GetHealLocation(SPAWN_RECRUIT_BASE);
+        gameOver = GetHealLocation(SPAWN_GAME_OVER);
         if (gSaveBlock1Ptr->lastHealLocation.mapGroup == loc->group
          && gSaveBlock1Ptr->lastHealLocation.mapNum == loc->map
          && gSaveBlock1Ptr->lastHealLocation.warpId == WARP_ID_NONE
          && gSaveBlock1Ptr->lastHealLocation.x == loc->x
          && gSaveBlock1Ptr->lastHealLocation.y == loc->y)
             gTasks[taskId].tState = 4;
-        else
+        else if (gSaveBlock1Ptr->lastHealLocation.mapGroup == gameOver->group
+         && gSaveBlock1Ptr->lastHealLocation.mapNum == gameOver->map
+         && gSaveBlock1Ptr->lastHealLocation.warpId == WARP_ID_NONE
+         && gSaveBlock1Ptr->lastHealLocation.x == gameOver->x
+         && gSaveBlock1Ptr->lastHealLocation.y == gameOver->y)
+            gTasks[taskId].tState = 2;
+        else 
             gTasks[taskId].tState = 1;
         break;
     case 1:
-        if (PrintWhiteOutRecoveryMessage(taskId, gText_PlayerScurriedToCenter, 2, 8))
+        if (PrintWhiteOutRecoveryMessage(taskId, gText_PlayerScurriedToHideout, 2, 8))
         {
             ObjectEventTurn(&gObjectEvents[gPlayerAvatar.objectEventId], DIR_NORTH);
             gTasks[taskId].tState++;
         }
         break;
     case 4:
-        if (PrintWhiteOutRecoveryMessage(taskId, gText_PlayerScurriedBackHome, 2, 8))
+        if (PrintWhiteOutRecoveryMessage(taskId, gText_PlayerScurriedBackRecruitBase, 2, 8))
         {
             ObjectEventTurn(&gObjectEvents[gPlayerAvatar.objectEventId], DIR_NORTH);
             gTasks[taskId].tState++;
         }
         break;
     case 2:
+        if (PrintWhiteOutRecoveryMessage(taskId, gText_PlayerHasBeenArrested, 2, 8))
+        {
+            DoSoftReset();
+        }
+        break;
     case 5:
         windowId = gTasks[taskId].tWindowId;
         ClearWindowTilemap(windowId);
@@ -451,12 +463,12 @@ static void Task_RushInjuredPokemonToCenter(u8 taskId)
     }
 }
 
-void FieldCB_RushInjuredPokemonToCenter(void)
+void FieldCB_RushInjuredPokemonToHideout(void)
 {
     u8 taskId;
 
     LockPlayerFieldControls();
     palette_bg_faded_fill_black();
-    taskId = CreateTask(Task_RushInjuredPokemonToCenter, 10);
+    taskId = CreateTask(Task_RushInjuredPokemonToHideout, 10);
     gTasks[taskId].tState = 0;
 }

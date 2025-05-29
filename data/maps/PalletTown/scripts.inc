@@ -1,7 +1,22 @@
 .set LOCALID_BLACK, 3
 
 PalletTown_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, PalletTown_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, PalletTown_OnFrame
 	.byte 0
+
+PalletTown_OnTransition::
+    goto_if_eq VAR_STORYLINE_LAB_INVASION, 4, PalletTown_RepositionBlack
+    end
+
+PalletTown_OnFrame::
+	map_script_2 VAR_STORYLINE_LAB_INVASION, 4, PalletTown_RunFromPalletTown
+	.2byte 0
+
+PalletTown_RepositionBlack::
+    setobjectxyperm LOCALID_BLACK, 17, 14
+    setobjectmovementtype LOCALID_BLACK, MOVEMENT_TYPE_FACE_RIGHT
+    end
 
 PalletTown_MeetWithBlackForLabInvasion::
 	setflag FLAG_HIDE_BLACK_IN_PALLET_TOWN
@@ -31,6 +46,21 @@ PalletTown_MeetWithBlackForLabInvasion::
 	waitstate
 	releaseall
     end
+
+PalletTown_RunFromPalletTown::
+	lock
+	faceplayer
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	applymovement LOCALID_BLACK, Common_Movement_FaceRight
+	msgbox PalletTown_Text_LetsGetBack
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, PalletTown_Movement_FollowThroughSecretPath
+	applymovement LOCALID_BLACK, PalletTown_Movement_LeaveTowardsSecretPath
+	waitmovement 0
+	setvar VAR_STORYLINE_LAB_INVASION, 5
+	waitmovement 0
+	release
+	end
 
 PalletTown_Woman::
 	msgbox PalletTown_Text_WhoAreYou, MSGBOX_NPC
@@ -108,5 +138,50 @@ PalletTown_Movement_EnterOaksLab::
 PalletTown_Movement_FollowThroughOaksLab::
 	walk_left
 	walk_up
+	set_invisible
+	step_end
+
+PalletTown_Movement_FollowThroughSecretPath::
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	step_end
+
+PalletTown_Movement_LeaveTowardsSecretPath::
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
 	set_invisible
 	step_end

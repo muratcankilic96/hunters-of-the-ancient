@@ -2443,7 +2443,7 @@ extern const u32 gMonPalette_DoubleQuestionMark[];
 extern const u32 gMonShinyPalette_DoubleQuestionMark[];
 
 // trainer sprites
-extern const u32 gTrainerFrontPic_AquaLeaderArchie[];
+extern const u32 gTrainerFrontPic_SecurityGuard[];
 extern const u32 gTrainerFrontPic_AquaGruntM[];
 extern const u32 gTrainerFrontPic_AquaGruntF[];
 extern const u32 gTrainerFrontPic_RSAromaLady[];
@@ -2592,7 +2592,7 @@ extern const u32 gTrainerFrontPic_RuinManiac[];
 extern const u32 gTrainerFrontPic_Lady[];
 extern const u32 gTrainerFrontPic_Painter[];
 
-extern const u32 gTrainerPalette_AquaLeaderArchie[];
+extern const u32 gTrainerPalette_SecurityGuard[];
 extern const u32 gTrainerPalette_AquaGruntM[];
 extern const u32 gTrainerPalette_AquaGruntF[];
 extern const u32 gTrainerPalette_RSAromaLady[];

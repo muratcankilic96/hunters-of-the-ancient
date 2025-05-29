@@ -67,3 +67,23 @@ PalletTown_ProfessorOaksLab_Text_StolePokemon::
 PalletTown_ProfessorOaksLab_Text_Nickname::
     .string "Do you want to give a nickname to\n"
     .string "this stolen {STR_VAR_1}?$"
+
+PalletTown_ProfessorOaksLab_Text_YouMadeAChoice::
+    .string "{COLOR LIGHT_RED}{RIVAL}: {COLOR BLUE}Oh, you made a\n"
+    .string "choice, huh? Let's get back to the\l"
+    .string "base.$"
+
+PalletTown_ProfessorOaksLab_Text_Police::
+    .string "{COLOR BLUE}POLICE! Put your hands up,\n"
+    .string "quickly!$"
+
+PalletTown_ProfessorOaksLab_UseYourPicked::
+    .string "{COLOR LIGHT_RED}{RIVAL}: {COLOR BLUE}Damn it! Use the\n"
+    .string "POKéMON that you already stole!\l"
+    .string "We must run!$"
+
+PalletTown_ProfessorOaksLab_IFailedToStopYou::
+    .string "I failed to stop you!$"
+
+PalletTown_ProfessorOaksLab_LetsRun::
+    .string "{COLOR LIGHT_RED}{RIVAL}: {COLOR BLUE}Let's run!!$"

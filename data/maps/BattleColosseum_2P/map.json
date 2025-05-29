@@ -13,7 +13,7 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_LINK",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "type": "object",
@@ -32,14 +32,14 @@
   ],
   "warp_events": [
     {
-      "x": 6,
+      "x": 7,
       "y": 8,
       "elevation": 3,
       "dest_map": "MAP_DYNAMIC",
       "dest_warp_id": "WARP_ID_DYNAMIC"
     },
     {
-      "x": 7,
+      "x": 6,
       "y": 8,
       "elevation": 3,
       "dest_map": "MAP_DYNAMIC",
@@ -66,5 +66,7 @@
       "script": "BattleColosseum_2P_EventScript_PlayerSpot1"
     }
   ],
-  "bg_events": []
+  "bg_events": [
+
+  ]
 }

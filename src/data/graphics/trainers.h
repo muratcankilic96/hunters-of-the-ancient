@@ -1,5 +1,5 @@
-const u32 gTrainerFrontPic_AquaLeaderArchie[] = INCBIN_U32("graphics/trainers/front_pics/aqua_leader_archie_front_pic.4bpp.lz");
-const u32 gTrainerPalette_AquaLeaderArchie[] = INCBIN_U32("graphics/trainers/palettes/aqua_leader_archie.gbapal.lz");
+const u32 gTrainerFrontPic_SecurityGuard[] = INCBIN_U32("graphics/trainers/front_pics/security_guard_front_pic.4bpp.lz");
+const u32 gTrainerPalette_SecurityGuard[] = INCBIN_U32("graphics/trainers/palettes/security_guard.gbapal.lz");
 
 const u32 gTrainerFrontPic_AquaGruntM[] = INCBIN_U32("graphics/trainers/front_pics/aqua_grunt_m_front_pic.4bpp.lz");
 const u32 gTrainerPalette_AquaGruntM[] = INCBIN_U32("graphics/trainers/palettes/aqua_grunt_m.gbapal.lz");

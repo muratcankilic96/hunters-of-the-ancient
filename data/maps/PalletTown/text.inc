@@ -36,3 +36,7 @@ PalletTown_Text_PoliceIsHere::
     .string "{COLOR LIGHT_RED}{RIVAL}: {COLOR BLUE}The police may notice\n"
     .string "us, we must be careful.\l"
     .string "Come on!$"
+
+PalletTown_Text_LetsGetBack::
+    .string "{COLOR LIGHT_RED}{RIVAL}: {COLOR BLUE}Let's get back to the base!\n"
+    .string "Come with me.$"

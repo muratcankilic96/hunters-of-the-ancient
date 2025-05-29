@@ -1,6 +1,7 @@
 .set LOCALID_WOMAN, 2
 .set LOCALID_OAK, 4
 .set LOCALID_BLACK, 8
+.set LOCALID_POLICE, 9
 
 PalletTown_ProfessorOaksLab_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, PalletTown_ProfessorOaksLab_OnFrame
@@ -67,16 +68,19 @@ PalletTown_ProfessorOaksLab_PreventGoingToBasementSide::
 PalletTown_ProfessorOaksLab_PickChikorita::
 	goto_if_ge VAR_STORYLINE_GOT_FIRST_POKEMON, 1, PalletTown_ProfessorOaksLab_AlreadyPickedPokemon
 	setvar VAR_TEMP_1, SPECIES_CHIKORITA
+	setvar VAR_TEMP_2, FLAG_HIDE_CHIKORITA_BALL
 	goto PalletTown_ProfessorOaksLab_ShowPokemonPicture
 
 PalletTown_ProfessorOaksLab_PickTotodile::
 	goto_if_ge VAR_STORYLINE_GOT_FIRST_POKEMON, 1, PalletTown_ProfessorOaksLab_AlreadyPickedPokemon
 	setvar VAR_TEMP_1, SPECIES_TOTODILE
+	setvar VAR_TEMP_2, FLAG_HIDE_TOTODILE_BALL
 	goto PalletTown_ProfessorOaksLab_ShowPokemonPicture
 
 PalletTown_ProfessorOaksLab_PickCyndaquil::
 	goto_if_ge VAR_STORYLINE_GOT_FIRST_POKEMON, 1, PalletTown_ProfessorOaksLab_AlreadyPickedPokemon
 	setvar VAR_TEMP_1, SPECIES_CYNDAQUIL
+	setvar VAR_TEMP_2, FLAG_HIDE_CYNDAQUIL_BALL
 	goto PalletTown_ProfessorOaksLab_ShowPokemonPicture
 
 PalletTown_ProfessorOaksLab_ShowPokemonPicture::
@@ -95,6 +99,7 @@ PalletTown_ProfessorOaksLab_StealPokemon::
 	hidemonpic
 	removeobject VAR_LAST_TALKED
 	givemon VAR_TEMP_1, 5
+	setflag VAR_TEMP_2
 	message PalletTown_ProfessorOaksLab_Text_StolePokemon
 	waitmessage
 	playfanfare MUS_OBTAIN_KEY_ITEM
@@ -103,7 +108,6 @@ PalletTown_ProfessorOaksLab_StealPokemon::
 	call_if_eq VAR_RESULT, 1, PalletTown_ProfessorOaksLab_Nickname
 	closemessage
 	setvar VAR_STORYLINE_GOT_FIRST_POKEMON, 1
-	clearflag FLAG_HIDE_BLACK_IN_PALLET_TOWN
 @ TODO: Find the purpose of these variables and flags:
 @ setvar 0x5003 0x1
 @ setvar 0x5000 0x1
@@ -130,6 +134,27 @@ PalletTown_ProfessorOaksLab_TriggerOnLeavingLab::
 	end
 
 PalletTown_ProfessorOaksLab_PoliceBattleEvent::
+	setrespawn SPAWN_GAME_OVER
+	msgbox PalletTown_ProfessorOaksLab_Text_YouMadeAChoice
+	closemessage
+	clearflag FLAG_HIDE_BLACK_IN_PALLET_TOWN
+	addobject LOCALID_POLICE
+	clearflag FLAG_HIDE_POKEDEX_IN_RECRUIT_BASE
+	applymovement LOCALID_POLICE, PalletTown_ProfessorOaksLab_Movement_DiveIntoLab
+	applymovement LOCALID_BLACK, PalletTown_ProfessorOaksLab_Movement_PrepareToEscape
+	msgbox PalletTown_ProfessorOaksLab_Text_Police
+	closemessage
+	msgbox PalletTown_ProfessorOaksLab_UseYourPicked
+	closemessage
+	trainerbattle_no_intro TRAINER_OAK_LAB_SECURITY, PalletTown_ProfessorOaksLab_IFailedToStopYou
+	setrespawn SPAWN_RECRUIT_BASE
+	msgbox PalletTown_ProfessorOaksLab_LetsRun
+	closemessage
+	setvar VAR_STORYLINE_LAB_INVASION, 4
+@ TODO: Find the purpose of this flag: clearflag 0x107
+	warp MAP_PALLET_TOWN, 16, 14
+	waitstate
+	releaseall
 	end
 
 PalletTown_ProfessorOaksLab_Movement_WalkIntimidatingly::
@@ -171,4 +196,20 @@ PalletTown_ProfessorOaksLab_Movement_GetScaredFromGun::
 	walk_left
 	walk_left
 	face_right
+	step_end
+
+PalletTown_ProfessorOaksLab_Movement_DiveIntoLab::
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+PalletTown_ProfessorOaksLab_Movement_PrepareToEscape::
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	step_end

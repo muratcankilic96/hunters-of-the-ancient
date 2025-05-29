@@ -2,15 +2,15 @@ const struct Trainer gTrainers[] = {
     [TRAINER_NONE] = {
         .trainerName = _(""),
     },
-    [TRAINER_AQUA_LEADER] = {
-        .trainerClass = TRAINER_CLASS_AQUA_LEADER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,
-        .trainerPic = TRAINER_PIC_AQUA_LEADER_ARCHIE,
-        .trainerName = _(""),
+    [TRAINER_OAK_LAB_SECURITY] = {
+        .trainerClass = TRAINER_CLASS_SECURITY,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_SECURITY_GUARD,
+        .trainerName = _("GUARD"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_AquaLeader),
+        .party = NO_ITEM_DEFAULT_MOVES(sParty_OakLabSecurity),
     },
     [TRAINER_AQUA_GRUNT_M] = {
         .trainerClass = TRAINER_CLASS_TEAM_AQUA,

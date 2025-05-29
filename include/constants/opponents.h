@@ -2,8 +2,8 @@
 #define GUARD_CONSTANTS_OPPONENTS_H
 
 #define TRAINER_NONE                               0
+#define TRAINER_OAK_LAB_SECURITY                   1
 // Dummy trainers for all the RS trainer classes
-#define TRAINER_AQUA_LEADER                        1
 #define TRAINER_AQUA_GRUNT_M                       2
 #define TRAINER_AQUA_GRUNT_F                       3
 #define TRAINER_RS_AROMA_LADY                      4

@@ -1543,7 +1543,7 @@ void CB2_WhiteOut(void)
         SetInitialPlayerAvatarStateWithDirection(DIR_NORTH);
         ScriptContext_Init();
         UnlockPlayerFieldControls();
-        gFieldCallback = FieldCB_RushInjuredPokemonToCenter;
+        gFieldCallback = FieldCB_RushInjuredPokemonToHideout;
         val = 0;
         DoMapLoadLoop(&val);
         QuestLog_CutRecording();
