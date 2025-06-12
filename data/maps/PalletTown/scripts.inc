@@ -1,4 +1,5 @@
 .set LOCALID_BLACK, 3
+.set LOCALID_POLICE, 4
 
 PalletTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, PalletTown_OnTransition
@@ -6,14 +7,15 @@ PalletTown_MapScripts::
 	.byte 0
 
 PalletTown_OnTransition::
-    goto_if_eq VAR_STORYLINE_LAB_INVASION, 4, PalletTown_RepositionBlack
+    goto_if_eq VAR_STORYLINE_LAB_INVASION, 4, PalletTown_RepositionBlackAndPolice
     end
 
 PalletTown_OnFrame::
 	map_script_2 VAR_STORYLINE_LAB_INVASION, 4, PalletTown_RunFromPalletTown
 	.2byte 0
 
-PalletTown_RepositionBlack::
+PalletTown_RepositionBlackAndPolice::
+	setobjectxyperm LOCALID_POLICE, 1, 1
     setobjectxyperm LOCALID_BLACK, 17, 14
     setobjectmovementtype LOCALID_BLACK, MOVEMENT_TYPE_FACE_RIGHT
     end

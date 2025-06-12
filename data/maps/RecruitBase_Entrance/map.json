@@ -40,7 +40,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RecruitBase_Entrance_GetPokedexFromBlack",
+      "script": "NULL",
       "flag": "FLAG_HIDE_POKEDEX_IN_RECRUIT_BASE"
     },
     {
@@ -117,24 +117,7 @@
     }
   ],
   "coord_events": [
-    {
-      "type": "trigger",
-      "x": 4,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_STORYLINE_LAB_INVASION",
-      "var_value": "5",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 6,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_STORYLINE_LAB_INVASION",
-      "var_value": "5",
-      "script": "NULL"
-    }
+
   ],
   "bg_events": [
     {

@@ -513,7 +513,7 @@ extern const u8 gText_Time[];
 extern const u8 gText_Colon[];
 extern const u8 gText_Pokedex[];
 extern const u8 gTextJPDummy_Hiki[];
-extern const u8 gText_Badges[];
+extern const u8 gText_Artifacts[];
 extern const u8 gTextJPDummy_Ko[];
 extern const u8 gText_Register[];
 
@@ -642,7 +642,7 @@ extern const u8 gStartMenuDesc_Player[];
 extern const u8 gText_SaveError_PleaseExchangeBackupMemory[];
 extern const u8 gText_SavingDontTurnOffThePower2[];
 extern const u8 gSaveStatName_Player[];
-extern const u8 gSaveStatName_Badges[];
+extern const u8 gSaveStatName_Artifacts[];
 extern const u8 gSaveStatName_Pokedex[];
 extern const u8 gSaveStatName_Time[];
 

@@ -13,8 +13,9 @@ RecruitBase_Entrance_BoxesContainSuits::
     .string "for recruits.$"
 
 RecruitBase_Entrance_WeGotPokedex::
-    .string "We “borrowed” the POKéDEX from a maniac\n"
-    .string "named BILL near CERULEAN CITY.$"
+    .string "We “borrowed” the POKéDEX from a\n"
+    .string "maniac named BILL near CERULEAN\l"
+    .string "CITY.$"
 
 RecruitBase_Entrance_ThereIsLabNearby::
     .string "I heard there is a POKéMON LAB\n"

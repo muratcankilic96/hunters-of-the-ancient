@@ -6,14 +6,19 @@
 
 RecruitBase_Entrance_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, RecruitBase_Entrance_OnTransition
+    map_script MAP_SCRIPT_ON_FRAME_TABLE, RecruitBase_Entrance_OnFrame
     .byte 0
 
 RecruitBase_Entrance_OnTransition::
     goto_if_ge VAR_STORYLINE_LAB_INVASION, 6, RecruitBase_Entrance_RepositionScientist
     end
 
+RecruitBase_Entrance_OnFrame::
+	map_script_2 VAR_STORYLINE_LAB_INVASION, 5, RecruitBase_Entrance_GetPokedexFromBlack
+	.2byte 0
+
 RecruitBase_Entrance_RepositionScientist::
-    setobjectxyperm LOCALID_ROCKET_SCIENTIST, 10, 6
+    setobjectxyperm LOCALID_ROCKET_SCIENTIST, 10, 7
     setobjectmovementtype LOCALID_ROCKET_SCIENTIST, MOVEMENT_TYPE_WANDER_AROUND 
     end
 
@@ -26,26 +31,16 @@ RecruitBase_Entrance_RocketNurse::
     end
 
 RecruitBase_Entrance_Scientist::
-    goto_if_ge VAR_STORYLINE_LAB_INVASION, 7, RecruitBase_Entrance_ScientistAfterPokedex
+    goto_if_ge VAR_STORYLINE_LAB_INVASION, 6, RecruitBase_Entrance_Scientist_AfterGettingPokedex
     msgbox RecruitBase_Entrance_BoxesContainSuits, MSGBOX_NPC
     end
 
-RecruitBase_Entrance_ScientistAfterPokedex::
+RecruitBase_Entrance_Scientist_AfterGettingPokedex::
     msgbox RecruitBase_Entrance_WeGotPokedex, MSGBOX_NPC
     end
 
 RecruitBase_Entrance_Grunt::
     msgbox RecruitBase_Entrance_ThereIsLabNearby, MSGBOX_NPC
-    end
-
-RecruitBase_Entrance_TriggerEventFromLeft::
-    applymovement OBJ_EVENT_ID_PLAYER, RecruitBase_Entrance_Movement_AlignFromLeft
-    waitmovement 0
-    end
-
-RecruitBase_Entrance_TriggerEventFromRight::
-    applymovement OBJ_EVENT_ID_PLAYER, RecruitBase_Entrance_Movement_AlignFromLeft
-    waitmovement 0
     end
 
 RecruitBase_Entrance_GetPokedexFromBlack::
@@ -120,7 +115,7 @@ RecruitBase_Entrance_Movement_LeaveRecruitBase::
     walk_down
     walk_down
     walk_left
-    walk_down
+    face_down
     set_invisible
     walk_down
     step_end

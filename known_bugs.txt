@@ -1,0 +1,5 @@
+Minor:
+1. The fainting screen text bumps slightly.
+
+Medium:
+1. Fainting before getting Pokédex teleports player before the Pokédex event is triggered.

@@ -113,7 +113,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_EliteFourDrake[] = {DUMM
 static const struct TrainerMonNoItemDefaultMoves sParty_OakLabSecurity[] = {
     {
         .iv = 0,
-        .lvl = 5,
+        .lvl = 4,
         .species = SPECIES_MEOWTH,
     },
 };

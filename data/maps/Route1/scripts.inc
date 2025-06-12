@@ -1,10 +1,10 @@
 Route1_MapScripts::
 	.byte 0
 
-Route1_EventScript_MartClerk::
+Route1_MartClerk::
 	lock
 	faceplayer
-	goto_if_set FLAG_GOT_POTION_ON_ROUTE_1, Route1_EventScript_AlreadyGotPotion
+	goto_if_set FLAG_GOT_POTION_ON_ROUTE_1, Route1_MartClerk_AfterGettingPotion
 	msgbox Route1_Text_WorkAtPokeMartTakeSample
 	textcolor NPC_TEXT_COLOR_NEUTRAL
 	checkitemspace ITEM_POTION
@@ -21,15 +21,15 @@ Route1_EventScript_MartClerk::
 	release
 	end
 
-Route1_EventScript_AlreadyGotPotion::
+Route1_MartClerk_AfterGettingPotion::
 	msgbox Route1_Text_ComeSeeUsIfYouNeedPokeBalls
 	release
 	end
 
-Route1_EventScript_Boy::
-	msgbox Route1_Text_CanJumpFromLedges, MSGBOX_NPC
+Route1_Boy::
+	msgbox Route1_Text_SomebodySuitedLikeYou, MSGBOX_NPC
 	end
 
-Route1_EventScript_RouteSign::
+Route1_RouteSign::
 	msgbox Route1_Text_RouteSign, MSGBOX_SIGN
 	end

@@ -17,4 +17,4 @@ SecretPath_South_Text_RivalIntroduction::
     .string "here, there is a POKéMON LAB.\l"
     .string "Anyway, my name is {RIVAL}! Meet\l"
     .string "me at the entrance of PALLET TOWN!\l"
-    .string "We can steal some POKéMON there."
+    .string "We can steal some POKéMON there.$"

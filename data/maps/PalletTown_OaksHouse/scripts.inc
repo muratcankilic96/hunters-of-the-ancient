@@ -1,171 +1,28 @@
-.equ LOCALID_DAISY,    1
 .equ LOCALID_TOWN_MAP, 2
 
-.equ RECEIVED_TOWN_MAP, VAR_TEMP_1
-
 PalletTown_OaksHouse_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, PalletTown_OaksHouse_OnTransition
 	.byte 0
 
-PalletTown_OaksHouse_OnTransition::
-	call_if_lt VAR_MAP_SCENE_PALLET_TOWN_OAKS_HOUSE, 2, PalletTown_OaksHouse_EventScript_MoveDaisyToTable
-	call_if_ge VAR_MAP_SCENE_PALLET_TOWN_OAKS_HOUSE, 2, PalletTown_OaksHouse_EventScript_AlreadyReceivedTownMap
+PalletTown_OaksHouse_Daisy::
+	goto_if_set FLAG_HIDE_TOWN_MAP, PalletTown_OaksHouse_Daisy_AfterStealingMap
+	msgbox PalletTown_OaksHouse_Text_WhyAreYouHere, MSGBOX_NPC
 	end
 
-PalletTown_OaksHouse_EventScript_MoveDaisyToTable::
-	setobjectmovementtype LOCALID_DAISY, MOVEMENT_TYPE_FACE_RIGHT
-	setobjectxyperm LOCALID_DAISY, 5, 4
-	return
-
-PalletTown_OaksHouse_EventScript_AlreadyReceivedTownMap::
-	setvar RECEIVED_TOWN_MAP, TRUE
-	return
-
-PalletTown_OaksHouse_EventScript_Daisy::
-	lock
-	faceplayer
-	famechecker FAMECHECKER_DAISY, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
-	goto_if_set FLAG_SYS_GAME_CLEAR, PalletTown_OaksHouse_EventScript_GroomMon
-	goto_if_eq RECEIVED_TOWN_MAP, TRUE, PalletTown_OaksHouse_EventScript_PleaseGiveMonsRest
-	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_OAKS_HOUSE, 2, PalletTown_OaksHouse_EventScript_ExplainTownMap
-	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_OAKS_HOUSE, 1, PalletTown_OaksHouse_EventScript_GiveTownMap
-	goto_if_ge VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 1, PalletTown_OaksHouse_EventScript_HeardBattledRival
-	msgbox PalletTown_OaksHouse_Text_HiBrothersAtLab
-	closemessage
-	applymovement LOCALID_DAISY, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	release
+PalletTown_OaksHouse_Daisy_AfterStealingMap::
+	msgbox PalletTown_OaksHouse_Text_GoAway, MSGBOX_NPC
 	end
 
-PalletTown_OaksHouse_EventScript_HeardBattledRival::
-	msgbox PalletTown_OaksHouse_Text_HeardYouBattledRival
-	release
-	end
-
-PalletTown_OaksHouse_EventScript_GroomMon::
-	goto_if_questlog EventScript_ReleaseEnd
-	special QuestLog_CutRecording
-	goto_if_lt VAR_MASSAGE_COOLDOWN_STEP_COUNTER, 500, PalletTown_OaksHouse_EventScript_RateMonFriendship
-	msgbox PalletTown_OaksHouse_Text_LikeMeToGroomMon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, PalletTown_OaksHouse_EventScript_DeclineGrooming
-	msgbox PalletTown_OaksHouse_Text_GroomWhichOne
-	special ChoosePartyMon
-	waitstate
-	lock
-	faceplayer
-	goto_if_ge VAR_0x8004, PARTY_SIZE, PalletTown_OaksHouse_EventScript_DeclineGrooming
-	specialvar VAR_RESULT, GetPartyMonSpecies
-	goto_if_eq VAR_RESULT, SPECIES_EGG, PalletTown_OaksHouse_EventScript_CantGroomEgg
-	msgbox PalletTown_OaksHouse_Text_LookingNiceInNoTime
-	closemessage
-	fadescreen FADE_TO_BLACK
-	playfanfare MUS_HEAL
-	waitfanfare
-	special DaisyMassageServices
-	fadescreen FADE_FROM_BLACK
-	special BufferMonNickname
-	msgbox PalletTown_OaksHouse_Text_ThereYouGoAllDone
-	release
-	end
-
-PalletTown_OaksHouse_EventScript_CantGroomEgg::
-	msgbox PalletTown_OaksHouse_Text_CantGroomAnEgg
-	release
-	end
-
-PalletTown_OaksHouse_EventScript_DeclineGrooming::
-	msgbox PalletTown_OaksHouse_Text_DontNeedAnyGrooming
-	release
-	end
-
-PalletTown_OaksHouse_EventScript_RateMonFriendship::
-	msgbox PalletTown_OaksHouse_Text_MayISeeFirstMon
-	specialvar VAR_RESULT, GetLeadMonFriendship
-	switch VAR_RESULT
-	case 0, PalletTown_OaksHouse_EventScript_MonFriendshipLowest
-	case 1, PalletTown_OaksHouse_EventScript_MonFriendshipLower
-	case 2, PalletTown_OaksHouse_EventScript_MonFriendshipLow
-	case 3, PalletTown_OaksHouse_EventScript_MonFriendshipMid
-	case 4, PalletTown_OaksHouse_EventScript_MonFriendshipHigh
-	case 5, PalletTown_OaksHouse_EventScript_MonFriendshipHigher
-	case 6, PalletTown_OaksHouse_EventScript_MonFriendshipHighest
-	end
-
-PalletTown_OaksHouse_EventScript_MonFriendshipLowest::
-	msgbox PalletTown_OaksHouse_Text_WhyWouldMonHateYouSoMuch
-	release
-	end
-
-PalletTown_OaksHouse_EventScript_MonFriendshipLower::
-	msgbox PalletTown_OaksHouse_Text_DontLikeWayItGlaresAtYou
-	release
-	end
-
-PalletTown_OaksHouse_EventScript_MonFriendshipLow::
-	msgbox PalletTown_OaksHouse_Text_NotFamiliarWithYouYet
-	release
-	end
-
-PalletTown_OaksHouse_EventScript_MonFriendshipMid::
-	msgbox PalletTown_OaksHouse_Text_ItsWarmingUpToYou
-	release
-	end
-
-PalletTown_OaksHouse_EventScript_MonFriendshipHigh::
-	msgbox PalletTown_OaksHouse_Text_ItsQuiteFriendly
-	release
-	end
-
-PalletTown_OaksHouse_EventScript_MonFriendshipHigher::
-	msgbox PalletTown_OaksHouse_Text_ItLooksVeryHappy
-	release
-	end
-
-PalletTown_OaksHouse_EventScript_MonFriendshipHighest::
-	msgbox PalletTown_OaksHouse_Text_CouldntLoveYouMore
-	release
-	end
-
-PalletTown_OaksHouse_EventScript_PleaseGiveMonsRest::
-	msgbox PalletTown_OaksHouse_Text_PleaseGiveMonsRest
-	release
-	end
-
-PalletTown_OaksHouse_EventScript_GiveTownMap::
-	msgbox PalletTown_OaksHouse_Text_ErrandForGrandpaThisWillHelp
-	closemessage
-	checkitemspace ITEM_TOWN_MAP
-	goto_if_eq VAR_RESULT, FALSE, PalletTown_OaksHouse_EventScript_NoRoomForTownMap
-	applymovement LOCALID_DAISY, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
+PalletTown_OaksHouse_TownMap::
+	msgbox PalletTown_OaksHouse_Text_TownMapCouldBeUseful, MSGBOX_AUTOCLOSE
+	giveitem_msg PalletTown_OaksHouse_Text_SnatchedTownMap, ITEM_TOWN_MAP
 	removeobject LOCALID_TOWN_MAP
-	setvar VAR_MAP_SCENE_PALLET_TOWN_OAKS_HOUSE, 2
-	delay 15
-	applymovement LOCALID_DAISY, Common_Movement_FacePlayer
-	waitmovement 0
-	delay 12
-	giveitem_msg PalletTown_OaksHouse_Text_ReceivedTownMapFromDaisy, ITEM_TOWN_MAP, 1, MUS_OBTAIN_KEY_ITEM
-	release
+	setflag FLAG_HIDE_TOWN_MAP
 	end
 
-PalletTown_OaksHouse_EventScript_NoRoomForTownMap::
-	msgbox PalletTown_OaksHouse_Text_DontHaveSpaceForThis
-	release
-	end
-
-PalletTown_OaksHouse_EventScript_ExplainTownMap::
-	msgbox PalletTown_OaksHouse_Text_ExplainTownMap
-	release
-	end
-
-PalletTown_OaksHouse_EventScript_TownMap::
-	msgbox PalletTown_OaksHouse_Text_ItsBigMapOfKanto, MSGBOX_NPC
-	end
-
-PalletTown_OaksHouse_EventScript_Bookshelf::
-	msgbox PalletTown_OaksHouse_Text_ShelvesCrammedFullOfBooks, MSGBOX_SIGN
-	end
-
-PalletTown_OaksHouse_EventScript_Picture::
+PalletTown_OaksHouse_Picture::
 	msgbox PalletTown_OaksHouse_Text_LovelyAndSweetClefairy, MSGBOX_SIGN
+	end
+
+PalletTown_OaksHouse_Bookshelf::
+	msgbox PalletTown_OaksHouse_Text_ShelvesCrammedFullOfBooks, MSGBOX_SIGN
 	end

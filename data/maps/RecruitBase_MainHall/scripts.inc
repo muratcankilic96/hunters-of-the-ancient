@@ -2,7 +2,12 @@
 .set LOCALID_BLACK, 7
 
 RecruitBase_MainHall_MapScripts::
+    map_script MAP_SCRIPT_ON_FRAME_TABLE, RecruitBase_MainHall_OnFrame
 	.byte 0
+
+RecruitBase_MainHall_OnFrame::
+	map_script_2 VAR_STORYLINE_DEFEATED_BROCK, 1, RecruitBase_MainHall_RunningShoes
+	.2byte 0
 
 RecruitBase_MainHall_Computer::
 	msgbox RecruitBase_MainHall_Text_NeedsPassword, MSGBOX_SIGN
@@ -49,23 +54,11 @@ RecruitBase_MainHall_Grunt5::
 	msgbox RecruitBase_MainHall_Text_ExceedsYourAuthority, MSGBOX_NPC
 	end
 
-RecruitBase_MainHall_TriggerEventFromLeft::
-	applymovement OBJ_EVENT_ID_PLAYER, RecruitBase_MainHall_Movement_AlignFromLeft
-	waitmovement 0
-	goto RecruitBase_MainHall_BlackCallsYou
-
-RecruitBase_MainHall_TriggerEventFromRight::
-	applymovement OBJ_EVENT_ID_PLAYER, RecruitBase_MainHall_Movement_AlignFromRight
-	waitmovement 0
-	goto RecruitBase_MainHall_BlackCallsYou
-
-RecruitBase_MainHall_BlackCallsYou::
-	msgbox RecruitBase_MainHall_Text_ComeHere, MSGBOX_NPC
-	goto RecruitBase_MainHall_RunningShoes
-
 RecruitBase_MainHall_RunningShoes::
 	lock
 	faceplayer
+	msgbox RecruitBase_MainHall_Text_ComeHere
+	waitmessage
 	setobjectxyperm LOCALID_BLACK, 7, 13
 	setobjectxyperm LOCALID_GIOVANNI, 8, 13
 	setobjectmovementtype LOCALID_GIOVANNI, MOVEMENT_TYPE_FACE_DOWN
@@ -90,17 +83,8 @@ RecruitBase_MainHall_RunningShoes::
 	releaseall
 	end
 
-RecruitBase_MainHall_Movement_AlignFromLeft::
-	walk_up
-	walk_right
-	step_end
-
-RecruitBase_MainHall_Movement_AlignFromRight::
-	walk_up
-	walk_left
-	step_end
-
 RecruitBase_MainHall_Movement_GetCloserToGiovanni::
+	walk_up
 	walk_up
 	walk_up
 	walk_up
