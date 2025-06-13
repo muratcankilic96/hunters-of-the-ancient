@@ -9,6 +9,7 @@
 #include "menu.h"
 #include "heal_location.h"
 #include "new_menu_helpers.h"
+#include "event_data.h"
 #include "event_object_movement.h"
 #include "field_fadetransition.h"
 #include "event_scripts.h"
@@ -387,6 +388,7 @@ static bool8 PrintWhiteOutRecoveryMessage(u8 taskId, const u8 *text, u8 x, u8 y)
 static void Task_RushInjuredPokemonToHideout(u8 taskId)
 {
     u8 windowId;
+    u16 *labInvasionState;
     const struct HealLocation *loc, *gameOver;
 
     switch (gTasks[taskId].tState)
@@ -401,7 +403,12 @@ static void Task_RushInjuredPokemonToHideout(u8 taskId)
 
         // Scene changes if last heal location was the recruit base
         loc = GetHealLocation(SPAWN_RECRUIT_BASE);
+        // Losing against the first police battle triggers a game over scene
         gameOver = GetHealLocation(SPAWN_GAME_OVER);
+        // If player faints before getting Pokédex, triggers flag
+        labInvasionState = GetVarPointer(VAR_STORYLINE_LAB_INVASION);
+        if (*labInvasionState == 5)
+            FlagSet(FLAG_FAINTED_BEFORE_POKEDEX);
         if (gSaveBlock1Ptr->lastHealLocation.mapGroup == loc->group
          && gSaveBlock1Ptr->lastHealLocation.mapNum == loc->map
          && gSaveBlock1Ptr->lastHealLocation.warpId == WARP_ID_NONE

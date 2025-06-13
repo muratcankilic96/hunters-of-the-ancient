@@ -21,6 +21,11 @@ RecruitBase_Entrance_ThereIsLabNearby::
     .string "I heard there is a POKéMON LAB\n"
     .string "near our recruit base.$"
 
+RecruitBase_Entrance_Text_AreYouFeelingBetter::
+    .string "{COLOR LIGHT_RED}{RIVAL}: {COLOR BLUE}Hey {PLAYER}.\n"
+    .string "Is everything alright? Come here\l"
+    .string "a second, won't you?$"
+
 RecruitBase_Entrance_Text_IToldEverything::
     .string "{COLOR LIGHT_RED}{RIVAL}: {COLOR BLUE}I told everything\n"
     .string "to the technician, and he wants to\l"

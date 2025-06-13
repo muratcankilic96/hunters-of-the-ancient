@@ -59,6 +59,7 @@ PalletTown_RunFromPalletTown::
 	applymovement OBJ_EVENT_ID_PLAYER, PalletTown_Movement_FollowThroughSecretPath
 	applymovement LOCALID_BLACK, PalletTown_Movement_LeaveTowardsSecretPath
 	waitmovement 0
+	removeobject LOCALID_BLACK
 	setvar VAR_STORYLINE_LAB_INVASION, 5
 	waitmovement 0
 	release

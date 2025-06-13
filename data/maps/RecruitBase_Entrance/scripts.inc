@@ -14,7 +14,7 @@ RecruitBase_Entrance_OnTransition::
     end
 
 RecruitBase_Entrance_OnFrame::
-	map_script_2 VAR_STORYLINE_LAB_INVASION, 5, RecruitBase_Entrance_GetPokedexFromBlack
+	map_script_2 VAR_STORYLINE_LAB_INVASION, 5, RecruitBase_Entrance_CheckWildBattleDefeat
 	.2byte 0
 
 RecruitBase_Entrance_RepositionScientist::
@@ -43,16 +43,36 @@ RecruitBase_Entrance_Grunt::
     msgbox RecruitBase_Entrance_ThereIsLabNearby, MSGBOX_NPC
     end
 
-RecruitBase_Entrance_GetPokedexFromBlack::
+RecruitBase_Entrance_CheckWildBattleDefeat::
     lockall
     faceplayer
+    playbgm MUS_OAK, 0
+    goto_if_set FLAG_FAINTED_BEFORE_POKEDEX, RecruitBase_Entrance_TriggerBlackCall
+    goto RecruitBase_Entrance_GetPokedexFromBlack
+    end
+
+RecruitBase_Entrance_TriggerBlackCall::
+    clearflag FLAG_FAINTED_BEFORE_POKEDEX
+    applymovement LOCALID_BLACK, Common_Movement_FaceRight
+    waitmovement 0
+    applymovement LOCALID_BLACK, Common_Movement_ExclamationMark
+    waitmovement 0
+    msgbox RecruitBase_Entrance_Text_AreYouFeelingBetter, MSGBOX_AUTOCLOSE
+    applymovement OBJ_EVENT_ID_PLAYER, RecruitBase_Entrance_Movement_GoBackToInitialPlace
+    waitmovement 0
+    applymovement LOCALID_BLACK, Common_Movement_FaceDown
+    waitmovement 0
+    goto RecruitBase_Entrance_GetPokedexFromBlack
+    end
+
+RecruitBase_Entrance_GetPokedexFromBlack::
     setflag FLAG_HIDE_POKEDEX_IN_RECRUIT_BASE
     setflag FLAG_SYS_POKEDEX_GET
-    playbgm MUS_OAK, 0
     msgbox RecruitBase_Entrance_Text_IToldEverything, MSGBOX_AUTOCLOSE
     applymovement LOCALID_ROCKET_SCIENTIST, RecruitBase_Entrance_Movement_WalkToPokedex
+    waitmovement 0
     msgbox RecruitBase_Entrance_Text_HeardYouGotPokemon, MSGBOX_AUTOCLOSE
-    applymovement OBJ_EVENT_ID_PLAYER, RecruitBase_Entrance_Movement_AlignFromRight
+    applymovement OBJ_EVENT_ID_PLAYER, RecruitBase_Entrance_Movement_AlignToRight
     applymovement LOCALID_BLACK, Common_Movement_FaceLeft
     waitmovement 0
     msgbox RecruitBase_Entrance_Text_WhatAreThey, MSGBOX_AUTOCLOSE
@@ -82,12 +102,12 @@ RecruitBase_Entrance_GetPokedexFromBlack::
     releaseall
     end
 
-RecruitBase_Entrance_Movement_AlignFromLeft::
+RecruitBase_Entrance_Movement_WalkTowardsBlack::
 	walk_right
     face_up
 	step_end
 
-RecruitBase_Entrance_Movement_AlignFromRight::
+RecruitBase_Entrance_Movement_AlignToRight::
 	walk_left
     face_up
 	step_end
@@ -132,11 +152,11 @@ RecruitBase_Entrance_Movement_WalkToPlayer::
     step_end
 
 RecruitBase_Entrance_Movement_GoBackToInitialPlace::
-    walk_right
-    walk_right
-    walk_right
-    walk_up
-    walk_up
-    walk_right
-    walk_right
+    walk_down
+    walk_down
+    walk_down
+    walk_left
+    walk_left
+    walk_left
+    face_up
     step_end
