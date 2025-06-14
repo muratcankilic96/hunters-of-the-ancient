@@ -124,10 +124,10 @@ TrainerTower_Lobby_EventScript_MartClerk::
 	goto_if_questlog EventScript_ReleaseEnd
 	lock
 	faceplayer
-	message Text_MayIHelpYou
+	message Text_HowMayIServeYou
 	waitmessage
 	pokemart TrainerTower_Lobby_Mart_Items
-	msgbox Text_PleaseComeAgain
+	msgbox Text_SeeYouLater
 	release
 	end
 

@@ -17,10 +17,10 @@ CeladonCity_DepartmentStore_4F_EventScript_Clerk::
 	goto_if_questlog EventScript_ReleaseEnd
 	lock
 	faceplayer
-	message Text_MayIHelpYou
+	message Text_HowMayIServeYou
 	waitmessage
 	pokemart CeladonCity_DepartmentStore_4F_Items
-	msgbox Text_PleaseComeAgain
+	msgbox Text_SeeYouLater
 	release
 	end
 

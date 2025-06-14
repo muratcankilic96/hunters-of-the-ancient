@@ -44,10 +44,10 @@ IndigoPlateau_PokemonCenter_1F_EventScript_Clerk::
 	goto_if_questlog EventScript_ReleaseEnd
 	lock
 	faceplayer
-	message Text_MayIHelpYou
+	message Text_HowMayIServeYou
 	waitmessage
 	pokemart IndigoPlateau_PokemonCenter_1F_Items
-	msgbox Text_PleaseComeAgain
+	msgbox Text_SeeYouLater
 	release
 	end
 

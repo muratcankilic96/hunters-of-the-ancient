@@ -832,8 +832,8 @@ Text_WelcomeTimeCapsule::
 	.string "Welcome to the POKéMON CABLE CLUB\n"
 	.string "TIME CAPSULE.$"
 
-Text_PleaseComeAgain::
-	.string "Please come again!$"
+Text_SeeYouLater::
+	.string "See you later.$"
 
 @ Unused
 Text_HavingDiscountSaleToday::

@@ -1,6 +1,5 @@
-Text_MayIHelpYou::
-	.string "Hi, there!\n"
-	.string "May I help you?$"
+Text_HowMayIServeYou::
+	.string "How may I serve you?$"
 
 Text_FillOutQuestionnaire::
 	.string "There is a questionnaire.\n"

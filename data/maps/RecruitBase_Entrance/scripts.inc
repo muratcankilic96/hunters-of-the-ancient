@@ -92,11 +92,12 @@ RecruitBase_Entrance_GetPokedexFromBlack::
     applymovement LOCALID_BLACK, RecruitBase_Entrance_Movement_LeaveRecruitBase
     applymovement OBJ_EVENT_ID_PLAYER RecruitBase_Entrance_Movement_LetHimPass
     waitmovement 0
+    removeobject LOCALID_BLACK
     applymovement LOCALID_ROCKET_SCIENTIST, RecruitBase_Entrance_Movement_WalkToPlayer
     waitmovement 0
     delay 80
     msgbox RecruitBase_Entrance_Text_IHopeYouComplete, MSGBOX_AUTOCLOSE
-    applymovement LOCALID_ROCKET_SCIENTIST, RecruitBase_Entrance_Movement_GoBackToInitialPlace
+    applymovement LOCALID_ROCKET_SCIENTIST, RecruitBase_Entrance_Movement_SitBackToTheChair
     waitmovement 0
     fadedefaultbgm
     releaseall
@@ -137,7 +138,6 @@ RecruitBase_Entrance_Movement_LeaveRecruitBase::
     walk_left
     face_down
     set_invisible
-    walk_down
     step_end
 
 RecruitBase_Entrance_Movement_LetHimPass::
@@ -159,4 +159,14 @@ RecruitBase_Entrance_Movement_GoBackToInitialPlace::
     walk_left
     walk_left
     face_up
+    step_end
+
+RecruitBase_Entrance_Movement_SitBackToTheChair::
+    walk_right
+    walk_right
+    walk_right
+    walk_up
+    walk_up
+    walk_right
+    walk_right
     step_end

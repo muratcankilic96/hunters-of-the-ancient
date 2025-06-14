@@ -13,10 +13,10 @@ FuchsiaCity_Mart_EventScript_Clerk::
 	goto_if_questlog EventScript_ReleaseEnd
 	lock
 	faceplayer
-	message Text_MayIHelpYou
+	message Text_HowMayIServeYou
 	waitmessage
 	pokemart FuchsiaCity_Mart_Items
-	msgbox Text_PleaseComeAgain
+	msgbox Text_SeeYouLater
 	release
 	end
 
