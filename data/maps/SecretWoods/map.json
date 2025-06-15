@@ -2,7 +2,7 @@
   "id": "MAP_SECRET_WOODS",
   "name": "SecretWoods",
   "layout": "LAYOUT_SECRET_WOODS",
-  "music": "MUS_ROUTE1",
+  "music": "MUS_SECRET_PLACE",
   "region_map_section": "MAPSEC_SECRET_WOODS",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
@@ -32,7 +32,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SecretWoods_EventScript_Scientist",
+      "script": "SecretWoods_Scientist",
       "flag": "0"
     },
     {
@@ -46,7 +46,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SecretWoods_EventScript_MaleRocket",
+      "script": "SecretWoods_MaleRocket",
       "flag": "0"
     },
     {
@@ -60,7 +60,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SecretWoods_EventScript_FemaleRocket",
+      "script": "SecretWoods_FemaleRocket",
       "flag": "0"
     }
   ],
@@ -83,7 +83,7 @@
       "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SecretWoods_EventScript_RecruitHelp"
+      "script": "SecretWoods_RecruitHelp"
     },
     {
       "type": "sign",
@@ -91,7 +91,7 @@
       "y": 16,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SecretWoods_EventScript_BaseSign"
+      "script": "SecretWoods_BaseSign"
     }
   ]
 }

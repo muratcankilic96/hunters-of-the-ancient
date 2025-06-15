@@ -1,16 +1,16 @@
 {
-  "id": "MAP_VIRIDIAN_CITY_VIRIDIAN_BASE_HEALING_CENTER",
-  "name": "ViridianCity_ViridianBase_HealingCenter",
-  "layout": "LAYOUT_VIRIDIAN_CITY_VIRIDIAN_BASE_HEALING_CENTER",
-  "music": "MUS_ROCKET_HEAL_CENTER",
-  "region_map_section": "MAPSEC_VIRIDIAN_CITY",
+  "id": "MAP_VIRIDIAN_CITY_VIRIDIAN_BASE_TRAINING_CLASS",
+  "name": "ViridianCity_ViridianBase_TrainingClass",
+  "layout": "LAYOUT_VIRIDIAN_CITY_VIRIDIAN_BASE_TRAINING_CLASS",
+  "music": "MUS_ROCKET_HIDEOUT",
+  "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": false,
-  "show_map_name": false,
+  "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
@@ -19,11 +19,11 @@
   ],
   "warp_events": [
     {
-      "x": 7,
-      "y": 8,
+      "x": 4,
+      "y": 7,
       "elevation": 0,
       "dest_map": "MAP_VIRIDIAN_CITY_VIRIDIAN_BASE",
-      "dest_warp_id": "02"
+      "dest_warp_id": "01"
     }
   ],
   "coord_events": [

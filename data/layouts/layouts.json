@@ -3146,6 +3146,18 @@
       "blockdata_filepath": "data/layouts/ViridianCity_ViridianBase_HealingCenter/map.bin"
     },
     {
+      "id": "LAYOUT_VIRIDIAN_CITY_VIRIDIAN_BASE_TRAINING_CLASS",
+      "name": "ViridianCity_ViridianBase_TrainingClass_Layout",
+      "width": 10,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_School",
+      "border_filepath": "data/layouts/ViridianCity_ViridianBase_TrainingClass/border.bin",
+      "blockdata_filepath": "data/layouts/ViridianCity_ViridianBase_TrainingClass/map.bin"
+    },
+    {
       "id": "LAYOUT_FOUR_ISLAND_POKEMON_DAY_CARE",
       "name": "FourIsland_PokemonDayCare_Layout",
       "width": 12,

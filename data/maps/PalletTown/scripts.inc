@@ -54,12 +54,10 @@ PalletTown_RunFromPalletTown::
 	faceplayer
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
 	applymovement LOCALID_BLACK, Common_Movement_FaceRight
-	goto_if_questlog PalletTown_RunFromPalletTown_FollowThroughSecretPath
+	waitmovement 0
+	goto_if_questlog EventScript_ReleaseEnd
 	msgbox PalletTown_Text_LetsGetBack
 	closemessage
-	goto PalletTown_RunFromPalletTown_FollowThroughSecretPath
-
-PalletTown_RunFromPalletTown_FollowThroughSecretPath::
 	applymovement OBJ_EVENT_ID_PLAYER, PalletTown_Movement_FollowThroughSecretPath
 	applymovement LOCALID_BLACK, PalletTown_Movement_LeaveTowardsSecretPath
 	waitmovement 0

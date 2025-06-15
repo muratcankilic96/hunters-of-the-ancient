@@ -899,7 +899,7 @@ SECTIONS {
         sound/songs/midi/mus_lavender.o(.rodata);
         sound/songs/midi/mus_heal_unused.o(.rodata);
         sound/songs/midi/mus_cycling.o(.rodata);
-        sound/songs/midi/mus_encounter_rocket.o(.rodata);
+        sound/songs/midi/mus_encounter_police.o(.rodata);
         sound/songs/midi/mus_encounter_girl.o(.rodata);
         sound/songs/midi/mus_encounter_boy.o(.rodata);
         sound/songs/midi/mus_hall_of_fame.o(.rodata);
@@ -948,7 +948,7 @@ SECTIONS {
         sound/songs/midi/mus_mystery_gift.o(.rodata);
         sound/songs/midi/mus_berry_pick.o(.rodata);
         sound/songs/midi/mus_sevii_cave.o(.rodata);
-        sound/songs/midi/mus_teachy_tv_show.o(.rodata);
+        sound/songs/midi/mus_secret_place.o(.rodata);
         sound/songs/midi/mus_sevii_route.o(.rodata);
         sound/songs/midi/mus_sevii_dungeon.o(.rodata);
         sound/songs/midi/mus_sevii_123.o(.rodata);
@@ -964,6 +964,7 @@ SECTIONS {
         sound/songs/midi/mus_slow_pallet.o(.rodata);
         sound/songs/midi/mus_teachy_tv_menu.o(.rodata);
         sound/songs/midi/mus_poke_mart.o(.rodata);
+        sound/songs/midi/mus_rocket_heal_center.o(.rodata);
     } > ROM =0
 
     lib_rodata :

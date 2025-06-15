@@ -470,8 +470,8 @@ PokemonMansion_2F_EventScript_ItemHPUp::
 	finditem ITEM_HP_UP
 	end
 
-ViridianCity_EventScript_ItemPotion::
-	finditem ITEM_POTION
+ViridianCity_ItemBall_HyperPotion::
+	finditem ITEM_HYPER_POTION
 	end
 
 Route11_EventScript_ItemGreatBall::

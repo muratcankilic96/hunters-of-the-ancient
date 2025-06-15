@@ -1029,7 +1029,7 @@ void PlayTrainerEncounterMusic(void)
             music = MUS_ENCOUNTER_BOY;
             break;
         default:
-            music = MUS_ENCOUNTER_ROCKET;
+            music = MUS_ENCOUNTER_POLICE;
             break;
         }
         PlayNewMapMusic(music);

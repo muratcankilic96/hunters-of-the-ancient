@@ -282,7 +282,7 @@ gSongTable::
 	song mus_lavender, 0, 0
 	song mus_heal_unused, 0, 0
 	song mus_cycling, 0, 0
-	song mus_encounter_rocket, 0, 0
+	song mus_encounter_police, 0, 0
 	song mus_encounter_girl, 0, 0
 	song mus_encounter_boy, 0, 0
 	song mus_hall_of_fame, 0, 0
@@ -331,7 +331,7 @@ gSongTable::
 	song mus_mystery_gift, 0, 0
 	song mus_berry_pick, 0, 0
 	song mus_sevii_cave, 0, 0
-	song mus_teachy_tv_show, 0, 0
+	song mus_secret_place, 0, 0
 	song mus_sevii_route, 0, 0
 	song mus_sevii_dungeon, 0, 0
 	song mus_sevii_123, 0, 0
@@ -347,6 +347,7 @@ gSongTable::
 	song mus_slow_pallet, 0, 0
 	song mus_teachy_tv_menu, 0, 0
 	song mus_poke_mart, 0, 0
+	song mus_rocket_heal_center, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

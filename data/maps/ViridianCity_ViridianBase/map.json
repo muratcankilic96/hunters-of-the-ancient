@@ -18,7 +18,27 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 10,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_VIRIDIAN_CITY",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_VIRIDIAN_CITY_VIRIDIAN_BASE_TRAINING_CLASS",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 10,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_VIRIDIAN_CITY_VIRIDIAN_BASE_HEALING_CENTER",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 

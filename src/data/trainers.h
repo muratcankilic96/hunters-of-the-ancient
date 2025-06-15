@@ -42,15 +42,15 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_DEFAULT_MOVES(sParty_RSAromaLady),
     },
-    [TRAINER_RS_RUIN_MANIAC] = {
-        .trainerClass = TRAINER_CLASS_RS_RUIN_MANIAC,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
-        .trainerPic = TRAINER_PIC_RS_RUIN_MANIAC,
-        .trainerName = _(""),
+    [TRAINER_VIRIDIAN_EXIT_POLICE] = {
+        .trainerClass = TRAINER_CLASS_SECURITY,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_SECURITY_GUARD,
+        .trainerName = _("POLICE"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_RSRuinManiac),
+        .party = NO_ITEM_DEFAULT_MOVES(sParty_ViridianExitPolice),
     },
     [TRAINER_INTERVIEWER] = {
         .trainerClass = TRAINER_CLASS_INTERVIEWER,

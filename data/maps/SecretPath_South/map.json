@@ -2,7 +2,7 @@
   "id": "MAP_SECRET_PATH_SOUTH",
   "name": "SecretPath_South",
   "layout": "LAYOUT_SECRET_PATH_SOUTH",
-  "music": "MUS_ROUTE1",
+  "music": "MUS_SECRET_PLACE",
   "region_map_section": "MAPSEC_SECRET_PATH",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",

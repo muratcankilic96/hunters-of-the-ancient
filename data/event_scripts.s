@@ -1388,3 +1388,6 @@ Text_TestMsg::
 
 	.include "data/maps/Void/scripts.inc"
 	.include "data/maps/Void/text.inc"
+
+	.include "data/maps/ViridianCity_ViridianBase_TrainingClass/scripts.inc"
+	.include "data/maps/ViridianCity_ViridianBase_TrainingClass/text.inc"

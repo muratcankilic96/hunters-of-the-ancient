@@ -62,7 +62,7 @@
 #define FLAG_HIDE_BLACK_IN_PALLET_TOWN                     0x02E
 #define FLAG_HIDE_PEWTER_CITY_EXIT_IPA_AGENT               0x02F
 #define FLAG_HIDE_PEWTER_CITY_GYM_FRONT_IPA_AGENTS         0x030
-#define FLAG_HIDE_NUGGET_BRIDGE_ROCKET                     0x031
+#define FLAG_HIDE_VIRIDIAN_EXIT_POLICE                     0x031
 #define FLAG_HIDE_BILL_CLEFAIRY                            0x032
 #define FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE                   0x033
 #define FLAG_HIDE_TOWER_FUJI                               0x034
@@ -478,7 +478,7 @@
 #define FLAG_HIDE_POKEMON_MANSION_1F_PROTEIN                    0x1CA
 #define FLAG_HIDE_POKEMON_MANSION_2F_ZINC                       0x1CB
 #define FLAG_HIDE_POKEMON_MANSION_2F_HP_UP                      0x1CC
-#define FLAG_HIDE_VIRIDIAN_CITY_POTION                          0x1CD
+#define FLAG_HIDE_VIRIDIAN_CITY_HYPER_POTION                    0x1CD
 #define FLAG_HIDE_ROUTE11_GREAT_BALL                            0x1CE
 #define FLAG_HIDE_ROUTE11_AWAKENING                             0x1CF
 #define FLAG_HIDE_POKEMON_TOWER_5F_CLEANSE_TAG                  0x1D0

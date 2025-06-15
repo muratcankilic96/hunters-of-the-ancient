@@ -288,7 +288,7 @@
 #define MUS_LAVENDER              280 // MUS_SHION
 #define MUS_HEAL_UNUSED           281 // MUS_KAIHUKU
 #define MUS_CYCLING               282 // MUS_CYCLING
-#define MUS_ENCOUNTER_ROCKET      283 // MUS_ROCKET
+#define MUS_ENCOUNTER_POLICE      283
 #define MUS_ENCOUNTER_GIRL        284 // MUS_SHOUJO
 #define MUS_ENCOUNTER_BOY         285 // MUS_SHOUNEN
 #define MUS_HALL_OF_FAME          286 // MUS_DENDOU
@@ -337,7 +337,7 @@
 #define MUS_MYSTERY_GIFT          329 // MUS_OKURIMONO
 #define MUS_BERRY_PICK            330 // MUS_KINOMIKUI
 #define MUS_SEVII_CAVE            331 // MUS_NANADUNGEON
-#define MUS_TEACHY_TV_SHOW        332 // MUS_OSHIE_TV
+#define MUS_SECRET_PLACE          332
 #define MUS_SEVII_ROUTE           333 // MUS_NANASHIMA
 #define MUS_SEVII_DUNGEON         334 // MUS_NANAISEKI
 #define MUS_SEVII_123             335 // MUS_NANA123
@@ -353,6 +353,7 @@
 #define MUS_SLOW_PALLET           345 // MUS_SLOWMASARA
 #define MUS_TEACHY_TV_MENU        346 // MUS_TVNOIZE
 #define MUS_POKE_MART             347
+#define MUS_ROCKET_HEAL_CENTER    348
 
 #define MUS_NONE                    0xFFFF
 
