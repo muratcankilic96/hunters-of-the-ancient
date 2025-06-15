@@ -60,10 +60,10 @@
 #define FLAG_HIDE_GIOVANNI_IN_REGISTRATION_ROOM            0x02C
 #define FLAG_HIDE_BLACK_IN_SECRET_PATH                     0x02D
 #define FLAG_HIDE_BLACK_IN_PALLET_TOWN                     0x02E
-#define FLAG_HIDE_PEWTER_CITY_EXIT_IPA_AGENT               0x02F
-#define FLAG_HIDE_PEWTER_CITY_GYM_FRONT_IPA_AGENTS         0x030
-#define FLAG_HIDE_VIRIDIAN_EXIT_POLICE                     0x031
-#define FLAG_HIDE_BILL_CLEFAIRY                            0x032
+#define FLAG_HIDE_VIRIDIAN_CITY_EXIT_POLICE                0x02F
+#define FLAG_HIDE_PEWTER_CITY_EXIT_IPA_AGENT               0x030
+#define FLAG_HIDE_PEWTER_CITY_GYM_FRONT_IPA_AGENTS         0x031
+#define FLAG_HIDE_VIRIDIAN_CITY_SPEAROW                    0x032
 #define FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE                   0x033
 #define FLAG_HIDE_TOWER_FUJI                               0x034
 #define FLAG_HIDE_POKEHOUSE_FUJI                           0x035

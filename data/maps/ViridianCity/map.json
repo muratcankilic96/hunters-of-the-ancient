@@ -197,7 +197,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ViridianCity_Police",
-      "flag": "FLAG_HIDE_VIRIDIAN_EXIT_POLICE"
+      "flag": "FLAG_HIDE_VIRIDIAN_CITY_EXIT_POLICE"
     }
   ],
   "warp_events": [

@@ -57,7 +57,7 @@ ViridianCity_Police::
 	applymovement LOCALID_POLICE, ViridianCity_Movement_RunAway
 	waitmovement 0
 	removeobject LOCALID_POLICE
-	checkflag FLAG_HIDE_VIRIDIAN_EXIT_POLICE
+	checkflag FLAG_HIDE_VIRIDIAN_CITY_EXIT_POLICE
 	releaseall
 	end
 

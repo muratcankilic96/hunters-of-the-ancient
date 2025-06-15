@@ -14,7 +14,7 @@ Route25_SeaCottage_OnTransition::
 	end
 
 Route25_SeaCottage_EventScript_HideClefairyBill::
-	clearflag FLAG_HIDE_BILL_CLEFAIRY
+	clearflag FLAG_HIDE_VIRIDIAN_CITY_SPEAROW
 	setobjectxyperm LOCALID_BILL_HUMAN, 3, 3
 	return
 

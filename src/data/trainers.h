@@ -32,15 +32,15 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_DEFAULT_MOVES(sParty_AquaGruntF),
     },
-    [TRAINER_RS_AROMA_LADY] = {
-        .trainerClass = TRAINER_CLASS_RS_AROMA_LADY,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_PIC_RS_AROMA_LADY,
-        .trainerName = _(""),
+    [TRAINER_VIRIDIAN_BIRD_KEEPER] = {
+        .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER,
+        .trainerName = _("VIGOR"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_RSAromaLady),
+        .party = NO_ITEM_DEFAULT_MOVES(sParty_ViridianBirdKeeper),
     },
     [TRAINER_VIRIDIAN_EXIT_POLICE] = {
         .trainerClass = TRAINER_CLASS_SECURITY,
