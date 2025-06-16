@@ -581,9 +581,6 @@ static const u8 sSeviiMapsecs[3][30] = {
         MAPSEC_MONEAN_CHAMBER,
         MAPSEC_LIPTOO_CHAMBER,
         MAPSEC_WEEPTH_CHAMBER,
-        MAPSEC_DILFORD_CHAMBER,
-        MAPSEC_SCUFIB_CHAMBER,
-        MAPSEC_RIXY_CHAMBER,
         MAPSEC_NONE
     }
 };
@@ -931,9 +928,6 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_MONEAN_CHAMBER      - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_LIPTOO_CHAMBER      - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_WEEPTH_CHAMBER      - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_DILFORD_CHAMBER     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_SCUFIB_CHAMBER      - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_RIXY_CHAMBER        - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_EMBER_SPA           - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
 };
 
@@ -3176,8 +3170,8 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
     switch (GetPlayerCurrentMapSectionId())
     {
     case MAPSEC_RECRUIT_BASE:
-        sMapCursor->x = 6;
-        sMapCursor->y = 11;
+        sMapCursor->x = 10;
+        sMapCursor->y = 15;
         break;
     case MAPSEC_KANTO_SAFARI_ZONE:
         sMapCursor->x = 12;
@@ -3202,6 +3196,10 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
     case MAPSEC_S_S_ANNE:
         sMapCursor->x = 14;
         sMapCursor->y = 9;
+        break;
+    case MAPSEC_ANCIENT_CAVE:
+        sMapCursor->x = 7;
+        sMapCursor->y = 11;
         break;
     case MAPSEC_POKEMON_LEAGUE:
         sMapCursor->x = 2;
@@ -3257,11 +3255,8 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
         sMapCursor->x = 17;
         sMapCursor->y = 11;
         break;
-    case MAPSEC_DILFORD_CHAMBER:
     case MAPSEC_LIPTOO_CHAMBER:
     case MAPSEC_MONEAN_CHAMBER:
-    case MAPSEC_RIXY_CHAMBER:
-    case MAPSEC_SCUFIB_CHAMBER:
     case MAPSEC_TANOBY_CHAMBERS:
     case MAPSEC_WEEPTH_CHAMBER:
         sMapCursor->x = 9;

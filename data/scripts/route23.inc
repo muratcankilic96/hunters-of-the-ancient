@@ -29,20 +29,6 @@ Route23_EventScript_AlreadyRecognizedBadge::
 	release
 	end
 
-@ Duplicate of the below, only used for Boulder Badge
-Route22_NorthEntrance_EventScript_BadgeGuard::
-	goto_if_ge VAR_MAP_SCENE_ROUTE23, VAR_TEMP_1, Route23_EventScript_AlreadyRecognizedBoulderBadge
-	switch VAR_TEMP_1
-	case 1, Route23_EventScript_CheckBoulderBadge
-	case 2, Route23_EventScript_CheckCascadeBadge
-	case 3, Route23_EventScript_CheckThunderBadge
-	case 4, Route23_EventScript_CheckRainbowBadge
-	case 5, Route23_EventScript_CheckSoulBadge
-	case 6, Route23_EventScript_CheckMarshBadge
-	case 7, Route23_EventScript_CheckVolcanoBadge
-	case 8, Route23_EventScript_CheckEarthBadge
-	end
-
 Route23_EventScript_BadgeGuard::
 	goto_if_ge VAR_MAP_SCENE_ROUTE23, VAR_TEMP_1, Route23_EventScript_AlreadyRecognizedBadge
 	switch VAR_TEMP_1
