@@ -6,7 +6,6 @@ OneIsland_MapScripts::
 	.byte 0
 
 OneIsland_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_ONE_ISLAND
 	end
 
 OneIsland_OnFrame::

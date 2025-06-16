@@ -1,2 +1,59 @@
 ViridianCity_ViridianBase_TrainingClass_MapScripts::
     .byte 0
+
+ViridianCity_ViridianBase_TrainingClass_Rocket::
+    msgbox ViridianCity_ViridianBase_TrainingClass_Text_ReadTheText, MSGBOX_NPC
+    end
+
+ViridianCity_ViridianBase_TrainingClass_OldMan::
+    msgbox ViridianCity_ViridianBase_TrainingClass_Text_OneOfTheEldest, MSGBOX_NPC
+    end
+
+ViridianCity_ViridianBase_TrainingClass_Blackboard::
+	lockall
+	msgbox ViridianCity_ViridianBase_TrainingClass_Text_BlackboardListsStatusProblems
+	goto ViridianCity_ViridianBase_TrainingClass_ChooseBlackboardTopic
+	end
+
+ViridianCity_ViridianBase_TrainingClass_ChooseBlackboardTopic::
+	message ViridianCity_ViridianBase_TrainingClass_Text_ReadWhichTopic
+	waitmessage
+	multichoicegrid 7, 1, MULTICHOICE_TRAINER_SCHOOL_WHITEBOARD, 3, FALSE
+	switch VAR_RESULT
+	case 0, ViridianCity_ViridianBase_TrainingClass_ReadSleep
+	case 1, ViridianCity_ViridianBase_TrainingClass_ReadPoison
+	case 2, ViridianCity_ViridianBase_TrainingClass_ReadParalysis
+	case 3, ViridianCity_ViridianBase_TrainingClass_ReadBurn
+	case 4, ViridianCity_ViridianBase_TrainingClass_ReadFreeze
+	case 5, ViridianCity_ViridianBase_TrainingClass_ExitBlackboard
+	case 127, ViridianCity_ViridianBase_TrainingClass_ExitBlackboard
+	end
+
+ViridianCity_ViridianBase_TrainingClass_ReadSleep::
+	msgbox ViridianCity_ViridianBase_TrainingClass_Text_ExplainSleep
+	goto ViridianCity_ViridianBase_TrainingClass_ChooseBlackboardTopic
+	end
+
+ViridianCity_ViridianBase_TrainingClass_ReadBurn::
+	msgbox ViridianCity_ViridianBase_TrainingClass_Text_ExplainBurn
+	goto ViridianCity_ViridianBase_TrainingClass_ChooseBlackboardTopic
+	end
+
+ViridianCity_ViridianBase_TrainingClass_ReadPoison::
+	msgbox ViridianCity_ViridianBase_TrainingClass_Text_ExplainPoison
+	goto ViridianCity_ViridianBase_TrainingClass_ChooseBlackboardTopic
+	end
+
+ViridianCity_ViridianBase_TrainingClass_ReadFreeze::
+	msgbox ViridianCity_ViridianBase_TrainingClass_Text_ExplainFreeze
+	goto ViridianCity_ViridianBase_TrainingClass_ChooseBlackboardTopic
+	end
+
+ViridianCity_ViridianBase_TrainingClass_ReadParalysis::
+	msgbox ViridianCity_ViridianBase_TrainingClass_Text_ExplainParalysis
+	goto ViridianCity_ViridianBase_TrainingClass_ChooseBlackboardTopic
+	end
+
+ViridianCity_ViridianBase_TrainingClass_ExitBlackboard::
+	releaseall
+	end

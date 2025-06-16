@@ -177,7 +177,8 @@
     "SixIsland_DottedHole_B4F",
     "SixIsland_DottedHole_SapphireRoom",
     "SixIsland_PatternBush",
-    "SixIsland_AlteringCave"
+    "SixIsland_AlteringCave",
+    "AncientCave_Entrance"
   ],
   "gMapGroup_SpecialArea": [
     "NavelRock_Exterior",
@@ -322,11 +323,9 @@
   ],
   "gMapGroup_IndoorViridian": [
     "ViridianCity_House",
-    "ViridianCity_Gym",
     "ViridianCity_School",
     "ViridianCity_Mart",
-    "ViridianCity_PokemonCenter_1F",
-    "ViridianCity_PokemonCenter_2F",
+    "ViridianCity_PokemonCenter",
     "ViridianCity_ViridianBase",
     "ViridianCity_ViridianBase_TrainingClass",
     "ViridianCity_ViridianBase_HealingCenter"

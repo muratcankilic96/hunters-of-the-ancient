@@ -3,3 +3,4 @@ Minor:
 2. Grass wandering effect has wrong palette.
 3. Flower animation is unchanged.
 4. Possible color mismatch in route sand paths.
+5. Incorrect map position for Secret Path.

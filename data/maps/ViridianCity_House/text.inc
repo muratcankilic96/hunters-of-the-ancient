@@ -29,6 +29,9 @@ ViridianCity_House_Text_DoNotTouchHim::
 ViridianCity_House_Text_SpearyNo::
     .string "SPEARY! No!$"
 
+ViridianCity_House_Text_StoleTheSpearow::
+    .string "{PLAYER} stole the SPEAROW!$"
+
 ViridianCity_House_Text_DecidedToRunAway::
     .string "{PLAYER} decided to run away.$"
 

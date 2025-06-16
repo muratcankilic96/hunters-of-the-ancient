@@ -105,6 +105,22 @@
       "height": 1
     },
     {
+      "map_section": "MAPSEC_SECRET_PATH",
+      "name": "SECRET PATH",
+      "x": 5,
+      "y": 10,
+      "width": 1,
+      "height": 2
+    },
+    {
+      "map_section": "MAPSEC_SECRET_WOODS",
+      "name": "SECRET WOODS",
+      "x": 6,
+      "y": 11,
+      "width": 1,
+      "height": 1
+    },
+    {
       "map_section": "MAPSEC_ROUTE_1",
       "name": "ROUTE 1",
       "x": 4,
@@ -243,9 +259,9 @@
     {
       "map_section": "MAPSEC_ROUTE_18",
       "name": "ROUTE 18",
-      "x": 7,
+      "x": 8,
       "y": 12,
-      "width": 5,
+      "width": 4,
       "height": 1
     },
     {
@@ -305,6 +321,14 @@
       "height": 1
     },
     {
+      "map_section": "MAPSEC_RECRUIT_BASE",
+      "name": "RECRUIT BASE",
+      "x": 6,
+      "y": 11,
+      "width": 1,
+      "height": 1
+    },
+    {
       "map_section": "MAPSEC_VIRIDIAN_FOREST",
       "name": "VIRIDIAN FOREST",
       "x": 0,
@@ -353,8 +377,8 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_KANTO_VICTORY_ROAD",
-      "name": "VICTORY ROAD",
+      "map_section": "MAPSEC_ANCIENT_CAVE",
+      "name": "ANCIENT CAVE",
       "x": 0,
       "y": 0,
       "width": 1,
@@ -537,14 +561,6 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_SECRET_WOODS",
-      "name": "SECRET WOODS",
-      "x": 4,
-      "y": 3,
-      "width": 1,
-      "height": 1
-    },
-    {
       "map_section": "MAPSEC_SEVII_ISLE_7",
       "name": "SEVII ISLE 7",
       "x": 5,
@@ -662,14 +678,6 @@
       "x": 3,
       "y": 12,
       "width": 7,
-      "height": 1
-    },
-    {
-      "map_section": "MAPSEC_RECRUIT_BASE",
-      "name": "RECRUIT BASE",
-      "x": 9,
-      "y": 12,
-      "width": 1,
       "height": 1
     },
     {
@@ -871,14 +879,6 @@
       "y": 0,
       "width": 0,
       "height": 0
-    },
-    {
-      "map_section": "MAPSEC_SECRET_PATH",
-      "name": "SECRET PATH",
-      "x": 5,
-      "y": 10,
-      "width": 1,
-      "height": 2
     }
   ]
 }

@@ -1461,13 +1461,6 @@ PokemonJournal_Text_SpecialFeatureLance::
 	.string "be the elder of a famous clan of\l"
 	.string "dragon masters.$"
 
-PokemonJournal_Text_SpecialFeatureProfOak::
-	.string "POKéMON JOURNAL\p"
-	.string "Special Feature: PROF. OAK,\n"
-	.string "the POKéMON Researcher!\p"
-	.string "PROF. OAK reportedly lives with his\n"
-	.string "grandchildren DAISY and {RIVAL}.$"
-
 PokemonJournal_Text_SpecialFeatureDaisyOak::
 	.string "This is a POKéMON JOURNAL from\n"
 	.string "years ago…\p"

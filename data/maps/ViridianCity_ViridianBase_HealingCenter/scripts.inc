@@ -1,2 +1,16 @@
 ViridianCity_ViridianBase_HealingCenter_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, ViridianCity_ViridianBase_HealingCenter_OnTransition
     .byte 0
+
+ViridianCity_ViridianBase_HealingCenter_OnTransition::
+	setworldmapflag FLAG_WORLD_MAP_VIRIDIAN_CITY
+	setrespawn SPAWN_VIRIDIAN_CITY
+	end
+
+ViridianCity_ViridianBase_HealingCenter_FemaleRocket::
+	msgbox ViridianCity_ViridianBase_HealingCenter_Text_IfYourPokemonGetHurt, MSGBOX_NPC
+	end
+
+ViridianCity_ViridianBase_HealingCenter_MaleRocket::
+	msgbox ViridianCity_ViridianBase_HealingCenter_Text_ThisMapIsSoUseful, MSGBOX_NPC
+	end

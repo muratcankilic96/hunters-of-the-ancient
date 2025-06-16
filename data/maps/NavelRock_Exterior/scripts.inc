@@ -3,5 +3,4 @@ NavelRock_Exterior_MapScripts::
 	.byte 0
 
 NavelRock_Exterior_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_NAVEL_ROCK_EXTERIOR
 	end

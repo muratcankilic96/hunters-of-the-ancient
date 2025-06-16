@@ -8,7 +8,7 @@
 #define TRAINER_AQUA_GRUNT_F                       3
 #define TRAINER_VIRIDIAN_BIRD_KEEPER               4
 #define TRAINER_VIRIDIAN_EXIT_POLICE               5
-#define TRAINER_INTERVIEWER                        6
+#define TRAINER_VIRIDIAN_SCHOOL_LASS               6
 #define TRAINER_RS_TUBER_F                         7
 #define TRAINER_RS_TUBER_M                         8
 #define TRAINER_RS_COOLTRAINER_M                   9

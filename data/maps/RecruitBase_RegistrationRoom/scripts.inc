@@ -7,7 +7,7 @@ RecruitBase_RegistrationRoom_MapScripts::
 	.byte 0
 
 RecruitBase_RegistrationRoom_OnTransition::
-	call_if_eq WARP_REGISTRATION_ROOM, 0, RecruitBase_RegistrationRoom_EventScript_SetRespawn
+	call_if_eq VAR_WARP_REGISTRATION_ROOM, 0, RecruitBase_RegistrationRoom_EventScript_SetRespawn
 	end
 
 RecruitBase_RegistrationRoom_EventScript_SetRespawn::
@@ -15,12 +15,13 @@ RecruitBase_RegistrationRoom_EventScript_SetRespawn::
 	return
 
 RecruitBase_RegistrationRoom_OnWarp::
-	map_script_2 WARP_REGISTRATION_ROOM, 0, RecruitBase_RegistrationRoom_FirstWarpIn
+	map_script_2 VAR_WARP_REGISTRATION_ROOM, 0, RecruitBase_RegistrationRoom_FirstWarpIn
 	.2byte 0
 
 RecruitBase_RegistrationRoom_FirstWarpIn::
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
-	setvar WARP_REGISTRATION_ROOM, 1
+	setworldmapflag FLAG_WORLD_MAP_RECRUIT_BASE
+	setvar VAR_WARP_REGISTRATION_ROOM, 1
 	end
 
 RecruitBase_RegistrationRoom_Sign_NoSmoking::

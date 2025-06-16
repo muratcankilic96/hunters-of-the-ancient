@@ -7,6 +7,7 @@ PalletTown_MapScripts::
 	.byte 0
 
 PalletTown_OnTransition::
+	setworldmapflag FLAG_WORLD_MAP_PALLET_TOWN
     goto_if_eq VAR_STORYLINE_LAB_INVASION, 4, PalletTown_RepositionBlackAndPolice
     end
 
@@ -55,7 +56,6 @@ PalletTown_RunFromPalletTown::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
 	applymovement LOCALID_BLACK, Common_Movement_FaceRight
 	waitmovement 0
-	goto_if_questlog EventScript_ReleaseEnd
 	msgbox PalletTown_Text_LetsGetBack
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, PalletTown_Movement_FollowThroughSecretPath

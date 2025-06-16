@@ -73,7 +73,7 @@
 
 #define QL_LOCATION_RECRUIT_BASE        0
 #define QL_LOCATION_OAKS_LAB            1
-#define QL_LOCATION_VIRIDIAN_GYM        2
+#define QL_LOCATION_0x02                2
 #define QL_LOCATION_LEAGUE_GATE_1       3
 #define QL_LOCATION_LEAGUE_GATE_2       4
 #define QL_LOCATION_VIRIDIAN_FOREST_1   5

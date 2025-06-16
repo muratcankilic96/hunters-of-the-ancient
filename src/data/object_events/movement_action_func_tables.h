@@ -149,7 +149,7 @@ static bool8 MovementAction_JumpInPlaceLeftRight_Step1(struct ObjectEvent *, str
 static bool8 MovementAction_JumpInPlaceRightLeft_Step0(struct ObjectEvent *, struct Sprite *);
 static bool8 MovementAction_JumpInPlaceRightLeft_Step1(struct ObjectEvent *, struct Sprite *);
 static bool8 MovementAction_FaceOriginalDirection_Step0(struct ObjectEvent *, struct Sprite *);
-static bool8 MovementAction_NurseJoyBowDown_Step0(struct ObjectEvent *, struct Sprite *);
+static bool8 MovementAction_NurseBowDown_Step0(struct ObjectEvent *, struct Sprite *);
 static bool8 MovementAction_EnableJumpLandingGroundEffect_Step0(struct ObjectEvent *, struct Sprite *);
 static bool8 MovementAction_DisableJumpLandingGroundEffect_Step0(struct ObjectEvent *, struct Sprite *);
 static bool8 MovementAction_DisableAnimation_Step0(struct ObjectEvent *, struct Sprite *);
@@ -378,7 +378,7 @@ static bool8 (*const sMovementActionFuncs_JumpInPlaceUpDown[])(struct ObjectEven
 static bool8 (*const sMovementActionFuncs_JumpInPlaceLeftRight[])(struct ObjectEvent *, struct Sprite *);
 static bool8 (*const sMovementActionFuncs_JumpInPlaceRightLeft[])(struct ObjectEvent *, struct Sprite *);
 static bool8 (*const sMovementActionFuncs_FaceOriginalDirection[])(struct ObjectEvent *, struct Sprite *);
-static bool8 (*const sMovementActionFuncs_NurseJoyBowDown[])(struct ObjectEvent *, struct Sprite *);
+static bool8 (*const sMovementActionFuncs_NurseBowDown[])(struct ObjectEvent *, struct Sprite *);
 static bool8 (*const sMovementActionFuncs_EnableJumpLandingGroundEffect[])(struct ObjectEvent *, struct Sprite *);
 static bool8 (*const sMovementActionFuncs_DisableJumpLandingGroundEffect[])(struct ObjectEvent *, struct Sprite *);
 static bool8 (*const sMovementActionFuncs_DisableAnimation[])(struct ObjectEvent *, struct Sprite *);
@@ -554,7 +554,7 @@ static bool8 (*const *const sMovementActionFuncs[])(struct ObjectEvent *, struct
     [MOVEMENT_ACTION_JUMP_IN_PLACE_LEFT_RIGHT]           = sMovementActionFuncs_JumpInPlaceLeftRight,
     [MOVEMENT_ACTION_JUMP_IN_PLACE_RIGHT_LEFT]           = sMovementActionFuncs_JumpInPlaceRightLeft,
     [MOVEMENT_ACTION_FACE_ORIGINAL_DIRECTION]            = sMovementActionFuncs_FaceOriginalDirection,
-    [MOVEMENT_ACTION_NURSE_JOY_BOW_DOWN]                 = sMovementActionFuncs_NurseJoyBowDown,
+    [MOVEMENT_ACTION_NURSE_BOW_DOWN]                     = sMovementActionFuncs_NurseBowDown,
     [MOVEMENT_ACTION_ENABLE_JUMP_LANDING_GROUND_EFFECT]  = sMovementActionFuncs_EnableJumpLandingGroundEffect,
     [MOVEMENT_ACTION_DISABLE_JUMP_LANDING_GROUND_EFFECT] = sMovementActionFuncs_DisableJumpLandingGroundEffect,
     [MOVEMENT_ACTION_DISABLE_ANIMATION]                  = sMovementActionFuncs_DisableAnimation,
@@ -1260,8 +1260,8 @@ static bool8 (*const sMovementActionFuncs_FaceOriginalDirection[])(struct Object
     MovementAction_PauseSpriteAnim,
 };
 
-static bool8 (*const sMovementActionFuncs_NurseJoyBowDown[])(struct ObjectEvent *, struct Sprite *) = {
-    MovementAction_NurseJoyBowDown_Step0,
+static bool8 (*const sMovementActionFuncs_NurseBowDown[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementAction_NurseBowDown_Step0,
     MovementAction_WaitSpriteAnim,
     MovementAction_PauseSpriteAnim,
 };

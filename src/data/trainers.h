@@ -52,15 +52,15 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_DEFAULT_MOVES(sParty_ViridianExitPolice),
     },
-    [TRAINER_INTERVIEWER] = {
-        .trainerClass = TRAINER_CLASS_INTERVIEWER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTERVIEWER,
-        .trainerPic = TRAINER_PIC_INTERVIEWER,
-        .trainerName = _(""),
+    [TRAINER_VIRIDIAN_SCHOOL_LASS] = {
+        .trainerClass = TRAINER_CLASS_SCHOOL_KID,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_GIRL,
+        .trainerPic = TRAINER_PIC_SCHOOL_KID_F,
+        .trainerName = _("CAMMY"),
         .items = {},
-        .doubleBattle = TRUE,
+        .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_Interviewer),
+        .party = NO_ITEM_DEFAULT_MOVES(sParty_ViridianSchoolLass),
     },
     [TRAINER_RS_TUBER_F] = {
         .trainerClass = TRAINER_CLASS_RS_TUBER_F,

@@ -345,11 +345,9 @@ gStdScriptsEnd::
 	.include "data/maps/PalletTown_OaksHouse/scripts.inc"
 	.include "data/maps/PalletTown_ProfessorOaksLab/scripts.inc"
 	.include "data/maps/ViridianCity_House/scripts.inc"
-	.include "data/maps/ViridianCity_Gym/scripts.inc"
 	.include "data/maps/ViridianCity_School/scripts.inc"
 	.include "data/maps/ViridianCity_Mart/scripts.inc"
-	.include "data/maps/ViridianCity_PokemonCenter_1F/scripts.inc"
-	.include "data/maps/ViridianCity_PokemonCenter_2F/scripts.inc"
+	.include "data/maps/ViridianCity_PokemonCenter/scripts.inc"
 	.include "data/maps/PewterCity_Museum_1F/scripts.inc"
 	.include "data/maps/PewterCity_Museum_2F/scripts.inc"
 	.include "data/maps/PewterCity_Gym/scripts.inc"
@@ -671,10 +669,9 @@ gStdScriptsEnd::
 	.include "data/maps/PalletTown_OaksHouse/text.inc"
 	.include "data/maps/PalletTown_ProfessorOaksLab/text.inc"
 	.include "data/maps/ViridianCity_House/text.inc"
-	.include "data/maps/ViridianCity_Gym/text.inc"
 	.include "data/maps/ViridianCity_School/text.inc"
 	.include "data/maps/ViridianCity_Mart/text.inc"
-	.include "data/maps/ViridianCity_PokemonCenter_1F/text.inc"
+	.include "data/maps/ViridianCity_PokemonCenter/text.inc"
 	.include "data/maps/PewterCity_Museum_1F/text.inc"
 	.include "data/maps/PewterCity_Museum_2F/text.inc"
 	.include "data/maps/PewterCity_Gym/text.inc"
@@ -884,8 +881,13 @@ gText_PkmnFainted3::
 	.string "{STR_VAR_1} fainted…\p"
 	.string "$"
 
+Text_RejectHealing::
+	.string "I won't heal the POKéMON of\n"
+	.string "wicked people like you!$"
+
 Text_WelcomeWantToHealPkmn::
-	.string "Welcome to our POKéMON CENTER!\p"
+	.string "Welcome to the secret HEALING\n"
+	.string "CENTER!\p"
 	.string "Would you like me to heal your\n"
 	.string "POKéMON back to perfect health?$"
 
@@ -1391,3 +1393,6 @@ Text_TestMsg::
 
 	.include "data/maps/ViridianCity_ViridianBase_TrainingClass/scripts.inc"
 	.include "data/maps/ViridianCity_ViridianBase_TrainingClass/text.inc"
+
+	.include "data/maps/AncientCave_Entrance/scripts.inc"
+	.include "data/maps/AncientCave_Entrance/text.inc"

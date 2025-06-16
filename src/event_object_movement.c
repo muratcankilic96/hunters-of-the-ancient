@@ -7020,7 +7020,7 @@ static bool8 MovementAction_FaceOriginalDirection_Step0(struct ObjectEvent *obje
     return TRUE;
 }
 
-static bool8 MovementAction_NurseJoyBowDown_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+static bool8 MovementAction_NurseBowDown_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     StartSpriteAnimInDirection(objectEvent, sprite, DIR_SOUTH, ANIM_NURSE_BOW);
     return FALSE;

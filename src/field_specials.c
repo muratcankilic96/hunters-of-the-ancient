@@ -1690,8 +1690,6 @@ u32 GetPlayerTrainerId(void)
 u8 GetUnlockedSeviiAreas(void)
 {
     u8 result = 0;
-    if (FlagGet(FLAG_WORLD_MAP_ONE_ISLAND) == TRUE)
-        result |= 1 << 0;
     if (FlagGet(FLAG_WORLD_MAP_TWO_ISLAND) == TRUE)
         result |= 1 << 1;
     if (FlagGet(FLAG_WORLD_MAP_THREE_ISLAND) == TRUE)
@@ -1815,7 +1813,6 @@ static const struct {
 } sInsideOutsidePairs[] = {
     [QL_LOCATION_RECRUIT_BASE]       = {MAP(RECRUIT_BASE_REGISTRATION_ROOM),          MAP(SECRET_WOODS)},
     [QL_LOCATION_OAKS_LAB]           = {MAP(PALLET_TOWN_PROFESSOR_OAKS_LAB),        MAP(PALLET_TOWN)},
-    [QL_LOCATION_VIRIDIAN_GYM]       = {MAP(VIRIDIAN_CITY_GYM),                     MAP(VIRIDIAN_CITY)},
     [QL_LOCATION_LEAGUE_GATE_1]      = {MAP(ROUTE22_NORTH_ENTRANCE),                MAP(ROUTE22)},
     [QL_LOCATION_LEAGUE_GATE_2]      = {MAP(ROUTE22_NORTH_ENTRANCE),                MAP(ROUTE23)},
     [QL_LOCATION_VIRIDIAN_FOREST_1]  = {MAP(VIRIDIAN_FOREST),                       MAP(ROUTE2_VIRIDIAN_FOREST_SOUTH_ENTRANCE)},
@@ -2018,7 +2015,7 @@ bool8 IsDestinationBoxFull(void)
 }
 
 const u16 sPokeCenter1FMaps[] = {
-    MAP_VIRIDIAN_CITY_POKEMON_CENTER_1F,
+    MAP_VIRIDIAN_CITY_VIRIDIAN_BASE_HEALING_CENTER,
     MAP_PEWTER_CITY_POKEMON_CENTER_1F,
     MAP_CERULEAN_CITY_POKEMON_CENTER_1F,
     MAP_LAVENDER_TOWN_POKEMON_CENTER_1F,
