@@ -323,8 +323,8 @@
     {
       "map_section": "MAPSEC_RECRUIT_BASE",
       "name": "RECRUIT BASE",
-      "x": 6,
-      "y": 11,
+      "x": 0,
+      "y": 0,
       "width": 1,
       "height": 1
     },
