@@ -27,7 +27,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route25_SeaCottage_EventScript_Bill",
-      "flag": "FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE"
+      "flag": "0"
     },
     {
       "type": "object",

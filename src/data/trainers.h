@@ -54,7 +54,7 @@ const struct Trainer gTrainers[] = {
     },
     [TRAINER_VIRIDIAN_SCHOOL_LASS] = {
         .trainerClass = TRAINER_CLASS_SCHOOL_KID,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_GIRL,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_GIRL | F_TRAINER_FEMALE,
         .trainerPic = TRAINER_PIC_SCHOOL_KID_F,
         .trainerName = _("CAMMY"),
         .items = {},
@@ -62,15 +62,15 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
         .party = NO_ITEM_DEFAULT_MOVES(sParty_ViridianSchoolLass),
     },
-    [TRAINER_RS_TUBER_F] = {
-        .trainerClass = TRAINER_CLASS_RS_TUBER_F,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_GIRL,
-        .trainerPic = TRAINER_PIC_RS_TUBER_F,
-        .trainerName = _(""),
+    [TRAINER_VIRIDIAN_FOREST_ENTRANCE_PICNICKER] = {
+        .trainerClass = TRAINER_CLASS_PICNICKER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_GIRL | F_TRAINER_FEMALE,
+        .trainerPic = TRAINER_PIC_PICNICKER,
+        .trainerName = _("EVA"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_RSTuberF),
+        .party = NO_ITEM_DEFAULT_MOVES(sParty_ViridianForestEntrancePicnicker),
     },
     [TRAINER_RS_TUBER_M] = {
         .trainerClass = TRAINER_CLASS_RS_TUBER_M,

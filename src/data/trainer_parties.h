@@ -23,7 +23,6 @@
 
     static const struct TrainerMonNoItemDefaultMoves sParty_AquaGruntM[] = {DUMMY_TRAINER_MON};
 static const struct TrainerMonNoItemDefaultMoves sParty_AquaGruntF[] = {DUMMY_TRAINER_MON};
-static const struct TrainerMonNoItemDefaultMoves sParty_RSTuberF[] = {DUMMY_TRAINER_STARMIE};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSTuberM[] = {DUMMY_TRAINER_STARMIE};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSCooltrainerM[] = {DUMMY_TRAINER_MON_IV};
 static const struct TrainerMonNoItemDefaultMoves sParty_RSCooltrainerF[] = {DUMMY_TRAINER_MON_IV};
@@ -146,6 +145,14 @@ static const struct TrainerMonNoItemDefaultMoves sParty_ViridianSchoolLass[] = {
         .iv = 0,
         .lvl = 5,
         .species = SPECIES_PIDGEY,
+    },
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_ViridianForestEntrancePicnicker[] = {
+    {
+        .iv = 0,
+        .lvl = 5,
+        .species = SPECIES_RATTATA,
     },
 };
 

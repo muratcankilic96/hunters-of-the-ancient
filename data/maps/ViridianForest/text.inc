@@ -1,3 +1,14 @@
+ViridianForest_Text_IpaAgentsAreEverywhere::
+    .string "{COLOR BLUE}IPA agents are everywhere. Be\n"
+    .string "careful, they have extremely,\l"
+    .string "really extremely powerful POKéMONs\l"
+    .string "with them. When you encounter\l"
+    .string "them, you have no chance!\p"
+    .string "They are identifiable with their\l"
+    .string "green hats.\p"
+    .string "I must go for now. Good luck in\l"
+    .string "your hunt!$"
+
 ViridianForest_Text_FriendsItchingToBattle::
     .string "I came here with some friends to\n"
     .string "catch us some BUG POKéMON!\p"
@@ -81,17 +92,16 @@ ViridianForest_Text_UseAntidoteForPoison::
     .string "For poison, use ANTIDOTE!\n"
     .string "Get it at POKéMON MARTS!$"
 
-ViridianForest_Text_ContactOakViaPCToRatePokedex::
-    .string "TRAINER TIPS\p"
-    .string "Contact PROF. OAK via a PC to\n"
-    .string "get your POKéDEX evaluated!$"
-
 ViridianForest_Text_CantCatchOwnedMons::
     .string "TRAINER TIPS\p"
-    .string "You can't catch a POKéMON that\n"
-    .string "belongs to someone else.\p"
+    .string "It is illegal to catch a POKéMON\n"
+    .string "that belongs to someone else.\p"
     .string "Throw POKé BALLS only at wild\n"
     .string "POKéMON to catch them!$"
+
+ViridianCity_Text_LikeICare::
+    .string "Heh…\n"
+    .string "Like I care about law and order.$"
 
 ViridianForest_Text_WeakenMonsBeforeCapture::
     .string "TRAINER TIPS\p"
@@ -102,4 +112,3 @@ ViridianForest_Text_WeakenMonsBeforeCapture::
 ViridianForest_Text_LeavingViridianForest::
     .string "LEAVING VIRIDIAN FOREST\n"
     .string "PEWTER CITY AHEAD$"
-

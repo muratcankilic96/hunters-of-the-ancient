@@ -1,10 +1,13 @@
-Route2_ViridianForest_SouthEntrance_Text_ForestIsMaze::
-    .string "Are you going to VIRIDIAN FOREST?\n"
-    .string "It's a natural maze in there.\l"
-    .string "Be careful you don't get lost.$"
+Route2_ViridianForest_SouthEntrance_Text_YouLookLikeABadGuy::
+    .string "You look like a bad guy. So\n"
+    .string "fashionable.$"
 
-Route2_ViridianForest_SouthEntrance_Text_RattataHasWickedBite::
-    .string "RATTATA may be small, but don't\n"
-    .string "underestimate its wicked bite.\p"
-    .string "Have you caught one already?$"
+Route2_ViridianForest_SouthEntrance_Text_DoNotUnderestimateRattata::
+    .string "Do not underestimate RATTATA's\n"
+    .string "bites, TEAM ROCKET jerk!$"
 
+Route2_ViridianForest_SouthEntrance_Text_ICantBelieveThis::
+    .string "Oh, I can't believe this.$"
+
+Route2_ViridianForest_SouthEntrance_Text_GoAwayYouTraitor::
+    .string "Go away you traitor.$"

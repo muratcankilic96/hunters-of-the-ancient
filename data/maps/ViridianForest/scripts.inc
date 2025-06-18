@@ -1,64 +1,82 @@
+.set LOCALID_ROCKET, 14
+
 ViridianForest_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, ViridianForest_OnTransition
 	.byte 0
 
 ViridianForest_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_VIRIDIAN_FOREST
+	goto_if_eq VAR_STORYLINE_IPA_WARNING, 1, ViridianForest_SetPewterBaseFlag
 	end
 
-ViridianForest_EventScript_Youngster::
+ViridianForest_SetPewterBaseFlag::
+	setflag FLAG_HIDE_BLACK_IN_PEWTER_CITY
+	setvar VAR_STORYLINE_IPA_WARNING, 2
+	end
+
+ViridianForest_WarnAboutIpa::
+	lock
+	faceplayer
+	msgbox ViridianForest_Text_IpaAgentsAreEverywhere
+	closemessage
+	setvar VAR_STORYLINE_IPA_WARNING, 3
+	setflag FLAG_HIDE_VIRIDIAN_FOREST_ROCKET_GRUNT
+	fadescreen 0
+	removeobject LOCALID_ROCKET
+	release
+	end
+
+ViridianForest_Youngster::
 	msgbox ViridianForest_Text_FriendsItchingToBattle, MSGBOX_NPC
 	end
 
-ViridianForest_EventScript_Boy::
+ViridianForest_Boy::
 	msgbox ViridianForest_Text_RanOutOfPokeBalls, MSGBOX_NPC
 	end
 
-ViridianForest_EventScript_TrainerTips1::
+ViridianForest_TrainerTips1::
 	msgbox ViridianForest_Text_AvoidGrassyAreasWhenWeak, MSGBOX_SIGN
 	end
 
-ViridianForest_EventScript_TrainerTips2::
+ViridianForest_TrainerTips2::
 	msgbox ViridianForest_Text_UseAntidoteForPoison, MSGBOX_SIGN
 	end
 
-ViridianForest_EventScript_TrainerTips3::
-	msgbox ViridianForest_Text_ContactOakViaPCToRatePokedex, MSGBOX_SIGN
-	end
-
-ViridianForest_EventScript_TrainerTips4::
+ViridianForest_TrainerTips3::
 	msgbox ViridianForest_Text_CantCatchOwnedMons, MSGBOX_SIGN
+	msgbox ViridianCity_Text_LikeICare
+	closemessage
 	end
 
-ViridianForest_EventScript_TrainerTips5::
+ViridianForest_TrainerTips4::
 	msgbox ViridianForest_Text_WeakenMonsBeforeCapture, MSGBOX_SIGN
 	end
 
-ViridianForest_EventScript_ExitSign::
+ViridianForest_ExitSign::
 	msgbox ViridianForest_Text_LeavingViridianForest, MSGBOX_SIGN
 	end
 
-ViridianForest_EventScript_Rick::
+ViridianForest_Rick::
 	trainerbattle_single TRAINER_BUG_CATCHER_RICK, ViridianForest_Text_RickIntro, ViridianForest_Text_RickDefeat
 	msgbox ViridianForest_Text_RickPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-ViridianForest_EventScript_Doug::
+ViridianForest_Doug::
 	trainerbattle_single TRAINER_BUG_CATCHER_DOUG, ViridianForest_Text_DougIntro, ViridianForest_Text_DougDefeat
 	msgbox ViridianForest_Text_DougPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-ViridianForest_EventScript_Sammy::
+ViridianForest_Sammy::
 	trainerbattle_single TRAINER_BUG_CATCHER_SAMMY, ViridianForest_Text_SammyIntro, ViridianForest_Text_SammyDefeat
 	msgbox ViridianForest_Text_SammyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-ViridianForest_EventScript_Anthony::
+ViridianForest_Anthony::
 	trainerbattle_single TRAINER_BUG_CATCHER_ANTHONY, ViridianForest_Text_AnthonyIntro, ViridianForest_Text_AnthonyDefeat
 	msgbox ViridianForest_Text_AnthonyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-ViridianForest_EventScript_Charlie::
+ViridianForest_Charlie::
 	trainerbattle_single TRAINER_BUG_CATCHER_CHARLIE, ViridianForest_Text_CharlieIntro, ViridianForest_Text_CharlieDefeat
 	msgbox ViridianForest_Text_CharliePostBattle, MSGBOX_AUTOCLOSE
 	end

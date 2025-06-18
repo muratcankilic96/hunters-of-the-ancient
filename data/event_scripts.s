@@ -431,7 +431,6 @@ gStdScriptsEnd::
 	.include "data/maps/SaffronCity_MrPsychicsHouse/scripts.inc"
 	.include "data/maps/SaffronCity_PokemonTrainerFanClub/scripts.inc"
 	.include "data/maps/Route2_ViridianForest_SouthEntrance/scripts.inc"
-	.include "data/maps/Route2_House/scripts.inc"
 	.include "data/maps/Route2_EastBuilding/scripts.inc"
 	.include "data/maps/Route2_ViridianForest_NorthEntrance/scripts.inc"
 	.include "data/maps/Route4_PokemonCenter_1F/scripts.inc"
@@ -745,7 +744,6 @@ gStdScriptsEnd::
 	.include "data/maps/SaffronCity_MrPsychicsHouse/text.inc"
 	.include "data/maps/SaffronCity_PokemonTrainerFanClub/text.inc"
 	.include "data/maps/Route2_ViridianForest_SouthEntrance/text.inc"
-	.include "data/maps/Route2_House/text.inc"
 	.include "data/maps/Route2_EastBuilding/text.inc"
 	.include "data/maps/Route2_ViridianForest_NorthEntrance/text.inc"
 	.include "data/maps/Route4_PokemonCenter_1F/text.inc"
@@ -1017,9 +1015,9 @@ EventScript_ResetAllMapFlags::
 	setflag FLAG_HIDE_POKEDEX_IN_RECRUIT_BASE
 	setflag FLAG_HIDE_PEWTER_CITY_EXIT_IPA_AGENT
 	setflag FLAG_HIDE_PEWTER_CITY_GYM_FRONT_IPA_AGENTS
-	setflag FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE
+	setflag FLAG_HIDE_VIRIDIAN_FOREST_IPA_AGENTS
 	setflag FLAG_HIDE_PEWTER_CITY_RUNNING_SHOES_GUY
-	setflag FLAG_HIDE_POKEHOUSE_FUJI
+	setflag FLAG_HIDE_VIRIDIAN_FOREST_ROCKET_GRUNT
 	setflag FLAG_HIDE_LIFT_KEY
 	setflag FLAG_HIDE_SILPH_SCOPE
 	setflag FLAG_HIDE_CERULEAN_RIVAL

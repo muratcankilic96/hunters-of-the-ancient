@@ -64,9 +64,9 @@
 #define FLAG_HIDE_PEWTER_CITY_EXIT_IPA_AGENT               0x030
 #define FLAG_HIDE_PEWTER_CITY_GYM_FRONT_IPA_AGENTS         0x031
 #define FLAG_HIDE_VIRIDIAN_CITY_SPEAROW                    0x032
-#define FLAG_HIDE_BILL_HUMAN_SEA_COTTAGE                   0x033
-#define FLAG_HIDE_TOWER_FUJI                               0x034
-#define FLAG_HIDE_POKEHOUSE_FUJI                           0x035
+#define FLAG_HIDE_VIRIDIAN_FOREST_IPA_AGENTS               0x033
+#define FLAG_HIDE_BLACK_IN_PEWTER_CITY                     0x034
+#define FLAG_HIDE_VIRIDIAN_FOREST_ROCKET_GRUNT             0x035
 #define FLAG_HIDE_LIFT_KEY                                 0x036
 #define FLAG_HIDE_SILPH_SCOPE                              0x037
 #define FLAG_HIDE_HIDEOUT_GIOVANNI                         0x038
@@ -1036,7 +1036,7 @@
 #define FLAG_HIDDEN_ITEM_ROUTE25_ELIXIR                                    (FLAG_HIDDEN_ITEMS_START +   4)
 #define FLAG_HIDDEN_ITEM_ROUTE25_ETHER                                     (FLAG_HIDDEN_ITEMS_START +   5)
 #define FLAG_HIDDEN_ITEM_ROUTE9_ETHER                                      (FLAG_HIDDEN_ITEMS_START +   6)
-#define FLAG_HIDDEN_ITEM_UNUSED_0x07                                       (FLAG_HIDDEN_ITEMS_START +   7)
+#define FLAG_HIDDEN_ITEM_ROUTE2_LUXURY_BALL                                (FLAG_HIDDEN_ITEMS_START +   7)
 #define FLAG_HIDDEN_ITEM_SSANNE_B1F_CORRIDOR_HYPER_POTION                  (FLAG_HIDDEN_ITEMS_START +   8)
 #define FLAG_HIDDEN_ITEM_ROUTE10_SUPER_POTION                              (FLAG_HIDDEN_ITEMS_START +   9)
 #define FLAG_HIDDEN_ITEM_ROUTE10_MAX_ETHER                                 (FLAG_HIDDEN_ITEMS_START +  10)

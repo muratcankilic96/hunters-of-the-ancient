@@ -134,7 +134,7 @@
 #define VAR_STORYLINE_ALLOW_LEAVING_SECRET_PATH                                0x4052
 #define VAR_STORYLINE_ALLOW_LEAVING_PEWTER                                     0x4053
 #define VAR_STORYLINE_GOT_FIRST_POKEMON                                        0x4054
-#define VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB                           0x4055
+#define VAR_STORYLINE_IPA_WARNING                                              0x4055
 #define VAR_WARP_REGISTRATION_ROOM                                             0x4056
 #define VAR_MAP_SCENE_VIRIDIAN_CITY_MART                                       0x4057
 #define VAR_MAP_SCENE_PALLET_TOWN_OAKS_HOUSE                                   0x4058
