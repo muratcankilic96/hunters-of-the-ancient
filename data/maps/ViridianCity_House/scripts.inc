@@ -51,21 +51,22 @@ ViridianCity_House_Speary::
 
 ViridianCity_House_Speary_StealAttempt::
 	lockall
+	faceplayer
 	msgbox ViridianCity_House_Text_TriedToStealSpearow, MSGBOX_NPC
 	delay 100
 	message ViridianCity_House_Text_DoNotTouchHim
 	applymovement LOCALID_MAN, ViridianCity_House_Movement_Exclamation
+	waitmovement 0
 	waitmessage
 	trainerbattle_no_intro TRAINER_VIRIDIAN_BIRD_KEEPER, ViridianCity_House_Text_SpearyNo
 	delay 50
 	givemon SPECIES_SPEAROW, 8
 	playfanfare MUS_OBTAIN_KEY_ITEM
 	message ViridianCity_House_Text_StoleTheSpearow
-	closemessage
-	setflag FLAG_HIDE_VIRIDIAN_CITY_SPEAROW
+	waitmessage
 	removeobject LOCALID_SPEAROW
 	message ViridianCity_House_Text_DecidedToRunAway
-	closemessage
+	waitmessage
 	setflag FLAG_HIDE_VIRIDIAN_CITY_SPEAROW
 	warp MAP_VIRIDIAN_CITY, 1
 	releaseall

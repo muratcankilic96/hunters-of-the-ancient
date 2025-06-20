@@ -1,8 +1,8 @@
 const u32 gTrainerFrontPic_SecurityGuard[] = INCBIN_U32("graphics/trainers/front_pics/security_guard_front_pic.4bpp.lz");
 const u32 gTrainerPalette_SecurityGuard[] = INCBIN_U32("graphics/trainers/palettes/security_guard.gbapal.lz");
 
-const u32 gTrainerFrontPic_AquaGruntM[] = INCBIN_U32("graphics/trainers/front_pics/aqua_grunt_m_front_pic.4bpp.lz");
-const u32 gTrainerPalette_AquaGruntM[] = INCBIN_U32("graphics/trainers/palettes/aqua_grunt_m.gbapal.lz");
+const u32 gTrainerFrontPic_Ipa[] = INCBIN_U32("graphics/trainers/front_pics/ipa_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Ipa[] = INCBIN_U32("graphics/trainers/palettes/ipa.gbapal.lz");
 
 const u32 gTrainerFrontPic_AquaGruntF[] = INCBIN_U32("graphics/trainers/front_pics/aqua_grunt_f_front_pic.4bpp.lz");
 const u32 gTrainerPalette_AquaGruntF[] = INCBIN_U32("graphics/trainers/palettes/aqua_grunt_f.gbapal.lz");

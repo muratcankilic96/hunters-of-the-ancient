@@ -3,7 +3,7 @@ static const union AnimCmd *const sAnims_SecurityGuard[] =
     sAnim_GeneralFrame0,
 };
 
-static const union AnimCmd *const sAnims_AquaGruntM[] =
+static const union AnimCmd *const sAnims_Ipa[] =
 {
     sAnim_GeneralFrame0,
 };
@@ -741,7 +741,7 @@ static const union AnimCmd *const sAnims_Painter[] =
 const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 {
     [TRAINER_PIC_SECURITY_GUARD]        = sAnims_SecurityGuard,
-    [TRAINER_PIC_AQUA_GRUNT_M]          = sAnims_AquaGruntM,
+    [TRAINER_PIC_IPA]                   = sAnims_Ipa,
     [TRAINER_PIC_AQUA_GRUNT_F]          = sAnims_AquaGruntF,
     [TRAINER_PIC_RS_AROMA_LADY]         = sAnims_RSAromaLady,
     [TRAINER_PIC_RS_RUIN_MANIAC]        = sAnims_RSRuinManiac,

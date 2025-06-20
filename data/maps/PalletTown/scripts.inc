@@ -188,5 +188,9 @@ PalletTown_Movement_LeaveTowardsSecretPath::
 	walk_down
 	walk_down
 	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	set_invisible
 	step_end

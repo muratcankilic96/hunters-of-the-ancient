@@ -3,15 +3,15 @@
 
 #define TRAINER_NONE                               0
 #define TRAINER_OAK_LAB_SECURITY                   1
+#define TRAINER_VIRIDIAN_BIRD_KEEPER               2
+#define TRAINER_VIRIDIAN_EXIT_POLICE               3
+#define TRAINER_VIRIDIAN_SCHOOL_LASS               4
+#define TRAINER_VIRIDIAN_FOREST_ENTRANCE_PICNICKER 5
+#define TRAINER_VIRIDIAN_FOREST_IPA_1              6
+#define TRAINER_VIRIDIAN_FOREST_IPA_2              7
+#define TRAINER_VIRIDIAN_FOREST_IPA_3              8
+#define TRAINER_VIRIDIAN_FOREST_IPA_4              9
 // Dummy trainers for all the RS trainer classes
-#define TRAINER_AQUA_GRUNT_M                       2
-#define TRAINER_AQUA_GRUNT_F                       3
-#define TRAINER_VIRIDIAN_BIRD_KEEPER               4
-#define TRAINER_VIRIDIAN_EXIT_POLICE               5
-#define TRAINER_VIRIDIAN_SCHOOL_LASS               6
-#define TRAINER_VIRIDIAN_FOREST_ENTRANCE_PICNICKER 7
-#define TRAINER_RS_TUBER_M                         8
-#define TRAINER_RS_COOLTRAINER_M                   9
 #define TRAINER_RS_COOLTRAINER_F                  10
 #define TRAINER_HEX_MANIAC                        11
 #define TRAINER_RS_LADY                           12
@@ -105,9 +105,9 @@
 #define TRAINER_YOUNGSTER_YASU                    99
 #define TRAINER_YOUNGSTER_DAVE                   100
 #define TRAINER_YOUNGSTER_BEN_2                  101
-#define TRAINER_BUG_CATCHER_RICK                 102
-#define TRAINER_BUG_CATCHER_DOUG                 103
-#define TRAINER_BUG_CATCHER_SAMMY                104
+#define TRAINER_BUG_CATCHER_PETER                 102
+#define TRAINER_BUG_CATCHER_MURPHY                 103
+#define TRAINER_BUG_CATCHER_WALTER                104
 #define TRAINER_BUG_CATCHER_COLTON               105
 #define TRAINER_BUG_CATCHER_GREG                 106
 #define TRAINER_BUG_CATCHER_JAMES                107
@@ -534,8 +534,8 @@
 #define TRAINER_BIKER_GOON_2                     528
 #define TRAINER_BIKER_GOON_3                     529
 #define TRAINER_BIKER_2                          530
-#define TRAINER_BUG_CATCHER_ANTHONY              531
-#define TRAINER_BUG_CATCHER_CHARLIE              532
+#define TRAINER_BUG_CATCHER_MORGAN              531
+#define TRAINER_BUG_CATCHER_DERRICK              532
 #define TRAINER_TWINS_ELI_ANNE_2                 533
 #define TRAINER_YOUNGSTER_JOHNSON                534
 #define TRAINER_BIKER_RICARDO                    535

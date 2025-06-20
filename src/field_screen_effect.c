@@ -420,15 +420,21 @@ static void Task_RushInjuredPokemonToHideout(u8 taskId)
          && gSaveBlock1Ptr->lastHealLocation.warpId == WARP_ID_NONE
          && gSaveBlock1Ptr->lastHealLocation.x == gameOver->x
          && gSaveBlock1Ptr->lastHealLocation.y == gameOver->y)
-            gTasks[taskId].tState = 2;
+            gTasks[taskId].tState = 7;
         else 
             gTasks[taskId].tState = 1;
+        break;
+    case 7:
+        if (PrintWhiteOutRecoveryMessage(taskId, gText_PlayerHasBeenArrested, 2, 8))
+        {
+            DoSoftReset();
+        }
         break;
     case 1:
         if (PrintWhiteOutRecoveryMessage(taskId, gText_PlayerScurriedToHideout, 2, 8))
         {
             ObjectEventTurn(&gObjectEvents[gPlayerAvatar.objectEventId], DIR_NORTH);
-            gTasks[taskId].tState++;
+            gTasks[taskId].tState = 3;
         }
         break;
     case 4:
@@ -439,11 +445,6 @@ static void Task_RushInjuredPokemonToHideout(u8 taskId)
         }
         break;
     case 2:
-        if (PrintWhiteOutRecoveryMessage(taskId, gText_PlayerHasBeenArrested, 2, 8))
-        {
-            DoSoftReset();
-        }
-        break;
     case 5:
         windowId = gTasks[taskId].tWindowId;
         ClearWindowTilemap(windowId);

@@ -19,7 +19,7 @@
 #define TRAINER_ENCOUNTER_MUSIC_RICH        13 // Rich Boys and Gentlemen
 
 #define TRAINER_PIC_SECURITY_GUARD          0
-#define TRAINER_PIC_AQUA_GRUNT_M            1
+#define TRAINER_PIC_IPA                     1
 #define TRAINER_PIC_AQUA_GRUNT_F            2
 #define TRAINER_PIC_RS_AROMA_LADY           3
 #define TRAINER_PIC_RS_RUIN_MANIAC          4
@@ -183,7 +183,7 @@
 #define TRAINER_CLASS_NONE                0
 #define TRAINER_CLASS_PKMN_TRAINER_UNUSED 1
 #define TRAINER_CLASS_SECURITY            2
-#define TRAINER_CLASS_TEAM_AQUA           3
+#define TRAINER_CLASS_IPA                 3
 #define TRAINER_CLASS_RS_AROMA_LADY       4
 #define TRAINER_CLASS_RS_RUIN_MANIAC      5
 #define TRAINER_CLASS_INTERVIEWER         6
@@ -289,7 +289,7 @@
 #define TRAINER_CLASS_PAINTER             106
 
 #define FACILITY_CLASS_SECURITY               0
-#define FACILITY_CLASS_AQUA_GRUNT_M           1
+#define FACILITY_CLASS_IPA                    1
 #define FACILITY_CLASS_AQUA_GRUNT_F           2
 #define FACILITY_CLASS_RS_AROMA_LADY          3
 #define FACILITY_CLASS_RS_RUIN_MANIAC         4

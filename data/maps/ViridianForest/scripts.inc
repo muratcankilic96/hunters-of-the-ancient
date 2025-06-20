@@ -19,6 +19,7 @@ ViridianForest_WarnAboutIpa::
 	faceplayer
 	msgbox ViridianForest_Text_IpaAgentsAreEverywhere
 	closemessage
+	trainerbattle_no_intro TRAINER_VIRIDIAN_FOREST_IPA_1, ViridianForest_Text_IpaAgentsAreEverywhere
 	setvar VAR_STORYLINE_IPA_WARNING, 3
 	setflag FLAG_HIDE_VIRIDIAN_FOREST_ROCKET_GRUNT
 	fadescreen 0
@@ -56,27 +57,27 @@ ViridianForest_ExitSign::
 	msgbox ViridianForest_Text_LeavingViridianForest, MSGBOX_SIGN
 	end
 
-ViridianForest_Rick::
-	trainerbattle_single TRAINER_BUG_CATCHER_RICK, ViridianForest_Text_RickIntro, ViridianForest_Text_RickDefeat
+ViridianForest_Peter::
+	trainerbattle_single TRAINER_BUG_CATCHER_PETER, ViridianForest_Text_RickIntro, ViridianForest_Text_RickDefeat
 	msgbox ViridianForest_Text_RickPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-ViridianForest_Doug::
-	trainerbattle_single TRAINER_BUG_CATCHER_DOUG, ViridianForest_Text_DougIntro, ViridianForest_Text_DougDefeat
+ViridianForest_Murphy::
+	trainerbattle_single TRAINER_BUG_CATCHER_MURPHY, ViridianForest_Text_DougIntro, ViridianForest_Text_DougDefeat
 	msgbox ViridianForest_Text_DougPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-ViridianForest_Sammy::
-	trainerbattle_single TRAINER_BUG_CATCHER_SAMMY, ViridianForest_Text_SammyIntro, ViridianForest_Text_SammyDefeat
+ViridianForest_Walter::
+	trainerbattle_single TRAINER_BUG_CATCHER_WALTER, ViridianForest_Text_SammyIntro, ViridianForest_Text_SammyDefeat
 	msgbox ViridianForest_Text_SammyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-ViridianForest_Anthony::
-	trainerbattle_single TRAINER_BUG_CATCHER_ANTHONY, ViridianForest_Text_AnthonyIntro, ViridianForest_Text_AnthonyDefeat
+ViridianForest_Morgan::
+	trainerbattle_single TRAINER_BUG_CATCHER_MORGAN, ViridianForest_Text_AnthonyIntro, ViridianForest_Text_AnthonyDefeat
 	msgbox ViridianForest_Text_AnthonyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-ViridianForest_Charlie::
-	trainerbattle_single TRAINER_BUG_CATCHER_CHARLIE, ViridianForest_Text_CharlieIntro, ViridianForest_Text_CharlieDefeat
+ViridianForest_Derrick::
+	trainerbattle_single TRAINER_BUG_CATCHER_DERRICK, ViridianForest_Text_CharlieIntro, ViridianForest_Text_CharlieDefeat
 	msgbox ViridianForest_Text_CharliePostBattle, MSGBOX_AUTOCLOSE
 	end

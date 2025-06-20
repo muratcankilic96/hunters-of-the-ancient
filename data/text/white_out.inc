@@ -1,31 +1,22 @@
 Text_FirstShouldRestoreMonsHealth::
-	.string "First, you should restore your\n"
-	.string "POKéMON to full health.$"
-
-Text_MonsHealedShouldBuyPotions::
-	.string "Your POKéMON have been healed\n"
-	.string "to perfect health.\p"
-	.string "If your POKéMON's energy, HP,\n"
-	.string "is down, please come see us.\p"
-	.string "If you're planning to go far in the\n"
-	.string "field, you should buy some POTIONS\l"
-	.string "at the POKéMON MART.\p"
-	.string "We hope you excel!$"
+	.string "{COLOR LIGHT_RED}NURSE: {COLOR RED}First, you should\n"
+	.string "restore your POKéMON to full\l"
+	.string "health.$"
 
 Text_MonsHealed::
-	.string "Your POKéMON have been healed\n"
-	.string "to perfect health.\p"
-	.string "We hope you excel!$"
+	.string "{COLOR LIGHT_RED}NURSE: {COLOR RED}Your POKéMON have been\n"
+	.string "healed to perfect health.\p"
+	.string "Be careful out there.$"
 
 Text_HadQuiteAnExperienceTakeRest::
-	.string "NURSE: {PLAYER}!\n"
+	.string "{COLOR LIGHT_RED}NURSE: {COLOR RED}{PLAYER}!\n"
 	.string "Welcome back.\p"
 	.string "We somehow managed to\n"
 	.string "return here safely.\p"
 	.string "You gotta take some rest.$"
 
 Text_MomExplainHPGetPotions::
-	.string "NURSE: Cool. Now you and your\n"
+	.string "{COLOR LIGHT_RED}NURSE: {COLOR RED}Cool. Now you and your\n"
 	.string "POKéMON are looking much better.\p"
 	.string "You gotta be careful out there\n"
 	.string "with all the cops and all other\l"
