@@ -58,6 +58,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_OAKS_LAB_PROF_OAK",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PROF_OAK",
       "x": 6,
@@ -72,6 +73,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_BULBASAUR_BALL",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 8,
@@ -86,6 +88,7 @@
       "flag": "FLAG_HIDE_CHIKORITA_BALL"
     },
     {
+      "local_id": "LOCALID_SQUIRTLE_BALL",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 9,
@@ -100,6 +103,7 @@
       "flag": "FLAG_HIDE_TOTODILE_BALL"
     },
     {
+      "local_id": "LOCALID_CHARMANDER_BALL",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 10,
@@ -114,6 +118,7 @@
       "flag": "FLAG_HIDE_CYNDAQUIL_BALL"
     },
     {
+      "local_id": "LOCALID_OAKS_LAB_RIVAL",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BLACK",
       "x": 6,
@@ -128,6 +133,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_POKEDEX_2",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
       "x": 6,

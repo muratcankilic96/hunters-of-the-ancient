@@ -81,7 +81,7 @@ static void ClearBattleTower(void)
 
 static void WarpToPlayersRoom(void)
 {
-    SetWarpDestination(MAP_GROUP(RECRUIT_BASE_REGISTRATION_ROOM), MAP_NUM(RECRUIT_BASE_REGISTRATION_ROOM), -1, 6, 6);
+    SetWarpDestination(MAP_GROUP(MAP_RECRUIT_BASE_REGISTRATION_ROOM), MAP_NUM(MAP_RECRUIT_BASE_REGISTRATION_ROOM), -1, 6, 6);
     WarpIntoMap();
 }
 

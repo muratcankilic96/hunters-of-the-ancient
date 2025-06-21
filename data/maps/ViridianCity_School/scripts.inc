@@ -1,6 +1,3 @@
-.set LOCALID_WOMAN, 1
-.set LOCALID_LASS,  2
-
 ViridianCity_School_MapScripts::
 	.byte 0
 

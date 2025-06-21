@@ -402,21 +402,21 @@ static void Task_RushInjuredPokemonToHideout(u8 taskId)
         CopyWindowToVram(windowId, COPYWIN_FULL);
 
         // Scene changes if last heal location was the recruit base
-        loc = GetHealLocation(SPAWN_RECRUIT_BASE);
+        loc = GetHealLocation(HEAL_LOCATION_RECRUIT_BASE);
         // Losing against the first police battle triggers a game over scene
-        gameOver = GetHealLocation(SPAWN_GAME_OVER);
+        gameOver = GetHealLocation(HEAL_LOCATION_GAME_OVER);
         // If player faints before getting Pokédex, triggers flag
         labInvasionState = GetVarPointer(VAR_STORYLINE_LAB_INVASION);
         if (*labInvasionState == 5)
             FlagSet(FLAG_FAINTED_BEFORE_POKEDEX);
-        if (gSaveBlock1Ptr->lastHealLocation.mapGroup == loc->group
-         && gSaveBlock1Ptr->lastHealLocation.mapNum == loc->map
+        if (gSaveBlock1Ptr->lastHealLocation.mapGroup == loc->mapGroup
+         && gSaveBlock1Ptr->lastHealLocation.mapNum == loc->mapNum
          && gSaveBlock1Ptr->lastHealLocation.warpId == WARP_ID_NONE
          && gSaveBlock1Ptr->lastHealLocation.x == loc->x
          && gSaveBlock1Ptr->lastHealLocation.y == loc->y)
             gTasks[taskId].tState = 4;
-        else if (gSaveBlock1Ptr->lastHealLocation.mapGroup == gameOver->group
-         && gSaveBlock1Ptr->lastHealLocation.mapNum == gameOver->map
+        else if (gSaveBlock1Ptr->lastHealLocation.mapGroup == gameOver->mapGroup
+         && gSaveBlock1Ptr->lastHealLocation.mapNum == gameOver->mapNum
          && gSaveBlock1Ptr->lastHealLocation.warpId == WARP_ID_NONE
          && gSaveBlock1Ptr->lastHealLocation.x == gameOver->x
          && gSaveBlock1Ptr->lastHealLocation.y == gameOver->y)
