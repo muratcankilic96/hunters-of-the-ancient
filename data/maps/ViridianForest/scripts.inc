@@ -6,12 +6,6 @@ ViridianForest_MapScripts::
 
 ViridianForest_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_VIRIDIAN_FOREST
-	goto_if_eq VAR_STORYLINE_IPA_WARNING, 1, ViridianForest_SetPewterBaseFlag
-	end
-
-ViridianForest_SetPewterBaseFlag::
-	setflag FLAG_HIDE_BLACK_IN_PEWTER_CITY
-	setvar VAR_STORYLINE_IPA_WARNING, 2
 	end
 
 ViridianForest_WarnAboutIpa::
@@ -19,20 +13,20 @@ ViridianForest_WarnAboutIpa::
 	faceplayer
 	msgbox ViridianForest_Text_IpaAgentsAreEverywhere
 	closemessage
-	trainerbattle_no_intro TRAINER_VIRIDIAN_FOREST_IPA_1, ViridianForest_Text_IpaAgentsAreEverywhere
-	setvar VAR_STORYLINE_IPA_WARNING, 3
+	setvar VAR_STORYLINE_IPA_WARNING, 2
 	setflag FLAG_HIDE_VIRIDIAN_FOREST_ROCKET_GRUNT
-	fadescreen 0
+	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_ROCKET
+	fadescreen FADE_FROM_BLACK
 	release
 	end
 
 ViridianForest_Youngster::
-	msgbox ViridianForest_Text_FriendsItchingToBattle, MSGBOX_NPC
+	msgbox ViridianForest_Text_MyAntidoteGotStuck, MSGBOX_NPC
 	end
 
 ViridianForest_Boy::
-	msgbox ViridianForest_Text_RanOutOfPokeBalls, MSGBOX_NPC
+	msgbox ViridianForest_Text_IAmNotWithMyPokemon, MSGBOX_NPC
 	end
 
 ViridianForest_TrainerTips1::
@@ -58,26 +52,46 @@ ViridianForest_ExitSign::
 	end
 
 ViridianForest_Peter::
-	trainerbattle_single TRAINER_BUG_CATCHER_PETER, ViridianForest_Text_RickIntro, ViridianForest_Text_RickDefeat
-	msgbox ViridianForest_Text_RickPostBattle, MSGBOX_AUTOCLOSE
+	trainerbattle_single TRAINER_BUG_CATCHER_PETER, ViridianForest_Text_HeyYouCannotPass, ViridianForest_Text_OnASecondThought
+	msgbox ViridianForest_Text_OopsYouWontSteal, MSGBOX_AUTOCLOSE
 	end
 
 ViridianForest_Murphy::
-	trainerbattle_single TRAINER_BUG_CATCHER_MURPHY, ViridianForest_Text_DougIntro, ViridianForest_Text_DougDefeat
-	msgbox ViridianForest_Text_DougPostBattle, MSGBOX_AUTOCLOSE
+	trainerbattle_single TRAINER_BUG_CATCHER_MURPHY, ViridianForest_Text_INeverLikedTeamRocket, ViridianForest_Text_AlreadyGotDefeated
+	msgbox ViridianForest_Text_AllMyPokemonAreDefeated, MSGBOX_AUTOCLOSE
 	end
 
 ViridianForest_Walter::
-	trainerbattle_single TRAINER_BUG_CATCHER_WALTER, ViridianForest_Text_SammyIntro, ViridianForest_Text_SammyDefeat
-	msgbox ViridianForest_Text_SammyPostBattle, MSGBOX_AUTOCLOSE
+	trainerbattle_single TRAINER_BUG_CATCHER_WALTER, ViridianForest_Text_HeyWaitUp, ViridianForest_Text_IUnderstand
+	msgbox ViridianForest_Text_DamnYouJerk, MSGBOX_AUTOCLOSE
 	end
 
 ViridianForest_Morgan::
-	trainerbattle_single TRAINER_BUG_CATCHER_MORGAN, ViridianForest_Text_AnthonyIntro, ViridianForest_Text_AnthonyDefeat
-	msgbox ViridianForest_Text_AnthonyPostBattle, MSGBOX_AUTOCLOSE
+	trainerbattle_single TRAINER_BUG_CATCHER_MORGAN, ViridianForest_Text_IMightBeLittle, ViridianForest_Text_BlastOff
+	msgbox ViridianForest_Text_YouWonNowGo, MSGBOX_AUTOCLOSE
 	end
 
 ViridianForest_Derrick::
-	trainerbattle_single TRAINER_BUG_CATCHER_DERRICK, ViridianForest_Text_CharlieIntro, ViridianForest_Text_CharlieDefeat
-	msgbox ViridianForest_Text_CharliePostBattle, MSGBOX_AUTOCLOSE
+	trainerbattle_single TRAINER_BUG_CATCHER_DERRICK, ViridianForest_Text_MyPokemonCanEvolve, ViridianForest_Text_ILost
+	msgbox ViridianForest_Text_IHopeIpaFindsYou, MSGBOX_AUTOCLOSE
+	end
+
+ViridianForest_IpaAgent_1::
+	trainerbattle_single TRAINER_VIRIDIAN_FOREST_IPA_1, ViridianForest_Text_FinallyICaughtYou, ViridianForest_Text_HowTheHell
+	msgbox ViridianForest_Text_ShockingNews, MSGBOX_AUTOCLOSE
+	end
+
+ViridianForest_IpaAgent_2::
+	trainerbattle_single TRAINER_VIRIDIAN_FOREST_IPA_2, ViridianForest_Text_FinallyICaughtYou, ViridianForest_Text_HowTheHell
+	msgbox ViridianForest_Text_ShockingNews, MSGBOX_AUTOCLOSE
+	end
+
+ViridianForest_IpaAgent_3::
+	trainerbattle_single TRAINER_VIRIDIAN_FOREST_IPA_3, ViridianForest_Text_FinallyICaughtYou, ViridianForest_Text_HowTheHell
+	msgbox ViridianForest_Text_ShockingNews, MSGBOX_AUTOCLOSE
+	end
+
+ViridianForest_IpaAgent_4::
+	trainerbattle_single TRAINER_VIRIDIAN_FOREST_IPA_4, ViridianForest_Text_FinallyICaughtYou, ViridianForest_Text_HowTheHell
+	msgbox ViridianForest_Text_ShockingNews, MSGBOX_AUTOCLOSE
 	end

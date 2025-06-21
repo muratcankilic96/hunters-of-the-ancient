@@ -65,7 +65,7 @@
 #define FLAG_HIDE_PEWTER_CITY_GYM_FRONT_IPA_AGENTS         0x031
 #define FLAG_HIDE_VIRIDIAN_CITY_SPEAROW                    0x032
 #define FLAG_HIDE_VIRIDIAN_FOREST_IPA_AGENTS               0x033
-#define FLAG_HIDE_BLACK_IN_PEWTER_CITY                     0x034
+#define FLAG_HIDE_BLACK_IN_PEWTER_CITY_BASE                     0x034
 #define FLAG_HIDE_VIRIDIAN_FOREST_ROCKET_GRUNT             0x035
 #define FLAG_HIDE_LIFT_KEY                                 0x036
 #define FLAG_HIDE_SILPH_SCOPE                              0x037

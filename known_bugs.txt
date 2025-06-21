@@ -5,3 +5,4 @@ Minor:
 4. Possible color mismatch in route sand paths.
 5. Incorrect map position for Secret Path.
 6. Before SPEAROW stealing scene, the Pokémon still moves.
+7. New music might need revisions as it sounds too calm.

@@ -5,7 +5,7 @@ RecruitBase_Entrance_Text_RecruitHelp::
 
 RecruitBase_Entrance_Text_Medic::
     .string "I am a medic of TEAM ROCKET. I\n"
-    .string "heal POKéMONs when they hurt.$"
+    .string "heal POKéMON when they hurt.$"
 
 RecruitBase_Entrance_BoxesContainSuits::
     .string "These boxes are filled with\n"
@@ -46,7 +46,7 @@ RecruitBase_Entrance_Text_WhatAreThey::
 RecruitBase_Entrance_Text_TheyArePokedex::
     .string "They are POKéDEX! It saves a\n"
     .string "recording when you encounter\l"
-    .string "POKéMONs! I think\l"
+    .string "POKéMON! I think\l"
     .string "it will help you two.$"
 
 RecruitBase_Entrance_Text_PlayerGetsPokedex::

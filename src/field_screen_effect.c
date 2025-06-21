@@ -434,7 +434,7 @@ static void Task_RushInjuredPokemonToHideout(u8 taskId)
         if (PrintWhiteOutRecoveryMessage(taskId, gText_PlayerScurriedToHideout, 2, 8))
         {
             ObjectEventTurn(&gObjectEvents[gPlayerAvatar.objectEventId], DIR_NORTH);
-            gTasks[taskId].tState = 3;
+            gTasks[taskId].tState++;
         }
         break;
     case 4:

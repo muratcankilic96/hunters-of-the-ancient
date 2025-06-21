@@ -53,6 +53,7 @@ PalletTown_MeetWithBlackForLabInvasion::
 PalletTown_RunFromPalletTown::
 	lock
 	faceplayer
+	playbgm MUS_SECRET_PLACE, 0
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
 	applymovement LOCALID_BLACK, Common_Movement_FaceRight
 	waitmovement 0

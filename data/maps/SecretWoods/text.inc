@@ -9,7 +9,7 @@ SecretWoods_Text_GreatPlaceToHide::
     .string "It's a great place to hide here.$"
 
 SecretWoods_Text_WithoutPokemonYouCannotWander::
-    .string "Without POKéMONS, you cannot\n"
+    .string "Without POKéMON, you cannot\n"
 	.string "wander in tall grass.$"
 	
 SecretWoods_Text_YouGotYourPokemon::

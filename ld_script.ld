@@ -953,7 +953,7 @@ SECTIONS {
         sound/songs/midi/mus_sevii_dungeon.o(.rodata);
         sound/songs/midi/mus_sevii_123.o(.rodata);
         sound/songs/midi/mus_sevii_45.o(.rodata);
-        sound/songs/midi/mus_sevii_67.o(.rodata);
+        sound/songs/midi/mus_violet.o(.rodata);
         sound/songs/midi/mus_poke_flute.o(.rodata);
         sound/songs/midi/mus_vs_deoxys.o(.rodata);
         sound/songs/midi/mus_vs_mewtwo.o(.rodata);
