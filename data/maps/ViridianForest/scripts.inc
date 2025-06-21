@@ -39,8 +39,7 @@ ViridianForest_TrainerTips2::
 
 ViridianForest_TrainerTips3::
 	msgbox ViridianForest_Text_CantCatchOwnedMons, MSGBOX_SIGN
-	msgbox ViridianCity_Text_LikeICare
-	closemessage
+	msgbox ViridianCity_Text_LikeICare, MSGBOX_NPC
 	end
 
 ViridianForest_TrainerTips4::

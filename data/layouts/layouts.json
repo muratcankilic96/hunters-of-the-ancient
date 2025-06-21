@@ -748,8 +748,8 @@
     {
       "id": "LAYOUT_PEWTER_CITY",
       "name": "PewterCity_Layout",
-      "width": 48,
-      "height": 40,
+      "width": 78,
+      "height": 80,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
