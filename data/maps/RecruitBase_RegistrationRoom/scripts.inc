@@ -1,6 +1,3 @@
-.set LOCALID_GIOVANNI, 1
-.set LOCALID_RECRUITMENT_OFFICER, 2
-
 RecruitBase_RegistrationRoom_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, RecruitBase_RegistrationRoom_OnTransition
 	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, RecruitBase_RegistrationRoom_OnWarp
@@ -11,7 +8,7 @@ RecruitBase_RegistrationRoom_OnTransition::
 	end
 
 RecruitBase_RegistrationRoom_EventScript_SetRespawn::
-	setrespawn SPAWN_RECRUIT_BASE
+	setrespawn HEAL_LOCATION_RECRUIT_BASE
 	return
 
 RecruitBase_RegistrationRoom_OnWarp::
@@ -19,7 +16,7 @@ RecruitBase_RegistrationRoom_OnWarp::
 	.2byte 0
 
 RecruitBase_RegistrationRoom_FirstWarpIn::
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject LOCALID_PLAYER, DIR_WEST
 	setworldmapflag FLAG_WORLD_MAP_RECRUIT_BASE
 	setvar VAR_WARP_REGISTRATION_ROOM, 1
 	end
@@ -61,15 +58,15 @@ RecruitBase_RegistrationRoom_RegistrationPaperworkProcess::
 	msgbox RecruitBase_RegistrationRoom_Text_RegistrationFinalRemarks, MSGBOX_NPC
 	playse SE_DOOR
 	delay 30
-	addobject LOCALID_GIOVANNI
-	applymovement LOCALID_GIOVANNI, RecruitBase_Movement_EnterRegistrationRoom
+	addobject LOCALID_RECRUIT_BASE_REGISTRATION_ROOM_GIOVANNI
+	applymovement LOCALID_RECRUIT_BASE_REGISTRATION_ROOM_GIOVANNI, RecruitBase_Movement_EnterRegistrationRoom
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	applymovement LOCALID_PLAYER, Common_Movement_FaceRight
 	waitmovement 0
 	msgbox RecruitBase_RegistrationRoom_Text_GiovanniIntroduction, MSGBOX_NPC
-	applymovement LOCALID_GIOVANNI, RecruitBase_Movement_LeaveRegistrationRoom
+	applymovement LOCALID_RECRUIT_BASE_REGISTRATION_ROOM_GIOVANNI, RecruitBase_Movement_LeaveRegistrationRoom
 	waitmovement 0
-	removeobject LOCALID_GIOVANNI
+	removeobject LOCALID_RECRUIT_BASE_REGISTRATION_ROOM_GIOVANNI
 	playse SE_DOOR
 	delay 30
 	setvar VAR_TEAM_ROCKET_RANK, 1
@@ -78,7 +75,7 @@ RecruitBase_RegistrationRoom_RegistrationPaperworkProcess::
 
 RecruitBase_RegistrationRoom_PreventLeavingBeforeCompletion::
 	msgbox RecruitBase_RegistrationRoom_Text_ShouldCompleteRegistrationFirst, MSGBOX_NPC
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
+	applymovement LOCALID_PLAYER, Common_Movement_WalkLeft
 	waitmovement 0
 	end
 

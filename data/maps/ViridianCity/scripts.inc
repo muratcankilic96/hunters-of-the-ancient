@@ -1,5 +1,3 @@
-.set LOCALID_POLICE, 12
-
 ViridianCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, ViridianCity_OnTransition
 	.byte 0
@@ -54,9 +52,9 @@ ViridianCity_Police::
 	trainerbattle_no_intro TRAINER_VIRIDIAN_EXIT_POLICE, ViridianCity_Text_YouAreTough
 	msgbox ViridianCity_Text_IHaveBeenDefeated
 	closemessage
-	applymovement LOCALID_POLICE, ViridianCity_Movement_RunAway
+	applymovement LOCALID_VIRIDIAN_POLICE, ViridianCity_Movement_RunAway
 	waitmovement 0
-	removeobject LOCALID_POLICE
+	removeobject LOCALID_VIRIDIAN_POLICE
 	checkflag FLAG_HIDE_VIRIDIAN_CITY_EXIT_POLICE
 	releaseall
 	end

@@ -1,5 +1,3 @@
-.set LOCALID_ROCKET, 8
-
 Route2_MapScripts::
 	.byte 0
 
@@ -16,7 +14,7 @@ Route2_Rocket::
 	end
 
 Route2_WarnAboutIpa::
-	applymovement LOCALID_ROCKET, Common_Movement_ExclamationMark
+	applymovement LOCALID_ROUTE_2_ROCKET, Common_Movement_ExclamationMark
 	waitmovement 0
 	msgbox Route2_Text_ThereIsASecretOrganization
 	closemessage

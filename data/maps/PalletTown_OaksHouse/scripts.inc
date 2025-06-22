@@ -1,5 +1,3 @@
-.equ LOCALID_TOWN_MAP, 2
-
 PalletTown_OaksHouse_MapScripts::
 	.byte 0
 

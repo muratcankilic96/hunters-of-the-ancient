@@ -1,6 +1,3 @@
-.set LOCALID_GIOVANNI, 6
-.set LOCALID_BLACK, 7
-
 RecruitBase_MainHall_MapScripts::
     map_script MAP_SCRIPT_ON_FRAME_TABLE, RecruitBase_MainHall_OnFrame
 	.byte 0
@@ -59,10 +56,7 @@ RecruitBase_MainHall_RunningShoes::
 	faceplayer
 	msgbox RecruitBase_MainHall_Text_ComeHere
 	waitmessage
-	setobjectxyperm LOCALID_BLACK, 7, 13
-	setobjectxyperm LOCALID_GIOVANNI, 8, 13
-	setobjectmovementtype LOCALID_GIOVANNI, MOVEMENT_TYPE_FACE_DOWN
-	applymovement OBJ_EVENT_ID_PLAYER, RecruitBase_MainHall_Movement_GetCloserToGiovanni
+	applymovement LOCALID_PLAYER, RecruitBase_MainHall_Movement_GetCloserToGiovanni
 	msgbox RecruitBase_MainHall_Text_BossWantsToSpeak, MSGBOX_AUTOCLOSE
 	playfanfare MUS_OBTAIN_KEY_ITEM
 	message RecruitBase_MainHall_Text_PlayerGetsRunningShoes
@@ -71,7 +65,7 @@ RecruitBase_MainHall_RunningShoes::
 	msgbox RecruitBase_MainHall_Text_PlayerSwitchesRunningShoes
 	setflag FLAG_SYS_B_DASH
 	msgbox RecruitBase_MainHall_Text_GiovanniDismissesPlayer, MSGBOX_AUTOCLOSE
-	applymovement LOCALID_GIOVANNI, RecruitBase_MainHall_Movement_GoRecruitBaseUnderground
+	applymovement LOCALID_RECRUIT_BASE_MAIN_HALL_GIOVANNI, RecruitBase_MainHall_Movement_GoRecruitBaseUnderground
 	setvar VAR_STORYLINE_DEFEATED_BROCK, 2
 	setvar VAR_STORYLINE_ALLOW_LEAVING_PEWTER, 1
 	setflag FLAG_HIDE_PEWTER_CITY_EXIT_IPA_AGENT

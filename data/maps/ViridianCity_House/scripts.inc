@@ -1,7 +1,3 @@
-.set LOCALID_MAN, 1
-.set LOCALID_GIRL, 2
-.set LOCALID_SPEAROW, 3
-
 ViridianCity_House_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, ViridianCity_House_OnTransition
 	.byte 0
@@ -11,10 +7,10 @@ ViridianCity_House_OnTransition::
     end
 
 ViridianCity_House_RepositionObjects::
-    setobjectxyperm LOCALID_MAN, 9, 3
-    setobjectmovementtype LOCALID_MAN, MOVEMENT_TYPE_WANDER_UP_AND_DOWN 
-    setobjectxyperm LOCALID_GIRL, 7, 2
-    setobjectmovementtype LOCALID_GIRL, MOVEMENT_TYPE_FACE_UP 
+    setobjectxyperm LOCALID_VIRIDIAN_MAN, 9, 3
+    setobjectmovementtype LOCALID_VIRIDIAN_MAN, MOVEMENT_TYPE_WANDER_UP_AND_DOWN 
+    setobjectxyperm LOCALID_VIRIDIAN_GIRL, 7, 2
+    setobjectmovementtype LOCALID_VIRIDIAN_GIRL, MOVEMENT_TYPE_FACE_UP 
 	end
 
 ViridianCity_House_Man::
@@ -55,7 +51,7 @@ ViridianCity_House_Speary_StealAttempt::
 	msgbox ViridianCity_House_Text_TriedToStealSpearow, MSGBOX_NPC
 	delay 100
 	message ViridianCity_House_Text_DoNotTouchHim
-	applymovement LOCALID_MAN, ViridianCity_House_Movement_Exclamation
+	applymovement LOCALID_VIRIDIAN_MAN, ViridianCity_House_Movement_Exclamation
 	waitmovement 0
 	waitmessage
 	trainerbattle_no_intro TRAINER_VIRIDIAN_BIRD_KEEPER, ViridianCity_House_Text_SpearyNo
@@ -64,7 +60,7 @@ ViridianCity_House_Speary_StealAttempt::
 	playfanfare MUS_OBTAIN_KEY_ITEM
 	message ViridianCity_House_Text_StoleTheSpearow
 	waitmessage
-	removeobject LOCALID_SPEAROW
+	removeobject LOCALID_VIRIDIAN_SPEAROW
 	message ViridianCity_House_Text_DecidedToRunAway
 	waitmessage
 	setflag FLAG_HIDE_VIRIDIAN_CITY_SPEAROW

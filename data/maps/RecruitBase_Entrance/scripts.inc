@@ -1,9 +1,3 @@
-.equ LOCALID_ROCKET_SCIENTIST, 1
-.equ LOCALID_BLACK, 2
-.equ LOCALID_POKEDEX_BELOW, 4
-.equ LOCALID_POKEDEX_ABOVE, 5
-.equ LOCALID_ROCKET_NURSE, 6
-
 RecruitBase_Entrance_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, RecruitBase_Entrance_OnTransition
     map_script MAP_SCRIPT_ON_FRAME_TABLE, RecruitBase_Entrance_OnFrame
@@ -18,8 +12,8 @@ RecruitBase_Entrance_OnFrame::
 	.2byte 0
 
 RecruitBase_Entrance_RepositionScientist::
-    setobjectxyperm LOCALID_ROCKET_SCIENTIST, 10, 7
-    setobjectmovementtype LOCALID_ROCKET_SCIENTIST, MOVEMENT_TYPE_WANDER_AROUND 
+    setobjectxyperm LOCALID_RECRUIT_BASE_SCIENTIST, 10, 7
+    setobjectmovementtype LOCALID_RECRUIT_BASE_SCIENTIST, MOVEMENT_TYPE_WANDER_AROUND 
     end
 
 RecruitBase_Entrance_RecruitHelpSign::
@@ -53,14 +47,14 @@ RecruitBase_Entrance_CheckWildBattleDefeat::
 
 RecruitBase_Entrance_TriggerBlackCall::
     clearflag FLAG_FAINTED_BEFORE_POKEDEX
-    applymovement LOCALID_BLACK, Common_Movement_FaceRight
+    applymovement LOCALID_RECRUIT_BASE_ENTRANCE_BLACK, Common_Movement_FaceRight
     waitmovement 0
-    applymovement LOCALID_BLACK, Common_Movement_ExclamationMark
+    applymovement LOCALID_RECRUIT_BASE_ENTRANCE_BLACK, Common_Movement_ExclamationMark
     waitmovement 0
     msgbox RecruitBase_Entrance_Text_AreYouFeelingBetter, MSGBOX_AUTOCLOSE
-    applymovement OBJ_EVENT_ID_PLAYER, RecruitBase_Entrance_Movement_GoBackToInitialPlace
+    applymovement LOCALID_PLAYER, RecruitBase_Entrance_Movement_GoBackToInitialPlace
     waitmovement 0
-    applymovement LOCALID_BLACK, Common_Movement_FaceDown
+    applymovement LOCALID_RECRUIT_BASE_ENTRANCE_BLACK, Common_Movement_FaceDown
     waitmovement 0
     goto RecruitBase_Entrance_GetPokedexFromBlack
     end
@@ -69,11 +63,11 @@ RecruitBase_Entrance_GetPokedexFromBlack::
     setflag FLAG_HIDE_POKEDEX_IN_RECRUIT_BASE
     setflag FLAG_SYS_POKEDEX_GET
     msgbox RecruitBase_Entrance_Text_IToldEverything, MSGBOX_AUTOCLOSE
-    applymovement LOCALID_ROCKET_SCIENTIST, RecruitBase_Entrance_Movement_WalkToPokedex
+    applymovement LOCALID_RECRUIT_BASE_SCIENTIST, RecruitBase_Entrance_Movement_WalkToPokedex
     waitmovement 0
     msgbox RecruitBase_Entrance_Text_HeardYouGotPokemon, MSGBOX_AUTOCLOSE
-    applymovement OBJ_EVENT_ID_PLAYER, RecruitBase_Entrance_Movement_AlignToRight
-    applymovement LOCALID_BLACK, Common_Movement_FaceLeft
+    applymovement LOCALID_PLAYER, RecruitBase_Entrance_Movement_AlignToRight
+    applymovement LOCALID_RECRUIT_BASE_ENTRANCE_BLACK, Common_Movement_FaceLeft
     waitmovement 0
     msgbox RecruitBase_Entrance_Text_WhatAreThey, MSGBOX_AUTOCLOSE
     msgbox RecruitBase_Entrance_Text_TheyArePokedex, MSGBOX_AUTOCLOSE
@@ -83,21 +77,21 @@ RecruitBase_Entrance_GetPokedexFromBlack::
     waitmessage
     waitfanfare
     msgbox RecruitBase_Entrance_Text_TheOtherOne, MSGBOX_AUTOCLOSE
-    applymovement LOCALID_BLACK, RecruitBase_Entrance_Movement_GetOtherPokedex
+    applymovement LOCALID_RECRUIT_BASE_ENTRANCE_BLACK, RecruitBase_Entrance_Movement_GetOtherPokedex
     waitmovement 0
     removeobject LOCALID_POKEDEX_ABOVE
     setvar VAR_STORYLINE_ALLOW_LEAVING_SECRET_PATH, 1
     setvar VAR_STORYLINE_LAB_INVASION, 6
     msgbox RecruitBase_Entrance_Text_ThankYou, MSGBOX_AUTOCLOSE
-    applymovement LOCALID_BLACK, RecruitBase_Entrance_Movement_LeaveRecruitBase
-    applymovement OBJ_EVENT_ID_PLAYER RecruitBase_Entrance_Movement_LetHimPass
+    applymovement LOCALID_RECRUIT_BASE_ENTRANCE_BLACK, RecruitBase_Entrance_Movement_LeaveRecruitBase
+    applymovement LOCALID_PLAYER RecruitBase_Entrance_Movement_LetHimPass
     waitmovement 0
-    removeobject LOCALID_BLACK
-    applymovement LOCALID_ROCKET_SCIENTIST, RecruitBase_Entrance_Movement_WalkToPlayer
+    removeobject LOCALID_RECRUIT_BASE_ENTRANCE_BLACK
+    applymovement LOCALID_RECRUIT_BASE_SCIENTIST, RecruitBase_Entrance_Movement_WalkToPlayer
     waitmovement 0
     delay 80
     msgbox RecruitBase_Entrance_Text_IHopeYouComplete, MSGBOX_AUTOCLOSE
-    applymovement LOCALID_ROCKET_SCIENTIST, RecruitBase_Entrance_Movement_SitBackToTheChair
+    applymovement LOCALID_RECRUIT_BASE_SCIENTIST, RecruitBase_Entrance_Movement_SitBackToTheChair
     waitmovement 0
     fadedefaultbgm
     releaseall

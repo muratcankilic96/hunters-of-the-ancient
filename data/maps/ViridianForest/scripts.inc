@@ -1,5 +1,3 @@
-.set LOCALID_ROCKET, 14
-
 ViridianForest_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, ViridianForest_OnTransition
 	.byte 0
@@ -16,7 +14,7 @@ ViridianForest_WarnAboutIpa::
 	setvar VAR_STORYLINE_IPA_WARNING, 2
 	setflag FLAG_HIDE_VIRIDIAN_FOREST_ROCKET_GRUNT
 	fadescreen FADE_TO_BLACK
-	removeobject LOCALID_ROCKET
+	removeobject LOCALID_VIRIDIAN_FOREST_ROCKET
 	fadescreen FADE_FROM_BLACK
 	release
 	end

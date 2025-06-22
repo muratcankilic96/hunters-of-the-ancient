@@ -13,9 +13,10 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
+      "local_id": "LOCALID_RECRUIT_BASE_REGISTRATION_ROOM_GIOVANNI",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GIOVANNI",
       "x": 10,
@@ -30,6 +31,7 @@
       "flag": "FLAG_HIDE_GIOVANNI_IN_REGISTRATION_ROOM"
     },
     {
+      "local_id": "LOCALID_RECRUITMENT_OFFICER",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 4,

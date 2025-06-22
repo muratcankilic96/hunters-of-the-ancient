@@ -13,7 +13,7 @@
   "show_map_name": false,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "type": "object",
@@ -30,6 +30,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_JOHTO_BORDER_RECEPTIONIST",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_UNUSED_MALE_RECEPTIONIST",
       "x": 10,
@@ -64,7 +65,5 @@
       "script": "Route22_JohtoEntrance_PreventPassing"
     }
   ],
-  "bg_events": [
-
-  ]
+  "bg_events": []
 }

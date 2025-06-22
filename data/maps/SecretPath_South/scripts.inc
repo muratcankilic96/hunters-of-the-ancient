@@ -1,33 +1,31 @@
-.set LOCALID_BLACK, 1
-
 SecretPath_South_MapScripts::
     .byte 0
 
 SecretPath_South_PreventEnteringIntoWildGrass::
     msgbox SecretPath_South_Text_CannotWanderInGrass, MSGBOX_AUTOCLOSE
-    applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkOppositeDirection
+    applymovement LOCALID_PLAYER, Common_Movement_WalkOppositeDirection
     waitmovement 0
     end
 
 SecretPath_South_PreventLeavingSecretPath::
     msgbox SecretPath_South_Text_CannotLeave, MSGBOX_AUTOCLOSE
-    applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkOppositeDirection
+    applymovement LOCALID_PLAYER, Common_Movement_WalkOppositeDirection
     waitmovement 0
     end
 
 SecretPath_South_PreventLeavingPalletTown::
     msgbox SecretPath_South_Text_ThePoliceIsHere, MSGBOX_AUTOCLOSE
-    applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkOppositeDirection
+    applymovement LOCALID_PLAYER, Common_Movement_WalkOppositeDirection
     waitmovement 0
     end
 
 SecretPath_South_TriggerEventFromLeft::
-    applymovement LOCALID_BLACK, SecretPath_South_Movement_MoveCloseToPlayerAtLeft
+    applymovement LOCALID_SECRET_PATH_BLACK, SecretPath_South_Movement_MoveCloseToPlayerAtLeft
     waitmovement 0
     goto SecretPath_South_InvitePlayerForStealing
 
 SecretPath_South_TriggerEventFromRight::
-    applymovement LOCALID_BLACK, SecretPath_South_Movement_MoveCloseToPlayerAtRight
+    applymovement LOCALID_SECRET_PATH_BLACK, SecretPath_South_Movement_MoveCloseToPlayerAtRight
     waitmovement 0
     goto SecretPath_South_InvitePlayerForStealing
 
@@ -37,11 +35,11 @@ SecretPath_South_InvitePlayerForStealing::
     lockall
     faceplayer
     playbgm MUS_ENCOUNTER_RIVAL, 0
-    applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+    applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
     waitmovement 0
     msgbox SecretPath_South_Text_RivalIntroduction
     closemessage
-    applymovement LOCALID_BLACK, SecretPath_South_Movement_LeaveToPalletTown
+    applymovement LOCALID_SECRET_PATH_BLACK, SecretPath_South_Movement_LeaveToPalletTown
     waitmovement 0
     setvar VAR_STORYLINE_LAB_INVASION, 1
     fadedefaultbgm

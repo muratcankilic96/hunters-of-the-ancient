@@ -1,19 +1,19 @@
 {
   "heal_locations": [
     {
-      "id": "HEAL_LOCATION_PALLET_TOWN",
-      "map": "MAP_PALLET_TOWN",
-      "x": 6,
-      "y": 8,
-      "respawn_map": "MAP_PALLET_TOWN_PLAYERS_HOUSE_1F",
-      "respawn_npc": "LOCALID_MOM"
+      "id": "HEAL_LOCATION_RECRUIT_BASE",
+      "map": "MAP_SECRET_WOODS",
+      "x": 14,
+      "y": 16,
+      "respawn_map": "MAP_RECRUIT_BASE_ENTRANCE",
+      "respawn_npc": "LOCALID_RECRUIT_BASE_NURSE"
     },
     {
       "id": "HEAL_LOCATION_VIRIDIAN_CITY",
       "map": "MAP_VIRIDIAN_CITY",
-      "x": 26,
-      "y": 27,
-      "respawn_map": "MAP_VIRIDIAN_CITY_POKEMON_CENTER_1F",
+      "x": 56,
+      "y": 19,
+      "respawn_map": "MAP_VIRIDIAN_CITY_VIRIDIAN_BASE_HEALING_CENTER",
       "respawn_npc": "LOCALID_VIRIDIAN_NURSE"
     },
     {
@@ -159,6 +159,14 @@
       "y": 12,
       "respawn_map": "MAP_SIX_ISLAND_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_SIX_ISLAND_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_GAME_OVER",
+      "map": "MAP_VOID",
+      "x": 0,
+      "y": 0,
+      "respawn_map": "MAP_VOID",
+      "respawn_npc": "0"
     }
   ]
 }

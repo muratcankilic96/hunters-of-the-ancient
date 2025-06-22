@@ -4,7 +4,7 @@ ViridianCity_ViridianBase_HealingCenter_MapScripts::
 
 ViridianCity_ViridianBase_HealingCenter_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_VIRIDIAN_CITY
-	setrespawn SPAWN_VIRIDIAN_CITY
+	setrespawn HEAL_LOCATION_VIRIDIAN_CITY
 	end
 
 ViridianCity_ViridianBase_HealingCenter_FemaleRocket::

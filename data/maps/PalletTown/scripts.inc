@@ -1,6 +1,3 @@
-.set LOCALID_BLACK, 3
-.set LOCALID_POLICE, 4
-
 PalletTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, PalletTown_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, PalletTown_OnFrame
@@ -16,9 +13,9 @@ PalletTown_OnFrame::
 	.2byte 0
 
 PalletTown_RepositionBlackAndPolice::
-	setobjectxyperm LOCALID_POLICE, 1, 1
-    setobjectxyperm LOCALID_BLACK, 17, 14
-    setobjectmovementtype LOCALID_BLACK, MOVEMENT_TYPE_FACE_RIGHT
+	setobjectxyperm LOCALID_PALLET_POLICE, 1, 1
+    setobjectxyperm LOCALID_PALLET_BLACK, 17, 14
+    setobjectmovementtype LOCALID_PALLET_BLACK, MOVEMENT_TYPE_FACE_RIGHT
     end
 
 PalletTown_MeetWithBlackForLabInvasion::
@@ -27,19 +24,19 @@ PalletTown_MeetWithBlackForLabInvasion::
 	lockall
 	faceplayer
 	playbgm MUS_ENCOUNTER_RIVAL, 0
-	applymovement LOCALID_BLACK, PalletTown_Movement_GetCloseToPlayer
+	applymovement LOCALID_PALLET_BLACK, PalletTown_Movement_GetCloseToPlayer
 	waitmovement 0
 	msgbox PalletTown_Text_YouCameAsExpected
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, PalletTown_Movement_FollowTowardsOaksLab
-	applymovement LOCALID_BLACK, PalletTown_Movement_MoveTowardsOaksLab
+	applymovement LOCALID_PLAYER, PalletTown_Movement_FollowTowardsOaksLab
+	applymovement LOCALID_PALLET_BLACK, PalletTown_Movement_MoveTowardsOaksLab
 	waitmovement 0
 	msgbox PalletTown_Text_PoliceIsHere
 	closemessage
 	setdooropen 16, 13
 	waitdooranim
-	applymovement LOCALID_BLACK, PalletTown_Movement_EnterOaksLab
-	applymovement OBJ_EVENT_ID_PLAYER, PalletTown_Movement_FollowThroughOaksLab
+	applymovement LOCALID_PALLET_BLACK, PalletTown_Movement_EnterOaksLab
+	applymovement LOCALID_PLAYER, PalletTown_Movement_FollowThroughOaksLab
 	waitmovement 0
 	setdoorclosed 16, 13
 	waitdooranim
@@ -54,15 +51,15 @@ PalletTown_RunFromPalletTown::
 	lock
 	faceplayer
 	playbgm MUS_SECRET_PLACE, 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
-	applymovement LOCALID_BLACK, Common_Movement_FaceRight
+	applymovement LOCALID_PLAYER, Common_Movement_FaceRight
+	applymovement LOCALID_PALLET_BLACK, Common_Movement_FaceRight
 	waitmovement 0
 	msgbox PalletTown_Text_LetsGetBack
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, PalletTown_Movement_FollowThroughSecretPath
-	applymovement LOCALID_BLACK, PalletTown_Movement_LeaveTowardsSecretPath
+	applymovement LOCALID_PLAYER, PalletTown_Movement_FollowThroughSecretPath
+	applymovement LOCALID_PALLET_BLACK, PalletTown_Movement_LeaveTowardsSecretPath
 	waitmovement 0
-	removeobject LOCALID_BLACK
+	removeobject LOCALID_PALLET_BLACK
 	setvar VAR_STORYLINE_LAB_INVASION, 5
 	waitmovement 0
 	release
