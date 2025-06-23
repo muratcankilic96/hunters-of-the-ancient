@@ -16,7 +16,7 @@
     {
       "id": "LAYOUT_RECRUIT_BASE_MAIN_HALL",
       "name": "RecruitBase_MainHall_Layout",
-      "width": 25,
+      "width": 17,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -28,7 +28,7 @@
     {
       "id": "LAYOUT_RECRUIT_BASE_REGISTRATION_ROOM",
       "name": "RecruitBase_RegistrationRoom_Layout",
-      "width": 18,
+      "width": 12,
       "height": 12,
       "border_width": 2,
       "border_height": 2,
@@ -117,7 +117,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_RocketHealingCenter",
       "border_filepath": "data/layouts/RocketTradeCenter/border.bin",
       "blockdata_filepath": "data/layouts/RocketTradeCenter/map.bin"
     },
@@ -818,16 +818,16 @@
       "blockdata_filepath": "data/layouts/FuchsiaCity/map.bin"
     },
     {
-      "id": "LAYOUT_CINNABAR_ISLAND",
-      "name": "CinnabarIsland_Layout",
+      "id": "LAYOUT_RUINS_OF_CINNABAR",
+      "name": "RuinsOfCinnabar_Layout",
       "width": 24,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_CinnabarIsland",
-      "border_filepath": "data/layouts/CinnabarIsland/border.bin",
-      "blockdata_filepath": "data/layouts/CinnabarIsland/map.bin"
+      "border_filepath": "data/layouts/RuinsOfCinnabar/border.bin",
+      "blockdata_filepath": "data/layouts/RuinsOfCinnabar/map.bin"
     },
     {
       "id": "LAYOUT_INDIGO_PLATEAU_EXTERIOR",
@@ -1226,6 +1226,18 @@
       "blockdata_filepath": "data/layouts/ViridianForest/map.bin"
     },
     {
+      "id": "LAYOUT_ANCIENT_CAVE_ENTRANCE",
+      "name": "AncientCave_Entrance_Layout",
+      "width": 22,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_NavelRock",
+      "border_filepath": "data/layouts/AncientCave_Entrance/border.bin",
+      "blockdata_filepath": "data/layouts/AncientCave_Entrance/map.bin"
+    },
+    {
       "id": "LAYOUT_SSANNE_EXTERIOR",
       "name": "SSAnne_Exterior_Layout",
       "width": 70,
@@ -1526,52 +1538,16 @@
       "blockdata_filepath": "data/layouts/SilphCo_11F/map.bin"
     },
     {
-      "id": "LAYOUT_POKEMON_MANSION_1F",
-      "name": "PokemonMansion_1F_Layout",
+      "id": "LAYOUT_CINNABAR_VOLCANO",
+      "name": "CinnabarVolcano_Layout",
       "width": 38,
       "height": 35,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_PokemonMansion",
-      "border_filepath": "data/layouts/PokemonMansion_1F/border.bin",
-      "blockdata_filepath": "data/layouts/PokemonMansion_1F/map.bin"
-    },
-    {
-      "id": "LAYOUT_POKEMON_MANSION_2F",
-      "name": "PokemonMansion_2F_Layout",
-      "width": 38,
-      "height": 38,
-      "border_width": 2,
-      "border_height": 2,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonMansion",
-      "border_filepath": "data/layouts/PokemonMansion_2F/border.bin",
-      "blockdata_filepath": "data/layouts/PokemonMansion_2F/map.bin"
-    },
-    {
-      "id": "LAYOUT_POKEMON_MANSION_3F",
-      "name": "PokemonMansion_3F_Layout",
-      "width": 38,
-      "height": 35,
-      "border_width": 2,
-      "border_height": 2,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonMansion",
-      "border_filepath": "data/layouts/PokemonMansion_3F/border.bin",
-      "blockdata_filepath": "data/layouts/PokemonMansion_3F/map.bin"
-    },
-    {
-      "id": "LAYOUT_POKEMON_MANSION_B1F",
-      "name": "PokemonMansion_B1F_Layout",
-      "width": 38,
-      "height": 35,
-      "border_width": 2,
-      "border_height": 2,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonMansion",
-      "border_filepath": "data/layouts/PokemonMansion_B1F/border.bin",
-      "blockdata_filepath": "data/layouts/PokemonMansion_B1F/map.bin"
+      "border_filepath": "data/layouts/CinnabarVolcano/border.bin",
+      "blockdata_filepath": "data/layouts/CinnabarVolcano/map.bin"
     },
     {
       "id": "LAYOUT_SAFARI_ZONE_CENTER",
@@ -1980,6 +1956,30 @@
       "secondary_tileset": "gTileset_Museum",
       "border_filepath": "data/layouts/PewterCity_Museum_2F/border.bin",
       "blockdata_filepath": "data/layouts/PewterCity_Museum_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_PEWTER_CITY_PEWTER_BASE",
+      "name": "PewterCity_PewterBase_Layout",
+      "width": 15,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SilphCo",
+      "border_filepath": "data/layouts/PewterCity_PewterBase/border.bin",
+      "blockdata_filepath": "data/layouts/PewterCity_PewterBase/map.bin"
+    },
+    {
+      "id": "LAYOUT_PEWTER_CITY_PEWTER_BASE_HEALING_CENTER",
+      "name": "PewterCity_PewterBase_HealingCenter_Layout",
+      "width": 14,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_RocketHealingCenter",
+      "border_filepath": "data/layouts/PewterCity_PewterBase_HealingCenter/border.bin",
+      "blockdata_filepath": "data/layouts/PewterCity_PewterBase_HealingCenter/map.bin"
     },
     {
       "id": "LAYOUT_CERULEAN_CITY_HOUSE2",
@@ -3112,8 +3112,8 @@
     {
       "id": "LAYOUT_VIRIDIAN_CITY_VIRIDIAN_BASE",
       "name": "ViridianCity_ViridianBase_Layout",
-      "width": 15,
-      "height": 20,
+      "width": 14,
+      "height": 14,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
@@ -3124,12 +3124,12 @@
     {
       "id": "LAYOUT_VIRIDIAN_CITY_VIRIDIAN_BASE_HEALING_CENTER",
       "name": "ViridianCity_ViridianBase_HealingCenter_Layout",
-      "width": 15,
+      "width": 13,
       "height": 10,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
+      "secondary_tileset": "gTileset_RocketHealingCenter",
       "border_filepath": "data/layouts/ViridianCity_ViridianBase_HealingCenter/border.bin",
       "blockdata_filepath": "data/layouts/ViridianCity_ViridianBase_HealingCenter/map.bin"
     },
@@ -4476,18 +4476,6 @@
       "secondary_tileset": "gTileset_Dummy1",
       "border_filepath": "data/layouts/Void/border.bin",
       "blockdata_filepath": "data/layouts/Void/map.bin"
-    },
-    {
-      "id": "LAYOUT_ANCIENT_CAVE_ENTRANCE",
-      "name": "AncientCave_Entrance_Layout",
-      "width": 22,
-      "height": 12,
-      "border_width": 2,
-      "border_height": 2,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_NavelRock",
-      "border_filepath": "data/layouts/AncientCave_Entrance/border.bin",
-      "blockdata_filepath": "data/layouts/AncientCave_Entrance/map.bin"
     }
   ]
 }

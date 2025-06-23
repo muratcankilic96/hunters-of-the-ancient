@@ -3,7 +3,7 @@
   "name": "CinnabarIsland_PokemonCenter_2F",
   "layout": "LAYOUT_ROCKET_TRADE_CENTER",
   "music": "MUS_POKE_CENTER",
-  "region_map_section": "MAPSEC_CINNABAR_ISLAND",
+  "region_map_section": "MAPSEC_RUINS_OF_CINNABAR",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

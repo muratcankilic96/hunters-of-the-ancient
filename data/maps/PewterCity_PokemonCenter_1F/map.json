@@ -44,7 +44,6 @@
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_PEWTER_NURSE",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_NURSE",
       "x": 7,
@@ -117,13 +116,6 @@
   ],
   "warp_events": [
     {
-      "x": 6,
-      "y": 8,
-      "elevation": 0,
-      "dest_map": "MAP_PEWTER_CITY",
-      "dest_warp_id": "5"
-    },
-    {
       "x": 7,
       "y": 8,
       "elevation": 3,
@@ -131,17 +123,10 @@
       "dest_warp_id": "5"
     },
     {
-      "x": 8,
-      "y": 8,
-      "elevation": 0,
-      "dest_map": "MAP_PEWTER_CITY",
-      "dest_warp_id": "5"
-    },
-    {
       "x": 1,
       "y": 6,
       "elevation": 4,
-      "dest_map": "MAP_PEWTER_CITY_POKEMON_CENTER_2F",
+      "dest_map": "MAP_PEWTER_CITY_PEWTER_BASE_TRADE_CENTER",
       "dest_warp_id": "0"
     }
   ],

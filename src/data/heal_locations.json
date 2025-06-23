@@ -19,10 +19,10 @@
     {
       "id": "HEAL_LOCATION_PEWTER_CITY",
       "map": "MAP_PEWTER_CITY",
-      "x": 17,
-      "y": 26,
-      "respawn_map": "MAP_PEWTER_CITY_POKEMON_CENTER_1F",
-      "respawn_npc": "LOCALID_PEWTER_NURSE"
+      "x": 36,
+      "y": 51,
+      "respawn_map": "MAP_PEWTER_CITY_PEWTER_BASE_HEALING_CENTER",
+      "respawn_npc": "LOCALID_PEWTER_ROCKET_NURSE"
     },
     {
       "id": "HEAL_LOCATION_CERULEAN_CITY",
@@ -63,14 +63,6 @@
       "y": 32,
       "respawn_map": "MAP_FUCHSIA_CITY_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_FUCHSIA_NURSE"
-    },
-    {
-      "id": "HEAL_LOCATION_CINNABAR_ISLAND",
-      "map": "MAP_CINNABAR_ISLAND",
-      "x": 14,
-      "y": 12,
-      "respawn_map": "MAP_CINNABAR_ISLAND_POKEMON_CENTER_1F",
-      "respawn_npc": "LOCALID_CINNABAR_NURSE"
     },
     {
       "id": "HEAL_LOCATION_INDIGO_PLATEAU",
@@ -167,6 +159,14 @@
       "y": 0,
       "respawn_map": "MAP_VOID",
       "respawn_npc": "0"
+    },
+    {
+      "id": "HEAL_LOCATION_RUINS_OF_CINNABAR",
+      "map": "MAP_RUINS_OF_CINNABAR",
+      "x": 14,
+      "y": 12,
+      "respawn_map": "MAP_CINNABAR_ISLAND_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_CINNABAR_NURSE"
     }
   ]
 }

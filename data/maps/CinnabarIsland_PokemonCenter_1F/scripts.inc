@@ -4,7 +4,7 @@ CinnabarIsland_PokemonCenter_1F_MapScripts::
 	.byte 0
 
 CinnabarIsland_PokemonCenter_1F_OnTransition::
-	setrespawn HEAL_LOCATION_CINNABAR_ISLAND
+	setrespawn HEAL_LOCATION_RUINS_OF_CINNABAR
 	end
 
 CinnabarIsland_PokemonCenter_1F_EventScript_Nurse::
@@ -44,7 +44,7 @@ CinnabarIsland_PokemonCenter_1F_EventScript_Bill::
 	removeobject LOCALID_CINNABAR_POKEMON_CENTER_BILL
 	setvar VAR_MAP_SCENE_CINNABAR_ISLAND_2, 1
 	clearflag FLAG_HIDE_CINNABAR_BILL
-	warp MAP_CINNABAR_ISLAND, 14, 11
+	warp MAP_RUINS_OF_CINNABAR, 14, 11
 	waitstate
 	release
 	end

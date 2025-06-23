@@ -432,16 +432,16 @@
 #define FLAG_HIDE_POWER_PLANT_TM25                              0x19C
 #define FLAG_HIDE_POWER_PLANT_THUNDER_STONE                     0x19D
 #define FLAG_HIDE_POWER_PLANT_ELIXIR                            0x19E
-#define FLAG_HIDE_POKEMON_MANSION_1F_CARBOS                     0x19F
-#define FLAG_HIDE_POKEMON_MANSION_1F_ESCAPE_ROPE                0x1A0
-#define FLAG_HIDE_POKEMON_MANSION_2F_CALCIUM                    0x1A1
-#define FLAG_HIDE_POKEMON_MANSION_3F_MAX_POTION                 0x1A2
-#define FLAG_HIDE_POKEMON_MANSION_3F_IRON                       0x1A3
-#define FLAG_HIDE_POKEMON_MANSION_B1F_TM14                      0x1A4
-#define FLAG_HIDE_POKEMON_MANSION_B1F_FULL_RESTORE              0x1A5
+#define FLAG_0x19F                                              0x19F
+#define FLAG_0x1A0                                              0x1A0
+#define FLAG_0x1A1                                              0x1A1
+#define FLAG_0x1A2                                              0x1A2
+#define FLAG_0x1A3                                              0x1A3
+#define FLAG_0x1A4                                              0x1A4
+#define FLAG_0x1A5                                              0x1A5
 #define FLAG_0x1A6                                              0x1A6
-#define FLAG_HIDE_POKEMON_MANSION_B1F_TM22                      0x1A7
-#define FLAG_HIDE_POKEMON_MANSION_B1F_SECRET_KEY                0x1A8
+#define FLAG_0x1A7                                              0x1A7
+#define FLAG_0x1A8                                              0x1A8
 #define FLAG_HIDE_VICTORY_ROAD_1F_RARE_CANDY                    0x1A9
 #define FLAG_HIDE_VICTORY_ROAD_1F_TM02                          0x1AA
 #define FLAG_HIDE_VICTORY_ROAD_2F_GUARD_SPEC                    0x1AB
@@ -475,9 +475,9 @@
 #define FLAG_HIDE_ROCK_TUNNEL_B1F_MAX_ETHER                     0x1C7
 #define FLAG_HIDE_SILPH_CO_8F_IRON                              0x1C8
 #define FLAG_HIDE_SILPH_CO_11F_ZINC                             0x1C9
-#define FLAG_HIDE_POKEMON_MANSION_1F_PROTEIN                    0x1CA
-#define FLAG_HIDE_POKEMON_MANSION_2F_ZINC                       0x1CB
-#define FLAG_HIDE_POKEMON_MANSION_2F_HP_UP                      0x1CC
+#define FLAG_0x1CA                                              0x1CA
+#define FLAG_0x1CB                                              0x1CB
+#define FLAG_0x1CC                                              0x1CC
 #define FLAG_HIDE_VIRIDIAN_CITY_HYPER_POTION                    0x1CD
 #define FLAG_HIDE_ROUTE11_GREAT_BALL                            0x1CE
 #define FLAG_HIDE_ROUTE11_AWAKENING                             0x1CF
@@ -642,7 +642,7 @@
 #define FLAG_CINNABAR_GYM_QUIZ_4                         0x269
 #define FLAG_CINNABAR_GYM_QUIZ_5                         0x26A
 #define FLAG_CINNABAR_GYM_QUIZ_6                         0x26B
-#define FLAG_POKEMON_MANSION_SWITCH_STATE                0x26C
+#define FLAGx26C                                         0x26C
 #define FLAG_OPENED_ROCKET_HIDEOUT                       0x26D
 #define FLAG_GOT_10_COINS_FROM_GAMBLER                   0x26E
 #define FLAG_GOT_20_COINS_FROM_GAMBLER                   0x26F
@@ -1060,9 +1060,9 @@
 #define FLAG_HIDDEN_ITEM_POWER_PLANT_THUNDER_STONE                         (FLAG_HIDDEN_ITEMS_START +  28)
 #define FLAG_HIDDEN_ITEM_SEAFOAM_ISLANDS_B3F_NUGGET                        (FLAG_HIDDEN_ITEMS_START +  29)
 #define FLAG_HIDDEN_ITEM_SEAFOAM_ISLANDS_B4F_WATER_STONE                   (FLAG_HIDDEN_ITEMS_START +  30)
-#define FLAG_HIDDEN_ITEM_POKEMON_MANSION_1F_MOON_STONE                     (FLAG_HIDDEN_ITEMS_START +  31)
-#define FLAG_HIDDEN_ITEM_POKEMON_MANSION_3F_RARE_CANDY                     (FLAG_HIDDEN_ITEMS_START +  32)
-#define FLAG_HIDDEN_ITEM_POKEMON_MANSION_B1F_ELIXIR                        (FLAG_HIDDEN_ITEMS_START +  33)
+#define FLAG_HIDDEN_ITEM_UNUSEDx1F                                         (FLAG_HIDDEN_ITEMS_START +  31)
+#define FLAG_HIDDEN_ITEM_UNUSEDx20                                         (FLAG_HIDDEN_ITEMS_START +  32)
+#define FLAG_HIDDEN_ITEM_UNUSEDx21                                         (FLAG_HIDDEN_ITEMS_START +  33)
 #define FLAG_HIDDEN_ITEM_ROUTE23_FULL_RESTORE                              (FLAG_HIDDEN_ITEMS_START +  34)
 #define FLAG_HIDDEN_ITEM_ROUTE23_ULTRA_BALL                                (FLAG_HIDDEN_ITEMS_START +  35)
 #define FLAG_HIDDEN_ITEM_ROUTE23_MAX_ETHER                                 (FLAG_HIDDEN_ITEMS_START +  36)
@@ -1416,7 +1416,7 @@
 #define FLAG_WORLD_MAP_VERMILION_CITY                               (SYS_FLAGS + 0x95)
 #define FLAG_WORLD_MAP_CELADON_CITY                                 (SYS_FLAGS + 0x96)
 #define FLAG_WORLD_MAP_FUCHSIA_CITY                                 (SYS_FLAGS + 0x97)
-#define FLAG_WORLD_MAP_CINNABAR_ISLAND                              (SYS_FLAGS + 0x98)
+#define FLAG_WORLD_MAP_RUINS_OF_CINNABAR                              (SYS_FLAGS + 0x98)
 #define FLAG_WORLD_MAP_INDIGO_PLATEAU_EXTERIOR                      (SYS_FLAGS + 0x99)
 #define FLAG_WORLD_MAP_SAFFRON_CITY                                 (SYS_FLAGS + 0x9A)
 #define FLAG_WORLD_MAP_SECRET_WOODS                                 (SYS_FLAGS + 0x9B)
@@ -1437,7 +1437,7 @@
 #define FLAG_WORLD_MAP_RECRUIT_BASE                                 (SYS_FLAGS + 0xAA)
 #define FLAG_WORLD_MAP_ROCKET_HIDEOUT_B1F                           (SYS_FLAGS + 0xAB)
 #define FLAG_WORLD_MAP_SILPH_CO_1F                                  (SYS_FLAGS + 0xAC)
-#define FLAG_WORLD_MAP_POKEMON_MANSION_1F                           (SYS_FLAGS + 0xAD)
+#define FLAG_WORLD_MAP_CINNABAR_VOLCANO                           (SYS_FLAGS + 0xAD)
 #define FLAG_WORLD_MAP_SAFARI_ZONE_CENTER                           (SYS_FLAGS + 0xAE)
 #define FLAG_WORLD_MAP_POKEMON_LEAGUE_LORELEIS_ROOM                 (SYS_FLAGS + 0xAF)
 #define FLAG_WORLD_MAP_ROCK_TUNNEL_1F                               (SYS_FLAGS + 0xB0)

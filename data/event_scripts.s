@@ -151,10 +151,7 @@ gStdScriptsEnd::
 	.include "data/maps/SilphCo_10F/scripts.inc"
 	.include "data/maps/SilphCo_11F/scripts.inc"
 	.include "data/maps/SilphCo_Elevator/scripts.inc"
-	.include "data/maps/PokemonMansion_1F/scripts.inc"
-	.include "data/maps/PokemonMansion_2F/scripts.inc"
-	.include "data/maps/PokemonMansion_3F/scripts.inc"
-	.include "data/maps/PokemonMansion_B1F/scripts.inc"
+	.include "data/maps/CinnabarVolcano/scripts.inc"
 	.include "data/maps/SafariZone_Center/scripts.inc"
 	.include "data/maps/SafariZone_East/scripts.inc"
 	.include "data/maps/SafariZone_North/scripts.inc"
@@ -284,7 +281,7 @@ gStdScriptsEnd::
 	.include "data/maps/VermilionCity/scripts.inc"
 	.include "data/maps/CeladonCity/scripts.inc"
 	.include "data/maps/FuchsiaCity/scripts.inc"
-	.include "data/maps/CinnabarIsland/scripts.inc"
+	.include "data/maps/RuinsOfCinnabar/scripts.inc"
 	.include "data/maps/IndigoPlateau_Exterior/scripts.inc"
 	.include "data/maps/SaffronCity/scripts.inc"
 	.include "data/maps/SaffronCity_Connection/scripts.inc"
@@ -354,7 +351,7 @@ gStdScriptsEnd::
 	.include "data/maps/PewterCity_Mart/scripts.inc"
 	.include "data/maps/PewterCity_House1/scripts.inc"
 	.include "data/maps/PewterCity_PokemonCenter_1F/scripts.inc"
-	.include "data/maps/PewterCity_PokemonCenter_2F/scripts.inc"
+	.include "data/maps/PewterCity_PewterBase_TradeCenter/scripts.inc"
 	.include "data/maps/PewterCity_House2/scripts.inc"
 	.include "data/maps/CeruleanCity_House1/scripts.inc"
 	.include "data/maps/CeruleanCity_House2/scripts.inc"
@@ -560,10 +557,7 @@ gStdScriptsEnd::
 	.include "data/maps/SilphCo_9F/text.inc"
 	.include "data/maps/SilphCo_10F/text.inc"
 	.include "data/maps/SilphCo_11F/text.inc"
-	.include "data/maps/PokemonMansion_1F/text.inc"
-	.include "data/maps/PokemonMansion_2F/text.inc"
-	.include "data/maps/PokemonMansion_3F/text.inc"
-	.include "data/maps/PokemonMansion_B1F/text.inc"
+	.include "data/maps/CinnabarVolcano/text.inc"
 	.include "data/maps/SafariZone_Center/text.inc"
 	.include "data/maps/SafariZone_East/text.inc"
 	.include "data/maps/SafariZone_North/text.inc"
@@ -613,7 +607,7 @@ gStdScriptsEnd::
 	.include "data/maps/VermilionCity/text.inc"
 	.include "data/maps/CeladonCity/text.inc"
 	.include "data/maps/FuchsiaCity/text.inc"
-	.include "data/maps/CinnabarIsland/text.inc"
+	.include "data/maps/RuinsOfCinnabar/text.inc"
 	.include "data/maps/SaffronCity/text.inc"
 	.include "data/maps/OneIsland/text.inc"
 	.include "data/maps/TwoIsland/text.inc"
@@ -1127,8 +1121,6 @@ EventScript_ReleaseEnd::
 	release
 	end
 
-	.include "data/scripts/pokemon_mansion.inc"
-
 @ Unused
 EventScript_DelayedLookAround::
 	lockall
@@ -1348,3 +1340,9 @@ Text_TestMsg::
 
 	.include "data/maps/AncientCave_Entrance/scripts.inc"
 	.include "data/maps/AncientCave_Entrance/text.inc"
+
+	.include "data/maps/PewterCity_PewterBase/scripts.inc"
+	.include "data/maps/PewterCity_PewterBase/text.inc"
+
+	.include "data/maps/PewterCity_PewterBase_HealingCenter/scripts.inc"
+	.include "data/maps/PewterCity_PewterBase_HealingCenter/text.inc"

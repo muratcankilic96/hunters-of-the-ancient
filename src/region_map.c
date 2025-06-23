@@ -653,9 +653,9 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .name = sMapsecName_ANCIENT_CAVE,
         .desc = gText_RegionMap_AreaDesc_AncientCave
     }, {
-        .id = MAPSEC_POKEMON_MANSION,
-        .name = sMapsecName_POK__MON_MANSION,
-        .desc = gText_RegionMap_AreaDesc_PokemonMansion
+        .id = MAPSEC_CINNABAR_VOLCANO,
+        .name = sMapsecName_CINNABAR_VOLCANO,
+        .desc = gText_RegionMap_AreaDesc_CinnabarVolcano
     }, {
         .id = MAPSEC_KANTO_SAFARI_ZONE,
         .name = sMapsecName_SAFARI_ZONE,
@@ -833,7 +833,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_VERMILION_CITY      - KANTO_MAPSEC_START] = {MAP(MAP_VERMILION_CITY),                        HEAL_LOCATION_VERMILION_CITY},
     [MAPSEC_CELADON_CITY        - KANTO_MAPSEC_START] = {MAP(MAP_CELADON_CITY),                          HEAL_LOCATION_CELADON_CITY},
     [MAPSEC_FUCHSIA_CITY        - KANTO_MAPSEC_START] = {MAP(MAP_FUCHSIA_CITY),                          HEAL_LOCATION_FUCHSIA_CITY},
-    [MAPSEC_CINNABAR_ISLAND     - KANTO_MAPSEC_START] = {MAP(MAP_CINNABAR_ISLAND),                       HEAL_LOCATION_CINNABAR_ISLAND},
+    [MAPSEC_RUINS_OF_CINNABAR   - KANTO_MAPSEC_START] = {MAP(MAP_RUINS_OF_CINNABAR),                     HEAL_LOCATION_RUINS_OF_CINNABAR},
     [MAPSEC_INDIGO_PLATEAU      - KANTO_MAPSEC_START] = {MAP(MAP_INDIGO_PLATEAU_EXTERIOR),               HEAL_LOCATION_INDIGO_PLATEAU},
     [MAPSEC_SAFFRON_CITY        - KANTO_MAPSEC_START] = {MAP(MAP_SAFFRON_CITY),                          HEAL_LOCATION_SAFFRON_CITY},
     [MAPSEC_ROUTE_4_POKECENTER  - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE4),                                HEAL_LOCATION_ROUTE4},
@@ -873,7 +873,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_ANCIENT_CAVE        - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
     [MAPSEC_ROCKET_HIDEOUT      - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
     [MAPSEC_SILPH_CO            - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
-    [MAPSEC_POKEMON_MANSION     - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
+    [MAPSEC_CINNABAR_VOLCANO     - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
     [MAPSEC_KANTO_SAFARI_ZONE   - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
     [MAPSEC_POKEMON_LEAGUE      - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
     [MAPSEC_ROCK_TUNNEL         - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
@@ -2965,8 +2965,8 @@ static u8 GetMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_CELADON_CITY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_FUCHSIA_CITY:
         return FlagGet(FLAG_WORLD_MAP_FUCHSIA_CITY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_CINNABAR_ISLAND:
-        return FlagGet(FLAG_WORLD_MAP_CINNABAR_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_RUINS_OF_CINNABAR:
+        return FlagGet(FLAG_WORLD_MAP_RUINS_OF_CINNABAR) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_INDIGO_PLATEAU:
         return FlagGet(FLAG_WORLD_MAP_INDIGO_PLATEAU_EXTERIOR) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_SAFFRON_CITY:
@@ -3020,8 +3020,8 @@ static u8 GetDungeonMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_ROCKET_HIDEOUT_B1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_SILPH_CO:
         return FlagGet(FLAG_WORLD_MAP_SILPH_CO_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_POKEMON_MANSION:
-        return FlagGet(FLAG_WORLD_MAP_POKEMON_MANSION_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_CINNABAR_VOLCANO:
+        return FlagGet(FLAG_WORLD_MAP_CINNABAR_VOLCANO) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_KANTO_SAFARI_ZONE:
         return FlagGet(FLAG_WORLD_MAP_SAFARI_ZONE_CENTER) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_POKEMON_LEAGUE:
@@ -3181,7 +3181,7 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
         sMapCursor->x = 14;
         sMapCursor->y = 6;
         break;
-    case MAPSEC_POKEMON_MANSION:
+    case MAPSEC_CINNABAR_VOLCANO:
         sMapCursor->x = 4;
         sMapCursor->y = 14;
         break;

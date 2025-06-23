@@ -3,7 +3,7 @@
   "name": "CinnabarIsland_Mart",
   "layout": "LAYOUT_MART",
   "music": "MUS_POKE_CENTER",
-  "region_map_section": "MAPSEC_CINNABAR_ISLAND",
+  "region_map_section": "MAPSEC_RUINS_OF_CINNABAR",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -63,21 +63,21 @@
       "x": 3,
       "y": 7,
       "elevation": 3,
-      "dest_map": "MAP_CINNABAR_ISLAND",
+      "dest_map": "MAP_RUINS_OF_CINNABAR",
       "dest_warp_id": "4"
     },
     {
       "x": 4,
       "y": 7,
       "elevation": 3,
-      "dest_map": "MAP_CINNABAR_ISLAND",
+      "dest_map": "MAP_RUINS_OF_CINNABAR",
       "dest_warp_id": "4"
     },
     {
       "x": 5,
       "y": 7,
       "elevation": 3,
-      "dest_map": "MAP_CINNABAR_ISLAND",
+      "dest_map": "MAP_RUINS_OF_CINNABAR",
       "dest_warp_id": "4"
     }
   ],

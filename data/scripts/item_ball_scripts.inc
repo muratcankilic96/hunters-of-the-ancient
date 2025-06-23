@@ -298,40 +298,12 @@ PowerPlant_EventScript_ItemElixir::
 	finditem ITEM_ELIXIR
 	end
 
-PokemonMansion_1F_EventScript_ItemCarbos::
+CinnabarVolcano_EventScript_ItemCarbos::
 	finditem ITEM_CARBOS
 	end
 
-PokemonMansion_1F_EventScript_ItemEscapeRope::
+CinnabarVolcano_EventScript_ItemEscapeRope::
 	finditem ITEM_ESCAPE_ROPE
-	end
-
-PokemonMansion_2F_EventScript_ItemCalcium::
-	finditem ITEM_CALCIUM
-	end
-
-PokemonMansion_3F_EventScript_ItemMaxPotion::
-	finditem ITEM_MAX_POTION
-	end
-
-PokemonMansion_3F_EventScript_ItemIron::
-	finditem ITEM_IRON
-	end
-
-PokemonMansion_B1F_EventScript_ItemTM14::
-	finditem ITEM_TM14
-	end
-
-PokemonMansion_B1F_EventScript_ItemFullRestore::
-	finditem ITEM_FULL_RESTORE
-	end
-
-PokemonMansion_B1F_EventScript_ItemTM22::
-	finditem ITEM_TM22
-	end
-
-PokemonMansion_B1F_EventScript_ItemSecretKey::
-	finditem ITEM_SECRET_KEY
 	end
 
 VictoryRoad_1F_EventScript_ItemRareCandy::
@@ -458,16 +430,8 @@ SilphCo_11F_EventScript_ItemZinc::
 	finditem ITEM_ZINC
 	end
 
-PokemonMansion_1F_EventScript_ItemProtein::
+CinnabarVolcano_EventScript_ItemProtein::
 	finditem ITEM_PROTEIN
-	end
-
-PokemonMansion_2F_EventScript_ItemZinc::
-	finditem ITEM_ZINC
-	end
-
-PokemonMansion_2F_EventScript_ItemHPUp::
-	finditem ITEM_HP_UP
 	end
 
 ViridianCity_ItemBall_HyperPotion::

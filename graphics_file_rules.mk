@@ -599,7 +599,7 @@ $(MAPPREVIEWGFXDIR)/mt_ember/tiles.4bpp: %.4bpp: %.png
 $(MAPPREVIEWGFXDIR)/mt_moon/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 364 -Wnum_tiles
 
-$(MAPPREVIEWGFXDIR)/pokemon_mansion/tiles.4bpp: %.4bpp: %.png
+$(MAPPREVIEWGFXDIR)/cinnabar_volcano/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 388 -Wnum_tiles
 
 $(MAPPREVIEWGFXDIR)/pokemon_tower/tiles.4bpp: %.4bpp: %.png

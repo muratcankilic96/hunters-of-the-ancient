@@ -329,8 +329,8 @@
       "height": 1
     },
     {
-      "id": "MAPSEC_CINNABAR_ISLAND",
-      "name": "CINNABAR ISLAND",
+      "id": "MAPSEC_RUINS_OF_CINNABAR",
+      "name": "RUINS OF CINNABAR",
       "x": 4,
       "y": 14,
       "width": 1,
@@ -689,8 +689,8 @@
       "height": 1
     },
     {
-      "id": "MAPSEC_POKEMON_MANSION",
-      "name": "POKéMON MANSION",
+      "id": "MAPSEC_CINNABAR_VOLCANO",
+      "name": "CINNABAR VOLCANO",
       "x": 0,
       "y": 0,
       "width": 1,
