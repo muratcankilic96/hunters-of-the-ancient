@@ -864,7 +864,9 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_ROUTE_23            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE23),                               0},
     [MAPSEC_ROUTE_24            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE24),                               0},
     [MAPSEC_ROUTE_25            - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE25),                               0},
+    [MAPSEC_RECRUIT_BASE        - KANTO_MAPSEC_START] = {MAP(MAP_RECRUIT_BASE_ENTRANCE),                 0},
     [MAPSEC_VIRIDIAN_FOREST     - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
+    [MAPSEC_ROTSMELL_CAVE       - KANTO_MAPSEC_START] = {MAP(MAP_ROTSMELL_CAVE_ENTRANCE),                0},
     [MAPSEC_MT_MOON             - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
     [MAPSEC_S_S_ANNE            - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
     [MAPSEC_UNDERGROUND_PATH    - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
@@ -873,7 +875,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_ANCIENT_CAVE        - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
     [MAPSEC_ROCKET_HIDEOUT      - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
     [MAPSEC_SILPH_CO            - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
-    [MAPSEC_CINNABAR_VOLCANO     - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
+    [MAPSEC_CINNABAR_VOLCANO    - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
     [MAPSEC_KANTO_SAFARI_ZONE   - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
     [MAPSEC_POKEMON_LEAGUE      - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
     [MAPSEC_ROCK_TUNNEL         - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
@@ -908,7 +910,6 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_CANYON_ENTRANCE     - KANTO_MAPSEC_START] = {MAP(MAP_SEVEN_ISLAND_SEVAULT_CANYON_ENTRANCE),  0},
     [MAPSEC_SEVAULT_CANYON      - KANTO_MAPSEC_START] = {MAP(MAP_SEVEN_ISLAND_SEVAULT_CANYON),           0},
     [MAPSEC_TANOBY_RUINS        - KANTO_MAPSEC_START] = {MAP(MAP_SEVEN_ISLAND_TANOBY_RUINS),             0},
-    [MAPSEC_RECRUIT_BASE        - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
     [MAPSEC_SEVII_ISLE_23       - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
     [MAPSEC_SEVII_ISLE_24       - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           0},
     [MAPSEC_NAVEL_ROCK          - KANTO_MAPSEC_START] = {MAP(MAP_NAVEL_ROCK_EXTERIOR),                   0},
@@ -1513,7 +1514,7 @@ static void BufferRegionMapBg(u8 bg, u16 *map)
         whichMap = sSwitchMapMenu->currentSelection;
     else
         whichMap = sRegionMap->selectedRegion;
-    if (whichMap == REGIONMAP_SEVII67 && !FlagGet(FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR))
+    if (whichMap == REGIONMAP_SEVII67/* && !FlagGet(FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR)*/)
         FillBgTilemapBufferRect_Palette0(0, 0x003, 21, 16, 3, 3);
 }
 
@@ -2922,9 +2923,9 @@ static u16 GetMapsecUnderCursor(void)
         return MAPSEC_NONE;
 
     mapsec = GetSelectedMapSection(GetSelectedRegionMap(), LAYER_MAP, sMapCursor->y, sMapCursor->x);
-    // TODO: If there are sectors to hide, this is a good place!
-    // if ((mapsec == MAPSEC_TO_HIDE_1 || mapsec == MAPSEC_TO_HIDE_2) && !FlagGet(FLAG_TO_HIDE))
-    //    mapsec = MAPSEC_NONE;
+    // If there are sectors to hide, this is a good place!
+    /*if (mapsec == MAPSEC_TO_HIDE && !FlagGet(FLAG_WORLD_MAP_TO_HIDE))
+        mapsec = MAPSEC_NONE;*/
     return mapsec;
 }
 
@@ -2938,6 +2939,9 @@ static u16 GetDungeonMapsecUnderCursor(void)
         return MAPSEC_NONE;
 
     mapsec = GetSelectedMapSection(GetSelectedRegionMap(), LAYER_DUNGEON, sMapCursor->y, sMapCursor->x);
+    // If there are sectors to hide, this is a good place!
+    if (mapsec == MAPSEC_ROTSMELL_CAVE && !FlagGet(FLAG_WORLD_MAP_ROTSMELL_CAVE))
+        mapsec = MAPSEC_NONE;
     if (mapsec == MAPSEC_CERULEAN_CAVE && !FlagGet(FLAG_SYS_CAN_LINK_WITH_RS))
         mapsec = MAPSEC_NONE;
     return mapsec;
@@ -3004,6 +3008,8 @@ static u8 GetDungeonMapsecType(u8 mapsec)
         return MAPSECTYPE_NONE;
     case MAPSEC_RECRUIT_BASE:
         return FlagGet(FLAG_WORLD_MAP_RECRUIT_BASE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_ROTSMELL_CAVE:
+        return FlagGet(FLAG_WORLD_MAP_ROTSMELL_CAVE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_VIRIDIAN_FOREST:
         return FlagGet(FLAG_WORLD_MAP_VIRIDIAN_FOREST) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_MT_MOON:
@@ -3062,8 +3068,6 @@ static u8 GetDungeonMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_THREE_ISLAND_DUNSPARCE_TUNNEL) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_TANOBY_KEY:
         return FlagGet(FLAG_WORLD_MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_BIRTH_ISLAND:
-        return FlagGet(FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     default:
         return MAPSECTYPE_ROUTE;
     }
@@ -3227,9 +3231,9 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
             sMapCursor->y = 6; // optimized out but required to match
         }
         break;
-    case MAPSEC_BIRTH_ISLAND:
-        sMapCursor->x = 18;
-        sMapCursor->y = 13;
+    case MAPSEC_ROTSMELL_CAVE:
+        sMapCursor->x = 4;
+        sMapCursor->y = 4;
         break;
     case MAPSEC_NAVEL_ROCK:
         sMapCursor->x = 10;
@@ -3583,6 +3587,8 @@ static void CreateDungeonIcons(void)
             {
                 mapsec = GetSelectedMapSection(i, LAYER_DUNGEON, y, x);
                 if (mapsec == MAPSEC_NONE)
+                    continue;
+                if (mapsec == MAPSEC_ROTSMELL_CAVE && !FlagGet(FLAG_WORLD_MAP_ROTSMELL_CAVE))
                     continue;
                 if (mapsec == MAPSEC_CERULEAN_CAVE && !FlagGet(FLAG_SYS_CAN_LINK_WITH_RS))
                     continue;

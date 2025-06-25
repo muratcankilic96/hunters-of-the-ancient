@@ -317,7 +317,7 @@
       "id": "LAYOUT_PEWTER_CITY_GYM",
       "name": "PewterCity_Gym_Layout",
       "width": 13,
-      "height": 16,
+      "height": 21,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_Building",
@@ -4476,6 +4476,30 @@
       "secondary_tileset": "gTileset_Dummy1",
       "border_filepath": "data/layouts/Void/border.bin",
       "blockdata_filepath": "data/layouts/Void/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROTSMELL_CAVE_ENTRANCE",
+      "name": "RotsmellCave_Entrance_Layout",
+      "width": 10,
+      "height": 8,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/RotsmellCave_Entrance_Layout/border.bin",
+      "blockdata_filepath": "data/layouts/RotsmellCave_Entrance_Layout/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROTSMELL_CAVE_B1F",
+      "name": "RotsmellCave_B1F_Layout",
+      "width": 41,
+      "height": 32,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/RotsmellCave_B1F_Layout/border.bin",
+      "blockdata_filepath": "data/layouts/RotsmellCave_B1F_Layout/map.bin"
     }
   ]
 }

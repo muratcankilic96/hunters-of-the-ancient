@@ -184,9 +184,6 @@
       "id": "MAPSEC_RUSTURF_TUNNEL"
     },
     {
-      "id": "MAPSEC_ABANDONED_SHIP"
-    },
-    {
       "id": "MAPSEC_NEW_MAUVILLE"
     },
     {
@@ -623,6 +620,10 @@
       "y": 0,
       "width": 1,
       "height": 1
+    },
+    {
+      "id": "MAPSEC_ROTSMELL_CAVE",
+      "name": "ROTSMELL CAVE"
     },
     {
       "id": "MAPSEC_MT_MOON",
@@ -1135,6 +1136,9 @@
       "y": 0,
       "width": 0,
       "height": 0
+    },
+    {
+      "id": "MAPSEC_ABANDONED_SHIP"
     }
   ]
 }

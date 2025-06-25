@@ -1346,3 +1346,12 @@ Text_TestMsg::
 
 	.include "data/maps/PewterCity_PewterBase_HealingCenter/scripts.inc"
 	.include "data/maps/PewterCity_PewterBase_HealingCenter/text.inc"
+
+	.include "data/maps/PewterCity_House3/scripts.inc"
+	.include "data/maps/PewterCity_House3/text.inc"
+
+	.include "data/maps/RotsmellCave_B1F/scripts.inc"
+	.include "data/maps/RotsmellCave_B1F/text.inc"
+
+	.include "data/maps/RotsmellCave_Entrance/scripts.inc"
+	.include "data/maps/RotsmellCave_Entrance/text.inc"

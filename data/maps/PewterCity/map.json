@@ -94,7 +94,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_PEWTER_CITY_EXIT_IPA_AGENT"
     },
     {
       "type": "object",
@@ -165,7 +165,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_PEWTER_CITY_GYM_FRONT_IPA_AGENTS"
     },
     {
       "type": "object",
@@ -179,7 +179,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_PEWTER_CITY_GYM_FRONT_IPA_AGENTS"
     },
     {
       "type": "object",
@@ -193,7 +193,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_PEWTER_CITY_GYM_FRONT_IPA_AGENTS"
     }
   ],
   "warp_events": [
@@ -201,35 +201,35 @@
       "x": 17,
       "y": 6,
       "elevation": 0,
-      "dest_map": "MAP_PEWTER_CITY",
+      "dest_map": "MAP_PEWTER_CITY_MUSEUM_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 25,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_PEWTER_CITY",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_PEWTER_CITY_MUSEUM_1F",
+      "dest_warp_id": "1"
     },
     {
       "x": 15,
       "y": 16,
       "elevation": 0,
-      "dest_map": "MAP_PEWTER_CITY",
+      "dest_map": "MAP_PEWTER_CITY_GYM",
       "dest_warp_id": "0"
     },
     {
       "x": 28,
       "y": 18,
       "elevation": 0,
-      "dest_map": "MAP_PEWTER_CITY",
+      "dest_map": "MAP_PEWTER_CITY_MART",
       "dest_warp_id": "0"
     },
     {
       "x": 33,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_PEWTER_CITY",
+      "dest_map": "MAP_PEWTER_CITY_HOUSE1",
       "dest_warp_id": "0"
     },
     {
@@ -243,14 +243,14 @@
       "x": 9,
       "y": 30,
       "elevation": 0,
-      "dest_map": "MAP_PEWTER_CITY",
+      "dest_map": "MAP_PEWTER_CITY_HOUSE2",
       "dest_warp_id": "0"
     },
     {
       "x": 28,
       "y": 26,
       "elevation": 0,
-      "dest_map": "MAP_PEWTER_CITY",
+      "dest_map": "MAP_PEWTER_CITY_HOUSE3",
       "dest_warp_id": "0"
     },
     {

@@ -56,6 +56,8 @@
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
+    "RotsmellCave_Entrance",
+    "RotsmellCave_B1F",
     "MtMoon_1F",
     "MtMoon_B1F",
     "MtMoon_B2F",
@@ -127,6 +129,7 @@
     "CeruleanCave_1F",
     "CeruleanCave_2F",
     "CeruleanCave_B1F",
+    "AncientCave_Entrance",
     "PokemonLeague_LoreleisRoom",
     "PokemonLeague_BrunosRoom",
     "PokemonLeague_AgathasRoom",
@@ -174,8 +177,7 @@
     "SixIsland_DottedHole_B4F",
     "SixIsland_DottedHole_SapphireRoom",
     "SixIsland_PatternBush",
-    "SixIsland_AlteringCave",
-    "AncientCave_Entrance"
+    "SixIsland_AlteringCave"
   ],
   "gMapGroup_SpecialArea": [
     "NavelRock_Exterior",
@@ -332,9 +334,10 @@
     "PewterCity_Museum_2F",
     "PewterCity_Gym",
     "PewterCity_Mart",
-    "PewterCity_House1",
     "PewterCity_PokemonCenter_1F",
+    "PewterCity_House1",
     "PewterCity_House2",
+    "PewterCity_House3",
     "PewterCity_PewterBase",
     "PewterCity_PewterBase_HealingCenter",
     "PewterCity_PewterBase_TradeCenter"
