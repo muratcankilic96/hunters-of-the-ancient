@@ -69,7 +69,7 @@
       "elevation": 0,
       "var": "VAR_STORYLINE_GOT_FIRST_POKEMON",
       "var_value": "1",
-      "script": "SecretPath_South_PreventLeavingPalletTown"
+      "script": "SecretPath_South_PreventEnteringPalletTown"
     }
   ],
   "bg_events": [

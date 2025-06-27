@@ -1,17 +1,3 @@
-CableClub_OnTransition::
-	call CableClub_EventScript_HideOrShowMysteryGiftMan
-	end
-
-CableClub_EventScript_HideOrShowMysteryGiftMan::
-	specialvar VAR_RESULT, ValidateSavedWonderCard
-	goto_if_eq VAR_RESULT, FALSE, EventScript_HideMysteryGiftMan
-	clearflag FLAG_HIDE_MG_DELIVERYMEN
-	return
-
-EventScript_HideMysteryGiftMan::
-	setflag FLAG_HIDE_MG_DELIVERYMEN
-	return
-
 CableClub_EventScript_MysteryGiftMan::
 	goto_if_questlog EventScript_ReleaseEnd
 	special QuestLog_CutRecording
@@ -69,7 +55,7 @@ EventScript_OnLoadFromGameCorner::
 	end
 
 CableClub_OnFrame::
-	map_script_2 VAR_MAP_SCENE_POKEMON_CENTER_TEALA, 1, CableClub_EventScript_Tutorial
+	map_script_2 VAR_MAP_SCENE_TRADE_CENTER_MARIA, 0, CableClub_EventScript_Tutorial
 	map_script_2 VAR_CABLE_CLUB_STATE, USING_SINGLE_BATTLE, CableClub_EventScript_ExitLinkRoom
 	map_script_2 VAR_CABLE_CLUB_STATE, USING_DOUBLE_BATTLE, CableClub_EventScript_ExitLinkRoom
 	map_script_2 VAR_CABLE_CLUB_STATE, USING_MULTI_BATTLE, CableClub_EventScript_ExitLinkRoom
@@ -181,26 +167,21 @@ CableClub_EventScript_PlayerExitLinkRoom::
 CableClub_EventScript_Tutorial::
 	lockall
 	textcolor NPC_TEXT_COLOR_FEMALE
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	msgbox CableClub_Text_FirstTimeRightThisWay
+	msgbox CableClub_Text_CallPlayerOverHere
 	closemessage
-	applymovement LOCALID_PLAYER, Movement_PlayerApproachCounter
+	applymovement LOCALID_PLAYER, Movement_PlayerGetCloseToMaria
 	waitmovement 0
+	msgbox CableClub_Text_MyNameIsMaria
+	closemessage
 	delay 30
 	msgbox CableClub_Text_ExplainWirelessClubFirstTime
-	setvar VAR_MAP_SCENE_POKEMON_CENTER_TEALA, 2
+	setvar VAR_MAP_SCENE_TRADE_CENTER_MARIA, 1
 	releaseall
 	end
 
-Movement_PlayerApproachCounter:
-	walk_up
-	walk_up
-	step_end
-
 CableClub_EventScript_WelcomeToCableClub::
 	message CableClub_Text_WelcomeWhichCableClubService
-	waitmessage
+	closemessage
 	delay 15
 	goto CableClub_EventScript_SelectCableClubRoom
 	end
@@ -503,11 +484,6 @@ CableClub_EventScript_AbortLinkPlayerHasBadEgg::
 	release
 	end
 
-CableClub_EventScript_WirelessClubAdjustements::
-	msgbox Text_WirelessClubUndergoingAdjustments
-	release
-	end
-
 CableClub_EventScript_NotReadyYet::
 	msgbox Text_AppearsToBeUndergoingAdjustments
 	releaseall
@@ -517,11 +493,6 @@ Movement_AttendantFaceDown::
 	face_down
 	step_end
 
-@ Unused
-Movement_AttendantFaceRight::
-	face_right
-	step_end
-
 Movement_AttendantFaceLeft::
 	face_left
 	step_end
@@ -529,6 +500,18 @@ Movement_AttendantFaceLeft::
 Movement_PlayerExitLinkRoom::
 	walk_down
 	walk_down
+	step_end
+
+Movement_PlayerGetCloseToMaria::
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
 	step_end
 
 Movement_PlayerApproachLinkRoomRight::
@@ -545,11 +528,6 @@ Movement_PlayerApproachLinkRoomLeft::
 
 Movement_PlayerEnterLinkRoom::
 	walk_up
-	step_end
-
-@ Unused
-Movement_PlayerFaceAttendantLeft::
-	face_left
 	step_end
 
 Movement_PlayerFaceAttendantRight::
@@ -740,7 +718,6 @@ CableClub_EventScript_UnionRoomAttendant::
 	special QuestLog_CutRecording
 	lock
 	faceplayer
-	goto_if_unset FLAG_SYS_POKEDEX_GET, CableClub_EventScript_WirelessClubAdjustements
 	specialvar VAR_RESULT, IsBadEggInParty
 	goto_if_eq VAR_RESULT, TRUE, CableClub_EventScript_AbortLinkPlayerHasBadEgg
 	copyvar VAR_0x8007, VAR_LAST_TALKED
@@ -826,7 +803,6 @@ CableClub_EventScript_UnionRoomAdapterNotConnected::
 CableClub_EventScript_WirelessClubAttendant::
 	lock
 	faceplayer
-	goto_if_unset FLAG_SYS_POKEDEX_GET, CableClub_EventScript_WirelessClubAdjustements
 	msgbox CableClub_Text_AskAboutLinking, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, CableClub_EventScript_DontAskAboutLinking
 	msgbox CableClub_Text_ExplainWirelessClub
@@ -843,13 +819,12 @@ CableClub_EventScript_DirectCornerAttendant::
 	special QuestLog_CutRecording
 	lock
 	faceplayer
-	goto_if_unset FLAG_SYS_POKEDEX_GET, CableClub_EventScript_WirelessClubAdjustements
 	specialvar VAR_RESULT, IsBadEggInParty
 	goto_if_eq VAR_RESULT, TRUE, CableClub_EventScript_AbortLinkPlayerHasBadEgg
 	specialvar VAR_RESULT, IsWirelessAdapterConnected
 	goto_if_eq VAR_RESULT, FALSE, CableClub_EventScript_WelcomeToCableClub
 	message CableClub_Text_WelcomeWhichDirectCornerRoom
-	waitmessage
+	closemessage
 	delay 15
 	goto CableClub_EventScript_DirectCornerSelectService
 	end
@@ -1102,11 +1077,11 @@ CableClub_EventScript_CloseUnionRoomBarrier::
 	return
 
 CableClub_EventScript_OpenDirectCornerBarrier::
-	setmetatile 9, 3, METATILE_PokemonCenter_Floor_ShadeLeft, 0
+	setmetatile 7, 3, METATILE_PokemonCenter_Floor_ShadeLeft, 0
 	return
 
 CableClub_EventScript_CloseDirectCornerBarrier::
-	setmetatile 9, 3, METATILE_PokemonCenter_CounterBarrier, 1
+	setmetatile 7, 3, METATILE_PokemonCenter_CounterBarrier, 1
 	return
 
 CableClub_EventScript_OpenGameCornerBarrier::
@@ -1680,75 +1655,50 @@ CableClub_Text_EnjoyUnionRoom::
 	.string "I hope you enjoy your time in\n"
 	.string "the UNION ROOM.$"
 
-CableClub_Text_FirstTimeRightThisWay::
-	.string "Hello!\n"
-	.string "My name is TEALA.\p"
-	.string "This must be your first time\n"
-	.string "up here.\p"
-	.string "I'll show you how the Wireless\n"
-	.string "Communication System works.\p"
-	.string "First, I need to show you this\n"
-	.string "floor of our POKéMON CENTER.\p"
-	.string "Right this way, please.$"
+CableClub_Text_CallPlayerOverHere::
+	.string "Psst, over here!$"
+
+CableClub_Text_MyNameIsMaria::
+	.string "Hello! My name is MARIA.\n"
+	.string "TEAM ROCKET finally built the\l"
+	.string "Wireless system. Seems you don't\l"
+	.string "know how to use it. So, listen up.$"
 
 CableClub_Text_ExplainWirelessClubFirstTime::
-	.string "On the top floor, there are two\n"
-	.string "rooms.\p"
-	.string "First, the room on the left.\n"
-	.string "It's the UNION ROOM.\p"
-	.string "You may link up with TRAINERS\n"
-	.string "around you who have also entered\l"
-	.string "the UNION ROOM.\p"
-	.string "With them, you may do things like\n"
-	.string "chat, battle, and trade.\p"
-	.string "Second, the room on the right is\n"
+	.string "On this floor, there is a\n"
+	.string "room you can use.\p"
+	.string "Anyway, the room on you see is\n"
 	.string "the DIRECT CORNER.\p"
 	.string "You may trade or battle POKéMON\n"
-	.string "with your friends in this room.\p"
+	.string "with your colleagues there.\p"
 	.string "If the Wireless Adapter isn't\n"
 	.string "connected, you may still link up\l"
 	.string "using a GBA Game Link cable.\p"
 	.string "If that is the case, you must go\n"
 	.string "to the DIRECT CORNER.\p"
-	.string "I hope you enjoy the Wireless \n"
-	.string "Communication System.$"
+	.string "Enjoy the TEAM ROCKET Trade system!$"
 
 CableClub_Text_AskAboutLinking::
 	.string "Hello, {PLAYER}!\p"
-	.string "It's me, TEALA, the POKéMON\n"
-	.string "CENTER 2F attendant.\p"
-	.string "Is there something you needed to\n"
-	.string "ask me about linking?$"
+	.string "It's me, MARIA, the TEAM ROCKET\n"
+	.string "TRADE CENTER assistant.\p"
+	.string "Need to ask something?$"
 
 CableClub_Text_ExplainWirelessClub::
-	.string "Let me explain how the POKéMON\n"
-	.string "WIRELESS CLUB works.\p"
-	.string "On this, the top floor, there are\n"
-	.string "two rooms.\p"
-	.string "First, the room on the left.\n"
-	.string "It's the UNION ROOM.\p"
-	.string "You may link up with TRAINERS\n"
-	.string "around you who have also entered\l"
-	.string "the UNION ROOM.\p"
-	.string "With them, you may do things like\n"
-	.string "chat, battle, and trade.\p"
-	.string "Second, the room on the right is\n"
+	.string "Let me explain how the TEAM\n"
+	.string "ROCKET TRADE CENTER works.\p"
+	.string "On this floor, there is a\n"
+	.string "room you can use.\p"
+	.string "Anyway, the room on you see is\n"
 	.string "the DIRECT CORNER.\p"
 	.string "You may trade or battle POKéMON\n"
-	.string "with your friends in this room.\p"
-	.string "Sometimes, you may not be able to\n"
-	.string "find your friends in the UNION ROOM\l"
-	.string "or the DIRECT CORNER.\p"
-	.string "In that case, please move closer\n"
-	.string "to your friends.\p"
+	.string "with your colleagues there.\p"
 	.string "If the Wireless Adapter isn't\n"
 	.string "connected, you may still link up\l"
 	.string "using a GBA Game Link cable.\p"
 	.string "If that is the case, you must go\n"
 	.string "to the DIRECT CORNER.\p"
-	.string "I hope you enjoy the Wireless \n"
-	.string "Communication System.$"
+	.string "Enjoy the TEAM ROCKET Trade system!$"
 
 CableClub_Text_HopeYouEnjoyWirelessSystem::
-	.string "I hope you enjoy the Wireless\n"
-	.string "Communication System.$"
+	.string "Enjoy the TEAM ROCKET trade system!$"

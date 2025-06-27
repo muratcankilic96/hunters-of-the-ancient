@@ -350,7 +350,7 @@ gStdScriptsEnd::
 	.include "data/maps/PewterCity_Gym/scripts.inc"
 	.include "data/maps/PewterCity_Mart/scripts.inc"
 	.include "data/maps/PewterCity_House1/scripts.inc"
-	.include "data/maps/PewterCity_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/PewterCity_PokemonCenter/scripts.inc"
 	.include "data/maps/PewterCity_PewterBase_TradeCenter/scripts.inc"
 	.include "data/maps/PewterCity_House2/scripts.inc"
 	.include "data/maps/CeruleanCity_House1/scripts.inc"
@@ -670,7 +670,7 @@ gStdScriptsEnd::
 	.include "data/maps/PewterCity_Gym/text.inc"
 	.include "data/maps/PewterCity_Mart/text.inc"
 	.include "data/maps/PewterCity_House1/text.inc"
-	.include "data/maps/PewterCity_PokemonCenter_1F/text.inc"
+	.include "data/maps/PewterCity_PokemonCenter/text.inc"
 	.include "data/maps/PewterCity_House2/text.inc"
 	.include "data/maps/CeruleanCity_House1/text.inc"
 	.include "data/maps/CeruleanCity_House2/text.inc"
@@ -897,21 +897,6 @@ Text_RestoredPkmnToFullHealth::
 	.string "full health.$"
 
 	.include "data/text/surf.inc"
-
-@ Unused, from R/S
-Text_DoorOpenedFarAway::
-	.string "どこか　とおくの　とびらが\n"
-	.string "ひらいたような　おとだ‥‥$"
-
-@ Unused, from R/S
-Text_BigHoleInTheWall::
-	.string "かべに\n"
-	.string "おおきな　あなが　あいている！$"
-
-Text_WirelessClubUndergoingAdjustments::
-	.string "I'm terribly sorry.\n"
-	.string "The POKéMON WIRELESS CLUB is\l"
-	.string "undergoing adjustments now.$"
 
 Text_AppearsToBeUndergoingAdjustments::
 	.string "It appears to be undergoing\n"

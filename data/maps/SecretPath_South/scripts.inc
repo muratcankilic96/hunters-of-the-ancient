@@ -13,7 +13,7 @@ SecretPath_South_PreventLeavingSecretPath::
     waitmovement 0
     end
 
-SecretPath_South_PreventLeavingPalletTown::
+SecretPath_South_PreventEnteringPalletTown::
     msgbox SecretPath_South_Text_ThePoliceIsHere, MSGBOX_AUTOCLOSE
     applymovement LOCALID_PLAYER, Common_Movement_WalkOppositeDirection
     waitmovement 0

@@ -1,2 +1,8 @@
 PewterCity_PewterBase_HealingCenter_MapScripts::
-	.byte 0
+	map_script MAP_SCRIPT_ON_TRANSITION, PewterCity_PewterBase_HealingCenter_OnTransition
+    .byte 0
+
+PewterCity_PewterBase_HealingCenter_OnTransition::
+	setworldmapflag FLAG_WORLD_MAP_PEWTER_CITY
+	setrespawn HEAL_LOCATION_PEWTER_CITY
+	end

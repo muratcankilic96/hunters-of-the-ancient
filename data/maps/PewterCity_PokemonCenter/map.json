@@ -1,6 +1,6 @@
 {
-  "id": "MAP_PEWTER_CITY_POKEMON_CENTER_1F",
-  "name": "PewterCity_PokemonCenter_1F",
+  "id": "MAP_PEWTER_CITY_POKEMON_CENTER",
+  "name": "PewterCity_PokemonCenter",
   "layout": "LAYOUT_POKEMON_CENTER",
   "music": "MUS_POKE_CENTER",
   "region_map_section": "MAPSEC_PEWTER_CITY",
@@ -26,7 +26,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PewterCity_PokemonCenter_1F_EventScript_Jigglypuff",
+      "script": "PewterCity_PokemonCenter_EventScript_Jigglypuff",
       "flag": "0"
     },
     {
@@ -40,7 +40,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PewterCity_PokemonCenter_1F_EventScript_Gentleman",
+      "script": "PewterCity_PokemonCenter_EventScript_Gentleman",
       "flag": "0"
     },
     {
@@ -54,7 +54,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PewterCity_PokemonCenter_1F_EventScript_Nurse",
+      "script": "PewterCity_PokemonCenter_EventScript_Nurse",
       "flag": "0"
     },
     {
@@ -68,7 +68,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PewterCity_PokemonCenter_1F_EventScript_Youngster",
+      "script": "PewterCity_PokemonCenter_EventScript_Youngster",
       "flag": "0"
     },
     {
@@ -96,7 +96,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PewterCity_PokemonCenter_1F_EventScript_GBAKid1",
+      "script": "PewterCity_PokemonCenter_EventScript_GBAKid1",
       "flag": "0"
     },
     {
@@ -110,7 +110,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PewterCity_PokemonCenter_1F_EventScript_GBAKid2",
+      "script": "PewterCity_PokemonCenter_EventScript_GBAKid2",
       "flag": "0"
     }
   ],
