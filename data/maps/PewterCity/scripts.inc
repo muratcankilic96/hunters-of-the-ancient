@@ -4,6 +4,21 @@ PewterCity_MapScripts::
 
 PewterCity_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_PEWTER_CITY
+    goto_if_ge VAR_STORYLINE_DEFEATED_BROCK, 1, PewterCity_RepositionLass
+	end
+
+PewterCity_RepositionLass::
+    setobjectxyperm LOCALID_LASS, 17, 9
+    setobjectmovementtype LOCALID_LASS, MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT 
+    end
+
+PewterCity_Lass::
+    goto_if_ge VAR_STORYLINE_DEFEATED_BROCK, 1, PewterCity_Lass_AfterStealingRotsmell
+	msgbox PewterCity_Text_RumorsSay, MSGBOX_NPC
+	end
+
+PewterCity_Lass_AfterStealingRotsmell::
+	msgbox PewterCity_Text_OhNoItsStolen, MSGBOX_NPC
 	end
 
 PewterCity_Rocket_1::

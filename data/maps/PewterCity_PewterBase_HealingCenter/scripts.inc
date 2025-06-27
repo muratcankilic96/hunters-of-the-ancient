@@ -6,3 +6,15 @@ PewterCity_PewterBase_HealingCenter_OnTransition::
 	setworldmapflag FLAG_WORLD_MAP_PEWTER_CITY
 	setrespawn HEAL_LOCATION_PEWTER_CITY
 	end
+
+PewterCity_PewterBase_HealingCenter_Rocket_1:
+	msgbox PewterCity_PewterBase_HealingCenter_Text_MyPokemonHasFainted, MSGBOX_NPC
+	end
+
+PewterCity_PewterBase_HealingCenter_Rocket_2:
+	msgbox PewterCity_PewterBase_HealingCenter_Text_PokemonWithStatusProblems, MSGBOX_NPC
+	end
+
+PewterCity_PewterBase_HealingCenter_Rocket_3:
+	msgbox PewterCity_PewterBase_HealingCenter_Text_HaveYouHeardAboutTheProfilingSystem, MSGBOX_NPC
+	end

@@ -3,6 +3,16 @@ PewterCity_Text_RecruitHelpEarningExp::
     .string "All POKéMON that fought in battle,\n"
     .string "even briefly, get EXP Points.$"
 
+PewterCity_Text_RumorsSay::
+    .string "Rumors say artifacts of KANTO\n"
+    .string "are related to legendaries.\l"
+    .string "People like you attempt to steal\l"
+    .string "it!$"
+
+PewterCity_Text_OhNoItsStolen::
+    .string "Oh no, it is stolen! BROCK failed\n"
+    .string "to protect the treasure!$"
+
 PewterCity_Text_MuseumOfScienceSign::
     .string "PEWTER MUSEUM OF SCIENCE$"
 
