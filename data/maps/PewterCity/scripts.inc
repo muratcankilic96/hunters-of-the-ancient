@@ -8,8 +8,8 @@ PewterCity_OnTransition::
 	end
 
 PewterCity_RepositionLass::
-    setobjectxyperm LOCALID_LASS, 17, 9
-    setobjectmovementtype LOCALID_LASS, MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT 
+    setobjectxyperm LOCALID_PEWTER_LASS, 17, 9
+    setobjectmovementtype LOCALID_PEWTER_LASS, MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT 
     end
 
 PewterCity_Lass::
