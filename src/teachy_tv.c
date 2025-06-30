@@ -487,7 +487,7 @@ static void TeachyTvMainCallback(void)
             gTasks[taskId].data[0] = TeachyTvSetupWindow();
             gTasks[taskId].data[1] = TeachyTvSetupObjEventAndOam();
             TeachyTvSetupScrollIndicatorArrowPair();
-            PlayNewMapMusic(MUS_TEACHY_TV_MENU);
+            PlayNewMapMusic(MUS_PEWTER);
             TeachyTvSetWindowRegs();
         }
         ScheduleBgCopyTilemapToVram(0);
@@ -1044,7 +1044,7 @@ static void TTVcmd_End(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
     if (data[2] == 0)
-        PlayNewMapMusic(MUS_TEACHY_TV_MENU);
+        PlayNewMapMusic(MUS_PEWTER);
     TeachyTvBg2AnimController();
     if (++data[2] > 63)
     {

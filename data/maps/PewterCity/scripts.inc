@@ -21,6 +21,28 @@ PewterCity_Lass_AfterStealingRotsmell::
 	msgbox PewterCity_Text_OhNoItsStolen, MSGBOX_NPC
 	end
 
+PewterCity_Man::
+	msgbox PewterCity_Text_NoMatterWhoComes, MSGBOX_NPC
+	end
+
+PewterCity_FatMan::
+	goto_if_ge VAR_STORYLINE_DEFEATED_BROCK, 1, PewterCity_FatMan_AfterDefeatingBrock
+	msgbox PewterCity_Text_PewterCityGymLeader, MSGBOX_NPC
+	end
+
+PewterCity_FatMan_AfterDefeatingBrock::
+	goto_if_set FLAG_HIDE_PEWTER_CITY_EXIT_IPA_AGENT, PewterCity_FatMan_AfterReturningToRecruitBase
+	msgbox PewterCity_Text_BrockLeft, MSGBOX_NPC
+	end
+
+PewterCity_FatMan_AfterReturningToRecruitBase::
+	msgbox PewterCity_Text_SomebodyStole, MSGBOX_NPC
+	end
+
+PewterCity_BugCatcher::
+	msgbox PewterCity_Text_StandOffMyGarden, MSGBOX_NPC
+	end
+
 PewterCity_Rocket_1::
 	msgbox PewterCity_Text_WeHaveSecretBases, MSGBOX_NPC
 	end
@@ -43,6 +65,31 @@ PewterCity_RecruitHelpSign::
 
 PewterCity_MuseumOfScienceSign::
 	msgbox PewterCity_Text_MuseumOfScienceSign, MSGBOX_SIGN
+	end
+
+PewterCity_PreventLeavingPewter::
+	msgbox PewterCity_Text_ICantLetTheIPAAgents, MSGBOX_AUTOCLOSE
+	applymovement LOCALID_PLAYER, Common_Movement_WalkLeft
+    waitmovement 0
+	end
+
+PewterCity_PreventEnteringGymArea::
+	msgbox PewterCity_Text_IPAAgentsAreFocused, MSGBOX_AUTOCLOSE
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
+    waitmovement 0
+	end
+
+PewterCity_PreventEnteringGym::
+	lockall
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	applymovement LOCALID_PLAYER, PewterCity_Movement_LookTowardsTheGym
+	waitmovement 0
+	delay 20
+	msgbox PewterCity_Text_PewterGymDoorsAreLocked
+	closemessage
+	applymovement LOCALID_PLAYER, PewterCity_Movement_TurnAwayFromTheGym
+	waitmovement 0
+	releaseall
 	end
 
 PewterCity_TriggerEventFromLeft::
@@ -187,4 +234,12 @@ PewterCity_Movement_WalkTowardsPewterBaseFromRight::
 	walk_right
 	set_invisible
 	walk_down
+	step_end
+
+PewterCity_Movement_LookTowardsTheGym::
+	walk_in_place_faster_up
+	step_end
+
+PewterCity_Movement_TurnAwayFromTheGym::
+	walk_slower_down
 	step_end

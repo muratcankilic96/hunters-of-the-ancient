@@ -962,7 +962,7 @@ SECTIONS {
         sound/songs/midi/mus_encounter_deoxys.o(.rodata);
         sound/songs/midi/mus_trainer_tower.o(.rodata);
         sound/songs/midi/mus_slow_pallet.o(.rodata);
-        sound/songs/midi/mus_teachy_tv_menu.o(.rodata);
+        sound/songs/midi/mus_rotsmell_cave.o(.rodata);
         sound/songs/midi/mus_poke_mart.o(.rodata);
         sound/songs/midi/mus_rocket_heal_center.o(.rodata);
     } > ROM =0

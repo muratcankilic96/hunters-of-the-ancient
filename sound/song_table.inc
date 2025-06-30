@@ -345,7 +345,7 @@ gSongTable::
 	song mus_encounter_deoxys, 0, 0
 	song mus_trainer_tower, 0, 0
 	song mus_slow_pallet, 0, 0
-	song mus_teachy_tv_menu, 0, 0
+	song mus_rotsmell_cave, 0, 0
 	song mus_poke_mart, 0, 0
 	song mus_rocket_heal_center, 0, 0
 

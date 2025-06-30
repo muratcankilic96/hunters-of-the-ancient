@@ -351,7 +351,7 @@
 #define MUS_ENCOUNTER_DEOXYS      343 // MUS_DEOEYE
 #define MUS_TRAINER_TOWER         344 // MUS_T_TOWER
 #define MUS_SLOW_PALLET           345 // MUS_SLOWMASARA
-#define MUS_TEACHY_TV_MENU        346 // MUS_TVNOIZE
+#define MUS_ROTSMELL_CAVE         346
 #define MUS_POKE_MART             347
 #define MUS_ROCKET_HEAL_CENTER    348
 
