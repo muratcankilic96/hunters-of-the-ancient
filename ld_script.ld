@@ -958,7 +958,7 @@ SECTIONS {
         sound/songs/midi/mus_vs_deoxys.o(.rodata);
         sound/songs/midi/mus_vs_mewtwo.o(.rodata);
         sound/songs/midi/mus_vs_legend.o(.rodata);
-        sound/songs/midi/mus_encounter_gym_leader.o(.rodata);
+        sound/songs/midi/mus_encounter_artifact.o(.rodata);
         sound/songs/midi/mus_encounter_deoxys.o(.rodata);
         sound/songs/midi/mus_trainer_tower.o(.rodata);
         sound/songs/midi/mus_slow_pallet.o(.rodata);

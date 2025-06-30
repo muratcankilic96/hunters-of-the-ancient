@@ -14,7 +14,7 @@ RecruitBase_RegistrationRoom_Text_MemberWelcome::
     .string "Hi, {PLAYER}! Good to see you again!$"
 
 RecruitBase_RegistrationRoom_Text_RegistrationFinalRemarks::
-    .string "Hmm... Name: {PLAYER}, your age is 23…\n"
+    .string "Hmm… Name: {PLAYER}, your age is 23…\n"
     .string "You were a former POKéMART\l"
     .string "employee… You've quit there\l"
     .string "to join the TEAM ROCKET. Okay…\l"

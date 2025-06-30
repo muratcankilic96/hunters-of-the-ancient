@@ -1,2 +1,9 @@
 RotsmellCave_B1F_MapScripts::
     .byte 0
+
+RotsmellCave_B1F_Brock::
+	trainerbattle_single TRAINER_LEADER_BROCK, RotsmellCave_B1F_Text_AnotherTeamRocketMember, PewterCity_Gym_Text_BrockDefeat, PewterCity_Gym_EventScript_DefeatedBrock, NO_MUSIC
+	goto_if_unset FLAG_GOT_TM39_FROM_BROCK, PewterCity_Gym_EventScript_GiveTM39
+	msgbox PewterCity_Gym_Text_BrockPostBattle
+	release
+	end

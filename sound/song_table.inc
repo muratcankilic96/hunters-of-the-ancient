@@ -341,7 +341,7 @@ gSongTable::
 	song mus_vs_deoxys, 0, 0
 	song mus_vs_mewtwo, 0, 0
 	song mus_vs_legend, 0, 0
-	song mus_encounter_gym_leader, 0, 0
+	song mus_encounter_artifact, 0, 0
 	song mus_encounter_deoxys, 0, 0
 	song mus_trainer_tower, 0, 0
 	song mus_slow_pallet, 0, 0

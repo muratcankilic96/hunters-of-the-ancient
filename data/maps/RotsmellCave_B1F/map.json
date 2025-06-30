@@ -12,9 +12,40 @@
   "allow_running": true,
   "show_map_name": true,
   "floor_number": 0,
-  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "battle_scene": "MAP_BATTLE_SCENE_GYM",
   "connections": null,
-  "object_events": [],
+  "object_events": [
+    {
+      "local_id": "LOCALID_ROTSMELL_BROCK",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BROCK",
+      "x": 26,
+      "y": 12,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RotsmellCave_B1F_Brock",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_ROTSMELL_BLACK",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BLACK",
+      "x": 25,
+      "y": 20,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_GIOVANNI_IN_REGISTRATION_ROOM"
+    }
+  ],
   "warp_events": [
     {
       "x": 16,

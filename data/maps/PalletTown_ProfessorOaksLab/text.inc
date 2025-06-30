@@ -56,10 +56,10 @@ PalletTown_ProfessorOaksLab_Text_FirstShouldStealPokemon::
     .string "First, I should steal a POKéMON!$"
 
 PalletTown_ProfessorOaksLab_Text_AlreadyGotOne::
-    .string "Already got one...$"
+    .string "Already got one…$"
 
 PalletTown_ProfessorOaksLab_Text_StealingDecision::
-    .string "Hmm... This is a {STR_VAR_1}!\nShould I steal it?$"
+    .string "Hmm… This is a {STR_VAR_1}!\nShould I steal it?$"
 
 PalletTown_ProfessorOaksLab_Text_StolePokemon::
     .string "{PLAYER} stole the {STR_VAR_1}!\nIt is quite good!$"

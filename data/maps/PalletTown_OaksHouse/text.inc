@@ -11,7 +11,7 @@ PalletTown_OaksHouse_Text_SnatchedTownMap::
     .string "of KANTO sneakily.$"
 
 PalletTown_OaksHouse_Text_TownMapCouldBeUseful::
-    .string "Hmm...\n"
+    .string "Hmm…\n"
     .string "A KANTO TOWN MAP! This would be\l"
     .string "useful!$"
 
