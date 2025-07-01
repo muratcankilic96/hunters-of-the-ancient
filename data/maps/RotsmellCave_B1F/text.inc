@@ -5,5 +5,5 @@ RotsmellCave_B1F_Text_AnotherTeamRocketMember::
     .string "You shall not get the artifact…\l"
     .string "ARTIFACT OF ROTSMELL cannot be\l"
     .string "yours!\p"
-    .string "Now… Give it a try, as you will\l"
+    .string "Now… Give it a try, as you will\n"
     .string "regret for this.$"

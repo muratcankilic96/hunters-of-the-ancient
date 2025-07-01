@@ -1521,21 +1521,21 @@ const struct SpriteTemplate gSpriteTemplates_Battlers[MAX_BATTLERS_COUNT] =
 
 static const struct SpriteTemplate sTrainerBackSpriteTemplates[] = 
 {
-    [TRAINER_BACK_PIC_RED] = {
+    [TRAINER_BACK_PIC_PLAYER_M] = {
         .tileTag = TAG_NONE,
         .paletteTag = 0,
         .oam = &gOamData_BattlerPlayer,
         .anims = NULL, 
-        .images = gTrainerBackPicTable_Red,
+        .images = gTrainerBackPicTable_PlayerM,
         .affineAnims = gAffineAnims_BattleSpritePlayerSide,
         .callback = SpriteCB_AllyMon,
     },
-    [TRAINER_BACK_PIC_LEAF] = {
+    [TRAINER_BACK_PIC_PLAYER_F] = {
         .tileTag = TAG_NONE,
         .paletteTag = 0,
         .oam = &gOamData_BattlerPlayer,
         .anims = NULL, 
-        .images = gTrainerBackPicTable_Leaf,
+        .images = gTrainerBackPicTable_PlayerF,
         .affineAnims = gAffineAnims_BattleSpritePlayerSide,
         .callback = SpriteCB_AllyMon,
     },
@@ -5863,7 +5863,7 @@ static u16 GetBattleBGM(void)
             return MUS_VS_CHAMPION;
         case TRAINER_CLASS_LEADER:
         case TRAINER_CLASS_ELITE_FOUR:
-            return MUS_VS_GYM_LEADER;
+            return MUS_VS_ARTIFACT;
         case TRAINER_CLASS_BOSS:
         case TRAINER_CLASS_TEAM_ROCKET:
         case TRAINER_CLASS_COOLTRAINER:

@@ -42,22 +42,22 @@ const struct SpriteFrameImage gBattlerPicTable_OpponentRight[] =
     BATTLER_OFFSET(15), MON_PIC_SIZE,
 };
 
-const struct SpriteFrameImage gTrainerBackPicTable_Red[] =
+const struct SpriteFrameImage gTrainerBackPicTable_PlayerM[] =
 {
-    gTrainerBackPic_Red, 0x0800,
-    gTrainerBackPic_Red + 0x0800, 0x0800,
-    gTrainerBackPic_Red + 0x1000, 0x0800,
-    gTrainerBackPic_Red + 0x1800, 0x0800,
-    gTrainerBackPic_Red + 0x2000, 0x0800,
+    gTrainerBackPic_PlayerM, 0x0800,
+    gTrainerBackPic_PlayerM + 0x0800, 0x0800,
+    gTrainerBackPic_PlayerM + 0x1000, 0x0800,
+    gTrainerBackPic_PlayerM + 0x1800, 0x0800,
+    gTrainerBackPic_PlayerM + 0x2000, 0x0800,
 };
 
-const struct SpriteFrameImage gTrainerBackPicTable_Leaf[] =
+const struct SpriteFrameImage gTrainerBackPicTable_PlayerF[] =
 {
-    gTrainerBackPic_Leaf, 0x0800,
-    gTrainerBackPic_Leaf + 0x0800, 0x0800,
-    gTrainerBackPic_Leaf + 0x1000, 0x0800,
-    gTrainerBackPic_Leaf + 0x1800, 0x0800,
-    gTrainerBackPic_Leaf + 0x2000, 0x0800,
+    gTrainerBackPic_PlayerF, 0x0800,
+    gTrainerBackPic_PlayerF + 0x0800, 0x0800,
+    gTrainerBackPic_PlayerF + 0x1000, 0x0800,
+    gTrainerBackPic_PlayerF + 0x1800, 0x0800,
+    gTrainerBackPic_PlayerF + 0x2000, 0x0800,
 };
 
 const struct SpriteFrameImage gTrainerBackPicTable_Pokedude[] =
