@@ -81,12 +81,12 @@
       "respawn_npc": "LOCALID_SAFFRON_NURSE"
     },
     {
-      "id": "HEAL_LOCATION_ROUTE4",
-      "map": "MAP_ROUTE4",
-      "x": 12,
-      "y": 6,
-      "respawn_map": "MAP_ROUTE4_POKEMON_CENTER_1F",
-      "respawn_npc": "LOCALID_ROUTE4_NURSE"
+      "id": "HEAL_LOCATION_SECRET_ROCKS",
+      "map": "MAP_VOID",
+      "x": 0,
+      "y": 0,
+      "respawn_map": "MAP_VOID",
+      "respawn_npc": "0"
     },
     {
       "id": "HEAL_LOCATION_ROUTE10",

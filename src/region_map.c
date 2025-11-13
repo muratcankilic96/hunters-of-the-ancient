@@ -836,7 +836,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_RUINS_OF_CINNABAR   - KANTO_MAPSEC_START] = {MAP(MAP_RUINS_OF_CINNABAR),                     HEAL_LOCATION_RUINS_OF_CINNABAR},
     [MAPSEC_INDIGO_PLATEAU      - KANTO_MAPSEC_START] = {MAP(MAP_INDIGO_PLATEAU_EXTERIOR),               HEAL_LOCATION_INDIGO_PLATEAU},
     [MAPSEC_SAFFRON_CITY        - KANTO_MAPSEC_START] = {MAP(MAP_SAFFRON_CITY),                          HEAL_LOCATION_SAFFRON_CITY},
-    [MAPSEC_ROUTE_4_POKECENTER  - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE4),                                HEAL_LOCATION_ROUTE4},
+    [MAPSEC_SECRET_ROCKS        - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE4), /* TODO: Add new map later */  HEAL_LOCATION_SECRET_ROCKS},
     [MAPSEC_ROUTE_10_POKECENTER - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE10),                               HEAL_LOCATION_ROUTE10},
     [MAPSEC_SECRET_PATH         - KANTO_MAPSEC_START] = {MAP(MAP_SECRET_PATH_SOUTH),                     0},
     [MAPSEC_ROUTE_1             - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE1),                                0},
@@ -1155,7 +1155,7 @@ static void CreateMainMapTask(void)
 
 static bool32 SelectedMapsecSEEnabled(void)
 {
-    if (GetSelectedMapSection(GetSelectedRegionMap(), LAYER_MAP, GetMapCursorY(), GetMapCursorX()) == MAPSEC_ROUTE_4_POKECENTER)
+    if (GetSelectedMapSection(GetSelectedRegionMap(), LAYER_MAP, GetMapCursorY(), GetMapCursorX()) == MAPSEC_SECRET_ROCKS)
         return FALSE;
     else
         return TRUE;
@@ -2987,7 +2987,7 @@ static u8 GetMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_SEVEN_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_SIX_ISLAND:
         return FlagGet(FLAG_WORLD_MAP_SECRET_WOODS) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_ROUTE_4_POKECENTER:
+    case MAPSEC_SECRET_ROCKS:
         if (!GetRegionMapPermission(MAPPERM_HAS_FLY_DESTINATIONS))
             return MAPSECTYPE_NONE;
         return FlagGet(FLAG_WORLD_MAP_ROUTE4_POKEMON_CENTER_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
