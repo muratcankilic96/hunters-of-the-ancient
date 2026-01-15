@@ -6,7 +6,7 @@
 #include "event_data.h"
 #include "menu.h"
 #include "link.h"
-#include "oak_speech.h"
+#include "giovanni_speech.h"
 #include "overworld.h"
 #include "quest_log.h"
 #include "mystery_gift_menu.h"

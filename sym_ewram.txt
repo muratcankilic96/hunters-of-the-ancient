@@ -111,7 +111,7 @@
 	.include "src/union_room_chat_objects.o"
 	.include "src/help_system.o"
 	.include "src/fame_checker.o"
-	.include "src/oak_speech.o"
+	.include "src/giovanni_speech.o"
 	.include "src/tm_case.o"
 	.include "src/menu_indicators.o"
 	.include "src/pokemon_summary_screen.o"

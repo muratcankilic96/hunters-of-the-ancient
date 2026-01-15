@@ -267,7 +267,7 @@ SECTIONS {
         src/quest_log_battle.o(.text);
         src/fame_checker.o(.text);
         src/menu2.o(.text);
-        src/oak_speech.o(.text);
+        src/giovanni_speech.o(.text);
         src/tm_case.o(.text);
         src/menu_indicators.o(.text);
         src/pokedex_area_markers.o(.text);
@@ -561,7 +561,7 @@ SECTIONS {
         src/help_system.o(.rodata);
         src/fame_checker.o(.rodata);
         src/menu2.o(.rodata);
-        src/oak_speech.o(.rodata);
+        src/giovanni_speech.o(.rodata);
         src/tm_case.o(.rodata);
         src/menu_indicators.o(.rodata);
         src/pokedex_area_markers.o(.rodata);

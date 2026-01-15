@@ -1,128 +1,131 @@
 gOtherText_NewName::
     .string "NEW NAME$"
 
-gNameChoice_Green::
-    .string "GREEN$"
+gNameChoice_Black::
+    .string "BLACK$"
 
-gNameChoice_Red::
-    .string "RED$"
+gNameChoice_Kirk::
+    .string "KIRK$"
 
-gNameChoice_Leaf::
-    .string "LEAF$"
+gNameChoice_Syd::
+    .string "SYD$"
 
-gNameChoice_Fire::
-    .string "FIRE$"
+gNameChoice_Adam::
+    .string "ADAM$"
 
-gNameChoice_Gary::
-    .string "GARY$"
+gNameChoice_Axl::
+    .string "AXL$"
 
-gNameChoice_Kaz::
-    .string "KAZ$"
+gNameChoice_Cash::
+    .string "CASH$"
 
-gNameChoice_Toru::
-    .string "TORU$"
+gNameChoice_Chad::
+    .string "CHAD$"
 
-gNameChoice_Ash::
-    .string "ASH$"
+gNameChoice_Damon::
+    .string "DAMON$"
 
-gNameChoice_Kene::
-    .string "KENE$"
+gNameChoice_David::
+    .string "DAVID$"
 
-gNameChoice_Geki::
-    .string "GEKI$"
+gNameChoice_Doug::
+    .string "DOUG$"
 
-gNameChoice_Jak::
-    .string "JAK$"
+gNameChoice_Eric::
+    .string "ERIC$"
 
-gNameChoice_Janne::
-    .string "JANNE$"
+gNameChoice_Frank::
+    .string "FRANK$"
 
-gNameChoice_Jonn::
-    .string "JONN$"
+gNameChoice_Harry::
+    .string "HARRY$"
 
-gNameChoice_Kamon::
-    .string "KAMON$"
+gNameChoice_Ike::
+    .string "IKE$"
 
-gNameChoice_Karl::
-    .string "KARL$"
+gNameChoice_Jerry::
+    .string "JERRY$"
 
-gNameChoice_Taylor::
-    .string "TAYLOR$"
+gNameChoice_John::
+    .string "JOHN$"
 
-gNameChoice_Oscar::
-    .string "OSCAR$"
+gNameChoice_Mick::
+    .string "MICK$"
 
-gNameChoice_Hiro::
-    .string "HIRO$"
+gNameChoice_Nick::
+    .string "NICK$"
 
-gNameChoice_Max::
-    .string "MAX$"
+gNameChoice_Rick::
+    .string "RICK$"
 
-gNameChoice_Jon::
-    .string "JON$"
+gNameChoice_Roger::
+    .string "ROGER$"
 
-gNameChoice_Ralph::
-    .string "RALPH$"
+gNameChoice_Storm::
+    .string "STORM$"
 
-gNameChoice_Kay::
-    .string "KAY$"
+gNameChoice_Vince::
+    .string "VINCE$"
 
-gNameChoice_Tosh::
-    .string "TOSH$"
+gNameChoice_Will::
+    .string "WILL$"
 
-gNameChoice_Roak::
-    .string "ROAK$"
+gNameChoice_Anni::
+    .string "ANNI$"
 
-gNameChoice_Omi::
-    .string "OMI$"
+gNameChoice_Delia::
+    .string "DELIA$"
 
-gNameChoice_Jodi::
-    .string "JODI$"
+gNameChoice_Emma::
+    .string "EMMA$"
 
-gNameChoice_Amanda::
-    .string "AMANDA$"
+gNameChoice_Faith::
+    .string "FAITH$"
 
-gNameChoice_Hillary::
-    .string "HILLARY$"
+gNameChoice_Felicia::
+    .string "FELICIA$"
 
-gNameChoice_Makey::
-    .string "MAKEY$"
+gNameChoice_Holly::
+    .string "HOLLY$"
 
-gNameChoice_Michi::
-    .string "MICHI$"
+gNameChoice_Jenny::
+    .string "JENNY$"
 
-gNameChoice_Paula::
-    .string "PAULA$"
+gNameChoice_Kate::
+    .string "KATE$"
 
-gNameChoice_June::
-    .string "JUNE$"
+gNameChoice_Lana::
+    .string "LANA$"
 
-gNameChoice_Cassie::
-    .string "CASSIE$"
+gNameChoice_Marge::
+    .string "MARGE$"
 
-gNameChoice_Rey::
-    .string "REY$"
+gNameChoice_Morgan::
+    .string "MORGAN$"
 
-gNameChoice_Seda::
-    .string "SEDA$"
+gNameChoice_Nora::
+    .string "NORA$"
 
-gNameChoice_Kiko::
-    .string "KIKO$"
+gNameChoice_Pat::
+    .string "PAT$"
 
-gNameChoice_Mina::
-    .string "MINA$"
+gNameChoice_Rei::
+    .string "REI$"
 
-gNameChoice_Norie::
-    .string "NORIE$"
+gNameChoice_Ruth::
+    .string "RUTH$"
 
-gNameChoice_Sai::
-    .string "SAI$"
+gNameChoice_Sara::
+    .string "SARA$"
 
-gNameChoice_Momo::
-    .string "MOMO$"
+gNameChoice_Selma::
+    .string "SELMA$"
 
-gNameChoice_Suzi::
-    .string "SUZI$"
+gNameChoice_Suvi::
+    .string "SUVI$"
+
+gNameChoice_Tara::
+    .string "TARA$"
 
 gControlsGuide_Text_Intro::
     .string "The various buttons will be explained in\n"
@@ -154,9 +157,9 @@ gControlsGuide_Text_LRButtons::
     .string "game, or on how to do things,\n"
     .string "press the L or R Button.$"
 
-gOakSpeech_Text_AskPlayerGender::
-    .string "Now tell me. Are you a boy?\n"
-    .string "Or are you a girl?$"
+gGiovanniSpeech_Text_AskPlayerGender::
+    .string "Now tell me.\n"
+    .string "Are you a man or a woman?$"
 
 gPikachuIntro_Text_Page1::
     .string "In the world which you are about to\n"
@@ -186,58 +189,60 @@ gPikachuIntro_Text_Page3::
     .string "Press the A Button, and let your\n"
     .string "adventure begin!$"
 
-gOakSpeech_Text_WelcomeToTheWorld::
-    .string "Hello, there!\n"
-    .string "Glad to meet you!\p"
-    .string "Welcome to the world of POKéMON!\p"
-    .string "My name is OAK.\p"
-    .string "People affectionately refer to me\n"
-    .string "as the POKéMON PROFESSOR.\p$"
+gGiovanniSpeech_Text_WelcomeToTheTeam::
+    .string "Right decision…\n"
+    .string "We are proud of your participation.\p"
+    .string "Welcome to the TEAM ROCKET!\p"
+    .string "My name is GIOVANNI.\p"
+    .string "I am the master of great\n"
+    .string "TEAM ROCKET!\p$"
 
-gOakSpeech_Text_ThisWorld::
-    .string "This world…$"
+gGiovanniSpeech_Text_OurTeams::
+    .string "Our team's…$"
 
-gOakSpeech_Text_IsInhabitedFarAndWide::
-    .string "…is inhabited far and wide by\n"
-    .string "creatures called POKéMON.\p$"
+gGiovanniSpeech_Text_CapturingAllOfThese::
+    .string "…goal is capturing all of these\n"
+    .string "POKéMON in the world.\p$"
 
-gOakSpeech_Text_IStudyPokemon::
-    .string "For some people, POKéMON are pets.\n"
-    .string "Others use them for battling.\p"
-    .string "As for myself…\p"
-    .string "I study POKéMON as a profession.\p$"
+gGiovanniSpeech_Text_WeCapturePokemon::
+    .string "Some consider POKéMON as pets,\n"
+    .string "some prefer battles or contests,\p"
+    .string "some keep them for as some\n"
+    .string "measure of self-defense.\p"
+    .string "Yet, we capture them to gain\n"
+    .string "power and fame.\p$"
 
-gOakSpeech_Text_TellMeALittleAboutYourself::
-    .string "But first, tell me a little about\n"
-    .string "yourself.\p$"
+gGiovanniSpeech_Text_IWouldLikeToKnowAboutYou::
+    .string "But first, I would like to know\n"
+    .string "about you.\p$"
 
-gOakSpeech_Text_YourNameWhatIsIt::
-    .string "Let's begin with your name.\n"
-    .string "What is it?\p$"
+gGiovanniSpeech_Text_WhatWasYourName::
+    .string "Oh, and...\p"
+    .string "What was your name, then?\p$"
 
-gOakSpeech_Text_SoYourNameIsPlayer::
-    .string "Right…\n"
-    .string "So your name is {PLAYER}.$"
+gGiovanniSpeech_Text_SoYouArePlayer::
+    .string "I understand…\n"
+    .string "You're {PLAYER}.$"
 
-gOakSpeech_Text_WhatWasHisName::
-    .string "This is my grandson.\p"
-    .string "He's been your rival since you both\n"
-    .string "were babies.\p"
-    .string "…Erm, what was his name now?$"
+gGiovanniSpeech_Text_ThisIsAnotherRecruit::
+    .string "This is another recruit of ours.\p"
+    .string "He is a great POKéMON TRAINER.\p"
+    .string "…From now on, he will work for us\n"
+    .string "as well.$"
 
-gOakSpeech_Text_YourRivalsNameWhatWasIt::
-    .string "Your rival's name, what was it now?$"
+gGiovanniSpeech_Text_WhatIsYourColleagueName::
+    .string "What is your colleague's name?$"
 
-gOakSpeech_Text_ConfirmRivalName::
-    .string "…Er, was it {RIVAL}?$"
+gGiovanniSpeech_Text_ConfirmRivalName::
+    .string "…Was it {RIVAL}?$"
 
-gOakSpeech_Text_RememberRivalsName::
-    .string "That's right! I remember now!\n"
-    .string "His name is {RIVAL}!\p$"
+gGiovanniSpeech_Text_HisNameIsRival::
+    .string "That's correct.\n"
+    .string "His name is {RIVAL}.\p$"
 
-gOakSpeech_Text_LetsGo::
+gGiovanniSpeech_Text_MakeTeamRocketProud::
     .string "{PLAYER}!\p"
-    .string "Your very own POKéMON legend is\n"
-    .string "about to unfold!\p"
-    .string "A world of dreams and adventures\n"
-    .string "with POKéMON awaits! Let's go!$"
+    .string "Now, go and make the TEAM ROCKET\n"
+    .string "proud.\p"
+    .string "A new world to order awaits us.\n"
+    .string "Soon, the world will be ours!$"
