@@ -142,7 +142,7 @@ const struct SpriteTemplate gLinearStingerSpriteTemplate =
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimTranslateStinger,
+    .callback = AnimTranslateStinger, 
 };
 
 const struct SpriteTemplate gPinMissileSpriteTemplate =
