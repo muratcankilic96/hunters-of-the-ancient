@@ -760,7 +760,8 @@ static void Task_HofPC_CopySaveData(u8 taskId)
     u16 i;
     struct HallofFameTeam* savedTeams;
 
-    CreateTopBarWindowLoadPalette(0, 30, 0, 0x0C, 0x226);
+    CreateTopBarWindow(0, 30, 0, 0x0C, 0x226);
+    LoadPalette(GetTextWindowPalette(2), 0x0C, PLTT_SIZE_4BPP);
     if (LoadGameSave(SAVE_HALL_OF_FAME) != SAVE_STATUS_OK)
     {
         gTasks[taskId].func = Task_HofPC_PrintDataIsCorrupted;

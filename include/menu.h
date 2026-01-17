@@ -64,7 +64,7 @@ void TopBarWindowPrintTwoStrings(const u8 *string, const u8 *string2, bool8 fgCo
 void TopBarWindowPrintString(const u8 *string, u8 unUsed, bool8 copyToVram);
 void ClearTopBarWindow(void);
 void DestroyTopBarWindow(void);
-u8 CreateTopBarWindowLoadPalette(u8 bg, u8 width, u8 yPos, u8 palette, u16 baseTile);
+u8 CreateTopBarWindow(u8 bg, u8 width, u8 yPos, u8 palette, u16 baseTile);
 void ClearStdWindowAndFrameToTransparent(u8 windowId, bool8 copyToVram);
 void DrawStdFrameWithCustomTileAndPalette(u8 windowId, bool8 copyToVram, u16 baseTileNum, u8 paletteNum);
 void ClearDialogWindowAndFrameToTransparent(u8 windowId, bool8 copyToVram);

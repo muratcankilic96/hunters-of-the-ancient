@@ -43,7 +43,6 @@ const u8 gText_Start[] = _("スタ-トボタン");
 const u8 gText_Select[] = _("セレクトボタン");
 const u8 gText_ControlPad[] = _("じゅうじボタン");
 const u8 gText_LButtonRButton[] = _("Lボタン Rボタン");
-const u8 gText_Controls[] = _("CONTROLS");
 ALIGNED(4) const u8 gText_PickOk[] = _("{DPAD_UPDOWN}えらぶ {A_BUTTON}けってい");
 ALIGNED(4) const u8 gText_ABUTTONNext[] = _("{A_BUTTON}NEXT");
 ALIGNED(4) const u8 gText_ABUTTONNext_BBUTTONBack[] = _("{A_BUTTON}NEXT {B_BUTTON}BACK");

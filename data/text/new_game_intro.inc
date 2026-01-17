@@ -127,51 +127,21 @@ gNameChoice_Suvi::
 gNameChoice_Tara::
     .string "TARA$"
 
-gControlsGuide_Text_Intro::
-    .string "The various buttons will be explained in\n"
-    .string "the order of their importance.$"
-
-gControlsGuide_Text_DPad::
-    .string "Moves the main character.\n"
-    .string "Also used to choose various data\n"
-    .string "headings.$"
-
-gControlsGuide_Text_AButton::
-    .string "Used to confirm a choice, check\n"
-    .string "things, chat, and scroll text.$"
-
-gControlsGuide_Text_BButton::
-    .string "Used to exit, cancel a choice,\n"
-    .string "and cancel a mode.$"
-
-gControlsGuide_Text_StartButton::
-    .string "Press this button to open the\n"
-    .string "MENU.$"
-
-gControlsGuide_Text_SelectButton::
-    .string "Used to shift items and to use\n"
-    .string "a registered item.$"
-
-gControlsGuide_Text_LRButtons::
-    .string "If you need help playing the\n"
-    .string "game, or on how to do things,\n"
-    .string "press the L or R Button.$"
-
 gGiovanniSpeech_Text_AskPlayerGender::
     .string "Now tell me.\n"
     .string "Are you a man or a woman?$"
 
-gPikachuIntro_Text_Page1::
-    .string "In the world which you are about to\n"
-    .string "enter, you will embark on a grand\n"
-    .string "adventure with you as the hero.\n"
+gKoffingIntro_Text_Page1::
+    .string "A most unusual story is about to\n"
+    .string "unfold, a different point of view\n"
+    .string "in the world of POKéMON: A villain.\n"
     .string "\n"
-    .string "Speak to people and check things\n"
-    .string "wherever you go, be it towns, roads,\n"
-    .string "or caves. Gather information and\n"
-    .string "hints from every source.$"
+    .string "You'll begin as a TEAM ROCKET GRUNT\n"
+    .string "and gradually you'll climb the\n"
+    .string "ladder to the top as you unravel\n"
+    .string "the mythical mysteries.$"
 
-gPikachuIntro_Text_Page2::
+gKoffingIntro_Text_Page2::
     .string "New paths will open to you by helping\n"
     .string "people in need, overcoming challenges,\n"
     .string "and solving mysteries.\n"
@@ -180,7 +150,7 @@ gPikachuIntro_Text_Page2::
     .string "others and attacked by wild creatures.\n"
     .string "Be brave and keep pushing on.$"
 
-gPikachuIntro_Text_Page3::
+gKoffingIntro_Text_Page3::
     .string "Through your adventure, we hope\n"
     .string "that you will interact with all sorts\n"
     .string "of people and achieve personal growth.\n"

@@ -160,7 +160,7 @@ static void WindowFunc_ClearStdWindowAndFrameToTransparent(u8 bg, u8 tilemapLeft
    as well as the bar width.
    The xPos is simply computed according to width (always right aligned). 
 */
-u8 CreateTopBarWindowLoadPalette(u8 bg, u8 width, u8 yPos, u8 palette, u16 baseTile)
+u8 CreateTopBarWindow(u8 bg, u8 width, u8 yPos, u8 palette, u16 baseTile)
 {
     struct WindowTemplate window;
 
@@ -180,9 +180,9 @@ u8 CreateTopBarWindowLoadPalette(u8 bg, u8 width, u8 yPos, u8 palette, u16 baseT
         palette = BG_PLTT_ID(15);
     else
         palette = BG_PLTT_ID(palette);
-    LoadPalette(GetTextWindowPalette(2), palette, PLTT_SIZE_4BPP);
     return sTopBarWindowId;
 }
+
 
 void TopBarWindowPrintString(const u8 *string, u8 unused, bool8 copyToVram)
 {
