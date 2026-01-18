@@ -19,7 +19,7 @@ CeladonCity_Gym_Text_ErikaDefeat::
     .string "I concede defeat.\l"
     .string "You are remarkably strong.\p"
     .string "I must confer on you the\n"
-    .string "RAINBOWBADGE.$"
+    .string "-.$"
 
 CeladonCity_Gym_Text_ErikaPostBattle::
     .string "You are cataloging POKéMON?\n"
@@ -27,8 +27,8 @@ CeladonCity_Gym_Text_ErikaPostBattle::
     .string "I would never collect POKéMON if\n"
     .string "they were unattractive.$"
 
-CeladonCity_Gym_Text_ExplainRainbowBadgeTakeThis::
-    .string "The RAINBOWBADGE will make\n"
+CeladonCity_Gym_Text_ExplainRainbowArtifactTakeThis::
+    .string "The - will make\n"
     .string "POKéMON up to Lv. 50 obey.\p"
     .string "It also allows POKéMON to use\n"
     .string "STRENGTH in and out of battle.\p"

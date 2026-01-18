@@ -8,11 +8,11 @@ Text_CantLetYouPass::
 	.string "Rules are rules.\n"
 	.string "I can't let you pass.$"
 
-Text_OhThatsBadgeGoRightAhead::
+Text_OhThatsArtifactGoRightAhead::
 	.string "Oh! That is the {STR_VAR_1}!\n"
 	.string "Go right ahead.$"
 
-Text_OnlyPassWithBadgeDontHaveYet::
+Text_OnlyPassWithArtifactDontHaveYet::
 	.string "You can pass here only if you have\n"
 	.string "the {STR_VAR_1}.\p"
 	.string "You don't have the {STR_VAR_1}\n"
@@ -20,7 +20,7 @@ Text_OnlyPassWithBadgeDontHaveYet::
 	.string "You have to have it to get to\n"
 	.string "the POKéMON LEAGUE.$"
 
-Text_OnlyPassWithBadgeOhGoAhead::
+Text_OnlyPassWithArtifactOhGoAhead::
 	.string "You can pass here only if you have\n"
 	.string "the {STR_VAR_1}.\p"
 	.string "Oh! That is the {STR_VAR_1}!{PAUSE_MUSIC}{PLAY_BGM}{MUS_LEVEL_UP}{PAUSE 0x60}{RESUME_MUSIC}\p"

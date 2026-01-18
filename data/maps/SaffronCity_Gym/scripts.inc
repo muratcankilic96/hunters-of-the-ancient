@@ -14,13 +14,13 @@ SaffronCity_Gym_EventScript_DefeatedSabrina::
 	famechecker FAMECHECKER_SABRINA, 3
 	clearflag FLAG_HIDE_SAFFRON_CITY_POKECENTER_SABRINA_JOURNALS
 	setflag FLAG_DEFEATED_SABRINA
-	setflag FLAG_BADGE06_GET
+	setflag FLAG_ARTIFACT06_GET
 	set_gym_trainers 6
 	goto SaffronCity_Gym_EventScript_GiveTM04
 	end
 
 SaffronCity_Gym_EventScript_GiveTM04::
-	msgbox SaffronCity_Gym_Text_ExplainMarshBadgeTakeThis
+	msgbox SaffronCity_Gym_Text_ExplainMarshArtifactTakeThis
 	checkitemspace ITEM_TM04
 	goto_if_eq VAR_RESULT, FALSE, SaffronCity_Gym_EventScript_NoRoomForTM04
 	giveitem_msg SaffronCity_Gym_Text_ReceivedTM04FromSabrina, ITEM_TM04
@@ -85,7 +85,7 @@ SaffronCity_Gym_EventScript_GymGuyPostVictory::
 
 SaffronCity_Gym_EventScript_GymStatue::
 	lockall
-	goto_if_set FLAG_BADGE06_GET, SaffronCity_Gym_EventScript_GymStatuePostVictory
+	goto_if_set FLAG_ARTIFACT06_GET, SaffronCity_Gym_EventScript_GymStatuePostVictory
 	msgbox SaffronCity_Gym_Text_GymStatue
 	releaseall
 	end

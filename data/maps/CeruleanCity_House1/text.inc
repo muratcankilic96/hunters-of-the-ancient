@@ -1,13 +1,13 @@
-CeruleanCity_House1_Text_BadgesHaveAmazingSecrets::
+CeruleanCity_House1_Text_ArtifactsHaveAmazingSecrets::
     .string "Only skilled TRAINERS can collect\n"
-    .string "POKéMON BADGES.\p"
+    .string "POKéMON -.\p"
     .string "I see you have at least one.\p"
-    .string "Those BADGES have amazing secrets,\n"
+    .string "Those - have amazing secrets,\n"
     .string "did you know?$"
 
-CeruleanCity_House1_Text_DescribeWhichBadge::
+CeruleanCity_House1_Text_DescribeWhichArtifact::
     .string "Now then…\p"
-    .string "Which of the eight BADGES should\n"
+    .string "Which of the eight - should\n"
     .string "I describe?$"
 
 CeruleanCity_House1_Text_ComeVisitAnytime::

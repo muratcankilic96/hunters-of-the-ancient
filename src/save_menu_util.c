@@ -2,12 +2,13 @@
 #include "gflib.h"
 #include "event_data.h"
 #include "pokedex.h"
+#include "team_rocket_rank.h"
 #include "region_map.h"
 #include "save_menu_util.h"
 
 void SaveStatToString(u8 gameStatId, u8 *dest0, u8 color)
 {
-    int nBadges;
+    int nArtifacts;
     int flagId;
 
     u8 *dest = dest0;
@@ -41,15 +42,18 @@ void SaveStatToString(u8 gameStatId, u8 *dest0, u8 color)
     case SAVE_STAT_LOCATION:
         GetMapNameGeneric(dest, gMapHeader.regionMapSectionId);
         break;
-    case SAVE_STAT_BADGES:
-        for (flagId = FLAG_BADGE01_GET, nBadges = 0; flagId < FLAG_BADGE01_GET + 8; flagId++)
+    case SAVE_STAT_ARTIFACTS:
+        for (flagId = FLAG_ARTIFACT01_GET, nArtifacts = 0; flagId < FLAG_ARTIFACT01_GET + 8; flagId++)
         {
             if (FlagGet(flagId))
-                nBadges++;
+                nArtifacts++;
         }
-        *dest++ = nBadges + CHAR_0;
+        *dest++ = nArtifacts + CHAR_0;
         *dest++ = 10; // 'こ'
         *dest++ = EOS;
+        break;
+    case SAVE_STAT_RANK:
+        dest = GetTeamRocketRankString(dest, *GetVarPointer(VAR_TEAM_ROCKET_RANK));
         break;
     }
 }

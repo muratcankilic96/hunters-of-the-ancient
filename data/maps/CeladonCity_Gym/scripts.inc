@@ -14,13 +14,13 @@ CeladonCity_Gym_EventScript_DefeatedErika::
 	famechecker FAMECHECKER_ERIKA, 1
 	clearflag FLAG_HIDE_FAME_CHECKER_ERIKA_JOURNALS
 	setflag FLAG_DEFEATED_ERIKA
-	setflag FLAG_BADGE04_GET
+	setflag FLAG_ARTIFACT04_GET
 	set_gym_trainers 4
 	goto CeladonCity_Gym_EventScript_GiveTM19
 	end
 
 CeladonCity_Gym_EventScript_GiveTM19::
-	msgbox CeladonCity_Gym_Text_ExplainRainbowBadgeTakeThis
+	msgbox CeladonCity_Gym_Text_ExplainRainbowArtifactTakeThis
 	checkitemspace ITEM_TM19
 	goto_if_eq VAR_RESULT, FALSE, CeladonCity_Gym_EventScript_NoRoomForTM19
 	giveitem_msg CeladonCity_Gym_Text_ReceivedTM19FromErika, ITEM_TM19
@@ -73,7 +73,7 @@ CeladonCity_Gym_EventScript_Mary::
 
 CeladonCity_Gym_EventScript_GymStatue::
 	lockall
-	goto_if_set FLAG_BADGE04_GET, CeladonCity_Gym_EventScript_GymStatuePostVictory
+	goto_if_set FLAG_ARTIFACT04_GET, CeladonCity_Gym_EventScript_GymStatuePostVictory
 	msgbox CeladonCity_Gym_Text_GymStatue
 	releaseall
 	end

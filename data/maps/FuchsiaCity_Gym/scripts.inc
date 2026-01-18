@@ -13,13 +13,13 @@ FuchsiaCity_Gym_EventScript_DefeatedKoga::
 	famechecker FAMECHECKER_KOGA, 1
 	clearflag FLAG_HIDE_FAME_CHECKER_KOGA_JOURNAL
 	setflag FLAG_DEFEATED_KOGA
-	setflag FLAG_BADGE05_GET
+	setflag FLAG_ARTIFACT05_GET
 	set_gym_trainers 5
 	goto FuchsiaCity_Gym_EventScript_GiveTM06
 	end
 
 FuchsiaCity_Gym_EventScript_GiveTM06::
-	msgbox FuchsiaCity_Gym_Text_KogaExplainSoulBadge
+	msgbox FuchsiaCity_Gym_Text_KogaExplainSoulArtifact
 	checkitemspace ITEM_TM06
 	goto_if_eq VAR_RESULT, FALSE, FuchsiaCity_Gym_EventScript_NoRoomForTM06
 	giveitem_msg FuchsiaCity_Gym_Text_ReceivedTM06FromKoga, ITEM_TM06
@@ -79,7 +79,7 @@ FuchsiaCity_Gym_EventScript_GymGuyPostVictory::
 
 FuchsiaCity_Gym_EventScript_GymStatue::
 	lockall
-	goto_if_set FLAG_BADGE05_GET, FuchsiaCity_Gym_EventScript_GymStatuePostVictory
+	goto_if_set FLAG_ARTIFACT05_GET, FuchsiaCity_Gym_EventScript_GymStatuePostVictory
 	msgbox FuchsiaCity_Gym_Text_GymStatue
 	releaseall
 	end

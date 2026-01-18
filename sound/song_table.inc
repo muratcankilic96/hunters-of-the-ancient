@@ -259,7 +259,7 @@ gSongTable::
 	song mus_level_up, 2, 2
 	song mus_obtain_item, 2, 2
 	song mus_evolved, 2, 2
-	song mus_obtain_badge, 2, 2
+	song mus_obtain_artifact, 2, 2
 	song mus_obtain_tmhm, 2, 2
 	song mus_obtain_berry, 2, 2
 	song mus_evolution_intro, 2, 2

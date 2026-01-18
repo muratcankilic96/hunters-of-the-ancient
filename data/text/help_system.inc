@@ -526,7 +526,7 @@ Help_Text_AnswerWhatIsAGym::
 	.string "across the land in cities and towns.\l"
 	.string "Each one is headed by a LEADER, who\l"
 	.string "is a very skilled TRAINER. Beat the\l"
-	.string "LEADER to collect a BADGE.$"
+	.string "LEADER to collect a ARTIFACT.$"
 
 Help_Text_UsingPokedex::
 	.string " Using “POKéDEX”$"
@@ -1138,8 +1138,8 @@ Help_Text_Pokedex::
 Help_Text_PlayTime::
 	.string "PLAY TIME$"
 
-Help_Text_Badges::
-	.string "BADGES$"
+Help_Text_Artifacts::
+	.string "ARTIFACTS$"
 
 Help_Text_TextSpeed::
 	.string "TEXT SPEED$"
@@ -1186,8 +1186,8 @@ Help_Text_IDNo2::
 Help_Text_Money2::
 	.string "MONEY$"
 
-Help_Text_Badges2::
-	.string "BADGES$"
+Help_Text_Artifacts2::
+	.string "ARTIFACTS$"
 
 Help_Text_DefineHP::
 	.string "HP indicates a POKéMON's vitality.\n"
@@ -1387,10 +1387,10 @@ Help_Text_DefinePlayTime::
 	.string "This is the total amount of time that\n"
 	.string "you have played this game.$"
 
-Help_Text_DefineBadges::
-	.string "The POKéMON LEAGUE BADGES that you\n"
+Help_Text_DefineArtifacts::
+	.string "The POKéMON LEAGUE ARTIFACTS that you\n"
 	.string "have won are registered and shown.\l"
-	.string "Earn BADGES by defeating GYM LEADERS\l"
+	.string "Earn ARTIFACTS by defeating GYM LEADERS\l"
 	.string "in various cities and towns.$"
 
 Help_Text_DefineTextSpeed::
@@ -1499,10 +1499,10 @@ Help_Text_DefineMoney2::
 	.string "Save up your prize money so you can\l"
 	.string "enjoy shopping at POKéMON MARTS!$"
 
-Help_Text_DefineBadges2::
+Help_Text_DefineArtifacts2::
 	.string "This indicates the number of POKéMON\n"
-	.string "LEAGUE BADGES that you have won.\l"
-	.string "Earn BADGES by defeating GYM LEADERS\l"
+	.string "LEAGUE ARTIFACTS that you have won.\l"
+	.string "Earn ARTIFACTS by defeating GYM LEADERS\l"
 	.string "in various cities and towns.$"
 
 Help_Text_TheHelpSystem::

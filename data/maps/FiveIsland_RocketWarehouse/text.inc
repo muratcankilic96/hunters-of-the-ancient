@@ -85,7 +85,7 @@ FiveIsland_RocketWarehouse_Text_Admin2Defeat::
     .string "Urgh…\n"
     .string "You were too strong…\p"
     .string "…\n"
-    .string "Th-that's GIOVANNI's BADGE!\p"
+    .string "Th-that's GIOVANNI's -!\p"
     .string "So it's true?\n"
     .string "TEAM ROCKET really has disbanded?$"
 

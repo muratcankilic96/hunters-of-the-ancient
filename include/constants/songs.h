@@ -264,7 +264,7 @@
 #define MUS_LEVEL_UP              257 // MUS_FANFA1
 #define MUS_OBTAIN_ITEM           258 // MUS_FANFA4
 #define MUS_EVOLVED               259 // MUS_FANFA5
-#define MUS_OBTAIN_BADGE          260 // MUS_ME_BACHI
+#define MUS_OBTAIN_ARTIFACT          260 // MUS_ME_BACHI
 #define MUS_OBTAIN_TMHM           261 // MUS_ME_WAZA
 #define MUS_OBTAIN_BERRY          262 // MUS_ME_KINOMI
 #define MUS_EVOLUTION_INTRO       263 // MUS_ME_SHINKA

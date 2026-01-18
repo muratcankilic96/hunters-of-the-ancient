@@ -23,13 +23,13 @@ Route13_Text_SusiePostBattle::
 
 Route13_Text_ValerieIntro::
     .string "Wow!\n"
-    .string "Your BADGES are too cool!$"
+    .string "Your ARTIFACTS are too cool!$"
 
 Route13_Text_ValerieDefeat::
     .string "Not enough!$"
 
 Route13_Text_ValeriePostBattle::
-    .string "You got those BADGES from GYM\n"
+    .string "You got those ARTIFACTS from GYM\n"
     .string "LEADERS. I know!$"
 
 Route13_Text_GwenIntro::

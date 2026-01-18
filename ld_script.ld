@@ -876,7 +876,7 @@ SECTIONS {
         sound/songs/midi/mus_level_up.o(.rodata);
         sound/songs/midi/mus_obtain_item.o(.rodata);
         sound/songs/midi/mus_evolved.o(.rodata);
-        sound/songs/midi/mus_obtain_badge.o(.rodata);
+        sound/songs/midi/mus_obtain_artifact.o(.rodata);
         sound/songs/midi/mus_obtain_tmhm.o(.rodata);
         sound/songs/midi/mus_obtain_berry.o(.rodata);
         sound/songs/midi/mus_evolution_intro.o(.rodata);

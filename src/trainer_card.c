@@ -57,7 +57,7 @@ struct TrainerCardData
     bool8 var_E;
     bool8 var_F;
     bool8 hasTrades;
-    bool8 hasBadge[NUM_BADGES];
+    bool8 hasArtifact[NUM_ARTIFACTS];
     u8 easyChatProfile[TRAINER_CARD_PROFILE_LENGTH][13];
     u8 strings[TRAINER_CARD_STRING_COUNT][70];
     u8 var_395;
@@ -69,7 +69,7 @@ struct TrainerCardData
     u16 frontTilemap[600];
     u16 backTilemap[600];
     u16 bgTilemap[600];
-    u8 badgeTiles[0x80 * NUM_BADGES];
+    u8 artifactTiles[0x80 * NUM_ARTIFACTS];
     u16 stickerTiles[0x100];
     u16 cardTiles[0x1180];
     u16 cardTilemapBuffer[0x1000];
@@ -135,7 +135,7 @@ static void DrawTrainerCardWindow(u8 windowId);
 static bool8 SetTrainerCardBgsAndPals(void);
 static void DrawCardScreenBackground(const u16 *ptr);
 static void DrawCardFrontOrBack(const u16 *ptr);
-static void DrawStarsAndBadgesOnCard(void);
+static void DrawStarsAndArtifactsOnCard(void);
 static void DrawCardBackStats(void);
 static void BlinkTimeColon(void);
 static void FlipTrainerCard(void);
@@ -171,15 +171,15 @@ static const u16 sHoennTrainerCardGold_Pal[]          = INCBIN_U16("graphics/tra
 static const u16 sKantoTrainerCardGold_Pal[]          = INCBIN_U16("graphics/trainer_card/gold.gbapal");
 static const u16 sHoennTrainerCardFemaleBg_Pal[]      = INCBIN_U16("graphics/trainer_card/rse/female_bg.gbapal");
 static const u16 sKantoTrainerCardFemaleBg_Pal[]      = INCBIN_U16("graphics/trainer_card/female_bg.gbapal");
-static const u16 sHoennTrainerCardBadges_Pal[]        = INCBIN_U16("graphics/trainer_card/rse/badges.gbapal");
-static const u16 sKantoTrainerCardBadges_Pal[]        = INCBIN_U16("graphics/trainer_card/badges.gbapal");
+static const u16 sHoennTrainerCardArtifacts_Pal[]        = INCBIN_U16("graphics/trainer_card/rse/artifacts.gbapal");
+static const u16 sKantoTrainerCardArtifacts_Pal[]        = INCBIN_U16("graphics/trainer_card/artifacts.gbapal");
 static const u16 sTrainerCardStar_Pal[]               = INCBIN_U16("graphics/trainer_card/star.gbapal");
 static const u16 sTrainerCardStickerPal1[]            = INCBIN_U16("graphics/trainer_card/stickers1.gbapal");
 static const u16 sTrainerCardStickerPal2[]            = INCBIN_U16("graphics/trainer_card/stickers2.gbapal");
 static const u16 sTrainerCardStickerPal3[]            = INCBIN_U16("graphics/trainer_card/stickers3.gbapal");
 static const u16 sTrainerCardStickerPal4[]            = INCBIN_U16("graphics/trainer_card/stickers4.gbapal");
-static const u32 sHoennTrainerCardBadges_Gfx[]        = INCBIN_U32("graphics/trainer_card/rse/badges.4bpp.lz");
-static const u32 sKantoTrainerCardBadges_Gfx[]        = INCBIN_U32("graphics/trainer_card/badges.4bpp.lz");
+static const u32 sHoennTrainerCardArtifacts_Gfx[]        = INCBIN_U32("graphics/trainer_card/rse/artifacts.4bpp.lz");
+static const u32 sKantoTrainerCardArtifacts_Gfx[]        = INCBIN_U32("graphics/trainer_card/artifacts.4bpp.lz");
 
 static const struct BgTemplate sTrainerCardBgTemplates[4] = 
 {
@@ -523,7 +523,7 @@ static void Task_TrainerCard(u8 taskId)
         sTrainerCardDataPtr->mainState++;
         break;
     case 6:
-        DrawStarsAndBadgesOnCard();
+        DrawStarsAndArtifactsOnCard();
         sTrainerCardDataPtr->mainState++;
         break;
     // Fade in
@@ -678,8 +678,8 @@ static bool8 LoadCardGfx(void)
         }
         break;
     case 3:
-        // ? Doesnt check for RSE, sHoennTrainerCardBadges_Gfx goes unused
-        LZ77UnCompWram(sKantoTrainerCardBadges_Gfx, sTrainerCardDataPtr->badgeTiles);
+        // ? Doesnt check for RSE, sHoennTrainerCardArtifacts_Gfx goes unused
+        LZ77UnCompWram(sKantoTrainerCardArtifacts_Gfx, sTrainerCardDataPtr->artifactTiles);
         break;
     case 4:
         if (sTrainerCardDataPtr->cardType == CARD_TYPE_RSE)
@@ -908,7 +908,7 @@ void TrainerCard_GenerateCardForLinkPlayer(struct TrainerCard *trainerCard)
 
 static void SetDataFromTrainerCard(void)
 {
-    u32 badgeFlag;
+    u32 artifactFlag;
     u8 i;
 
     sTrainerCardDataPtr->hasPokedex = FALSE;
@@ -919,7 +919,7 @@ static void SetDataFromTrainerCard(void)
     sTrainerCardDataPtr->var_F = FALSE;
     sTrainerCardDataPtr->hasTrades = FALSE;
 
-    memset(sTrainerCardDataPtr->hasBadge, FALSE, sizeof(sTrainerCardDataPtr->hasBadge));
+    memset(sTrainerCardDataPtr->hasArtifact, FALSE, sizeof(sTrainerCardDataPtr->hasArtifact));
     if (sTrainerCardDataPtr->trainerCard.rse.hasPokedex)
         sTrainerCardDataPtr->hasPokedex++;
 
@@ -934,10 +934,10 @@ static void SetDataFromTrainerCard(void)
     if (sTrainerCardDataPtr->trainerCard.rse.pokemonTrades != 0)
         sTrainerCardDataPtr->hasTrades++;
 
-    for (i = 0, badgeFlag = FLAG_BADGE01_GET; badgeFlag <= FLAG_BADGE08_GET; badgeFlag++, i++)
+    for (i = 0, artifactFlag = FLAG_ARTIFACT01_GET; artifactFlag <= FLAG_ARTIFACT08_GET; artifactFlag++, i++)
     {
-        if (FlagGet(badgeFlag))
-            sTrainerCardDataPtr->hasBadge[i]++;
+        if (FlagGet(artifactFlag))
+            sTrainerCardDataPtr->hasArtifact[i]++;
     }
 }
 
@@ -1472,7 +1472,7 @@ static bool8 SetTrainerCardBgsAndPals(void)
     switch (sTrainerCardDataPtr->bgPalLoadState)
     {
     case 0:
-        LoadBgTiles(3, sTrainerCardDataPtr->badgeTiles, NELEMS(sTrainerCardDataPtr->badgeTiles), 0);
+        LoadBgTiles(3, sTrainerCardDataPtr->artifactTiles, NELEMS(sTrainerCardDataPtr->artifactTiles), 0);
         break;
     case 1:
         LoadBgTiles(0, sTrainerCardDataPtr->cardTiles, 0x1800, 0);
@@ -1485,9 +1485,9 @@ static bool8 SetTrainerCardBgsAndPals(void)
         break;
     case 3:
         if (sTrainerCardDataPtr->cardType == CARD_TYPE_RSE)
-            LoadPalette(sHoennTrainerCardBadges_Pal, BG_PLTT_ID(3), sizeof(sHoennTrainerCardBadges_Pal));
+            LoadPalette(sHoennTrainerCardArtifacts_Pal, BG_PLTT_ID(3), sizeof(sHoennTrainerCardArtifacts_Pal));
         else
-            LoadPalette(sKantoTrainerCardBadges_Pal, BG_PLTT_ID(3), sizeof(sKantoTrainerCardBadges_Pal));
+            LoadPalette(sKantoTrainerCardArtifacts_Pal, BG_PLTT_ID(3), sizeof(sKantoTrainerCardArtifacts_Pal));
         break;
     case 4:
         if (sTrainerCardDataPtr->cardType == CARD_TYPE_RSE && sTrainerCardDataPtr->trainerCard.rse.gender != MALE)
@@ -1551,7 +1551,7 @@ static void DrawCardFrontOrBack(const u16 *ptr)
     CopyBgTilemapBufferToVram(0);
 }
 
-static void DrawStarsAndBadgesOnCard(void)
+static void DrawStarsAndArtifactsOnCard(void)
 {
     s16 i, x;
     u16 tileNum = 192;
@@ -1561,9 +1561,9 @@ static void DrawStarsAndBadgesOnCard(void)
     if (!sTrainerCardDataPtr->isLink)
     {
         x = 4;
-        for (i = 0; i < NUM_BADGES; i++, tileNum += 2, x += 3)
+        for (i = 0; i < NUM_ARTIFACTS; i++, tileNum += 2, x += 3)
         {
-            if (sTrainerCardDataPtr->hasBadge[i])
+            if (sTrainerCardDataPtr->hasArtifact[i])
             {
                 FillBgTilemapBufferRect(3, tileNum, x, 16, 1, 1, palNum);
                 FillBgTilemapBufferRect(3, tileNum + 1, x + 1, 16, 1, 1, palNum);
@@ -1777,7 +1777,7 @@ static bool8 Task_SetCardFlipped(struct Task* task)
         DrawTrainerCardWindow(2);
         DrawCardScreenBackground(sTrainerCardDataPtr->bgTilemap);
         DrawCardFrontOrBack(sTrainerCardDataPtr->frontTilemap);
-        DrawStarsAndBadgesOnCard();
+        DrawStarsAndArtifactsOnCard();
     }
 
     DrawTrainerCardWindow(1);

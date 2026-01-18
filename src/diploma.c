@@ -155,7 +155,7 @@ static void Task_DiplomaInit(u8 taskId)
     default:
         if (gPaletteFade.active)
             break;
-        PlayFanfareByFanfareNum(FANFARE_OBTAIN_BADGE);
+        PlayFanfareByFanfareNum(FANFARE_OBTAIN_ARTIFACT);
         gTasks[taskId].func = Task_HandleDiplomaInput;
     }
     sDiploma->initState++;

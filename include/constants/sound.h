@@ -6,7 +6,7 @@
 #define FANFARE_EVOLVED              2
 #define FANFARE_OBTAIN_TMHM          3
 #define FANFARE_HEAL                 4
-#define FANFARE_OBTAIN_BADGE         5
+#define FANFARE_OBTAIN_ARTIFACT         5
 #define FANFARE_MOVE_DELETED         6
 #define FANFARE_OBTAIN_BERRY         7
 #define FANFARE_SLOTS_JACKPOT        8

@@ -5,6 +5,7 @@
 #include "save.h"
 #include "event_data.h"
 #include "menu.h"
+#include "team_rocket_rank.h"
 #include "link.h"
 #include "giovanni_speech.h"
 #include "overworld.h"
@@ -62,7 +63,8 @@ static void PrintContinueStats(void);
 static void PrintPlayerName(void);
 static void PrintPlayTime(void);
 static void PrintDexCount(void);
-static void PrintBadgeCount(void);
+static void PrintArtifactCount(void);
+static void PrintTeamRocketRank(void);
 static void LoadUserFrameToBg(u8 bgId);
 static void SetStdFrame0OnBg(u8 bgId);
 static void MainMenu_DrawWindow(const struct WindowTemplate * template);
@@ -86,27 +88,27 @@ static const struct WindowTemplate sWindowTemplate[] = {
         .tilemapLeft = 3,
         .tilemapTop = 1,
         .width = 24,
-        .height = 10,
+        .height = 12,
         .paletteNum = 15,
         .baseBlock = 0x001
     }, 
     [MAIN_MENU_WINDOW_NEWGAME] = {
         .bg = 0,
         .tilemapLeft = 3,
-        .tilemapTop = 13,
-        .width = 24,
-        .height = 2,
-        .paletteNum = 15,
-        .baseBlock = 0x0f1
-    }, 
-    [MAIN_MENU_WINDOW_MYSTERYGIFT] = {
-        .bg = 0,
-        .tilemapLeft = 3,
-        .tilemapTop = 17,
+        .tilemapTop = 15,
         .width = 24,
         .height = 2,
         .paletteNum = 15,
         .baseBlock = 0x121
+    }, 
+    [MAIN_MENU_WINDOW_MYSTERYGIFT] = {
+        .bg = 0,
+        .tilemapLeft = 3,
+        .tilemapTop = 19,
+        .width = 24,
+        .height = 2,
+        .paletteNum = 15,
+        .baseBlock = 0x151
     }, 
     [MAIN_MENU_WINDOW_ERROR] = {
         .bg = 0,
@@ -549,15 +551,15 @@ static void MoveWindowByMenuTypeAndCursorPos(u8 menuType, u8 cursorPos)
         default:
         case 0: // CONTINUE
             win0vTop = 0x00 << 8;
-            win0vBot = 0x60;
+            win0vBot = 0x70;
             break;
         case 1: // NEW GAME
-            win0vTop = 0x60 << 8;
-            win0vBot = 0x80;
+            win0vTop = 0x70 << 8;
+            win0vBot = 0x90;
             break;
         case 2: // MYSTERY GIFT
-            win0vTop = 0x80 << 8;
-            win0vBot = 0xA0;
+            win0vTop = 0x90 << 8;
+            win0vBot = 0xB0;
             break;
         }
         break;
@@ -612,7 +614,8 @@ static void PrintContinueStats(void)
     PrintPlayerName();
     PrintDexCount();
     PrintPlayTime();
-    PrintBadgeCount();
+    PrintArtifactCount();
+    PrintTeamRocketRank();
 }
 
 static void PrintPlayerName(void)
@@ -658,21 +661,31 @@ static void PrintDexCount(void)
     }
 }
 
-static void PrintBadgeCount(void)
+static void PrintArtifactCount(void)
 {
     u8 strbuf[30];
     u8 *ptr;
     u32 flagId;
-    u8 nbadges = 0;
-    for (flagId = FLAG_BADGE01_GET; flagId < FLAG_BADGE01_GET + 8; flagId++)
+    u8 nartifacts = 0;
+    for (flagId = FLAG_ARTIFACT01_GET; flagId < FLAG_ARTIFACT01_GET + 8; flagId++)
     {
         if (FlagGet(flagId))
-            nbadges++;
+            nartifacts++;
     }
     AddTextPrinterParameterized3(MAIN_MENU_WINDOW_CONTINUE, FONT_NORMAL, 2, 66, sTextColor2, -1, gText_Artifacts);
-    ptr = ConvertIntToDecimalStringN(strbuf, nbadges, STR_CONV_MODE_LEADING_ZEROS, 1);
+    ptr = ConvertIntToDecimalStringN(strbuf, nartifacts, STR_CONV_MODE_LEADING_ZEROS, 1);
     StringAppend(ptr, gTextJPDummy_Ko);
     AddTextPrinterParameterized3(MAIN_MENU_WINDOW_CONTINUE, FONT_NORMAL, 62, 66, sTextColor2, -1, strbuf);
+}
+
+static void PrintTeamRocketRank(void)
+{
+    u8 strbuf[30];
+    u8 *ptr;
+
+    AddTextPrinterParameterized3(MAIN_MENU_WINDOW_CONTINUE, FONT_NORMAL, 2, 82, sTextColor2, -1, gText_Rank);
+    ptr = GetTeamRocketRankString(strbuf, *GetVarPointer(VAR_TEAM_ROCKET_RANK));
+    AddTextPrinterParameterized3(MAIN_MENU_WINDOW_CONTINUE, FONT_NORMAL, 62, 82, sTextColor2, -1, strbuf);
 }
 
 static void LoadUserFrameToBg(u8 bgId)

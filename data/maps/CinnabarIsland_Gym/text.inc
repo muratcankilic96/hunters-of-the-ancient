@@ -11,16 +11,16 @@ CinnabarIsland_Gym_Text_BlaineIntro::
 CinnabarIsland_Gym_Text_BlaineDefeat::
     .string "I have burned down to nothing!\n"
     .string "Not even ashes remain!\p"
-    .string "You have earned the VOLCANOBADGE.$"
+    .string "You have earned the -.$"
 
 CinnabarIsland_Gym_Text_FireBlastIsUltimateFireMove::
     .string "FIRE BLAST is the ultimate fire\n"
     .string "technique.\p"
     .string "Don't waste it on WATER POKéMON.$"
 
-CinnabarIsland_Gym_Text_ExplainVolcanoBadge::
+CinnabarIsland_Gym_Text_ExplainVolcanoArtifact::
     .string "Hah!\p"
-    .string "The VOLCANOBADGE heightens the\n"
+    .string "The - heightens the\n"
     .string "SPECIAL stats of your POKéMON.\p"
     .string "Here, you can have this, too!$"
 
@@ -164,7 +164,7 @@ CinnabarIsland_Gym_Text_QuizQuestion1::
 
 CinnabarIsland_Gym_Text_QuizQuestion2::
     .string "There are nine certified POKéMON\n"
-    .string "LEAGUE BADGES?$"
+    .string "LEAGUE -?$"
 
 CinnabarIsland_Gym_Text_QuizQuestion3::
     .string "POLIWAG evolves three times?$"

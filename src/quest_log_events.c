@@ -410,7 +410,7 @@ static const u8 sLocationToDepartedTextId[] =
     [QL_LOCATION_CERULEAN_CAVE]              = QL_DEPARTED_CAVE
 };
 
-static const u8 sGymCityMapSecs[NUM_BADGES] = {
+static const u8 sGymCityMapSecs[NUM_ARTIFACTS] = {
     MAPSEC_PEWTER_CITY,
     MAPSEC_CERULEAN_CITY,
     MAPSEC_VERMILION_CITY,
@@ -1972,17 +1972,17 @@ static const u16 *LoadEvent_DepartedLocation(const u16 *eventData)
     StringCopy(gStringVar2, sLocationNameTexts[locationId]);
     if (sLocationToDepartedTextId[locationId] == QL_DEPARTED_GYM)
     {
-        for (i = 0; i < NUM_BADGES; i++)
+        for (i = 0; i < NUM_ARTIFACTS; i++)
         {
             if (rMapSec != sGymCityMapSecs[i])
                 continue;
-            if (FlagGet(FLAG_BADGE01_GET + i) == TRUE)
+            if (FlagGet(FLAG_ARTIFACT01_GET + i) == TRUE)
                 StringExpandPlaceholders(gStringVar4, gText_QuestLog_DepartedGym);
             else
                 StringExpandPlaceholders(gStringVar4, gText_QuestLog_GymWasFullOfToughTrainers);
             break;
         }
-        if (i == NUM_BADGES)
+        if (i == NUM_ARTIFACTS)
             StringExpandPlaceholders(gStringVar4, sDepartedLocationTexts[sLocationToDepartedTextId[locationId]]);
     }
     else

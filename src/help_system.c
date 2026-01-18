@@ -415,7 +415,7 @@ enum
     HELP_TERM_POKEBALLS,
     HELP_TERM_POKEDEX,
     HELP_TERM_PLAY_TIME,
-    HELP_TERM_BADGES,
+    HELP_TERM_ARTIFACTS,
     HELP_TERM_TEXT_SPEED,
     HELP_TERM_BATTLE_SCENE,
     HELP_TERM_BATTLE_STYLE,
@@ -431,7 +431,7 @@ enum
     HELP_TERM_POKEMON,
     HELP_TERM_ID_NO2,
     HELP_TERM_MONEY2,
-    HELP_TERM_BADGES2,
+    HELP_TERM_ARTIFACTS2,
 };
 
 static const u8 *const sHelpSystemTermTextPtrs[] = {
@@ -462,7 +462,7 @@ static const u8 *const sHelpSystemTermTextPtrs[] = {
     [HELP_TERM_POKEBALLS]      = Help_Text_PokeBalls,
     [HELP_TERM_POKEDEX]        = Help_Text_Pokedex,
     [HELP_TERM_PLAY_TIME]      = Help_Text_PlayTime,
-    [HELP_TERM_BADGES]         = Help_Text_Badges,
+    [HELP_TERM_ARTIFACTS]         = Help_Text_Artifacts,
     [HELP_TERM_TEXT_SPEED]     = Help_Text_TextSpeed,
     [HELP_TERM_BATTLE_SCENE]   = Help_Text_BattleScene,
     [HELP_TERM_BATTLE_STYLE]   = Help_Text_BattleStyle,
@@ -478,7 +478,7 @@ static const u8 *const sHelpSystemTermTextPtrs[] = {
     [HELP_TERM_POKEMON]        = Help_Text_Pokemon,
     [HELP_TERM_ID_NO2]         = Help_Text_IDNo2,
     [HELP_TERM_MONEY2]         = Help_Text_Money2,
-    [HELP_TERM_BADGES2]        = Help_Text_Badges2
+    [HELP_TERM_ARTIFACTS2]        = Help_Text_Artifacts2
 };
 
 static const u8 *const sHelpSystemTermDefinitionsTextPtrs[] = {
@@ -509,7 +509,7 @@ static const u8 *const sHelpSystemTermDefinitionsTextPtrs[] = {
     [HELP_TERM_POKEBALLS]      = Help_Text_DefinePokeBalls,
     [HELP_TERM_POKEDEX]        = Help_Text_DefinePokedex,
     [HELP_TERM_PLAY_TIME]      = Help_Text_DefinePlayTime,
-    [HELP_TERM_BADGES]         = Help_Text_DefineBadges,
+    [HELP_TERM_ARTIFACTS]         = Help_Text_DefineArtifacts,
     [HELP_TERM_TEXT_SPEED]     = Help_Text_DefineTextSpeed,
     [HELP_TERM_BATTLE_SCENE]   = Help_Text_DefineBattleScene,
     [HELP_TERM_BATTLE_STYLE]   = Help_Text_DefineBattleStyle,
@@ -525,7 +525,7 @@ static const u8 *const sHelpSystemTermDefinitionsTextPtrs[] = {
     [HELP_TERM_POKEMON]        = Help_Text_DefinePokemon,
     [HELP_TERM_ID_NO2]         = Help_Text_DefineIDNo2,
     [HELP_TERM_MONEY2]         = Help_Text_DefineMoney2,
-    [HELP_TERM_BADGES2]        = Help_Text_DefineBadges2
+    [HELP_TERM_ARTIFACTS2]        = Help_Text_DefineArtifacts2
 };
 
 // Submenu IDs for TOPIC_ABOUT_GAME
@@ -780,7 +780,7 @@ static const u8 sTerms_TrainerCardFront[] = {
     HELP_TERM_MONEY, 
     HELP_TERM_POKEDEX, 
     HELP_TERM_PLAY_TIME, 
-    HELP_TERM_BADGES, 
+    HELP_TERM_ARTIFACTS, 
     HELP_END
 };
 
@@ -795,7 +795,7 @@ static const u8 sHowTo_Save[] = {
 };
 
 static const u8 sTerms_Save[] = {
-    HELP_TERM_BADGES2, 
+    HELP_TERM_ARTIFACTS2, 
     HELP_TERM_POKEDEX, 
     HELP_TERM_PLAY_TIME, 
     HELP_END
@@ -1601,7 +1601,7 @@ static const u8 sTerms_Basic[] = {
     HELP_TERM_POKEBALLS, 
     HELP_TERM_PLAY_TIME, 
     HELP_TERM_MONEY, 
-    HELP_TERM_BADGES, 
+    HELP_TERM_ARTIFACTS, 
     HELP_END
 };
 
@@ -2080,7 +2080,7 @@ static bool8 IsHelpSystemSubmenuEnabled(u8 id)
         case HELP_FOE_MONS_TOO_STRONG:
         case HELP_WHAT_ARE_MOVES:
         case HELP_WANT_TO_ADD_MORE_MOVES:
-            return FlagGet(FLAG_BADGE01_GET);
+            return FlagGet(FLAG_ARTIFACT01_GET);
         case HELP_WHAT_ARE_HIDDEN_MOVES:
         case HELP_WHAT_DOES_HIDDEN_MOVE_DO:
             return HasGottenAtLeastOneHM();
@@ -2147,7 +2147,7 @@ static bool8 IsHelpSystemSubmenuEnabled(u8 id)
                 return TRUE;
             return FALSE;
         case HELP_USING_TM:
-            return FlagGet(FLAG_BADGE01_GET);
+            return FlagGet(FLAG_ARTIFACT01_GET);
         case HELP_USING_HM:
         case HELP_USING_MOVE_OUTSIDE_OF_BATTLE:
             return HasGottenAtLeastOneHM();
@@ -2179,7 +2179,7 @@ static bool8 IsHelpSystemSubmenuEnabled(u8 id)
         case HELP_TERM_POKEBALLS:
         case HELP_TERM_POKEDEX:
         case HELP_TERM_PLAY_TIME:
-        case HELP_TERM_BADGES:
+        case HELP_TERM_ARTIFACTS:
         case HELP_TERM_TEXT_SPEED:
         case HELP_TERM_BATTLE_SCENE:
         case HELP_TERM_BATTLE_STYLE:
@@ -2223,9 +2223,9 @@ static bool8 IsHelpSystemSubmenuEnabled(u8 id)
         switch (id)
         {
         case HELP_GAME_FUNDAMENTALS_2:
-            return FlagGet(FLAG_BADGE01_GET);
+            return FlagGet(FLAG_ARTIFACT01_GET);
         case HELP_GAME_FUNDAMENTALS_3:
-            return FlagGet(FLAG_BADGE02_GET);
+            return FlagGet(FLAG_ARTIFACT02_GET);
         }
         return TRUE;
     }

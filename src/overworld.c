@@ -120,7 +120,7 @@ static KeyInterCB sPlayerKeyInterceptCallback;
 static bool8 sReceivingFromLink;
 static u8 sRfuKeepAliveTimer;
 
-static u8 CountBadgesForOverworldWhiteOutLossCalculation(void);
+static u8 CountArtifactsForOverworldWhiteOutLossCalculation(void);
 static void Overworld_ResetStateAfterWhitingOut(void);
 static void Overworld_SetWhiteoutRespawnPoint(void);
 static u8 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *playerStruct, u16 metatileBehavior, u8 mapType);
@@ -231,15 +231,15 @@ static const u8 sWhiteOutMoneyLossMultipliers[] = {
     30
 };
 
-static const u16 sWhiteOutMoneyLossBadgeFlagIDs[] = {
-    FLAG_BADGE01_GET,
-    FLAG_BADGE02_GET,
-    FLAG_BADGE03_GET,
-    FLAG_BADGE04_GET,
-    FLAG_BADGE05_GET,
-    FLAG_BADGE06_GET,
-    FLAG_BADGE07_GET,
-    FLAG_BADGE08_GET
+static const u16 sWhiteOutMoneyLossArtifactFlagIDs[] = {
+    FLAG_ARTIFACT01_GET,
+    FLAG_ARTIFACT02_GET,
+    FLAG_ARTIFACT03_GET,
+    FLAG_ARTIFACT04_GET,
+    FLAG_ARTIFACT05_GET,
+    FLAG_ARTIFACT06_GET,
+    FLAG_ARTIFACT07_GET,
+    FLAG_ARTIFACT08_GET
 };
 
 static void DoWhiteOut(void)
@@ -254,9 +254,9 @@ static void DoWhiteOut(void)
 
 u32 ComputeWhiteOutMoneyLoss(void)
 {
-    u8 nbadges = CountBadgesForOverworldWhiteOutLossCalculation();
+    u8 nartifacts = CountArtifactsForOverworldWhiteOutLossCalculation();
     u8 toplevel = GetPlayerPartyHighestLevel();
-    u32 losings = toplevel * 4 * sWhiteOutMoneyLossMultipliers[nbadges];
+    u32 losings = toplevel * 4 * sWhiteOutMoneyLossMultipliers[nartifacts];
     u32 money = GetMoney(&gSaveBlock1Ptr->money);
     if (losings > money)
         losings = money;
@@ -269,16 +269,16 @@ void OverworldWhiteOutGetMoneyLoss(void)
     ConvertIntToDecimalStringN(gStringVar1, losings, STR_CONV_MODE_LEFT_ALIGN, CountDigits(losings));
 }
 
-static u8 CountBadgesForOverworldWhiteOutLossCalculation(void)
+static u8 CountArtifactsForOverworldWhiteOutLossCalculation(void)
 {
     int i;
-    u8 nbadges = 0;
-    for (i = 0; i < NELEMS(sWhiteOutMoneyLossBadgeFlagIDs); i++)
+    u8 nartifacts = 0;
+    for (i = 0; i < NELEMS(sWhiteOutMoneyLossArtifactFlagIDs); i++)
     {
-        if (FlagGet(sWhiteOutMoneyLossBadgeFlagIDs[i]))
-            nbadges++;
+        if (FlagGet(sWhiteOutMoneyLossArtifactFlagIDs[i]))
+            nartifacts++;
     }
-    return nbadges;
+    return nartifacts;
 }
 
 void Overworld_ResetStateAfterFly(void)

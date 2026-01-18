@@ -1173,16 +1173,6 @@ void ListMenu(void)
     task = &gTasks[taskId];
     switch (gSpecialVar_0x8004)
     {
-    case LISTMENU_BADGES:
-        task->data[0] = 4;
-        task->data[1] = 9;
-        task->data[2] = 1;
-        task->data[3] = 1;
-        task->data[4] = 12;
-        task->data[5] = 7;
-        task->data[6] = 1;
-        task->data[15] = taskId;
-        break;
     case LISTMENU_SILPHCO_FLOORS:
         task->data[0] = 7;
         task->data[1] = 12;
@@ -1255,18 +1245,6 @@ void ListMenu(void)
 }
 
 static const u8 *const sListMenuLabels[][12] = {
-    [LISTMENU_BADGES] = 
-    {
-        gText_BoulderBadge,
-        gText_CascadeBadge,
-        gText_ThunderBadge,
-        gText_RainbowBadge,
-        gText_SoulBadge,
-        gText_MarshBadge,
-        gText_VolcanoBadge,
-        gText_EarthBadge,
-        gOtherText_Exit,
-    }, 
     [LISTMENU_SILPHCO_FLOORS] = 
     {
         gText_11F,

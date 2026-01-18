@@ -15,8 +15,8 @@ VermilionCity_Gym_Text_LtSurgePostBattle::
     .string "But, it's useless against GROUND-\n"
     .string "type POKéMON!$"
 
-VermilionCity_Gym_Text_ExplainThunderBadgeTakeThis::
-    .string "The THUNDERBADGE cranks up your\n"
+VermilionCity_Gym_Text_ExplainThunderArtifactTakeThis::
+    .string "The THUNDERARTIFACT cranks up your\n"
     .string "POKéMON's SPEED!\p"
     .string "It also lets your POKéMON FLY\n"
     .string "lightning-quick anytime, kid!\p"
@@ -37,7 +37,7 @@ VermilionCity_Gym_Text_MakeRoomInYourBag::
 VermilionCity_Gym_Text_LtSurgeDefeat::
     .string "Now that's a shocker!\p"
     .string "You're the real deal, kid!\p"
-    .string "Fine, then, take the THUNDERBADGE!$"
+    .string "Fine, then, take the THUNDERARTIFACT!$"
 
 VermilionCity_Gym_Text_TuckerIntro::
     .string "When I was in the Army, LT. SURGE\n"

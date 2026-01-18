@@ -1013,8 +1013,8 @@ Common_ShowEasyChatScreen::
 	.include "data/scripts/bag_full.inc"
 
 @ Unused
-EventScript_GymBadgeFanfare::
-	playfanfare MUS_OBTAIN_BADGE
+EventScript_GymArtifactFanfare::
+	playfanfare MUS_OBTAIN_ARTIFACT
 	waitfanfare
 	return
 

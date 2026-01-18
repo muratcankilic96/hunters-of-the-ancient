@@ -1,12 +1,12 @@
-Route23_EventScript_MissingBoulderBadge::
+Route23_EventScript_MissingBoulderArtifact::
 	msgbox Text_OnlySkilledTrainersAllowedThrough
 	playse SE_BOO
 	msgbox Text_CantLetYouPass
 	release
 	end
 
-Route23_EventScript_MissingBadge::
-	message Text_OnlyPassWithBadgeDontHaveYet
+Route23_EventScript_MissingArtifact::
+	message Text_OnlyPassWithArtifactDontHaveYet
 	waitmessage
 	playse SE_BOO
 	waitbuttonpress
@@ -15,8 +15,8 @@ Route23_EventScript_MissingBadge::
 	release
 	end
 
-Route23_EventScript_AlreadyRecognizedBoulderBadge::
-	message Text_OhThatsBadgeGoRightAhead
+Route23_EventScript_AlreadyRecognizedBoulderArtifact::
+	message Text_OhThatsArtifactGoRightAhead
 	waitmessage
 	playfanfare MUS_LEVEL_UP
 	waitfanfare
@@ -24,66 +24,66 @@ Route23_EventScript_AlreadyRecognizedBoulderBadge::
 	release
 	end
 
-Route23_EventScript_AlreadyRecognizedBadge::
-	msgbox Text_OnlyPassWithBadgeOhGoAhead
+Route23_EventScript_AlreadyRecognizedArtifact::
+	msgbox Text_OnlyPassWithArtifactOhGoAhead
 	release
 	end
 
-Route23_EventScript_BadgeGuard::
-	goto_if_ge VAR_MAP_SCENE_ROUTE23, VAR_TEMP_1, Route23_EventScript_AlreadyRecognizedBadge
+Route23_EventScript_ArtifactGuard::
+	goto_if_ge VAR_MAP_SCENE_ROUTE23, VAR_TEMP_1, Route23_EventScript_AlreadyRecognizedArtifact
 	switch VAR_TEMP_1
-	case 1, Route23_EventScript_CheckBoulderBadge
-	case 2, Route23_EventScript_CheckCascadeBadge
-	case 3, Route23_EventScript_CheckThunderBadge
-	case 4, Route23_EventScript_CheckRainbowBadge
-	case 5, Route23_EventScript_CheckSoulBadge
-	case 6, Route23_EventScript_CheckMarshBadge
-	case 7, Route23_EventScript_CheckVolcanoBadge
-	case 8, Route23_EventScript_CheckEarthBadge
+	case 1, Route23_EventScript_CheckBoulderArtifact
+	case 2, Route23_EventScript_CheckCascadeArtifact
+	case 3, Route23_EventScript_CheckThunderArtifact
+	case 4, Route23_EventScript_CheckRainbowArtifact
+	case 5, Route23_EventScript_CheckSoulArtifact
+	case 6, Route23_EventScript_CheckMarshArtifact
+	case 7, Route23_EventScript_CheckVolcanoArtifact
+	case 8, Route23_EventScript_CheckEarthArtifact
 	end
 
-Route23_EventScript_CheckBoulderBadge::
-	goto_if_set FLAG_BADGE01_GET, Route23_EventScript_RecognizeBoulderBadge
-	goto Route23_EventScript_MissingBoulderBadge
+Route23_EventScript_CheckBoulderArtifact::
+	goto_if_set FLAG_ARTIFACT01_GET, Route23_EventScript_RecognizeBoulderArtifact
+	goto Route23_EventScript_MissingBoulderArtifact
 	end
 
-Route23_EventScript_CheckCascadeBadge::
-	goto_if_set FLAG_BADGE02_GET, Route23_EventScript_RecognizeBadge
-	goto Route23_EventScript_MissingBadge
+Route23_EventScript_CheckCascadeArtifact::
+	goto_if_set FLAG_ARTIFACT02_GET, Route23_EventScript_RecognizeArtifact
+	goto Route23_EventScript_MissingArtifact
 	end
 
-Route23_EventScript_CheckThunderBadge::
-	goto_if_set FLAG_BADGE03_GET, Route23_EventScript_RecognizeBadge
-	goto Route23_EventScript_MissingBadge
+Route23_EventScript_CheckThunderArtifact::
+	goto_if_set FLAG_ARTIFACT03_GET, Route23_EventScript_RecognizeArtifact
+	goto Route23_EventScript_MissingArtifact
 	end
 
-Route23_EventScript_CheckRainbowBadge::
-	goto_if_set FLAG_BADGE04_GET, Route23_EventScript_RecognizeBadge
-	goto Route23_EventScript_MissingBadge
+Route23_EventScript_CheckRainbowArtifact::
+	goto_if_set FLAG_ARTIFACT04_GET, Route23_EventScript_RecognizeArtifact
+	goto Route23_EventScript_MissingArtifact
 	end
 
-Route23_EventScript_CheckSoulBadge::
-	goto_if_set FLAG_BADGE05_GET, Route23_EventScript_RecognizeBadge
-	goto Route23_EventScript_MissingBadge
+Route23_EventScript_CheckSoulArtifact::
+	goto_if_set FLAG_ARTIFACT05_GET, Route23_EventScript_RecognizeArtifact
+	goto Route23_EventScript_MissingArtifact
 	end
 
-Route23_EventScript_CheckMarshBadge::
-	goto_if_set FLAG_BADGE06_GET, Route23_EventScript_RecognizeBadge
-	goto Route23_EventScript_MissingBadge
+Route23_EventScript_CheckMarshArtifact::
+	goto_if_set FLAG_ARTIFACT06_GET, Route23_EventScript_RecognizeArtifact
+	goto Route23_EventScript_MissingArtifact
 	end
 
-Route23_EventScript_CheckVolcanoBadge::
-	goto_if_set FLAG_BADGE07_GET, Route23_EventScript_RecognizeBadge
-	goto Route23_EventScript_MissingBadge
+Route23_EventScript_CheckVolcanoArtifact::
+	goto_if_set FLAG_ARTIFACT07_GET, Route23_EventScript_RecognizeArtifact
+	goto Route23_EventScript_MissingArtifact
 	end
 
-Route23_EventScript_CheckEarthBadge::
-	goto_if_set FLAG_BADGE08_GET, Route23_EventScript_RecognizeBadge
-	goto Route23_EventScript_MissingBadge
+Route23_EventScript_CheckEarthArtifact::
+	goto_if_set FLAG_ARTIFACT08_GET, Route23_EventScript_RecognizeArtifact
+	goto Route23_EventScript_MissingArtifact
 	end
 
-Route23_EventScript_RecognizeBoulderBadge::
-	message Text_OhThatsBadgeGoRightAhead
+Route23_EventScript_RecognizeBoulderArtifact::
+	message Text_OhThatsArtifactGoRightAhead
 	waitmessage
 	playfanfare MUS_LEVEL_UP
 	waitfanfare
@@ -92,68 +92,68 @@ Route23_EventScript_RecognizeBoulderBadge::
 	release
 	end
 
-Route23_EventScript_RecognizeBadge::
-	msgbox Text_OnlyPassWithBadgeOhGoAhead
+Route23_EventScript_RecognizeArtifact::
+	msgbox Text_OnlyPassWithArtifactOhGoAhead
 	copyvar VAR_MAP_SCENE_ROUTE23, VAR_TEMP_1
 	release
 	end
 
-Route23_EventScript_BadgeGuardTrigger::
+Route23_EventScript_ArtifactGuardTrigger::
 	textcolor NPC_TEXT_COLOR_MALE
 	applymovement VAR_0x8009, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
 	switch VAR_TEMP_1
-	case 1, Route23_EventScript_CheckBoulderBadgeTrigger
-	case 2, Route23_EventScript_CheckCascadeBadgeTrigger
-	case 3, Route23_EventScript_CheckThunderBadgeTrigger
-	case 4, Route23_EventScript_CheckRainbowBadgeTrigger
-	case 5, Route23_EventScript_CheckSoulBadgeTrigger
-	case 6, Route23_EventScript_CheckMarshBadgeTrigger
-	case 7, Route23_EventScript_CheckVolcanoBadgeTrigger
-	case 8, Route23_EventScript_CheckEarthBadgeTrigger
+	case 1, Route23_EventScript_CheckBoulderArtifactTrigger
+	case 2, Route23_EventScript_CheckCascadeArtifactTrigger
+	case 3, Route23_EventScript_CheckThunderArtifactTrigger
+	case 4, Route23_EventScript_CheckRainbowArtifactTrigger
+	case 5, Route23_EventScript_CheckSoulArtifactTrigger
+	case 6, Route23_EventScript_CheckMarshArtifactTrigger
+	case 7, Route23_EventScript_CheckVolcanoArtifactTrigger
+	case 8, Route23_EventScript_CheckEarthArtifactTrigger
 	end
 
-Route23_EventScript_CheckBoulderBadgeTrigger::
-	goto_if_set FLAG_BADGE01_GET, Route23_EventScript_RecognizeBoulderBadgeTrigger
-	goto Route23_EventScript_MissingBoulderBadgeTrigger
+Route23_EventScript_CheckBoulderArtifactTrigger::
+	goto_if_set FLAG_ARTIFACT01_GET, Route23_EventScript_RecognizeBoulderArtifactTrigger
+	goto Route23_EventScript_MissingBoulderArtifactTrigger
 	end
 
-Route23_EventScript_CheckCascadeBadgeTrigger::
-	goto_if_set FLAG_BADGE02_GET, Route23_EventScript_RecognizeBadgeTrigger
-	goto Route23_EventScript_MissingBadgeTrigger
+Route23_EventScript_CheckCascadeArtifactTrigger::
+	goto_if_set FLAG_ARTIFACT02_GET, Route23_EventScript_RecognizeArtifactTrigger
+	goto Route23_EventScript_MissingArtifactTrigger
 	end
 
-Route23_EventScript_CheckThunderBadgeTrigger::
-	goto_if_set FLAG_BADGE03_GET, Route23_EventScript_RecognizeBadgeTrigger
-	goto Route23_EventScript_MissingBadgeTrigger
+Route23_EventScript_CheckThunderArtifactTrigger::
+	goto_if_set FLAG_ARTIFACT03_GET, Route23_EventScript_RecognizeArtifactTrigger
+	goto Route23_EventScript_MissingArtifactTrigger
 	end
 
-Route23_EventScript_CheckRainbowBadgeTrigger::
-	goto_if_set FLAG_BADGE04_GET, Route23_EventScript_RecognizeBadgeTrigger
-	goto Route23_EventScript_MissingBadgeTrigger
+Route23_EventScript_CheckRainbowArtifactTrigger::
+	goto_if_set FLAG_ARTIFACT04_GET, Route23_EventScript_RecognizeArtifactTrigger
+	goto Route23_EventScript_MissingArtifactTrigger
 	end
 
-Route23_EventScript_CheckSoulBadgeTrigger::
-	goto_if_set FLAG_BADGE05_GET, Route23_EventScript_RecognizeBadgeTrigger
-	goto Route23_EventScript_MissingBadgeTrigger
+Route23_EventScript_CheckSoulArtifactTrigger::
+	goto_if_set FLAG_ARTIFACT05_GET, Route23_EventScript_RecognizeArtifactTrigger
+	goto Route23_EventScript_MissingArtifactTrigger
 	end
 
-Route23_EventScript_CheckMarshBadgeTrigger::
-	goto_if_set FLAG_BADGE06_GET, Route23_EventScript_RecognizeBadgeTrigger
-	goto Route23_EventScript_MissingBadgeTrigger
+Route23_EventScript_CheckMarshArtifactTrigger::
+	goto_if_set FLAG_ARTIFACT06_GET, Route23_EventScript_RecognizeArtifactTrigger
+	goto Route23_EventScript_MissingArtifactTrigger
 	end
 
-Route23_EventScript_CheckVolcanoBadgeTrigger::
-	goto_if_set FLAG_BADGE07_GET, Route23_EventScript_RecognizeBadgeTrigger
-	goto Route23_EventScript_MissingBadgeTrigger
+Route23_EventScript_CheckVolcanoArtifactTrigger::
+	goto_if_set FLAG_ARTIFACT07_GET, Route23_EventScript_RecognizeArtifactTrigger
+	goto Route23_EventScript_MissingArtifactTrigger
 	end
 
-Route23_EventScript_CheckEarthBadgeTrigger::
-	goto_if_set FLAG_BADGE08_GET, Route23_EventScript_RecognizeBadgeTrigger
-	goto Route23_EventScript_MissingBadgeTrigger
+Route23_EventScript_CheckEarthArtifactTrigger::
+	goto_if_set FLAG_ARTIFACT08_GET, Route23_EventScript_RecognizeArtifactTrigger
+	goto Route23_EventScript_MissingArtifactTrigger
 	end
 
-Route23_EventScript_MissingBoulderBadgeTrigger::
+Route23_EventScript_MissingBoulderArtifactTrigger::
 	msgbox Text_OnlySkilledTrainersAllowedThrough
 	playse SE_BOO
 	msgbox Text_CantLetYouPass
@@ -164,8 +164,8 @@ Route23_EventScript_MissingBoulderBadgeTrigger::
 	releaseall
 	end
 
-Route23_EventScript_MissingBadgeTrigger::
-	message Text_OnlyPassWithBadgeDontHaveYet
+Route23_EventScript_MissingArtifactTrigger::
+	message Text_OnlyPassWithArtifactDontHaveYet
 	waitmessage
 	playse SE_BOO
 	waitbuttonpress
@@ -177,8 +177,8 @@ Route23_EventScript_MissingBadgeTrigger::
 	releaseall
 	end
 
-Route23_EventScript_RecognizeBoulderBadgeTrigger::
-	message Text_OhThatsBadgeGoRightAhead
+Route23_EventScript_RecognizeBoulderArtifactTrigger::
+	message Text_OhThatsArtifactGoRightAhead
 	waitmessage
 	playfanfare MUS_LEVEL_UP
 	waitfanfare
@@ -187,8 +187,8 @@ Route23_EventScript_RecognizeBoulderBadgeTrigger::
 	releaseall
 	end
 
-Route23_EventScript_RecognizeBadgeTrigger::
-	msgbox Text_OnlyPassWithBadgeOhGoAhead
+Route23_EventScript_RecognizeArtifactTrigger::
+	msgbox Text_OnlyPassWithArtifactOhGoAhead
 	copyvar VAR_MAP_SCENE_ROUTE23, VAR_TEMP_1
 	releaseall
 	end

@@ -216,7 +216,7 @@ VermilionCity_Gym_EventScript_DefeatedLtSurge::
 	call_if_unset FLAG_GOT_HM05, VermilionCity_Gym_EventScript_ShowOaksAide
 	clearflag FLAG_HIDE_FAME_CHECKER_LT_SURGE_JOURNAL
 	setflag FLAG_DEFEATED_LT_SURGE
-	setflag FLAG_BADGE03_GET
+	setflag FLAG_ARTIFACT03_GET
 	set_gym_trainers 3
 	goto VermilionCity_Gym_EventScript_GiveTM34
 	end
@@ -226,7 +226,7 @@ VermilionCity_Gym_EventScript_ShowOaksAide::
 	return
 
 VermilionCity_Gym_EventScript_GiveTM34::
-	msgbox VermilionCity_Gym_Text_ExplainThunderBadgeTakeThis
+	msgbox VermilionCity_Gym_Text_ExplainThunderArtifactTakeThis
 	checkitemspace ITEM_TM34
 	goto_if_eq VAR_RESULT, FALSE, VermilionCity_Gym_EventScript_NoRoomForTM34
 	giveitem_msg VermilionCity_Gym_Text_ReceivedTM34FromLtSurge, ITEM_TM34
@@ -277,7 +277,7 @@ VermilionCity_Gym_EventScript_GymGuyPostVictory::
 
 VermilionCity_Gym_EventScript_GymStatue::
 	lockall
-	goto_if_set FLAG_BADGE03_GET, VermilionCity_Gym_EventScript_GymStatuePostVictory
+	goto_if_set FLAG_ARTIFACT03_GET, VermilionCity_Gym_EventScript_GymStatuePostVictory
 	msgbox VermilionCity_Gym_Text_GymStatue
 	releaseall
 	end

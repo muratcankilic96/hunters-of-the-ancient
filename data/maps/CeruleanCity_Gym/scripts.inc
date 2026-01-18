@@ -12,14 +12,14 @@ CeruleanCity_Gym_EventScript_Misty::
 CeruleanCity_Gym_EventScript_MistyDefeated::
 	famechecker FAMECHECKER_MISTY, 1
 	setflag FLAG_DEFEATED_MISTY
-	setflag FLAG_BADGE02_GET
+	setflag FLAG_ARTIFACT02_GET
 	setrespawn HEAL_LOCATION_CERULEAN_CITY
 	set_gym_trainers 2
 	goto CeruleanCity_Gym_EventScript_GiveTM03
 	end
 
 CeruleanCity_Gym_EventScript_GiveTM03::
-	msgbox CeruleanCity_Gym_Text_ExplainCascadeBadge
+	msgbox CeruleanCity_Gym_Text_ExplainCascadeArtifact
 	checkitemspace ITEM_TM03
 	goto_if_eq VAR_RESULT, FALSE, CeruleanCity_Gym_EventScript_NoRoomForTM03
 	giveitem_msg CeruleanCity_Gym_Text_ReceivedTM03FromMisty, ITEM_TM03
@@ -59,7 +59,7 @@ CeruleanCity_Gym_EventScript_GymGuyPostVictory::
 
 CeruleanCity_Gym_EventScript_GymStatue::
 	lockall
-	goto_if_set FLAG_BADGE02_GET, CeruleanCity_Gym_EventScript_GymStatuePostVictory
+	goto_if_set FLAG_ARTIFACT02_GET, CeruleanCity_Gym_EventScript_GymStatuePostVictory
 	msgbox CeruleanCity_Gym_Text_GymStatue
 	releaseall
 	end

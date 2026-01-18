@@ -27,7 +27,7 @@
   ],
   "object_events": [
     {
-      "local_id": "LOCALID_CASCADE_BADGE_GUARD",
+      "local_id": "LOCALID_CASCADE_ARTIFACT_GUARD",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
       "x": 15,
@@ -38,11 +38,11 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route23_EventScript_CascadeBadgeGuard",
+      "script": "Route23_EventScript_CascadeArtifactGuard",
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_THUNDER_BADGE_GUARD",
+      "local_id": "LOCALID_THUNDER_ARTIFACT_GUARD",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
       "x": 8,
@@ -53,11 +53,11 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route23_EventScript_ThunderBadgeGuard",
+      "script": "Route23_EventScript_ThunderArtifactGuard",
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_RAINBOW_BADGE_GUARD",
+      "local_id": "LOCALID_RAINBOW_ARTIFACT_GUARD",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
       "x": 14,
@@ -68,11 +68,11 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route23_EventScript_RainbowBadgeGuard",
+      "script": "Route23_EventScript_RainbowArtifactGuard",
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_SOUL_BADGE_GUARD",
+      "local_id": "LOCALID_SOUL_ARTIFACT_GUARD",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
       "x": 16,
@@ -83,11 +83,11 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route23_EventScript_SoulBadgeGuard",
+      "script": "Route23_EventScript_SoulArtifactGuard",
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_MARSH_BADGE_GUARD",
+      "local_id": "LOCALID_MARSH_ARTIFACT_GUARD",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
       "x": 10,
@@ -98,11 +98,11 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route23_EventScript_MarshBadgeGuard",
+      "script": "Route23_EventScript_MarshArtifactGuard",
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_VOLCANO_BADGE_GUARD",
+      "local_id": "LOCALID_VOLCANO_ARTIFACT_GUARD",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
       "x": 14,
@@ -113,11 +113,11 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route23_EventScript_VolcanoBadgeGuard",
+      "script": "Route23_EventScript_VolcanoArtifactGuard",
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_EARTH_BADGE_GUARD",
+      "local_id": "LOCALID_EARTH_ARTIFACT_GUARD",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
       "x": 6,
@@ -128,7 +128,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route23_EventScript_EarthBadgeGuard",
+      "script": "Route23_EventScript_EarthArtifactGuard",
       "flag": "0"
     }
   ],
@@ -170,7 +170,7 @@
       "elevation": 3,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "1",
-      "script": "Route23_EventScript_CascadeBadgeGuardTrigger"
+      "script": "Route23_EventScript_CascadeArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -179,7 +179,7 @@
       "elevation": 3,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "2",
-      "script": "Route23_EventScript_ThunderBadgeGuardTrigger"
+      "script": "Route23_EventScript_ThunderArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -188,7 +188,7 @@
       "elevation": 3,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "3",
-      "script": "Route23_EventScript_RainbowBadgeGuardTrigger"
+      "script": "Route23_EventScript_RainbowArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -197,7 +197,7 @@
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "4",
-      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
+      "script": "Route23_EventScript_SoulArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -206,7 +206,7 @@
       "elevation": 1,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "5",
-      "script": "Route23_EventScript_MarshBadgeGuardTrigger"
+      "script": "Route23_EventScript_MarshArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -215,7 +215,7 @@
       "elevation": 3,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "6",
-      "script": "Route23_EventScript_VolcanoBadgeGuardTrigger"
+      "script": "Route23_EventScript_VolcanoArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -224,7 +224,7 @@
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "7",
-      "script": "Route23_EventScript_EarthBadgeGuardTrigger"
+      "script": "Route23_EventScript_EarthArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -233,7 +233,7 @@
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "7",
-      "script": "Route23_EventScript_EarthBadgeGuardTrigger"
+      "script": "Route23_EventScript_EarthArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -242,7 +242,7 @@
       "elevation": 3,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "7",
-      "script": "Route23_EventScript_EarthBadgeGuardTrigger"
+      "script": "Route23_EventScript_EarthArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -251,7 +251,7 @@
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "7",
-      "script": "Route23_EventScript_EarthBadgeGuardTrigger"
+      "script": "Route23_EventScript_EarthArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -260,7 +260,7 @@
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "7",
-      "script": "Route23_EventScript_EarthBadgeGuardTrigger"
+      "script": "Route23_EventScript_EarthArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -269,7 +269,7 @@
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "7",
-      "script": "Route23_EventScript_EarthBadgeGuardTrigger"
+      "script": "Route23_EventScript_EarthArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -278,7 +278,7 @@
       "elevation": 3,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "7",
-      "script": "Route23_EventScript_EarthBadgeGuardTrigger"
+      "script": "Route23_EventScript_EarthArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -287,7 +287,7 @@
       "elevation": 3,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "7",
-      "script": "Route23_EventScript_EarthBadgeGuardTrigger"
+      "script": "Route23_EventScript_EarthArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -296,7 +296,7 @@
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "6",
-      "script": "Route23_EventScript_VolcanoBadgeGuardTrigger"
+      "script": "Route23_EventScript_VolcanoArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -305,7 +305,7 @@
       "elevation": 3,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "6",
-      "script": "Route23_EventScript_VolcanoBadgeGuardTrigger"
+      "script": "Route23_EventScript_VolcanoArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -314,7 +314,7 @@
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "6",
-      "script": "Route23_EventScript_VolcanoBadgeGuardTrigger"
+      "script": "Route23_EventScript_VolcanoArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -323,7 +323,7 @@
       "elevation": 1,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "5",
-      "script": "Route23_EventScript_MarshBadgeGuardTrigger"
+      "script": "Route23_EventScript_MarshArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -332,7 +332,7 @@
       "elevation": 1,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "5",
-      "script": "Route23_EventScript_MarshBadgeGuardTrigger"
+      "script": "Route23_EventScript_MarshArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -341,7 +341,7 @@
       "elevation": 1,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "5",
-      "script": "Route23_EventScript_MarshBadgeGuardTrigger"
+      "script": "Route23_EventScript_MarshArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -350,7 +350,7 @@
       "elevation": 1,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "5",
-      "script": "Route23_EventScript_MarshBadgeGuardTrigger"
+      "script": "Route23_EventScript_MarshArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -359,7 +359,7 @@
       "elevation": 1,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "5",
-      "script": "Route23_EventScript_MarshBadgeGuardTrigger"
+      "script": "Route23_EventScript_MarshArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -368,7 +368,7 @@
       "elevation": 1,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "5",
-      "script": "Route23_EventScript_MarshBadgeGuardTrigger"
+      "script": "Route23_EventScript_MarshArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -377,7 +377,7 @@
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "2",
-      "script": "Route23_EventScript_ThunderBadgeGuardTrigger"
+      "script": "Route23_EventScript_ThunderArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -386,7 +386,7 @@
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "2",
-      "script": "Route23_EventScript_ThunderBadgeGuardTrigger"
+      "script": "Route23_EventScript_ThunderArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -395,7 +395,7 @@
       "elevation": 3,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "2",
-      "script": "Route23_EventScript_ThunderBadgeGuardTrigger"
+      "script": "Route23_EventScript_ThunderArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -404,7 +404,7 @@
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "3",
-      "script": "Route23_EventScript_RainbowBadgeGuardTrigger"
+      "script": "Route23_EventScript_RainbowArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -413,7 +413,7 @@
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "3",
-      "script": "Route23_EventScript_RainbowBadgeGuardTrigger"
+      "script": "Route23_EventScript_RainbowArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -422,7 +422,7 @@
       "elevation": 3,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "3",
-      "script": "Route23_EventScript_RainbowBadgeGuardTrigger"
+      "script": "Route23_EventScript_RainbowArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -431,7 +431,7 @@
       "elevation": 1,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "4",
-      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
+      "script": "Route23_EventScript_SoulArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -440,7 +440,7 @@
       "elevation": 1,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "4",
-      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
+      "script": "Route23_EventScript_SoulArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -449,7 +449,7 @@
       "elevation": 1,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "4",
-      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
+      "script": "Route23_EventScript_SoulArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -458,7 +458,7 @@
       "elevation": 1,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "4",
-      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
+      "script": "Route23_EventScript_SoulArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -467,7 +467,7 @@
       "elevation": 1,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "4",
-      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
+      "script": "Route23_EventScript_SoulArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -476,7 +476,7 @@
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "4",
-      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
+      "script": "Route23_EventScript_SoulArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -485,7 +485,7 @@
       "elevation": 1,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "4",
-      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
+      "script": "Route23_EventScript_SoulArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -494,7 +494,7 @@
       "elevation": 1,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "4",
-      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
+      "script": "Route23_EventScript_SoulArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -503,7 +503,7 @@
       "elevation": 1,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "4",
-      "script": "Route23_EventScript_SoulBadgeGuardTrigger"
+      "script": "Route23_EventScript_SoulArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -512,7 +512,7 @@
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "1",
-      "script": "Route23_EventScript_CascadeBadgeGuardTrigger"
+      "script": "Route23_EventScript_CascadeArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -521,7 +521,7 @@
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "1",
-      "script": "Route23_EventScript_CascadeBadgeGuardTrigger"
+      "script": "Route23_EventScript_CascadeArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -530,7 +530,7 @@
       "elevation": 3,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "1",
-      "script": "Route23_EventScript_CascadeBadgeGuardTrigger"
+      "script": "Route23_EventScript_CascadeArtifactGuardTrigger"
     },
     {
       "type": "trigger",
@@ -539,7 +539,7 @@
       "elevation": 0,
       "var": "VAR_MAP_SCENE_ROUTE23",
       "var_value": "1",
-      "script": "Route23_EventScript_CascadeBadgeGuardTrigger"
+      "script": "Route23_EventScript_CascadeArtifactGuardTrigger"
     }
   ],
   "bg_events": [

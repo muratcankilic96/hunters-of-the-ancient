@@ -11,5 +11,5 @@ PewterCity_House1_Text_TradeMonsAreFinicky::
     .string "get in a trade.\p"
     .string "It grows fast, but it may ignore an\n"
     .string "unskilled TRAINER in battle.\p"
-    .string "If only we had some BADGES…$"
+    .string "If only we had some ARTIFACTS…$"
 
