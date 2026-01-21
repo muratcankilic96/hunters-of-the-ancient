@@ -30,9 +30,6 @@ RecruitBase_MainHall_Grunt1::
 	msgbox RecruitBase_MainHall_Text_AccordingToLegend, MSGBOX_NPC
 	end
 
-TestString::
-	.string "{STR_VAR_1} {STR_VAR_2} {STR_VAR_3}!$"
-
 RecruitBase_MainHall_Grunt2::
 	msgbox RecruitBase_MainHall_Text_WeAreTheNewMembers, MSGBOX_NPC
 	end
