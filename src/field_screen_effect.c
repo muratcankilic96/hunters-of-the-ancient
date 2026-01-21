@@ -388,7 +388,7 @@ static bool8 PrintWhiteOutRecoveryMessage(u8 taskId, const u8 *text, u8 x, u8 y)
 static void Task_RushInjuredPokemonToHideout(u8 taskId)
 {
     u8 windowId;
-    u16 *labInvasionState;
+    u16 labInvasionState;
     const struct HealLocation *loc, *gameOver;
 
     switch (gTasks[taskId].tState)
@@ -406,8 +406,8 @@ static void Task_RushInjuredPokemonToHideout(u8 taskId)
         // Losing against the first police battle triggers a game over scene
         gameOver = GetHealLocation(HEAL_LOCATION_GAME_OVER);
         // If player faints before getting Pokédex, triggers flag
-        labInvasionState = GetVarPointer(VAR_STORYLINE_LAB_INVASION);
-        if (*labInvasionState == 5)
+        labInvasionState = VarGet(VAR_STORYLINE_LAB_INVASION);
+        if (labInvasionState == 5)
             FlagSet(FLAG_FAINTED_BEFORE_POKEDEX);
         if (gSaveBlock1Ptr->lastHealLocation.mapGroup == loc->mapGroup
          && gSaveBlock1Ptr->lastHealLocation.mapNum == loc->mapNum

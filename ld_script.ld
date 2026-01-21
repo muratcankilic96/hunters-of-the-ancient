@@ -69,6 +69,9 @@ SECTIONS {
         src/multiboot.o(.text);
         src/main_menu.o(.text);
         src/battle_controllers.o(.text);
+        src/rtc.o(.text);
+        src/clock.o(.text);
+        src/team_rocket_rank.o(.text);
         src/decompress.o(.text);
         src/battle_bg.o(.text);
         src/battle_main.o(.text);
@@ -327,6 +330,7 @@ SECTIONS {
     lib_text :
     ALIGN(4)
     {
+        src/siirtc.o(.text);
         src/libgcnmultiboot.o(.text);
         src/m4a_1.o(.text);
         src/m4a.o(.text);
@@ -419,6 +423,8 @@ SECTIONS {
         src/battle_controller_link_opponent.o(.rodata);
         src/pokemon.o(.rodata);
         src/trig.o(.rodata);
+        src/rtc.o(.rodata);
+        src/team_rocket_rank.o(.rodata);
         src/util.o(.rodata);
         src/daycare.o(.rodata);
         src/battle_gfx_sfx_util.o(.rodata);
@@ -970,6 +976,7 @@ SECTIONS {
     lib_rodata :
     SUBALIGN(4)
     {
+        src/siirtc.o(.rodata);
         src/agb_flash.o(.rodata);
         src/agb_flash_1m.o(.rodata);
         src/agb_flash_mx.o(.rodata);

@@ -183,6 +183,8 @@ static const struct WindowTemplate sSaveStatsWindowTemplate = {
 static ALIGNED(2) const u8 sTextColor_StatName[] = { 1, 2, 3 };
 static ALIGNED(2) const u8 sTextColor_StatValue[] = { 1, 4, 5 };
 static ALIGNED(2) const u8 sTextColor_LocationHeader[] = { 1, 6, 7 };
+static ALIGNED(2) const u8 sTextColor_Male[] = { 0, 8, 3 };
+static ALIGNED(2) const u8 sTextColor_Female[] = { 0, 4, 3 };
 
 // Unused
 static void SetHasPokedexAndPokemon(void)
@@ -277,11 +279,17 @@ static void DestroySafariZoneStatsWindow(void)
 static s8 PrintStartMenuItems(s8 *cursor_p, u8 nitems)
 {
     s16 i = *cursor_p;
+    u8 gender = gSaveBlock2Ptr->playerGender;
     do
     {
         if (sStartMenuOrder[i] == STARTMENU_PLAYER || sStartMenuOrder[i] == STARTMENU_PLAYER2)
         {
-            Menu_PrintFormatIntlPlayerName(GetStartMenuWindowId(), sStartMenuActionTable[sStartMenuOrder[i]].text, 8, i * 15);
+            if (gender == MALE) {
+                Menu_PrintFormatIntlPlayerNameColored(GetStartMenuWindowId(), sTextColor_Male, sStartMenuActionTable[sStartMenuOrder[i]].text, 8, i * 15);
+            } else {
+                Menu_PrintFormatIntlPlayerNameColored(GetStartMenuWindowId(), sTextColor_Female, sStartMenuActionTable[sStartMenuOrder[i]].text, 8, i * 15);
+
+            }
         }
         else
         {

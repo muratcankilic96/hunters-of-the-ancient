@@ -1,6 +1,7 @@
 #include "global.h"
 #include "gflib.h"
 #include "scanline_effect.h"
+#include "team_rocket_rank.h"
 #include "task.h"
 #include "link.h"
 #include "overworld.h"
@@ -113,6 +114,7 @@ static void PrintIdOnCard(void);
 static void PrintMoneyOnCard(void);
 static u16 GetCaughtMonsCount(void);
 static void PrintPokedexOnCard(void);
+static void PrintTeamRocketRankOnCard(void);
 static void PrintTimeOnCard(void);
 static void PrintProfilePhraseOnCard(void);
 static void BufferNameForCardBack(void);
@@ -348,7 +350,7 @@ static const u8 *const sTimeColonTextColors[] = {sTrainerCardTextColors, sTimeCo
 static const u8 sTrainerCardTimeHoursXPositions[] = {0x65, 0x55};
 static const u8 sTrainerCardTimeHoursYPositions[] = {0x77, 0x67};
 static const u8 sTrainerCardTimeMinutesXPositions[] = {0x7C, 0x6C};
-static const u8 sTrainerCardTimeMinutesYPositions[] = {0x58, 0x59};
+static const u8 sTrainerCardTimeMinutesYPositions[] = {0x5D, 0x5E};
 static const u8 sTrainerCardProfilePhraseXPositions[] = {0x73, 0x69};
 static const u8 sTrainerCardProfilePhraseYPositions[] = {0x82, 0x78};
 static const u8 sTrainerCardBackNameXPositions[] = {0x8A, 0xD8};
@@ -1060,9 +1062,12 @@ static bool8 PrintAllOnCardFront(void)
         PrintPokedexOnCard();
         break;
     case 4:
-        PrintTimeOnCard();
+        PrintTeamRocketRankOnCard();
         break;
     case 5:
+        PrintTimeOnCard();
+        break;
+    case 6:
         PrintProfilePhraseOnCard();
         break;
     default:
@@ -1153,14 +1158,14 @@ static void PrintMoneyOnCard(void)
     if (sTrainerCardDataPtr->cardType != CARD_TYPE_RSE)
     {
         x = -122 - 6 * StringLength(buffer);
-        AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], 20, 56, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardMoney);
-        AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], x, 56, sTrainerCardTextColors, TEXT_SKIP_DRAW, buffer);
+        AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], 20, 45, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardMoney);
+        AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], x, 45, sTrainerCardTextColors, TEXT_SKIP_DRAW, buffer);
     }
     else
     {
         x = 118 - 6 * StringLength(buffer);
-        AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], 16, 57, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardMoney);
-        AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], x, 57, sTrainerCardTextColors, TEXT_SKIP_DRAW, buffer);
+        AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], 16, 46, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardMoney);
+        AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], x, 46, sTrainerCardTextColors, TEXT_SKIP_DRAW, buffer);
     }    
 }
 
@@ -1183,18 +1188,31 @@ static void PrintPokedexOnCard(void)
         if (sTrainerCardDataPtr->cardType != CARD_TYPE_RSE)
         {
             x = -120 - 6 * StringLength(buffer);
-            AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], 20, 72, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardPokedex);
-            AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], x, 72, sTrainerCardTextColors, TEXT_SKIP_DRAW, buffer);
-            AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], 138, 72, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardNull);
+            AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], 20, 61, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardPokedex);
+            AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], x, 61, sTrainerCardTextColors, TEXT_SKIP_DRAW, buffer);
+            AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], 138, 61, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardNull);
         }
         else
         {
             x = 120 - 6 * StringLength(buffer);
-            AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], 16, 73, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardPokedex);
-            AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], x, 73, sTrainerCardTextColors, TEXT_SKIP_DRAW, buffer);
-            AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], 138, 73, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardNull);
+            AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], 16, 62, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardPokedex);
+            AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], x, 62, sTrainerCardTextColors, TEXT_SKIP_DRAW, buffer);
+            AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], 138, 62, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardNull);
         }
     }
+}
+
+static void PrintTeamRocketRankOnCard(void)
+{
+    u8 buffer[10];
+    u8 *txtPtr;
+    u8 x;
+
+    txtPtr = GetTeamRocketRankString(buffer);
+
+    x = -120 - 6 * StringLength(buffer);
+    AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], 20, 77, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_Rank);
+    AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], x, 77, sTrainerCardTextColors, TEXT_SKIP_DRAW, buffer);
 }
 
 static void PrintTimeOnCard(void)
@@ -1219,9 +1237,9 @@ static void PrintTimeOnCard(void)
 
     FillWindowPixelRect(1, PIXEL_FILL(0), sTrainerCardTimeHoursXPositions[sTrainerCardDataPtr->cardType], sTrainerCardTimeMinutesYPositions[sTrainerCardDataPtr->cardType], 50, 12);
     if (sTrainerCardDataPtr->cardType != CARD_TYPE_RSE)
-        AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], 20, 88, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardTime);
+        AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], 20, 93, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardTime);
     else
-        AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], 16, 89, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardTime);
+        AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], 16, 94, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardTime);
 
     ConvertIntToDecimalStringN(buffer, hours, STR_CONV_MODE_RIGHT_ALIGN, 3);
     AddTextPrinterParameterized3(1, sTrainerCardFontIds[1], sTrainerCardTimeHoursXPositions[sTrainerCardDataPtr->cardType],

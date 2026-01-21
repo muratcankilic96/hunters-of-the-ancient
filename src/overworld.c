@@ -3,6 +3,7 @@
 #include "bg_regs.h"
 #include "cable_club.h"
 #include "credits.h"
+#include "clock.h"
 #include "event_data.h"
 #include "event_object_movement.h"
 #include "event_scripts.h"
@@ -757,6 +758,7 @@ void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum)
     ClearTempFieldEventData();
     ResetCyclingRoadChallengeData();
     RestartWildEncounterImmunitySteps();
+    DoTimeBasedEvents();
     MapResetTrainerRematches(mapGroup, mapNum);
     SetSavedWeatherFromCurrMapHeader();
     ChooseAmbientCrySpecies();

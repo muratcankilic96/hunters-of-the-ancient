@@ -53,7 +53,7 @@ void SaveStatToString(u8 gameStatId, u8 *dest0, u8 color)
         *dest++ = EOS;
         break;
     case SAVE_STAT_RANK:
-        dest = GetTeamRocketRankString(dest, *GetVarPointer(VAR_TEAM_ROCKET_RANK));
+        dest = GetTeamRocketRankString(dest);
         break;
     }
 }

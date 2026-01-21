@@ -8,6 +8,10 @@
 #define SPECIES_OLD_UNOWN_EMARK (NUM_SPECIES + 0)
 #define SPECIES_OLD_UNOWN_QMARK (NUM_SPECIES + 1)
 
+static const u8 sTextColor[3] = {
+    0, 2, 3
+};
+
 static void Task_SmoothBlendLayers(u8 taskId);
 
 static const u8 sMonSpriteAnchorCoords[][5] = {
@@ -490,7 +494,7 @@ void AddTextPrinterParameterized5(u8 windowId, u8 fontId, const u8 *str, u8 x, u
     AddTextPrinter(&printer, speed, callback);
 }
 
-void Menu_PrintFormatIntlPlayerName(u8 windowId, const u8 * src, u16 x, u16 y)
+void Menu_PrintFormatIntlPlayerNameColored(u8 windowId, const u8 * color, const u8 * src, u16 x, u16 y)
 {
     s32 i;
 
@@ -500,12 +504,17 @@ void Menu_PrintFormatIntlPlayerName(u8 windowId, const u8 * src, u16 x, u16 y)
     StringExpandPlaceholders(gStringVar4, src);
     if (i != 5)
     {
-        AddTextPrinterParameterized(windowId, FONT_NORMAL, gStringVar4, x, y, 0xFF, NULL);
+        AddTextPrinterParameterized3(windowId, FONT_NORMAL, x, y, color, 0xFF, gStringVar4);
     }
     else
     {
-        AddTextPrinterParameterized5(windowId, FONT_NORMAL, gStringVar4, x, y, 0xFF, NULL, 0, 0);
+        AddTextPrinterParameterized4(windowId, FONT_NORMAL, x, y, 0, 0, color, 0xFF, gStringVar4);
     }
+}
+
+void Menu_PrintFormatIntlPlayerName(u8 windowId, const u8 * src, u16 x, u16 y)
+{
+    Menu_PrintFormatIntlPlayerNameColored(windowId, sTextColor, src, x, y);
 }
 
 static void UnusedBlitBitmapRect(const struct Bitmap *src, struct Bitmap *dst, u16 srcX, u16 srcY, u16 dstX, u16 dstY, u16 width, u16 height)

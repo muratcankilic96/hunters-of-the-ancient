@@ -16,6 +16,7 @@
 #include "battle_records.h"
 #include "pokemon_size_record.h"
 #include "pokemon_storage_system.h"
+#include "clock.h"
 #include "roamer.h"
 #include "item.h"
 #include "player_pc.h"
@@ -79,7 +80,7 @@ static void ClearBattleTower(void)
     CpuFill32(0, &gSaveBlock2Ptr->battleTower, sizeof(gSaveBlock2Ptr->battleTower));
 }
 
-static void WarpToPlayersRoom(void)
+static void WarpPlayerToRecruitBaseRegistrationRoom(void)
 {
     SetWarpDestination(MAP_GROUP(MAP_RECRUIT_BASE_REGISTRATION_ROOM), MAP_NUM(MAP_RECRUIT_BASE_REGISTRATION_ROOM), -1, 6, 6);
     WarpIntoMap();
@@ -145,7 +146,8 @@ void NewGameInitData(void)
     ResetMiniGamesResults();
     ClearMysteryGift();
     SetAllRenewableItemFlags();
-    WarpToPlayersRoom();
+    WarpPlayerToRecruitBaseRegistrationRoom();
+    InitTimeBasedEvents();
     RunScriptImmediately(EventScript_ResetAllMapFlags);
     StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
     ResetTrainerTowerResults();

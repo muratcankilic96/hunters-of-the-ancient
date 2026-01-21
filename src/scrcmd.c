@@ -20,6 +20,8 @@
 #include "field_message_box.h"
 #include "new_menu_helpers.h"
 #include "script_menu.h"
+#include "rtc.h"
+#include "clock.h"
 #include "data.h"
 #include "field_specials.h"
 #include "constants/items.h"
@@ -665,19 +667,17 @@ bool8 ScrCmd_initclock(struct ScriptContext * ctx)
 
 bool8 ScrCmd_dotimebasedevents(struct ScriptContext * ctx)
 {
-//    DoTimeBasedEvents();
+    DoTimeBasedEvents();
     return FALSE;
 }
 
+// This was disabled in FR/LG. RTC makes a return in Hunters of the Ancient.
 bool8 ScrCmd_gettime(struct ScriptContext * ctx)
 {
-//    RtcCalcLocalTime();
-//    gSpecialVar_0x8000 = gLocalTime.hours;
-//    gSpecialVar_0x8001 = gLocalTime.minutes;
-//    gSpecialVar_0x8002 = gLocalTime.seconds;
-    gSpecialVar_0x8000 = 0;
-    gSpecialVar_0x8001 = 0;
-    gSpecialVar_0x8002 = 0;
+    RtcCalcLocalTime();
+    gSpecialVar_0x8000 = gLocalTime.hours;
+    gSpecialVar_0x8001 = gLocalTime.minutes;
+    gSpecialVar_0x8002 = gLocalTime.seconds;
     return FALSE;
 }
 

@@ -327,7 +327,7 @@
 	.byte 0x2d
 	.endm
 
-	@ Sets the values of variables VAR_0x8000, VAR_0x8001, and VAR_0x8002 to 0. In RSE, they'd get the current hour, minute, and second respectively.
+	@ Sets the values of variables VAR_0x8000, VAR_0x8001, and VAR_0x8002 to current hour, minute, and second respectively.
 	.macro gettime
 	.byte 0x2e
 	.endm

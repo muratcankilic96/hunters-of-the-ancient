@@ -22,6 +22,6 @@ static const u8 gTeamRocketRankString_Boss[];
 
 static const u8 *const gTeamRocketRankStringPtrs[TEAM_ROCKET_RANK_COUNT];
 
-u8 *GetTeamRocketRankString(u8 *, u8);
+u8 *GetTeamRocketRankString(u8 *);
 
 #endif // GUARD_TEAM_ROCKET_RANK_H

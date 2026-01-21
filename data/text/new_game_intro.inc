@@ -142,22 +142,23 @@ gKoffingIntro_Text_Page1::
     .string "the mythical mysteries.$"
 
 gKoffingIntro_Text_Page2::
-    .string "New paths will open to you by helping\n"
-    .string "people in need, overcoming challenges,\n"
-    .string "and solving mysteries.\n"
+    .string "Five years ago, TEAM ROCKET was\n"
+    .string "regrettably defeated by a prodigious\n"
+    .string "child. However, those days are already\n"
+    .string "behind them.\n"
     .string "\n"
-    .string "At times, you will be challenged by\n"
-    .string "others and attacked by wild creatures.\n"
-    .string "Be brave and keep pushing on.$"
+    .string "After learning their lesson, the team\n"
+    .string "once more returns, more vengeful and\n"
+    .string "tenacious than they have ever been.$"
 
 gKoffingIntro_Text_Page3::
-    .string "Through your adventure, we hope\n"
-    .string "that you will interact with all sorts\n"
-    .string "of people and achieve personal growth.\n"
-    .string "That is our biggest objective.\n"
+    .string "This is a perilous mission driven by\n"
+    .string "twisted morals, where you build a\n"
+    .string "mighty crime syndicate.\n"
     .string "\n"
-    .string "Press the A Button, and let your\n"
-    .string "adventure begin!$"
+    .string "\n"
+    .string "Press the A Button to embark on\n"
+    .string "your grand heist!$"
 
 gGiovanniSpeech_Text_WelcomeToTheTeam::
     .string "Right decision…\n"

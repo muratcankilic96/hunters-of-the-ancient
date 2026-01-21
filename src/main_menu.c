@@ -684,7 +684,7 @@ static void PrintTeamRocketRank(void)
     u8 *ptr;
 
     AddTextPrinterParameterized3(MAIN_MENU_WINDOW_CONTINUE, FONT_NORMAL, 2, 82, sTextColor2, -1, gText_Rank);
-    ptr = GetTeamRocketRankString(strbuf, *GetVarPointer(VAR_TEAM_ROCKET_RANK));
+    ptr = GetTeamRocketRankString(strbuf);
     AddTextPrinterParameterized3(MAIN_MENU_WINDOW_CONTINUE, FONT_NORMAL, 62, 82, sTextColor2, -1, strbuf);
 }
 

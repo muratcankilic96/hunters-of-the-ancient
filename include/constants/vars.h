@@ -191,7 +191,7 @@
 #define VAR_MAP_SCENE_MT_MOON_B2F                                              0x408B
 
 
-#define VAR_TEAM_ROCKET_RANK       0x408C
+#define VAR_0x408C                 0x408C
 #define VAR_0x408D                 0x408D
 #define VAR_0x408E                 0x408E
 #define VAR_0x408F                 0x408F
@@ -220,12 +220,12 @@
 #define VAR_0x40A6                 0x40A6
 #define VAR_0x40A7                 0x40A7
 #define VAR_0x40A8                 0x40A8
-#define VAR_0x40A9                 0x40A9
+#define VAR_TEAM_ROCKET_RANK       0x40A9
 
 #define VAR_QLBAK_TRAINER_REMATCHES 0x40AA // array of 4
 #define VAR_QLBAK_MAP_LAYOUT        0x40AE
 
-#define VAR_0x40AF                 0x40AF
+#define VAR_DAYS                   0x40AF
 #define VAR_0x40B0                 0x40B0
 #define VAR_0x40B1                 0x40B1
 #define VAR_0x40B2                 0x40B2

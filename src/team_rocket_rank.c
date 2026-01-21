@@ -1,8 +1,9 @@
+#include "team_rocket_rank.h"
 #include "global.h"
 #include "strings.h"
 #include "string_util.h"
 #include "characters.h"
-#include "team_rocket_rank.h"
+#include "event_data.h"
 
 static const u8 *const gTeamRocketRankStringPtrs[TEAM_ROCKET_RANK_COUNT] = {
     [TEAM_ROCKET_RANK_UNREGISTERED] = gTeamRocketRankString_Unregistered,
@@ -22,6 +23,7 @@ static const u8 gTeamRocketRankString_Officer[] = _("OFFICER");
 static const u8 gTeamRocketRankString_Executive[] = _("EXECUTIVE");
 static const u8 gTeamRocketRankString_Boss[] = _("BOSS");
 
-u8 *GetTeamRocketRankString(u8 *dst0, u8 rankId) {
+u8 *GetTeamRocketRankString(u8 *dst0) {
+    u8 rankId = VarGet(VAR_TEAM_ROCKET_RANK);
     return StringCopy(dst0, gTeamRocketRankStringPtrs[rankId]);
 }
