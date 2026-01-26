@@ -1,11 +1,13 @@
 #include "global.h"
 #include "gflib.h"
 #include "bike.h"
+#include "clock.h"
 #include "event_data.h"
 #include "field_camera.h"
 #include "field_effect_helpers.h"
 #include "field_player_avatar.h"
 #include "fieldmap.h"
+#include "main.h"
 #include "metatile_behavior.h"
 #include "overworld.h"
 #include "quest_log.h"
@@ -16,7 +18,7 @@
 #include "constants/songs.h"
 
 /*  This file handles some persistent tasks that run in the overworld.
- *  - Task_RunTimeBasedEvents: Triggers ambient cries. In RSE, this also periodically updates local time and RTC events.
+ *  - Task_RunTimeBasedEvents: Triggers ambient cries and RTC events.
  *  - Task_RunPerStepCallback: Calls one of the functions in sPerStepCallbacks, listed below...
  *      . DummyPerStepCallback: Default, does nothing. Includes functionality from RS that was removed.
  *      . AshGrassPerStepCallback: Leftover from RS. Removes the ash from ash-covered grass that the player steps on.
@@ -69,15 +71,40 @@ static void Task_RunPerStepCallback(u8 taskId)
     sPerStepCallbacks[idx](taskId);
 }
 
+#define tTimeState       data[0]
 #define tAmbientCryState data[1]
 #define tAmbientCryDelay data[2]
 
-// RTC functionality from RS was removed here.
+#define TIME_UPDATE_INTERVAL (1 << 12)
+
+// Taken from Emerald and adapted to FRLG engine.
+static void RunTimeBasedEvents(s16 *data)
+{
+    u16 varval;
+    switch (tTimeState)
+    {
+    case 0:
+        if (gSaveBlock2Ptr->playTimeVBlanks > 30)
+        {
+            DoTimeBasedEvents();
+            tTimeState++;
+        }
+        break;
+    case 1:
+        if (!(gSaveBlock2Ptr->playTimeVBlanks > 30))
+            tTimeState--;
+        break;
+    }
+}
+
+#undef tTimeState
+
 static void Task_RunTimeBasedEvents(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
 
     if (!ArePlayerFieldControlsLocked() && !QL_IS_PLAYBACK_STATE)
+        RunTimeBasedEvents(data);
         UpdateAmbientCry(&tAmbientCryState, &tAmbientCryDelay);
 }
 

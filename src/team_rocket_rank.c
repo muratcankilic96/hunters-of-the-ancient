@@ -1,5 +1,5 @@
-#include "team_rocket_rank.h"
 #include "global.h"
+#include "team_rocket_rank.h"
 #include "strings.h"
 #include "string_util.h"
 #include "characters.h"

@@ -758,7 +758,6 @@ void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum)
     ClearTempFieldEventData();
     ResetCyclingRoadChallengeData();
     RestartWildEncounterImmunitySteps();
-    DoTimeBasedEvents();
     MapResetTrainerRematches(mapGroup, mapNum);
     SetSavedWeatherFromCurrMapHeader();
     ChooseAmbientCrySpecies();
@@ -766,6 +765,7 @@ void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum)
     Overworld_ClearSavedMusic();
     RunOnTransitionMapScript();
     TryRegenerateRenewableHiddenItems();
+    DoTimeBasedEvents();
     InitMap();
     CopySecondaryTilesetToVramUsingHeap(gMapHeader.mapLayout);
     LoadSecondaryTilesetPalette(gMapHeader.mapLayout);
@@ -806,6 +806,7 @@ static void LoadMapFromWarp(bool32 unused)
     UpdateLocationHistoryForRoamer();
     RoamerMoveToOtherLocationSet();
     QL_ResetDefeatedWildMonRecord();
+    DoTimeBasedEvents();
     InitMap();
 }
 

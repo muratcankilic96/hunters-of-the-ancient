@@ -3,12 +3,10 @@
 
 #include "global.h"
 #include "clock.h"
-#include "berry.h"
 #include "event_data.h"
 #include "field_specials.h"
-#include "field_weather.h"
+#include "field_day_night.h"
 #include "main.h"
-#include "overworld.h"
 #include "rtc.h"
 
 void InitTimeBasedEvents(void)
@@ -43,16 +41,12 @@ void UpdatePerDay(struct Time *localTime)
 
 void UpdatePerMinute(struct Time *localTime)
 {
-    struct Time difference;
-    int minutes;
+    u8 hours;
+    u8 minutes;
 
-    CalcTimeDifference(&difference, &gSaveBlock2Ptr->lastBerryTreeUpdate, localTime);
-    minutes = 24 * 60 * difference.days + 60 * difference.hours + difference.minutes;
-    if (minutes != 0)
-    {
-        if (minutes >= 0)
-        {
-            gSaveBlock2Ptr->lastBerryTreeUpdate = *localTime;
-        }
-    }
+    hours = localTime->hours;
+    minutes = localTime->minutes;
+
+    UpdateTimeOfDay(hours);
+    gSaveBlock2Ptr->lastBerryTreeUpdate = *localTime;
 }
