@@ -102,6 +102,7 @@ SECTIONS {
         src/metatile_behavior.o(.text);
         src/field_camera.o(.text);
         src/field_door.o(.text);
+        src/field_day_night.o(.text);
         src/field_player_avatar.o(.text);
         src/event_object_movement.o(.text);
         src/field_message_box.o(.text);
@@ -438,6 +439,7 @@ SECTIONS {
         src/fieldmap.o(.rodata);
         src/metatile_behavior.o(.rodata);
         src/field_door.o(.rodata);
+        src/field_day_night.o(.rodata);
         src/field_player_avatar.o(.rodata);
         src/event_object_movement.o(.rodata);
         src/scrcmd.o(.rodata);

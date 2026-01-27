@@ -42,11 +42,9 @@ void UpdatePerDay(struct Time *localTime)
 void UpdatePerMinute(struct Time *localTime)
 {
     u8 hours;
-    u8 minutes;
 
     hours = localTime->hours;
-    minutes = localTime->minutes;
 
-    UpdateTimeOfDay(hours);
+    UpdateTimeOfDayByCurrentHour(hours);
     gSaveBlock2Ptr->lastBerryTreeUpdate = *localTime;
 }

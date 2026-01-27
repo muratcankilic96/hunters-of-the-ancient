@@ -23,7 +23,7 @@
 #define FLDEFF_UNUSED_GRASS              19
 #define FLDEFF_UNUSED_GRASS_2            20
 #define FLDEFF_UNUSED_SAND               21
-#define FLDEFF_UNUSED_WATER_SURFACING    22
+#define FLDEFF_NIGHT_LAMP_ON             22
 #define FLDEFF_BERRY_TREE_GROWTH_SPARKLE 23
 #define FLDEFF_DEEP_SAND_FOOTPRINTS      24
 #define FLDEFF_POKECENTER_HEAL           25

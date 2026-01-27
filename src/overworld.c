@@ -9,6 +9,7 @@
 #include "event_scripts.h"
 #include "field_camera.h"
 #include "field_control_avatar.h"
+#include "field_day_night.h"
 #include "field_effect.h"
 #include "field_fadetransition.h"
 #include "field_message_box.h"
@@ -765,7 +766,6 @@ void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum)
     Overworld_ClearSavedMusic();
     RunOnTransitionMapScript();
     TryRegenerateRenewableHiddenItems();
-    DoTimeBasedEvents();
     InitMap();
     CopySecondaryTilesetToVramUsingHeap(gMapHeader.mapLayout);
     LoadSecondaryTilesetPalette(gMapHeader.mapLayout);
@@ -778,6 +778,7 @@ void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum)
     DoCurrentWeather();
     ResetFieldTasksArgs();
     RunOnResumeMapScript();
+    DoTimeBasedEvents();
     if (GetLastUsedWarpMapSectionId() != gMapHeader.regionMapSectionId)
         ShowMapNamePopup(TRUE);
 }
@@ -797,8 +798,9 @@ static void LoadMapFromWarp(bool32 unused)
     MapResetTrainerRematches(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
     SetSavedWeatherFromCurrMapHeader();
     ChooseAmbientCrySpecies();
-    if (isOutdoors)
+    if (isOutdoors) {
         FlagClear(FLAG_SYS_FLASH_ACTIVE);
+    }
     SetDefaultFlashLevel();
     Overworld_ClearSavedMusic();
     RunOnTransitionMapScript();
@@ -1805,7 +1807,7 @@ static bool32 LoadMapInStepsLink(u8 *state)
     case 8:
         if (FreeTempTileDataBuffersIfPossible() != TRUE)
         {
-            LoadMapTilesetPalettes(gMapHeader.mapLayout);
+            LoadMapTilesetPalettes(gMapHeader.mapLayout); 
             (*state)++;
         }
         break;
@@ -1861,6 +1863,7 @@ static bool32 LoadMapInStepsLocal(u8 *state, bool32 inLink)
         break;
     case 4:
         InitObjectEventsLocal();
+        UpdateObjectEventLighting();
         SetCameraToTrackPlayer();
         if (gQuestLogState != QL_STATE_PLAYBACK)
         {
@@ -1919,6 +1922,9 @@ static bool32 LoadMapInStepsLocal(u8 *state, bool32 inLink)
             (*state)++;
         break;
     case 14:
+        (*state)++;
+        break;
+    case 15:
         return TRUE;
     }
     return FALSE;
@@ -1937,6 +1943,8 @@ static bool32 ReturnToFieldLocal(u8 *state)
         (*state)++;
         break;
     case 1:
+        if (gQuestLogState == !QL_STATE_PLAYBACK)
+            UpdateObjectEventLighting();
         (*state)++;
         break;
     case 2:

@@ -7,11 +7,13 @@
 #include "event_data.h"
 #include "script.h"
 #include "overworld.h"
+#include "field_day_night.h"
 #include "field_fadetransition.h"
 #include "field_weather.h"
 #include "event_object_movement.h"
 #include "event_object_lock.h"
 #include "field_player_avatar.h"
+#include "fieldmap.h"
 #include "item.h"
 #include "region_map.h"
 #include "map_name_popup.h"
@@ -1248,6 +1250,9 @@ static bool8 RestoreScreenAfterPlayback(u8 taskId)
 
     if (tTimer > 15)
         return TRUE;
+
+    UpdateTilesetLighting_ExitingFromQuestLog();
+    UpdateObjectEventLighting_ExitingFromQuestLog();
 
     CopyPaletteInvertedTint(&gPlttBufferUnfaded[BG_PLTT_ID(0) + 1], &gPlttBufferFaded[BG_PLTT_ID(0) + 1], 0xDF, 15 - tTimer);
     CopyPaletteInvertedTint(&gPlttBufferUnfaded[OBJ_PLTT_ID(0)], &gPlttBufferFaded[OBJ_PLTT_ID(0)], 0x100, 15 - tTimer);

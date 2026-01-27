@@ -4,13 +4,16 @@
 #include "clock.h"
 #include "event_data.h"
 #include "field_camera.h"
+#include "field_day_night.h"
 #include "field_effect_helpers.h"
 #include "field_player_avatar.h"
 #include "fieldmap.h"
 #include "main.h"
 #include "metatile_behavior.h"
 #include "overworld.h"
+#include "palette.h"
 #include "quest_log.h"
+#include "rtc.h"
 #include "script.h"
 #include "task.h"
 #include "constants/field_tasks.h"
@@ -80,18 +83,24 @@ static void Task_RunPerStepCallback(u8 taskId)
 // Taken from Emerald and adapted to FRLG engine.
 static void RunTimeBasedEvents(s16 *data)
 {
-    u16 varval;
+    u16 frames = gSaveBlock2Ptr->playTimeVBlanks;
+    u8 prevHours, currHours;
     switch (tTimeState)
     {
     case 0:
-        if (gSaveBlock2Ptr->playTimeVBlanks > 30)
+        if (frames > 30)
         {
+            prevHours = gLocalTime.hours;
             DoTimeBasedEvents();
+            currHours = gLocalTime.hours;
+            if (currHours != prevHours) {
+                UpdateOverworldLighting();
+            }
             tTimeState++;
         }
         break;
     case 1:
-        if (!(gSaveBlock2Ptr->playTimeVBlanks > 30))
+        if (!(frames > 30))
             tTimeState--;
         break;
     }
@@ -103,9 +112,10 @@ static void Task_RunTimeBasedEvents(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
 
-    if (!ArePlayerFieldControlsLocked() && !QL_IS_PLAYBACK_STATE)
+    if (!QL_IS_PLAYBACK_STATE) {
         RunTimeBasedEvents(data);
-        UpdateAmbientCry(&tAmbientCryState, &tAmbientCryDelay);
+        if(!ArePlayerFieldControlsLocked()) UpdateAmbientCry(&tAmbientCryState, &tAmbientCryDelay);
+    }
 }
 
 void SetUpFieldTasks(void)

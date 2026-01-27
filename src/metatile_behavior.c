@@ -8,7 +8,6 @@ static const bool8 sBehaviorSurfable[NUM_METATILE_BEHAVIORS] = {
     [MB_DEEP_WATER]         = TRUE,
     [MB_WATERFALL]          = TRUE,
     [MB_OCEAN_WATER]        = TRUE,
-    [MB_UNUSED_WATER]       = TRUE,
     [MB_CYCLING_ROAD_WATER] = TRUE,
     [MB_EASTWARD_CURRENT]   = TRUE,
     [MB_WESTWARD_CURRENT]   = TRUE,
@@ -91,7 +90,6 @@ bool8 MetatileBehavior_IsReflective(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_POND_WATER
      || metatileBehavior == MB_PUDDLE
-     || metatileBehavior == MB_UNUSED_WATER
      || metatileBehavior == MB_CYCLING_ROAD_WATER
      || metatileBehavior == MB_ICE)
         return TRUE;
@@ -524,9 +522,9 @@ bool8 MetatileBehavior_IsDeepWaterTerrain(u8 metatileBehavior)
         return FALSE;
 }
 
-bool8 MetatileBehavior_IsUnusedWater(u8 metatileBehavior)
+bool8 MetatileBehavior_IsNightLamp(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_UNUSED_WATER)
+    if (metatileBehavior == MB_NIGHT_LAMP)
         return TRUE;
     else
         return FALSE;

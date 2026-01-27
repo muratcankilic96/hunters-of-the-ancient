@@ -1,5 +1,6 @@
 #include "global.h"
 #include "gflib.h"
+#include "field_day_night.h"
 #include "overworld.h"
 #include "script.h"
 #include "new_menu_helpers.h"
@@ -893,16 +894,19 @@ static void LoadTilesetPalette(struct Tileset const *tileset, u16 destOffset, u1
             LoadPalette(&black, destOffset, PLTT_SIZEOF(1));
             LoadPalette(tileset->palettes[0] + 1, destOffset + 1, size - PLTT_SIZEOF(1));
             ApplyGlobalTintToPaletteEntries(destOffset + 1, (size - 2) >> 1);
+            if (gGlobalFieldTintMode == QL_TINT_NONE) SetTilesetLightingForTimeOfDay(&gPlttBufferUnfaded[destOffset + 1], (size - 2) >> 1);
         }
         else if (tileset->isSecondary == TRUE)
         {
             LoadPalette(tileset->palettes[NUM_PALS_IN_PRIMARY], destOffset, size);
             ApplyGlobalTintToPaletteEntries(destOffset, size >> 1);
+            if (gGlobalFieldTintMode == QL_TINT_NONE) SetTilesetLightingForTimeOfDay(&gPlttBufferUnfaded[destOffset], size >> 1);
         }
         else
         {
             LoadCompressedPalette((const u32 *)tileset->palettes, destOffset, size);
             ApplyGlobalTintToPaletteEntries(destOffset, size >> 1);
+            if (gGlobalFieldTintMode == QL_TINT_NONE) SetTilesetLightingForTimeOfDay(&gPlttBufferUnfaded[destOffset], size >> 1);
         }
     }
 }

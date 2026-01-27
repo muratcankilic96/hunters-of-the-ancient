@@ -846,8 +846,9 @@ u32 FldEff_UnusedSand(void)
     return 0;
 }
 
-u32 FldEff_UnusedWaterSurfacing(void)
+u32 FldEff_NightLampOn(void)
 {
+    /*
     u8 spriteId;
     struct Sprite *sprite;
 
@@ -860,6 +861,7 @@ u32 FldEff_UnusedWaterSurfacing(void)
         sprite->oam.priority = gFieldEffectArguments[3];
         sprite->data[0] = FLDEFF_UNUSED_WATER_SURFACING;
     }
+    */
     return 0;
 }
 
