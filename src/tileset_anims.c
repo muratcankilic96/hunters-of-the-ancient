@@ -1,4 +1,6 @@
 #include "global.h"
+#include "field_day_night.h"
+#include "quest_log.h"
 
 static EWRAM_DATA struct {
     const u16 *src;
@@ -51,6 +53,18 @@ static const u16 *const sTilesetAnims_General_Water_Current_LandWatersEdge[] = {
     sTilesetAnims_General_Water_Current_LandWatersEdge_Frame5,
     sTilesetAnims_General_Water_Current_LandWatersEdge_Frame6,
     sTilesetAnims_General_Water_Current_LandWatersEdge_Frame7
+};
+
+// palette: general 04
+static const u16 sTilesetAnims_General_NightLamp_Window1_North_Frame0[] = INCBIN_U16("data/tilesets/primary/general/anim/night_lamp/window1_north/0.4bpp");
+static const u16 sTilesetAnims_General_NightLamp_Window1_South_Frame0[] = INCBIN_U16("data/tilesets/primary/general/anim/night_lamp/window1_south/0.4bpp");
+
+static const u16 *const sTilesetAnims_General_NightLamp_Window1_North[] = {
+    sTilesetAnims_General_NightLamp_Window1_North_Frame0,
+};
+
+static const u16 *const sTilesetAnims_General_NightLamp_Window1_South[] = {
+    sTilesetAnims_General_NightLamp_Window1_South_Frame0,
 };
 
 // palette: general 04
@@ -220,14 +234,24 @@ static void QueueAnimTiles_General_SandWatersEdge(u16 timer)
     AppendTilesetAnimToBuffer(sTilesetAnims_General_SandWatersEdge[timer % ARRAY_COUNT(sTilesetAnims_General_SandWatersEdge)], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(464)), 18 * TILE_SIZE_4BPP);
 }
 
+static void QueueAnimTiles_General_NightLamp(u16 timer)
+{
+    AppendTilesetAnimToBuffer(sTilesetAnims_General_NightLamp_Window1_North[timer % ARRAY_COUNT(sTilesetAnims_General_NightLamp_Window1_North)], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(271)), 1 * TILE_SIZE_4BPP);
+    AppendTilesetAnimToBuffer(sTilesetAnims_General_NightLamp_Window1_South[timer % ARRAY_COUNT(sTilesetAnims_General_NightLamp_Window1_South)], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(287)), 1 * TILE_SIZE_4BPP);
+}
+
 static void TilesetAnim_General(u16 timer)
 {
+    u8 timeOfDay = GetTimeOfDay();
     if (timer % 8 == 0)
         QueueAnimTiles_General_SandWatersEdge(timer / 8);
     if (timer % 16 == 1)
         QueueAnimTiles_General_Water_Current_LandWatersEdge(timer / 16);
     if (timer % 16 == 2)
         QueueAnimTiles_General_Flower(timer / 16);
+    if ((timeOfDay == TIME_OF_DAY_NIGHT || timeOfDay == TIME_OF_DAY_EVENING) && gQuestLogState < QL_STATE_RECORDING) {
+        QueueAnimTiles_General_NightLamp(timer / 256);
+    }
 }
 
 void InitTilesetAnim_General(void)

@@ -36,13 +36,13 @@ void SetTimeOfDay(u8 timeOfDay) {
 }
 
 void UpdateTimeOfDayByCurrentHour(u8 hours) {
-    if (hours < 4 || hours >= 20) {
+    if (hours < 6) {
         SetTimeOfDay(TIME_OF_DAY_NIGHT);
-    } else if (hours >= 4 && hours < 8) {
+    } else if (hours >= 6 && hours < 8) {
         SetTimeOfDay(TIME_OF_DAY_EARLY_MORNING);
     } else if (hours >= 8 && hours < 12) {
         SetTimeOfDay(TIME_OF_DAY_MORNING);
-    } else if (hours >= 12 && hours < 16) {
+    } else if (hours >= 12 && hours < 18) {
         SetTimeOfDay(TIME_OF_DAY_DAY);
     } else {
         SetTimeOfDay(TIME_OF_DAY_EVENING);
@@ -81,6 +81,8 @@ void UpdateOverworldLighting(void) {
     InitObjectEventPalettes(0);
     UpdateObjectEventLighting();
     UpdateTilesetLighting();
+    CopyPrimaryTilesetToVram(gMapHeader.mapLayout);
+    CopySecondaryTilesetToVram(gMapHeader.mapLayout);
 }
 
 void UpdateObjectEventLighting(void) {
