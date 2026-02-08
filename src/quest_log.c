@@ -1250,12 +1250,13 @@ static bool8 RestoreScreenAfterPlayback(u8 taskId)
 
     if (tTimer > 15)
         return TRUE;
+    else if (tTimer == 0) {
+        UpdateTilesetLighting_ExitingFromQuestLog();
+        UpdateObjectEventLighting_ExitingFromQuestLog();
+    }
 
-    UpdateTilesetLighting_ExitingFromQuestLog();
-    UpdateObjectEventLighting_ExitingFromQuestLog();
-
-    CopyPaletteInvertedTint(&gPlttBufferUnfaded[BG_PLTT_ID(0) + 1], &gPlttBufferFaded[BG_PLTT_ID(0) + 1], 0xDF, 15 - tTimer);
-    CopyPaletteInvertedTint(&gPlttBufferUnfaded[OBJ_PLTT_ID(0)], &gPlttBufferFaded[OBJ_PLTT_ID(0)], 0x100, 15 - tTimer);
+    CopyPaletteInvertedTint(&gPlttBufferUnfaded[BG_PLTT_ID(0) + 1], &gPlttBufferFaded[BG_PLTT_ID(0) + 1], 0xDF, tTimer);
+    CopyPaletteInvertedTint(&gPlttBufferUnfaded[OBJ_PLTT_ID(0)], &gPlttBufferFaded[OBJ_PLTT_ID(0)], 0x100, tTimer);
     FillWindowPixelRect(sWindowIds[WIN_TOP_BAR],
                         0x00, 0,
                         sWindowTemplates[WIN_TOP_BAR].height * 8 - 1 - tTimer,

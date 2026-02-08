@@ -96,8 +96,6 @@ void UpdateTilesetLighting(void) {
 void UpdateTilesetLighting_ExitingFromQuestLog(void) {
     SetTilesetLightingForTimeOfDay(&gPlttBufferUnfaded[primaryTilesetId], primaryTilesetSize);
     SetTilesetLightingForTimeOfDay(&gPlttBufferUnfaded[secondaryTilesetId], secondaryTilesetSize);
-    //TintPalette_GrayScale(&gPlttBufferFaded[primaryTilesetId], primaryTilesetSize);
-    //TintPalette_GrayScale(&gPlttBufferFaded[secondaryTilesetId], secondaryTilesetSize);
 }
 
 void UpdateObjectEventLighting_ExitingFromQuestLog(void) {

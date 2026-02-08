@@ -1,6 +1,7 @@
 #include "global.h"
 #include "gflib.h"
 #include "util.h"
+#include "math_util.h"
 #include "decompress.h"
 #include "task.h"
 
@@ -873,12 +874,14 @@ void TintPalette_CustomTone(u16 *palette, u16 count, u16 rTone, u16 gTone, u16 b
     }
 }
 
+#define MAX_TONE 15
+
 void CopyPaletteInvertedTint(const u16 *src, u16 *dst, u16 count, u8 tone)
 {
-    s32 r, g, b, i;
-    u32 gray;
+    s32 i, rSrc, gSrc, bSrc, rDst, gDst, bDst, rDiff, gDiff, bDiff;
+    s16 toneRatio;
 
-    if (!tone)
+    if (tone >= MAX_TONE)
     {
         for (i = 0; i < count; i++)
             *dst++ = *src++;
@@ -887,14 +890,20 @@ void CopyPaletteInvertedTint(const u16 *src, u16 *dst, u16 count, u8 tone)
     {
         for (i = 0; i < count; src++, dst++, i++)
         {
-            r = GET_R(*src);
-            g = GET_G(*src);
-            b = GET_B(*src);
-            gray = (r * Q_8_8(0.3) + g * Q_8_8(0.59) + b * Q_8_8(0.1133)) >> 8;
-            r += (tone * (gray - r) >> 4);
-            g += (tone * (gray - g) >> 4);
-            b += (tone * (gray - b) >> 4);
-            *dst = RGB2(r, g, b);
+            rSrc = Q_8_8(GET_R(*src));
+            gSrc = Q_8_8(GET_G(*src));
+            bSrc = Q_8_8(GET_B(*src));
+            rDst = Q_8_8(GET_R(*dst));
+            gDst = Q_8_8(GET_G(*dst));
+            bDst = Q_8_8(GET_B(*dst));
+            toneRatio = Q_8_8_mul(Q_8_8(tone), Q_8_8_inv(Q_8_8(MAX_TONE)));
+            rDiff = Q_8_8_mul((rSrc - rDst), toneRatio);
+            gDiff = Q_8_8_mul((gSrc - gDst), toneRatio);
+            bDiff = Q_8_8_mul((bSrc - bDst), toneRatio);
+            rDst += rDiff;
+            gDst += gDiff;
+            bDst += bDiff;
+            *dst = RGB2(rDst >> 8, gDst >> 8, bDst >> 8);
         }
     }
 }
