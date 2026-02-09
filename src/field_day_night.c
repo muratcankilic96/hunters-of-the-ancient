@@ -35,6 +35,10 @@ void SetTimeOfDay(u8 timeOfDay) {
     gTimeOfDay = timeOfDay;
 }
 
+bool8 IsEveningOrNight(void) {
+    return gTimeOfDay == TIME_OF_DAY_EVENING || gTimeOfDay == TIME_OF_DAY_NIGHT;
+}
+
 void UpdateTimeOfDayByCurrentHour(u8 hours) {
     if (hours < 6) {
         SetTimeOfDay(TIME_OF_DAY_NIGHT);

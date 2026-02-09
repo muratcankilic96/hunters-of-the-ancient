@@ -11,6 +11,7 @@
 
 u8 GetTimeOfDay(void);
 void SetTimeOfDay(u8);
+bool8 IsEveningOrNight(void);
 void UpdateTimeOfDayByCurrentHour(u8);
 void SetObjectEventLightingForTimeOfDay(u16 *);
 void SetTilesetLightingForTimeOfDay(u16 *, u16);
