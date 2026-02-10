@@ -12,7 +12,7 @@ static const u8 *const gTeamRocketRankStringPtrs[TEAM_ROCKET_RANK_COUNT] = {
     [TEAM_ROCKET_RANK_AGENT] = gTeamRocketRankString_Agent,
     [TEAM_ROCKET_RANK_OFFICER] = gTeamRocketRankString_Officer,
     [TEAM_ROCKET_RANK_EXECUTIVE] = gTeamRocketRankString_Executive,
-    [TEAM_ROCKET_RANK_BOSS] = gTeamRocketRankString_Boss
+    [TEAM_ROCKET_RANK_UNDERBOSS] = gTeamRocketRankString_Underboss
 };
 
 static const u8 gTeamRocketRankString_Unregistered[] = _("-");
@@ -21,7 +21,7 @@ static const u8 gTeamRocketRankString_Member[] = _("MEMBER");
 static const u8 gTeamRocketRankString_Agent[] = _("AGENT");
 static const u8 gTeamRocketRankString_Officer[] = _("OFFICER");
 static const u8 gTeamRocketRankString_Executive[] = _("EXECUTIVE");
-static const u8 gTeamRocketRankString_Boss[] = _("BOSS");
+static const u8 gTeamRocketRankString_Underboss[] = _("UNDERBOSS");
 
 u8 *GetTeamRocketRankString(u8 *dst0) {
     u8 rankId = VarGet(VAR_TEAM_ROCKET_RANK);

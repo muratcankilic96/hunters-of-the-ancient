@@ -1,6 +1,7 @@
 #include "global.h"
 #include "field_day_night.h"
 #include "quest_log.h"
+#include "overworld.h"
 
 static EWRAM_DATA struct {
     const u16 *src;
@@ -8,6 +9,8 @@ static EWRAM_DATA struct {
     u16 size;
 } sTilesetDMA3TransferBuffer[20] = {0};
 
+static bool8 sLightsOn_PrimaryTileset;
+static bool8 sLightsOn_SecondaryTileset;
 static u8 sTilesetDMA3TransferBufferSize;
 static u16 sPrimaryTilesetAnimCounter;
 static u16 sPrimaryTilesetAnimCounterMax;
@@ -16,6 +19,7 @@ static u16 sSecondaryTilesetAnimCounterMax;
 static void (*sPrimaryTilesetAnimCallback)(u16);
 static void (*sSecondaryTilesetAnimCallback)(u16);
 
+static void ResetNightLamps(void);
 static void _InitPrimaryTilesetAnimation(void);
 static void _InitSecondaryTilesetAnimation(void);
 
@@ -95,6 +99,13 @@ static const u16 *const sTilesetAnims_General_SandWatersEdge[] = {
     sTilesetAnims_General_SandWatersEdge_Frame7
 };
 
+// palette: general 08
+static const u16 sTilesetAnims_PalletTown_NightLamp_Door1_Frame0[] = INCBIN_U16("data/tilesets/secondary/pallet_town/anim/night_lamp/door_1/0.4bpp");
+
+static const u16 *const sTilesetAnims_PalletTown_NightLamp_Door1[] = {
+    sTilesetAnims_PalletTown_NightLamp_Door1_Frame0,
+};
+
 // palette: general 00
 static const u16 sTilesetAnims_CeladonCity_Fountain_Frame0[] = INCBIN_U16("data/tilesets/secondary/celadon_city/anim/fountain/0.4bpp");
 static const u16 sTilesetAnims_CeladonCity_Fountain_Frame1[] = INCBIN_U16("data/tilesets/secondary/celadon_city/anim/fountain/1.4bpp");
@@ -110,7 +121,6 @@ static const u16 *const sTilesetAnims_CeladonCity_Fountain[] = {
     sTilesetAnims_CeladonCity_Fountain_Frame3,
     sTilesetAnims_CeladonCity_Fountain_Frame4
 };
-
 static const u16 sTilesetAnims_SilphCo_Fountain_Frame0[] = INCBIN_U16("data/tilesets/secondary/silph_co/anim/fountain/0.4bpp");
 static const u16 sTilesetAnims_SilphCo_Fountain_Frame1[] = INCBIN_U16("data/tilesets/secondary/silph_co/anim/fountain/1.4bpp");
 static const u16 sTilesetAnims_SilphCo_Fountain_Frame2[] = INCBIN_U16("data/tilesets/secondary/silph_co/anim/fountain/2.4bpp");
@@ -157,8 +167,15 @@ static const u16 *const sTilesetAnims_CeladonGym_Flowers[] = {
 
 static void ResetTilesetAnimBuffer(void)
 {
+    ResetNightLamps();
     sTilesetDMA3TransferBufferSize = 0;
     CpuFill32(0, sTilesetDMA3TransferBuffer, sizeof sTilesetDMA3TransferBuffer);
+}
+
+static void ResetNightLamps(void) 
+{
+    sLightsOn_PrimaryTileset = FALSE;
+    sLightsOn_SecondaryTileset = FALSE;
 }
 
 static void AppendTilesetAnimToBuffer(const u16 *src, u16 *dest, u16 size)
@@ -260,8 +277,9 @@ static void TilesetAnim_General(u16 timer)
         QueueAnimTiles_General_Water_Current_LandWatersEdge(timer / 16);
     if (timer % 16 == 2)
         QueueAnimTiles_General_Flower(timer / 16);
-    if (IsEveningOrNight() && gQuestLogState < QL_STATE_RECORDING) {
-        QueueAnimTiles_General_NightLamp(timer / 256);
+    if (IsEveningOrNight() && !sLightsOn_PrimaryTileset && gGlobalFieldTintMode == QL_TINT_NONE) {
+        sLightsOn_PrimaryTileset = TRUE;
+        QueueAnimTiles_General_NightLamp(timer);
     }
 }
 
@@ -270,6 +288,28 @@ void InitTilesetAnim_General(void)
     sPrimaryTilesetAnimCounter = 0;
     sPrimaryTilesetAnimCounterMax = 640;
     sPrimaryTilesetAnimCallback = TilesetAnim_General;
+}
+
+static void QueueAnimTiles_PalletTown_NightLamp(u16 timer)
+{
+    // Door 1
+    AppendTilesetAnimToBuffer(sTilesetAnims_PalletTown_NightLamp_Door1[timer % ARRAY_COUNT(sTilesetAnims_PalletTown_NightLamp_Door1)], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(716)), 2 * TILE_SIZE_4BPP);
+}
+
+
+static void TilesetAnim_PalletTown(u16 timer)
+{
+    if (IsEveningOrNight() && !sLightsOn_SecondaryTileset && gGlobalFieldTintMode == QL_TINT_NONE) {
+        sLightsOn_SecondaryTileset = TRUE;
+        QueueAnimTiles_PalletTown_NightLamp(timer);
+    }
+}
+
+void InitTilesetAnim_PalletTown(void)
+{
+    sSecondaryTilesetAnimCounter = 0;
+    sSecondaryTilesetAnimCounterMax = 120;
+    sSecondaryTilesetAnimCallback = TilesetAnim_PalletTown;
 }
 
 static void QueueAnimTiles_CeladonCity_Fountain(u16 timer)

@@ -10,6 +10,7 @@
 #include "fieldmap.h"
 #include "main.h"
 #include "metatile_behavior.h"
+#include "new_menu_helpers.h"
 #include "overworld.h"
 #include "palette.h"
 #include "quest_log.h"
@@ -84,24 +85,24 @@ static void Task_RunPerStepCallback(u8 taskId)
 static void RunTimeBasedEvents(s16 *data)
 {
     u16 frames = gSaveBlock2Ptr->playTimeVBlanks;
-    u8 prevHours, currHours;
+    u8 prevTimeOfDay, currTimeOfDay;
     switch (tTimeState)
     {
     case 0:
-        if (frames > 30)
-        {
-            prevHours = gLocalTime.hours;
-            DoTimeBasedEvents();
-            currHours = gLocalTime.hours;
-            if (currHours != prevHours) {
-                UpdateOverworldLighting();
-            }
+        prevTimeOfDay = GetTimeOfDay();
+        DoTimeBasedEvents();
+        currTimeOfDay = GetTimeOfDay();
+        if (currTimeOfDay != prevTimeOfDay) {
+            UpdateOverworldLighting();
             tTimeState++;
         }
         break;
     case 1:
-        if (!(frames > 30))
+        if (FreeTempTileDataBuffersIfPossible() != TRUE)
+        {
+            VarSet(VAR_TEAM_ROCKET_RANK, 3);
             tTimeState--;
+        }
         break;
     }
 }

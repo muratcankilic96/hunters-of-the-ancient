@@ -50,6 +50,7 @@ u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 u
     u16 nationalDexNum;
     int sentToPc;
     u8 heldItem[2];
+
     struct Pokemon *mon = AllocZeroed(sizeof(struct Pokemon));
 
     CreateMon(mon, species, level, 32, 0, 0, OT_ID_PLAYER_ID, 0);

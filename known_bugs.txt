@@ -1,3 +1,6 @@
+Major:
+1. Day/night shifts might lock the game upon opening menu or immediately. This issue seemingly triggers randomly.
+
 Minor:
 1. The fainting screen text bumps slightly.
 2. Grass wandering effect has wrong palette.

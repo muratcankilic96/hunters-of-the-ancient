@@ -7,8 +7,6 @@
 #include "blend_palette.h"
 #include "palette.h"
 
-#include "event_data.h" //DEBUG
-
 EWRAM_DATA u8 gTimeOfDay = 0;
 
 static u16 const sLightingPaletteBlends[] = {

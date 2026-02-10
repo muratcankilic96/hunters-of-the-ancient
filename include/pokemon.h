@@ -72,7 +72,7 @@ struct PokemonSubstruct3
  /* 0x0A */ u32 countryRibbon:1;            // Distributed during Pokémon Festa '04 and '05 to tournament winners.
  /* 0x0B */ u32 nationalRibbon:1;           // Given to purified Shadow Pokémon in Colosseum/XD.
  /* 0x0B */ u32 earthRibbon:1;              // Given to teams that have beaten Mt. Battle's 100-battle challenge in Colosseum/XD.
- /* 0x0B */ u32 worldRibbon:1;              // Distributed during Pokémon Festa '04 and '05 to tournament winners.
+ /* 0x0B */ u32 isStolen:1;                 // Checks stolen status.
  /* 0x0B */ u32 unusedRibbons:4;            // Discarded in Gen 4.
 
  // The functionality of this bit changed in FRLG:
@@ -368,6 +368,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
 bool8 PokemonItemUseNoEffect(struct Pokemon *mon, u16 item, u8 partyIndex, u8 moveIndex);
 u8 GetItemEffectParamOffset(u16 itemId, u8 effectByte, u8 effectBit);
 const u8 *Battle_PrintStatBoosterEffectMessage(u16 itemId);
+u8 GetStolenStatus(struct Pokemon *mon);
 u8 GetNature(struct Pokemon *mon);
 u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem);
 u16 NationalPokedexNumToSpecies(u16 nationalNum);

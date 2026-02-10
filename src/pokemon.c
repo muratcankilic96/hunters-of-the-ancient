@@ -3234,8 +3234,8 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
     case MON_DATA_EARTH_RIBBON:
         retVal = substruct3->earthRibbon;
         break;
-    case MON_DATA_WORLD_RIBBON:
-        retVal = substruct3->worldRibbon;
+    case MON_DATA_IS_STOLEN:
+        retVal = substruct3->isStolen;
         break;
     case MON_DATA_UNUSED_RIBBONS:
         retVal = substruct3->unusedRibbons;
@@ -3294,7 +3294,6 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
             retVal += substruct3->countryRibbon;
             retVal += substruct3->nationalRibbon;
             retVal += substruct3->earthRibbon;
-            retVal += substruct3->worldRibbon;
         }
         break;
     case MON_DATA_RIBBONS:
@@ -3316,8 +3315,7 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
                 | (substruct3->skyRibbon << 22)
                 | (substruct3->countryRibbon << 23)
                 | (substruct3->nationalRibbon << 24)
-                | (substruct3->earthRibbon << 25)
-                | (substruct3->worldRibbon << 26);
+                | (substruct3->earthRibbon << 25);
         }
         break;
     default:
@@ -3392,7 +3390,7 @@ void SetMonData(struct Pokemon *mon, s32 field, const void *dataArg)
     case MON_DATA_COUNTRY_RIBBON:
     case MON_DATA_NATIONAL_RIBBON:
     case MON_DATA_EARTH_RIBBON:
-    case MON_DATA_WORLD_RIBBON:
+    case MON_DATA_IS_STOLEN:
     case MON_DATA_UNUSED_RIBBONS:
     case MON_DATA_MODERN_FATEFUL_ENCOUNTER:
     case MON_DATA_KNOWN_MOVES:
@@ -3644,8 +3642,8 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
     case MON_DATA_EARTH_RIBBON:
         SET8(substruct3->earthRibbon);
         break;
-    case MON_DATA_WORLD_RIBBON:
-        SET8(substruct3->worldRibbon);
+    case MON_DATA_IS_STOLEN:
+        SET8(substruct3->isStolen);
         break;
     case MON_DATA_UNUSED_RIBBONS:
         SET8(substruct3->unusedRibbons);
@@ -3687,10 +3685,18 @@ void CopyMon(void *dest, void *src, size_t size)
 u8 GiveMonToPlayer(struct Pokemon *mon)
 {
     s32 i;
+    // DEBUG START
+    /**/bool8 stolen = TRUE;
+    /**/u8 originalTrainer[] = _("UR MOM");
+    // DEBUG END
 
     SetMonData(mon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
     SetMonData(mon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
-    SetMonData(mon, MON_DATA_OT_ID, gSaveBlock2Ptr->playerTrainerId);
+    //SetMonData(mon, MON_DATA_OT_ID, gSaveBlock2Ptr->playerTrainerId);
+    // DEBUG START
+    /**/SetMonData(mon, MON_DATA_IS_STOLEN, &stolen);
+    /**/SetMonData(mon, MON_DATA_OT_NAME, &originalTrainer);
+    // DEBUG END
 
     for (i = 0; i < PARTY_SIZE; i++)
     {
@@ -5016,6 +5022,11 @@ const u8 *Battle_PrintStatBoosterEffectMessage(u16 itemId)
 u8 GetNature(struct Pokemon *mon)
 {
     return GetMonData(mon, MON_DATA_PERSONALITY, NULL) % NUM_NATURES;
+}
+
+bool8 GetStolenStatus(struct Pokemon *mon)
+{
+    return GetMonData(mon, MON_DATA_IS_STOLEN, NULL);
 }
 
 static u8 GetNatureFromPersonality(u32 personality)
