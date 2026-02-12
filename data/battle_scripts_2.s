@@ -89,6 +89,25 @@ BattleScript_CaughtPokemonSkipNewDex::
 	printfromtable gCaughtMonStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_CaughtPokemonDone
+	
+BattleScript_SuccessStealing::
+	incrementgamestat GAME_STAT_POKEMON_STOLEN
+	printstring STRINGID_GOTCHAPKMNSTOLEN
+	trysetcaughtmondexflags BattleScript_StolenPokemonSkipNewDex
+	printstring STRINGID_PKMNDATAADDEDTODEX
+	waitstate
+	setbyte gBattleCommunication, 0
+	displaydexinfo
+BattleScript_StolenPokemonSkipNewDex::
+	waitstate
+	setbyte gBattleCommunication, 4
+	trygivecaughtmonnick BattleScript_KeepNicknameSameWithOt
+BattleScript_KeepNicknameSameWithOt::
+	givestolenmon
+	printfromtable gCaughtMonStringIds
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
+	goto BattleScript_HandleFaintedMon
 
 BattleScript_CaughtPokemonSkipNickname::
 	givecaughtmon
@@ -117,7 +136,21 @@ BattleScript_TrainerBallBlock::
 	waitmessage B_WAIT_TIME_LONG
 	printstring STRINGID_TRAINERBLOCKEDBALL
 	waitmessage B_WAIT_TIME_LONG
-	printstring STRINGID_DONTBEATHIEF
+	jumpifbyte CMP_NOT_EQUAL, gDailyStolenPokemon, 0, BattleScript_TrainerBallBlock_AboveDailyCap
+	printstring STRINGID_YOUAREUNQUALIFIED
+	waitmessage B_WAIT_TIME_LONG
+	finishaction
+
+BattleScript_TrainerBallBlock_DoubleBattle::
+	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_TRAINERBLOCKEDBALL
+	waitmessage B_WAIT_TIME_LONG
+	printstring STRINGID_TOOMANYPEOPLE
+	waitmessage B_WAIT_TIME_LONG
+	finishaction
+
+BattleScript_TrainerBallBlock_AboveDailyCap::
+	printstring STRINGID_YOUARETIRED
 	waitmessage B_WAIT_TIME_LONG
 	finishaction
 

@@ -9,7 +9,8 @@
 
 EWRAM_DATA u8 gTimeOfDay = 0;
 
-static u16 const sLightingPaletteBlends[] = {
+static u16 const sLightingPaletteBlends[] =
+{
     RGB(30, 10, 2),
     RGB(30, 30, 0),
     RGB(0, 0, 0),
@@ -25,19 +26,23 @@ static const u8 secondaryTilesetId = BG_PLTT_ID(NUM_PALS_IN_PRIMARY) + 1;
 static const u8 primaryTilesetSize = (NUM_PALS_IN_PRIMARY * PLTT_SIZE_4BPP - 2) >> 1;
 static const u8 secondaryTilesetSize = ((NUM_PALS_TOTAL - NUM_PALS_IN_PRIMARY) * PLTT_SIZE_4BPP - 2) >> 1;
 
-u8 GetTimeOfDay(void) {
+u8 GetTimeOfDay(void)
+{
     return gTimeOfDay;
 }
 
-void SetTimeOfDay(u8 timeOfDay) {
+void SetTimeOfDay(u8 timeOfDay)
+{
     gTimeOfDay = timeOfDay;
 }
 
-bool8 IsEveningOrNight(void) {
+bool8 IsEveningOrNight(void)
+{
     return gTimeOfDay == TIME_OF_DAY_EVENING || gTimeOfDay == TIME_OF_DAY_NIGHT;
 }
 
-void UpdateTimeOfDayByCurrentHour(u8 hours) {
+void UpdateTimeOfDayByCurrentHour(u8 hours)
+{
     if (hours < 6) {
         SetTimeOfDay(TIME_OF_DAY_NIGHT);
     } else if (hours >= 6 && hours < 8) {
@@ -71,14 +76,16 @@ void SetTilesetLightingForTimeOfDay(u16 *palette, u16 count)
     if (isOutdoors) UpdateTilesetPalettesByLighting(timeOfDay, palette, count);
 }
 
-void SetObjectEventLightingForTimeOfDay(u16 *buffer) {
+void SetObjectEventLightingForTimeOfDay(u16 *buffer)
+{
     u8 timeOfDay = GetTimeOfDay();
     bool8 isOutdoors = IsMapTypeOutdoors(gMapHeader.mapType);
 
     if (isOutdoors) UpdateObjectEventPalettesByLighting(timeOfDay, buffer);
 }
 
-void UpdateOverworldLighting(void) {
+void UpdateOverworldLighting(void)
+{
     LoadMapTilesetPalettes(gMapHeader.mapLayout);
     InitObjectEventPalettes(0);
     UpdateObjectEventLighting();
@@ -87,21 +94,25 @@ void UpdateOverworldLighting(void) {
     CopySecondaryTilesetToVram(gMapHeader.mapLayout);
 }
 
-void UpdateObjectEventLighting(void) {
+void UpdateObjectEventLighting(void)
+{
     SetObjectEventLightingForTimeOfDay(gPlttBufferFaded);
     SetObjectEventLightingForTimeOfDay(gPlttBufferUnfaded);
 }
 
-void UpdateTilesetLighting(void) {
+void UpdateTilesetLighting(void)
+{
     SetTilesetLightingForTimeOfDay(&gPlttBufferFaded[primaryTilesetId], primaryTilesetSize);
     SetTilesetLightingForTimeOfDay(&gPlttBufferFaded[secondaryTilesetId], secondaryTilesetSize);
 }
 
-void UpdateTilesetLighting_ExitingFromQuestLog(void) {
+void UpdateTilesetLighting_ExitingFromQuestLog(void)
+{
     SetTilesetLightingForTimeOfDay(&gPlttBufferUnfaded[primaryTilesetId], primaryTilesetSize);
     SetTilesetLightingForTimeOfDay(&gPlttBufferUnfaded[secondaryTilesetId], secondaryTilesetSize);
 }
 
-void UpdateObjectEventLighting_ExitingFromQuestLog(void) {
+void UpdateObjectEventLighting_ExitingFromQuestLog(void)
+{
     SetObjectEventLightingForTimeOfDay(gPlttBufferUnfaded);
 }

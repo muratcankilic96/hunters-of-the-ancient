@@ -1,5 +1,6 @@
 #include "global.h"
 #include "gflib.h"
+#include "event_data.h"
 #include "item.h"
 #include "util.h"
 #include "random.h"
@@ -24,8 +25,10 @@
 #include "battle_ai_script_commands.h"
 #include "battle_scripts.h"
 #include "reshow_battle_screen.h"
+#include "team_rocket_rank.h"
 #include "battle_controllers.h"
 #include "battle_interface.h"
+#include "item_menu.h"
 #include "constants/battle_anim.h"
 #include "constants/battle_move_effects.h"
 #include "constants/battle_script_commands.h"
@@ -308,6 +311,7 @@ static void Cmd_subattackerhpbydmg(void);
 static void Cmd_removeattackerstatus1(void);
 static void Cmd_finishaction(void);
 static void Cmd_finishturn(void);
+static void Cmd_givestolenmon(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -559,6 +563,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_removeattackerstatus1,                   //0xF5
     Cmd_finishaction,                            //0xF6
     Cmd_finishturn,                              //0xF7
+    Cmd_givestolenmon                            //0xF8
 };
 
 struct StatFractions
@@ -9460,6 +9465,29 @@ static void Cmd_removelightscreenreflect(void)
     gBattlescriptCurrInstr++;
 }
 
+static bool8 IsAboveStolenPokemonCap() {
+    u8 cap;
+
+    switch (VarGet(VAR_TEAM_ROCKET_RANK)) {
+        case TEAM_ROCKET_RANK_UNREGISTERED:
+        case TEAM_ROCKET_RANK_RECRUIT:
+            cap = 0;
+            break;
+        case TEAM_ROCKET_RANK_MEMBER:
+            cap = 1;
+            break;
+        case TEAM_ROCKET_RANK_AGENT:
+        case TEAM_ROCKET_RANK_OFFICER:
+            cap = 2;
+            break;
+        case TEAM_ROCKET_RANK_EXECUTIVE:
+        case TEAM_ROCKET_RANK_UNDERBOSS:
+            cap = 3;
+            break;
+    }
+    return gSaveBlock2Ptr->dailyPokemonStolen >= cap;
+}
+
 static void Cmd_handleballthrow(void)
 {
     u8 ballMultiplier = 0;
@@ -9476,8 +9504,15 @@ static void Cmd_handleballthrow(void)
         MarkBattlerForControllerExec(gActiveBattler);
         gBattlescriptCurrInstr = BattleScript_GhostBallDodge;
     }
-    else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+    else if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
     {
+        BtlController_EmitBallThrowAnim(BUFFER_A, BALL_TRAINER_BLOCK);
+        MarkBattlerForControllerExec(gActiveBattler);
+        gBattlescriptCurrInstr = BattleScript_TrainerBallBlock_DoubleBattle;
+    }
+    else if ((VarGet(VAR_TEAM_ROCKET_RANK) < TEAM_ROCKET_RANK_MEMBER || IsAboveStolenPokemonCap()) && gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+    {
+        gDailyStolenPokemon = gSaveBlock2Ptr->dailyPokemonStolen;
         BtlController_EmitBallThrowAnim(BUFFER_A, BALL_TRAINER_BLOCK);
         MarkBattlerForControllerExec(gActiveBattler);
         gBattlescriptCurrInstr = BattleScript_TrainerBallBlock;
@@ -9572,7 +9607,13 @@ static void Cmd_handleballthrow(void)
         {
             BtlController_EmitBallThrowAnim(BUFFER_A, BALL_3_SHAKES_SUCCESS);
             MarkBattlerForControllerExec(gActiveBattler);
-            gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
+            if (gBattleTypeFlags & BATTLE_TYPE_TRAINER) {
+                gSaveBlock2Ptr->dailyPokemonStolen++;
+                gBattlescriptCurrInstr = BattleScript_SuccessStealing;
+            }
+            else {
+                gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
+            }
             SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_POKEBALL, &gLastUsedItem);
 
             if (CalculatePlayerPartyCount() == PARTY_SIZE)
@@ -9597,7 +9638,13 @@ static void Cmd_handleballthrow(void)
 
             if (shakes == BALL_3_SHAKES_SUCCESS) // mon caught, copy of the code above
             {
-                gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
+                if (gBattleTypeFlags & BATTLE_TYPE_TRAINER) {
+                    gSaveBlock2Ptr->dailyPokemonStolen++;
+                    gBattlescriptCurrInstr = BattleScript_SuccessStealing;
+                }
+                else {
+                    gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
+                }
                 SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_POKEBALL, &gLastUsedItem);
 
                 if (CalculatePlayerPartyCount() == PARTY_SIZE)
@@ -9616,7 +9663,47 @@ static void Cmd_handleballthrow(void)
 
 static void Cmd_givecaughtmon(void)
 {
-    if (GiveMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]) != MON_GIVEN_TO_PARTY)
+    if (GiveMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], TRUE) != MON_GIVEN_TO_PARTY)
+    {
+        if (!ShouldShowBoxWasFullMessage())
+        {
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SENT_SOMEONES_PC;
+            StringCopy(gStringVar1, GetBoxNamePtr(VarGet(VAR_PC_BOX_TO_SEND_MON)));
+            GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gStringVar2);
+        }
+        else
+        {
+            StringCopy(gStringVar1, GetBoxNamePtr(VarGet(VAR_PC_BOX_TO_SEND_MON))); // box the mon was sent to
+            GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gStringVar2);
+            StringCopy(gStringVar3, GetBoxNamePtr(GetPCBoxToSendMon())); //box the mon was going to be sent to
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SOMEONES_BOX_FULL;
+        }
+
+        // Change to B_MSG_SENT_BILLS_PC or B_MSG_BILLS_BOX_FULL
+        if (FlagGet(FLAG_SYS_NOT_SOMEONES_PC))
+            gBattleCommunication[MULTISTRING_CHOOSER]++;
+    }
+
+    gBattleResults.caughtMonSpecies = gBattleMons[gBattlerAttacker ^ BIT_SIDE].species;
+    GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gBattleResults.caughtMonNick);
+
+    gBattlescriptCurrInstr++;
+}
+
+static void Cmd_givestolenmon(void)
+{
+    struct Pokemon * mon = &gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]];
+    const struct Trainer * currentTrainer = &gTrainers[gTrainerBattleOpponent_A];
+    u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+    u8 iv = GetMonData(mon, MON_DATA_IVS, NULL);
+    u8 trainerGender = currentTrainer->encounterMusic_gender & 0x80;
+    u32 otId = gBattleMons[B_POSITION_OPPONENT_LEFT].otId;
+    bool8 stolen = TRUE;
+    
+    SetMonData(mon, MON_DATA_OT_NAME, currentTrainer->trainerName);
+    SetMonData(mon, MON_DATA_IS_STOLEN, &stolen);
+
+    if (GiveMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], FALSE) != MON_GIVEN_TO_PARTY)
     {
         if (!ShouldShowBoxWasFullMessage())
         {
@@ -9691,7 +9778,14 @@ static void Cmd_displaydexinfo(void)
         InitBattleBgsVideo();
         LoadBattleTextboxAndBackground();
         gBattle_BG3_X = 256;
-        gBattleCommunication[0]++;
+        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER) 
+        {
+            gBattleCommunication[0] = 6;
+        } 
+        else 
+        {
+            gBattleCommunication[0]++;
+        }
         break;
     case 4:
         if (!IsDma3ManagerBusyWithBgCopy())
@@ -9715,6 +9809,22 @@ static void Cmd_displaydexinfo(void)
         if (!gPaletteFade.active)
             gBattlescriptCurrInstr++;
         break;
+    case 6:
+        if (!gPaletteFade.active)
+        {
+            FreeAllWindowBuffers();
+            gBattleScripting.reshowMainState = 0;
+            gBattleCommunication[TASK_ID] = CreateTask(Task_ReshowBattleScreenAfterStealingUndexedPokemon, 0);
+            gBattleCommunication[0]++;
+        }
+        break;
+    case 7:
+        if (!gPaletteFade.active
+            && gMain.callback2 == BattleMainCB2
+            && !gTasks[gBattleCommunication[TASK_ID]].isActive)
+        {
+            gBattlescriptCurrInstr++;
+        }
     }
 }
 

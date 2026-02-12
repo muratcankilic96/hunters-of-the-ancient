@@ -678,7 +678,7 @@ extern u8 *gBattleAnimBgTilemapBuffer;
 extern void (*gBattleMainFunc)(void);
 extern u8 gMoveSelectionCursor[MAX_BATTLERS_COUNT];
 extern u32 gUnusedFirstBattleVar1;
-extern u8 gUnusedFirstBattleVar2;
+extern u8 gDailyStolenPokemon;
 extern u8 gBattlerAttacker;
 extern u8 gEffectBattler;
 extern u8 gMultiHitCounter;

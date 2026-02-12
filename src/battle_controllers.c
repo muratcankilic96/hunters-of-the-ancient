@@ -60,7 +60,6 @@ void SetUpBattleVars(void)
 
     // Below are never read
     gUnusedFirstBattleVar1 = 0;
-    gUnusedFirstBattleVar2 = 0;
 }
 
 void InitBattleControllers(void)

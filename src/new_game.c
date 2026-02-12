@@ -124,6 +124,7 @@ void NewGameInitData(void)
     ClearMailData();
     gSaveBlock2Ptr->specialSaveWarpFlags = 0;
     gSaveBlock2Ptr->gcnLinkFlags = 0;
+    gSaveBlock2Ptr->dailyPokemonStolen = 0;
     gSaveBlock2Ptr->unkFlag1 = TRUE;
     gSaveBlock2Ptr->unkFlag2 = FALSE;
     InitPlayerTrainerId();

@@ -3140,6 +3140,11 @@ static bool32 IsBattlerModernFatefulEncounter(u8 battlerId)
     return GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_MODERN_FATEFUL_ENCOUNTER, NULL);
 }
 
+void ResetDailyStolenPokemonCount(void)
+{
+    gSaveBlock2Ptr->dailyPokemonStolen = 0;
+}
+
 u8 IsMonDisobedient(void)
 {
     s32 rnd;

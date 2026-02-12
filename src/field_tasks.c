@@ -100,7 +100,6 @@ static void RunTimeBasedEvents(s16 *data)
     case 1:
         if (FreeTempTileDataBuffersIfPossible() != TRUE)
         {
-            VarSet(VAR_TEAM_ROCKET_RANK, 3);
             tTimeState--;
         }
         break;

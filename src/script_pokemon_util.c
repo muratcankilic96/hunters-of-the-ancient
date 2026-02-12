@@ -57,7 +57,7 @@ u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 u
     heldItem[0] = item;
     heldItem[1] = item >> 8;
     SetMonData(mon, MON_DATA_HELD_ITEM, heldItem);
-    sentToPc = GiveMonToPlayer(mon);
+    sentToPc = GiveMonToPlayer(mon, TRUE);
     nationalDexNum = SpeciesToNationalPokedexNum(species);
 
     switch(sentToPc)
@@ -83,7 +83,7 @@ u8 ScriptGiveEgg(u16 species)
     isEgg = TRUE;
     SetMonData(mon, MON_DATA_IS_EGG, &isEgg);
 
-    sentToPc = GiveMonToPlayer(mon);
+    sentToPc = GiveMonToPlayer(mon, TRUE);
     Free(mon);
     return sentToPc;
 }

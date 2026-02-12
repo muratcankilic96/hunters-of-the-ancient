@@ -3682,21 +3682,15 @@ void CopyMon(void *dest, void *src, size_t size)
     memcpy(dest, src, size);
 }
 
-u8 GiveMonToPlayer(struct Pokemon *mon)
+u8 GiveMonToPlayer(struct Pokemon *mon, bool8 playerOwnedMon)
 {
     s32 i;
-    // DEBUG START
-    /**/bool8 stolen = TRUE;
-    /**/u8 originalTrainer[] = _("UR MOM");
-    // DEBUG END
 
-    SetMonData(mon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
-    SetMonData(mon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
-    //SetMonData(mon, MON_DATA_OT_ID, gSaveBlock2Ptr->playerTrainerId);
-    // DEBUG START
-    /**/SetMonData(mon, MON_DATA_IS_STOLEN, &stolen);
-    /**/SetMonData(mon, MON_DATA_OT_NAME, &originalTrainer);
-    // DEBUG END
+    if (playerOwnedMon) {
+        SetMonData(mon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
+        SetMonData(mon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
+        SetMonData(mon, MON_DATA_OT_ID, gSaveBlock2Ptr->playerTrainerId);
+    }
 
     for (i = 0; i < PARTY_SIZE; i++)
     {

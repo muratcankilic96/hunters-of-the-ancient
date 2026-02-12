@@ -14,6 +14,7 @@ static void ReshowBattleScreen_TurnOnDisplay(void);
 static bool8 LoadBattlerSpriteGfx(u8 battlerId);
 static void CreateBattlerSprite(u8 battlerId);
 static void CreateHealthboxSprite(u8 battlerId);
+static void InitializeReshow(void);
 
 void ReshowBattleScreenDummy(void)
 {
@@ -47,17 +48,8 @@ void ReshowBattleScreenAfterMenu(void)
     SetMainCallback2(CB2_ReshowBattleScreenAfterMenu);
 }
 
-static void CB2_ReshowBattleScreenAfterMenu(void)
+static void InitializeReshow(void)
 {
-    u8 opponentBattler;
-    u16 species;
-
-    switch (gBattleScripting.reshowMainState)
-    {
-    case 0:
-        ResetSpriteData();
-        break;
-    case 1:
         SetVBlankCallback(NULL);
         ScanlineEffect_Clear();
         BattleInitBgsAndWindows();
@@ -76,6 +68,85 @@ static void CB2_ReshowBattleScreenAfterMenu(void)
         gBattle_BG2_Y = 0;
         gBattle_BG3_X = 0;
         gBattle_BG3_Y = 0;
+}
+
+void Task_ReshowBattleScreenAfterStealingUndexedPokemon(u8 taskId)
+{
+    u8 opponentBattler;
+    u16 species;
+
+    switch (gBattleScripting.reshowMainState)
+    {
+    case 0:
+        ResetSpriteData();
+        break;
+    case 1:
+        InitializeReshow();
+        break;
+    case 2:
+        CpuFastFill(0, (void *)VRAM, VRAM_SIZE);
+        break;
+    case 3:
+        LoadBattleTextboxAndBackground();
+        break;
+    case 4:
+        FreeAllSpritePalettes();
+        gReservedSpritePaletteCount = 4;
+        break;
+    case 5:
+        ClearSpritesHealthboxAnimData();
+        break;
+    case 6:
+        if (BattleLoadAllHealthBoxesGfx(gBattleScripting.reshowHelperState))
+        {
+            gBattleScripting.reshowHelperState = 0;
+        }
+        else
+        {
+            ++gBattleScripting.reshowHelperState;
+            --gBattleScripting.reshowMainState;
+        }
+        break;
+    case 7:
+        if (!LoadBattlerSpriteGfx(0))
+            --gBattleScripting.reshowMainState;
+        break;
+    case 8:
+        CreateBattlerSprite(0);
+        break;
+    case 9:
+        CreateHealthboxSprite(0);
+        break;
+    case 10:
+        LoadAndCreateEnemyShadowSprites();
+        break;
+    case 11:
+        SetVBlankCallback(VBlankCB_Battle);
+        ReshowBattleScreen_TurnOnDisplay();
+        BeginHardwarePaletteFade(0xFF, 0, 0x10, 0, 1);
+        gPaletteFade.bufferTransferDisabled = 0;
+        SetMainCallback2(BattleMainCB2);
+        BattleInterfaceSetWindowPals();
+        DestroyTask(taskId);
+        break;
+    default:
+        break;
+    }
+    ++gBattleScripting.reshowMainState; 
+}
+
+static void CB2_ReshowBattleScreenAfterMenu(void)
+{
+    u8 opponentBattler;
+    u16 species;
+
+    switch (gBattleScripting.reshowMainState)
+    {
+    case 0:
+        ResetSpriteData();
+        break;
+    case 1:
+        InitializeReshow();
         break;
     case 2:
         CpuFastFill(0, (void *)VRAM, VRAM_SIZE);
