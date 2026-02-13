@@ -1,3 +1,6 @@
+Mid:
+1. UI breaks after stealing a POKéMON.
+
 Minor:
 1. The fainting screen text bumps slightly.
 2. Grass wandering effect has wrong palette.

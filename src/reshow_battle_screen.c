@@ -55,10 +55,8 @@ static void InitializeReshow(void)
         BattleInitBgsAndWindows();
         SetBgAttribute(1, BG_ATTR_CHARBASEINDEX, 0);
         SetBgAttribute(2, BG_ATTR_CHARBASEINDEX, 0);
-        ShowBg(0);
         ShowBg(1);
         ShowBg(2);
-        ShowBg(3);
         ResetPaletteFade();
         gBattle_BG0_X = 0;
         gBattle_BG0_Y = 0;
@@ -121,6 +119,8 @@ void Task_ReshowBattleScreenAfterStealingUndexedPokemon(u8 taskId)
         LoadAndCreateEnemyShadowSprites();
         break;
     case 11:
+        ShowBg(0);
+        ShowBg(3);
         SetVBlankCallback(VBlankCB_Battle);
         ReshowBattleScreen_TurnOnDisplay();
         BeginHardwarePaletteFade(0xFF, 0, 0x10, 0, 1);
@@ -147,6 +147,8 @@ static void CB2_ReshowBattleScreenAfterMenu(void)
         break;
     case 1:
         InitializeReshow();
+        ShowBg(0);
+        ShowBg(3);
         break;
     case 2:
         CpuFastFill(0, (void *)VRAM, VRAM_SIZE);
@@ -244,7 +246,7 @@ static void CB2_ReshowBattleScreenAfterMenu(void)
     ++gBattleScripting.reshowMainState;
 }
 
-static void ReshowBattleScreen_TurnOnDisplay(void)
+static void     ReshowBattleScreen_TurnOnDisplay(void)
 {
     EnableInterrupts(INTR_FLAG_VBLANK);
     SetGpuReg(REG_OFFSET_BLDCNT, 0);

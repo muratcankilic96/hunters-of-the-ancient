@@ -103,11 +103,12 @@ BattleScript_StolenPokemonSkipNewDex::
 	setbyte gBattleCommunication, 4
 	trygivecaughtmonnick BattleScript_KeepNicknameSameWithOt
 BattleScript_KeepNicknameSameWithOt::
+	fadeinbattlebgm
 	givestolenmon
+	makerivalmoninactive
 	printfromtable gCaughtMonStringIds
 	waitmessage B_WAIT_TIME_LONG
-	tryfaintmon BS_TARGET
-	goto BattleScript_HandleFaintedMon
+	finishturn
 
 BattleScript_CaughtPokemonSkipNickname::
 	givecaughtmon

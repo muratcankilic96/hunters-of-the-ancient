@@ -8,7 +8,6 @@
 #include "money.h"
 #include "pokemon_icon.h"
 #include "mail.h"
-#include "event_data.h"
 #include "strings.h"
 #include "pokemon_special_anim.h"
 #include "pokemon_storage_system.h"
@@ -29,6 +28,7 @@
 #include "battle_controllers.h"
 #include "battle_interface.h"
 #include "item_menu.h"
+#include "sound.h"
 #include "constants/battle_anim.h"
 #include "constants/battle_move_effects.h"
 #include "constants/battle_script_commands.h"
@@ -312,6 +312,8 @@ static void Cmd_removeattackerstatus1(void);
 static void Cmd_finishaction(void);
 static void Cmd_finishturn(void);
 static void Cmd_givestolenmon(void);
+static void Cmd_fadeinbattlebgm(void);
+static void Cmd_makerivalmoninactive(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -563,7 +565,9 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_removeattackerstatus1,                   //0xF5
     Cmd_finishaction,                            //0xF6
     Cmd_finishturn,                              //0xF7
-    Cmd_givestolenmon                            //0xF8
+    Cmd_givestolenmon,                           //0xF8
+    Cmd_fadeinbattlebgm,                         //0xF9
+    Cmd_makerivalmoninactive                     //0xFA
 };
 
 struct StatFractions
@@ -9694,27 +9698,23 @@ static void Cmd_givestolenmon(void)
 {
     struct Pokemon * mon = &gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]];
     const struct Trainer * currentTrainer = &gTrainers[gTrainerBattleOpponent_A];
-    u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
-    u8 iv = GetMonData(mon, MON_DATA_IVS, NULL);
-    u8 trainerGender = currentTrainer->encounterMusic_gender & 0x80;
-    u32 otId = gBattleMons[B_POSITION_OPPONENT_LEFT].otId;
     bool8 stolen = TRUE;
     
     SetMonData(mon, MON_DATA_OT_NAME, currentTrainer->trainerName);
     SetMonData(mon, MON_DATA_IS_STOLEN, &stolen);
 
-    if (GiveMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], FALSE) != MON_GIVEN_TO_PARTY)
+    if (GiveMonToPlayer(mon, FALSE) != MON_GIVEN_TO_PARTY)
     {
         if (!ShouldShowBoxWasFullMessage())
         {
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SENT_SOMEONES_PC;
             StringCopy(gStringVar1, GetBoxNamePtr(VarGet(VAR_PC_BOX_TO_SEND_MON)));
-            GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gStringVar2);
+            GetMonData(mon, MON_DATA_NICKNAME, gStringVar2);
         }
         else
         {
             StringCopy(gStringVar1, GetBoxNamePtr(VarGet(VAR_PC_BOX_TO_SEND_MON))); // box the mon was sent to
-            GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gStringVar2);
+            GetMonData(mon, MON_DATA_NICKNAME, gStringVar2);
             StringCopy(gStringVar3, GetBoxNamePtr(GetPCBoxToSendMon())); //box the mon was going to be sent to
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SOMEONES_BOX_FULL;
         }
@@ -9725,7 +9725,6 @@ static void Cmd_givestolenmon(void)
     }
 
     gBattleResults.caughtMonSpecies = gBattleMons[gBattlerAttacker ^ BIT_SIDE].species;
-    GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gBattleResults.caughtMonNick);
 
     gBattlescriptCurrInstr++;
 }
@@ -9748,7 +9747,8 @@ static void Cmd_trysetcaughtmondexflags(void)
 
 static void Cmd_displaydexinfo(void)
 {
-    u16 species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL);
+    //u16 species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL);
+    u16 species = gBattleMons[gBattlerAttacker ^ BIT_SIDE].species;
 
     switch (gBattleCommunication[0])
     {
@@ -9822,9 +9822,7 @@ static void Cmd_displaydexinfo(void)
         if (!gPaletteFade.active
             && gMain.callback2 == BattleMainCB2
             && !gTasks[gBattleCommunication[TASK_ID]].isActive)
-        {
-            gBattlescriptCurrInstr++;
-        }
+                gBattlescriptCurrInstr++;
     }
 }
 
@@ -9993,4 +9991,37 @@ static void Cmd_finishturn(void)
 {
     gCurrentActionFuncId = B_ACTION_FINISHED;
     gCurrentTurnActionNumber = gBattlersCount;
+}
+
+static void Cmd_fadeinbattlebgm(void)
+{
+    FadeInNewBGM(GetBattleBGM(), 8);
+    gBattlescriptCurrInstr++;
+}
+
+static void Cmd_makerivalmoninactive(void)
+{
+    const u8 *BS_ptr;
+    u8 battlerId;
+
+    gActiveBattler = gBattlerTarget;
+    gBattleMons[gActiveBattler].hp = 0;
+
+    FaintClearSetData();
+
+    if (!(gAbsentBattlerFlags & gBitTable[gActiveBattler]))
+    {
+        gAbsentBattlerFlags |= gBitTable[gActiveBattler];
+        gHitMarker |= HITMARKER_FAINTED(gActiveBattler);
+        BattleScriptPush(gBattlescriptCurrInstr++);
+        gBattleResults.lastOpponentSpecies = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_SPECIES);
+        *(u8 *)(&gBattleStruct->lastAttackerToFaintOpponent) = gBattlerAttacker;
+        
+        BtlController_EmitSetMonData(BUFFER_A, REQUEST_HP_BATTLE, 0, sizeof(gBattleMons[gActiveBattler].hp), &gBattleMons[gActiveBattler].hp);
+        MarkBattlerForControllerExec(gActiveBattler);
+    }
+    else
+    {
+        gBattlescriptCurrInstr++;
+    }
 }
