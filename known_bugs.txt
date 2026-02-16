@@ -1,6 +1,3 @@
-Mid:
-1. UI breaks after stealing a POKéMON.
-
 Minor:
 1. The fainting screen text bumps slightly.
 2. Grass wandering effect has wrong palette.
@@ -9,3 +6,4 @@ Minor:
 5. Incorrect map position for Secret Path.
 6. Before SPEAROW stealing scene, the Pokémon still moves.
 7. New music might need revisions as it sounds too calm.
+8. After stealing final POKéMON, victory music changes again.

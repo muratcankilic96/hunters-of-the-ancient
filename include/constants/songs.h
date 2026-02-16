@@ -354,6 +354,7 @@
 #define MUS_ROTSMELL_CAVE         346
 #define MUS_POKE_MART             347
 #define MUS_ROCKET_HEAL_CENTER    348
+#define MUS_STOLEN         349
 
 #define MUS_NONE                    0xFFFF
 

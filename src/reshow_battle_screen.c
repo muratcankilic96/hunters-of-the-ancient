@@ -116,9 +116,14 @@ void Task_ReshowBattleScreenAfterStealingUndexedPokemon(u8 taskId)
         CreateHealthboxSprite(0);
         break;
     case 10:
-        LoadAndCreateEnemyShadowSprites();
+        CreateHealthboxSprite(1);
+        SetHealthboxSpriteInvisible(gHealthboxSpriteIds[1]);
+        OpponentBufferExecCompleted();
         break;
     case 11:
+        LoadAndCreateEnemyShadowSprites();
+        break;
+    case 12:
         ShowBg(0);
         ShowBg(3);
         SetVBlankCallback(VBlankCB_Battle);

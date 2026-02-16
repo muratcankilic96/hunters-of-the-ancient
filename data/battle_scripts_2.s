@@ -101,13 +101,13 @@ BattleScript_SuccessStealing::
 BattleScript_StolenPokemonSkipNewDex::
 	waitstate
 	setbyte gBattleCommunication, 4
-	trygivecaughtmonnick BattleScript_KeepNicknameSameWithOt
-BattleScript_KeepNicknameSameWithOt::
 	fadeinbattlebgm
 	givestolenmon
 	makerivalmoninactive
+	jumpifbyte CMP_LESS_THAN, gPlayerPartyCount, 6, BattleScript_StolenPokemonDone
 	printfromtable gCaughtMonStringIds
 	waitmessage B_WAIT_TIME_LONG
+BattleScript_StolenPokemonDone::
 	finishturn
 
 BattleScript_CaughtPokemonSkipNickname::

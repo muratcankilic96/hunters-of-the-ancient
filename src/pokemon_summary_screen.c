@@ -2733,7 +2733,7 @@ static void PokeSum_PrintTrainerMemo_Mon_NotHeldByOT(void)
     }
     else
     {
-        isStolen = GetStolenStatus(&sMonSummaryScreen->currentMon);
+        isStolen = IsStolenMon(&sMonSummaryScreen->currentMon);
         if (metLocation == METLOC_FATEFUL_ENCOUNTER)
         {
             DynamicPlaceholderTextUtil_ExpandPlaceholders(natureMetOrHatchedAtLevelStr, gText_PokeSum_FatefulEncounterMet);

@@ -5018,7 +5018,7 @@ u8 GetNature(struct Pokemon *mon)
     return GetMonData(mon, MON_DATA_PERSONALITY, NULL) % NUM_NATURES;
 }
 
-bool8 GetStolenStatus(struct Pokemon *mon)
+bool8 IsStolenMon(struct Pokemon *mon)
 {
     return GetMonData(mon, MON_DATA_IS_STOLEN, NULL);
 }

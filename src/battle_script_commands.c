@@ -3243,6 +3243,7 @@ static void Cmd_getexp(void)
                     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
                         gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
                     if (IsTradedMon(&gPlayerParty[gBattleStruct->expGetterMonId])
+                     && !IsStolenMon(&gPlayerParty[gBattleStruct->expGetterMonId])
                      && !(gBattleTypeFlags & BATTLE_TYPE_POKEDUDE))
                     {
                         gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
@@ -10008,6 +10009,7 @@ static void Cmd_makerivalmoninactive(void)
     gBattleMons[gActiveBattler].hp = 0;
 
     FaintClearSetData();
+    SetHealthboxSpriteInvisible(gHealthboxSpriteIds[gActiveBattler]);
 
     if (!(gAbsentBattlerFlags & gBitTable[gActiveBattler]))
     {

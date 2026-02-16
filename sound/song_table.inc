@@ -348,6 +348,7 @@ gSongTable::
 	song mus_rotsmell_cave, 0, 0
 	song mus_poke_mart, 0, 0
 	song mus_rocket_heal_center, 0, 0
+	song mus_stolen, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

@@ -973,6 +973,7 @@ SECTIONS {
         sound/songs/midi/mus_rotsmell_cave.o(.rodata);
         sound/songs/midi/mus_poke_mart.o(.rodata);
         sound/songs/midi/mus_rocket_heal_center.o(.rodata);
+        sound/songs/midi/mus_stolen.o(.rodata);
     } > ROM =0
 
     lib_rodata :
