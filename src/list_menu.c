@@ -51,31 +51,34 @@ static u8 ListMenuAddCursorObject(struct ListMenu *list, u32 cursorKind);
 
 static const struct MoveMenuInfoIcon sMenuInfoIcons[] =
 {   // { width, height, offset }
-    [MENU_INFO_ICON_CAUGHT] = { 12, 12, 0x00 },
-    [TYPE_NORMAL + 1]   = { 32, 12, 0x20 },
-    [TYPE_FIGHTING + 1] = { 32, 12, 0x64 },
-    [TYPE_FLYING + 1]   = { 32, 12, 0x60 },
-    [TYPE_POISON + 1]   = { 32, 12, 0x80 },
-    [TYPE_GROUND + 1]   = { 32, 12, 0x48 },
-    [TYPE_ROCK + 1]     = { 32, 12, 0x44 },
-    [TYPE_BUG + 1]      = { 32, 12, 0x6C },
-    [TYPE_GHOST + 1]    = { 32, 12, 0x68 },
-    [TYPE_STEEL + 1]    = { 32, 12, 0x88 },
-    [TYPE_MYSTERY + 1]  = { 32, 12, 0xA4 },
-    [TYPE_FIRE + 1]     = { 32, 12, 0x24 },
-    [TYPE_WATER + 1]    = { 32, 12, 0x28 },
-    [TYPE_GRASS + 1]    = { 32, 12, 0x2C },
-    [TYPE_ELECTRIC + 1] = { 32, 12, 0x40 },
-    [TYPE_PSYCHIC + 1]  = { 32, 12, 0x84 },
-    [TYPE_ICE + 1]      = { 32, 12, 0x4C },
-    [TYPE_DRAGON + 1]   = { 32, 12, 0xA0 },
-    [TYPE_DARK + 1]     = { 32, 12, 0x8C },
-    [TYPE_FAIRY + 1]    = { 32, 12, 0x08 },
-    [MENU_INFO_ICON_TYPE]      = { 40, 12, 0xA8 },
-    [MENU_INFO_ICON_POWER]     = { 40, 12, 0xC0 },
-    [MENU_INFO_ICON_ACCURACY]  = { 40, 12, 0xC8 },
-    [MENU_INFO_ICON_PP]        = { 40, 12, 0xE0 },
-    [MENU_INFO_ICON_EFFECT]    = { 40, 12, 0xE8 },
+    [MENU_INFO_ICON_CAUGHT] = { 12, 12, 0x000 },
+    [TYPE_NORMAL + 1]   = { 32, 12, 0x020 },
+    [TYPE_FIGHTING + 1] = { 32, 12, 0x064 },
+    [TYPE_FLYING + 1]   = { 32, 12, 0x060 },
+    [TYPE_POISON + 1]   = { 32, 12, 0x080 },
+    [TYPE_GROUND + 1]   = { 32, 12, 0x048 },
+    [TYPE_ROCK + 1]     = { 32, 12, 0x044 },
+    [TYPE_BUG + 1]      = { 32, 12, 0x06C },
+    [TYPE_GHOST + 1]    = { 32, 12, 0x068 },
+    [TYPE_STEEL + 1]    = { 32, 12, 0x088 },
+    [TYPE_MYSTERY + 1]  = { 32, 12, 0x0A4 },
+    [TYPE_FIRE + 1]     = { 32, 12, 0x024 },
+    [TYPE_WATER + 1]    = { 32, 12, 0x028 },
+    [TYPE_GRASS + 1]    = { 32, 12, 0x02C },
+    [TYPE_ELECTRIC + 1] = { 32, 12, 0x040 },
+    [TYPE_PSYCHIC + 1]  = { 32, 12, 0x084 },
+    [TYPE_ICE + 1]      = { 32, 12, 0x04C },
+    [TYPE_DRAGON + 1]   = { 32, 12, 0x0A0 },
+    [TYPE_DARK + 1]     = { 32, 12, 0x08C },
+    [TYPE_FAIRY + 1]    = { 32, 12, 0x008 },
+    [MENU_INFO_ICON_TYPE]      = { 40, 12, 0x0A8 },
+    [MENU_INFO_ICON_POWER]     = { 40, 12, 0x0C0 },
+    [MENU_INFO_ICON_ACCURACY]  = { 40, 12, 0x0C8 },
+    [MENU_INFO_ICON_PP]        = { 40, 12, 0x0E0 },
+    [MENU_INFO_ICON_EFFECT]    = { 40, 12, 0x0E8 },
+    [DAMAGE_CATEGORY_ICON_PHYSICAL]    = { 32, 12, 0x100 },
+    [DAMAGE_CATEGORY_ICON_SPECIAL]     = { 32, 12, 0x104 },
+    [DAMAGE_CATEGORY_ICON_STATUS]      = { 32, 12, 0x108 },
 };
 
 static void ListMenuDummyTask(u8 taskId)
@@ -755,5 +758,5 @@ void ListMenuLoadStdPalAt(u8 palOffset, u8 palId)
 
 void BlitMenuInfoIcon(u8 windowId, u8 iconId, u16 x, u16 y)
 {
-    BlitBitmapRectToWindow(windowId, &gMenuInfoElements_Gfx[sMenuInfoIcons[iconId].offset * TILE_SIZE_4BPP], 0, 0, 128, 128, x, y, sMenuInfoIcons[iconId].width, sMenuInfoIcons[iconId].height);
+    BlitBitmapRectToWindow(windowId, &gMenuInfoElements_Gfx[sMenuInfoIcons[iconId].offset * TILE_SIZE_4BPP], 0, 0, 128, 144, x, y, sMenuInfoIcons[iconId].width, sMenuInfoIcons[iconId].height);
 }

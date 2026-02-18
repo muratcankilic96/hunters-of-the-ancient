@@ -120,7 +120,7 @@ static void Cmd_is_first_turn_for(void);
 static void Cmd_get_stockpile_count(void);
 static void Cmd_is_double_battle(void);
 static void Cmd_get_used_held_item(void);
-static void Cmd_get_move_type_from_result(void);
+static void Cmd_get_move_damage_category_from_result(void);
 static void Cmd_get_move_power_from_result(void);
 static void Cmd_get_move_effect_from_result(void);
 static void Cmd_get_protect_count(void);
@@ -146,100 +146,100 @@ typedef void (*BattleAICmdFunc)(void);
 
 static const BattleAICmdFunc sBattleAICmdTable[] =
 {
-    Cmd_if_random_less_than,              // 0x0
-    Cmd_if_random_greater_than,           // 0x1
-    Cmd_if_random_equal,                  // 0x2
-    Cmd_if_random_not_equal,              // 0x3
-    Cmd_score,                            // 0x4
-    Cmd_if_hp_less_than,                  // 0x5
-    Cmd_if_hp_more_than,                  // 0x6
-    Cmd_if_hp_equal,                      // 0x7
-    Cmd_if_hp_not_equal,                  // 0x8
-    Cmd_if_status,                        // 0x9
-    Cmd_if_not_status,                    // 0xA
-    Cmd_if_status2,                       // 0xB
-    Cmd_if_not_status2,                   // 0xC
-    Cmd_if_status3,                       // 0xD
-    Cmd_if_not_status3,                   // 0xE
-    Cmd_if_side_affecting,                // 0xF
-    Cmd_if_not_side_affecting,            // 0x10
-    Cmd_if_less_than,                     // 0x11
-    Cmd_if_more_than,                     // 0x12
-    Cmd_if_equal,                         // 0x13
-    Cmd_if_not_equal,                     // 0x14
-    Cmd_if_less_than_ptr,                 // 0x15
-    Cmd_if_more_than_ptr,                 // 0x16
-    Cmd_if_equal_ptr,                     // 0x17
-    Cmd_if_not_equal_ptr,                 // 0x18
-    Cmd_if_move,                          // 0x19
-    Cmd_if_not_move,                      // 0x1A
-    Cmd_if_in_bytes,                      // 0x1B
-    Cmd_if_not_in_bytes,                  // 0x1C
-    Cmd_if_in_hwords,                     // 0x1D
-    Cmd_if_not_in_hwords,                 // 0x1E
-    Cmd_if_user_has_attacking_move,       // 0x1F
-    Cmd_if_user_has_no_attacking_moves,   // 0x20
-    Cmd_get_turn_count,                   // 0x21
-    Cmd_get_type,                         // 0x22
-    Cmd_get_considered_move_power,        // 0x23
-    Cmd_get_how_powerful_move_is,         // 0x24
-    Cmd_get_last_used_battler_move,       // 0x25
-    Cmd_if_equal_,                        // 0x26
-    Cmd_if_not_equal_,                    // 0x27
-    Cmd_if_would_go_first,                // 0x28
-    Cmd_if_would_not_go_first,            // 0x29
-    Cmd_nullsub_2A,                       // 0x2A
-    Cmd_nullsub_2B,                       // 0x2B
-    Cmd_count_alive_pokemon,              // 0x2C
-    Cmd_get_considered_move,              // 0x2D
-    Cmd_get_considered_move_effect,       // 0x2E
-    Cmd_get_ability,                      // 0x2F
-    Cmd_get_highest_type_effectiveness,   // 0x30
-    Cmd_if_type_effectiveness,            // 0x31
-    Cmd_nullsub_32,                       // 0x32
-    Cmd_nullsub_33,                       // 0x33
-    Cmd_if_status_in_party,               // 0x34
-    Cmd_if_status_not_in_party,           // 0x35
-    Cmd_get_weather,                      // 0x36
-    Cmd_if_effect,                        // 0x37
-    Cmd_if_not_effect,                    // 0x38
-    Cmd_if_stat_level_less_than,          // 0x39
-    Cmd_if_stat_level_more_than,          // 0x3A
-    Cmd_if_stat_level_equal,              // 0x3B
-    Cmd_if_stat_level_not_equal,          // 0x3C
-    Cmd_if_can_faint,                     // 0x3D
-    Cmd_if_cant_faint,                    // 0x3E
-    Cmd_if_has_move,                      // 0x3F
-    Cmd_if_doesnt_have_move,              // 0x40
-    Cmd_if_has_move_with_effect,          // 0x41
-    Cmd_if_doesnt_have_move_with_effect,  // 0x42
-    Cmd_if_any_move_disabled_or_encored,  // 0x43
-    Cmd_if_curr_move_disabled_or_encored, // 0x44
-    Cmd_flee,                             // 0x45
-    Cmd_if_random_safari_flee,            // 0x46
-    Cmd_watch,                            // 0x47
-    Cmd_get_hold_effect,                  // 0x48
-    Cmd_get_gender,                       // 0x49
-    Cmd_is_first_turn_for,                // 0x4A
-    Cmd_get_stockpile_count,              // 0x4B
-    Cmd_is_double_battle,                 // 0x4C
-    Cmd_get_used_held_item,               // 0x4D
-    Cmd_get_move_type_from_result,        // 0x4E
-    Cmd_get_move_power_from_result,       // 0x4F
-    Cmd_get_move_effect_from_result,      // 0x50
-    Cmd_get_protect_count,                // 0x51
-    Cmd_nullsub_52,                       // 0x52
-    Cmd_nullsub_53,                       // 0x53
-    Cmd_nullsub_54,                       // 0x54
-    Cmd_nullsub_55,                       // 0x55
-    Cmd_nullsub_56,                       // 0x56
-    Cmd_nullsub_57,                       // 0x57
-    Cmd_call,                             // 0x58
-    Cmd_goto,                             // 0x59
-    Cmd_end,                              // 0x5A
-    Cmd_if_level_compare,                 // 0x5B
-    Cmd_if_target_taunted,                // 0x5C
-    Cmd_if_target_not_taunted,            // 0x5D
+    Cmd_if_random_less_than,                   // 0x0
+    Cmd_if_random_greater_than,                // 0x1
+    Cmd_if_random_equal,                       // 0x2
+    Cmd_if_random_not_equal,                   // 0x3
+    Cmd_score,                                 // 0x4
+    Cmd_if_hp_less_than,                       // 0x5
+    Cmd_if_hp_more_than,                       // 0x6
+    Cmd_if_hp_equal,                           // 0x7
+    Cmd_if_hp_not_equal,                       // 0x8
+    Cmd_if_status,                             // 0x9
+    Cmd_if_not_status,                         // 0xA
+    Cmd_if_status2,                            // 0xB
+    Cmd_if_not_status2,                        // 0xC
+    Cmd_if_status3,                            // 0xD
+    Cmd_if_not_status3,                        // 0xE
+    Cmd_if_side_affecting,                     // 0xF
+    Cmd_if_not_side_affecting,                 // 0x10
+    Cmd_if_less_than,                          // 0x11
+    Cmd_if_more_than,                          // 0x12
+    Cmd_if_equal,                              // 0x13
+    Cmd_if_not_equal,                          // 0x14
+    Cmd_if_less_than_ptr,                      // 0x15
+    Cmd_if_more_than_ptr,                      // 0x16
+    Cmd_if_equal_ptr,                          // 0x17
+    Cmd_if_not_equal_ptr,                      // 0x18
+    Cmd_if_move,                               // 0x19
+    Cmd_if_not_move,                           // 0x1A
+    Cmd_if_in_bytes,                           // 0x1B
+    Cmd_if_not_in_bytes,                       // 0x1C
+    Cmd_if_in_hwords,                          // 0x1D
+    Cmd_if_not_in_hwords,                      // 0x1E
+    Cmd_if_user_has_attacking_move,            // 0x1F
+    Cmd_if_user_has_no_attacking_moves,        // 0x20
+    Cmd_get_turn_count,                        // 0x21
+    Cmd_get_type,                              // 0x22
+    Cmd_get_considered_move_power,             // 0x23
+    Cmd_get_how_powerful_move_is,              // 0x24
+    Cmd_get_last_used_battler_move,            // 0x25
+    Cmd_if_equal_,                             // 0x26
+    Cmd_if_not_equal_,                         // 0x27
+    Cmd_if_would_go_first,                     // 0x28
+    Cmd_if_would_not_go_first,                 // 0x29
+    Cmd_nullsub_2A,                            // 0x2A
+    Cmd_nullsub_2B,                            // 0x2B
+    Cmd_count_alive_pokemon,                   // 0x2C
+    Cmd_get_considered_move,                   // 0x2D
+    Cmd_get_considered_move_effect,            // 0x2E
+    Cmd_get_ability,                           // 0x2F
+    Cmd_get_highest_type_effectiveness,        // 0x30
+    Cmd_if_type_effectiveness,                 // 0x31
+    Cmd_nullsub_32,                            // 0x32
+    Cmd_nullsub_33,                            // 0x33
+    Cmd_if_status_in_party,                    // 0x34
+    Cmd_if_status_not_in_party,                // 0x35
+    Cmd_get_weather,                           // 0x36
+    Cmd_if_effect,                             // 0x37
+    Cmd_if_not_effect,                         // 0x38
+    Cmd_if_stat_level_less_than,               // 0x39
+    Cmd_if_stat_level_more_than,               // 0x3A
+    Cmd_if_stat_level_equal,                   // 0x3B
+    Cmd_if_stat_level_not_equal,               // 0x3C
+    Cmd_if_can_faint,                          // 0x3D
+    Cmd_if_cant_faint,                         // 0x3E
+    Cmd_if_has_move,                           // 0x3F
+    Cmd_if_doesnt_have_move,                   // 0x40
+    Cmd_if_has_move_with_effect,               // 0x41
+    Cmd_if_doesnt_have_move_with_effect,       // 0x42
+    Cmd_if_any_move_disabled_or_encored,       // 0x43
+    Cmd_if_curr_move_disabled_or_encored,      // 0x44
+    Cmd_flee,                                  // 0x45
+    Cmd_if_random_safari_flee,                 // 0x46
+    Cmd_watch,                                 // 0x47
+    Cmd_get_hold_effect,                       // 0x48
+    Cmd_get_gender,                            // 0x49
+    Cmd_is_first_turn_for,                     // 0x4A
+    Cmd_get_stockpile_count,                   // 0x4B
+    Cmd_is_double_battle,                      // 0x4C
+    Cmd_get_used_held_item,                    // 0x4D
+    Cmd_get_move_damage_category_from_result,  // 0x4E
+    Cmd_get_move_power_from_result,            // 0x4F
+    Cmd_get_move_effect_from_result,           // 0x50
+    Cmd_get_protect_count,                     // 0x51
+    Cmd_nullsub_52,                            // 0x52
+    Cmd_nullsub_53,                            // 0x53
+    Cmd_nullsub_54,                            // 0x54
+    Cmd_nullsub_55,                            // 0x55
+    Cmd_nullsub_56,                            // 0x56
+    Cmd_nullsub_57,                            // 0x57
+    Cmd_call,                                  // 0x58
+    Cmd_goto,                                  // 0x59
+    Cmd_end,                                   // 0x5A
+    Cmd_if_level_compare,                      // 0x5B
+    Cmd_if_target_taunted,                     // 0x5C
+    Cmd_if_target_not_taunted,                 // 0x5D
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -1823,9 +1823,9 @@ static void Cmd_get_used_held_item(void)
     sAIScriptPtr += 2;
 }
 
-static void Cmd_get_move_type_from_result(void)
+static void Cmd_get_move_damage_category_from_result(void)
 {
-    AI_THINKING_STRUCT->funcResult = gBattleMoves[AI_THINKING_STRUCT->funcResult].type;
+    AI_THINKING_STRUCT->funcResult = gBattleMoves[AI_THINKING_STRUCT->funcResult].damageCategory;
 
     sAIScriptPtr += 1;
 }

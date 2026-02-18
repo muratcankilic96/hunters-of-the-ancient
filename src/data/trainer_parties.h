@@ -7566,32 +7566,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_TeamRocketGrunt43[] = {
     {
         .iv = 0,
         .lvl = 80,
-        .species = SPECIES_DRAGONITE,
-    },
-    {
-        .iv = 0,
-        .lvl = 80,
-        .species = SPECIES_MACHAMP,
-    },
-    {
-        .iv = 0,
-        .lvl = 80,
-        .species = SPECIES_ARBOK,
-    },
-    {
-        .iv = 0,
-        .lvl = 80,
-        .species = SPECIES_AGGRON,
-    },
-    {
-        .iv = 0,
-        .lvl = 80,
-        .species = SPECIES_HERACROSS,
-    },
-    {
-        .iv = 0,
-        .lvl = 80,
-        .species = SPECIES_UMBREON,
+        .species = SPECIES_SKARMORY,
     },
 };
 

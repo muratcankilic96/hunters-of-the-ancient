@@ -122,6 +122,7 @@ static bool32 CurrentMonIsFromGBA(void);
 static u8 PokeSum_BufferOtName_IsEqualToCurrentOwner(struct Pokemon * mon);
 static void PokeSum_PrintAbilityNameAndDesc(void);
 static void PokeSum_DrawMoveTypeIcons(void);
+static void PokeSum_DrawMoveDamageCategoryIcons(void);
 static void PokeSum_DestroySprites(void);
 static void PokeSum_FlipPages_HandleBgHofs(void);
 static void SwapMonMoveSlots(void);
@@ -138,6 +139,7 @@ static void PokeSum_DestroyMonMarkingsSprite(void);
 static void PokeSum_UpdateMonMarkingsAnim(void);
 static s8 SeekToNextMonInSingleParty(s8 direction);
 static s8 SeekToNextMonInMultiParty(s8 direction);
+static u8 GetMoveDamageCategoryIconId(u8 damageCategory);
 
 struct PokemonSummaryScreenData
 {
@@ -241,6 +243,8 @@ struct PokemonSummaryScreenData
 
     u8 ALIGNED(4) lastPageFlipDirection; /* 0x3300 */
     u8 ALIGNED(4) unk3304; /* 0x3304 */
+
+    u16 moveDamageCategories[5]; /* 0x3308 */
 };
 
 struct Struct203B144
@@ -644,7 +648,7 @@ static const u8 *const sEggOriginTexts[] = {
 static const u8 sPrintMoveTextColors[][3] = {
     {0, 7, 8},
     {0, 1, 2},
-    {0, 3, 4},
+    {0, 7, 6},
     {0, 5, 6}
 };
 
@@ -887,7 +891,7 @@ static const struct WindowTemplate sWindowTemplates_Moves[] =
         .width = 9,
         .height = 2,
         .paletteNum = 6,
-        .baseBlock = 0x01d2
+        .baseBlock = 0x01fa
     },
 };
 
@@ -2269,6 +2273,7 @@ static void BufferMonMoveI(u8 i)
 
     sMonSummaryScreen->numMoves++;
     sMonSummaryScreen->moveTypes[i] = gBattleMoves[sMonSummaryScreen->moveIds[i]].type;
+    sMonSummaryScreen->moveDamageCategories[i] = gBattleMoves[sMonSummaryScreen->moveIds[i]].damageCategory;
     StringCopy(sMonSummaryScreen->summary.moveNameStrBufs[i], gMoveNames[sMonSummaryScreen->moveIds[i]]);
 
     if (i >= 4 && sMonSummaryScreen->mode == PSS_MODE_SELECT_MOVE)
@@ -2836,18 +2841,18 @@ static void PokeSum_PrintSelectedMoveStats(void)
 
         AddTextPrinterParameterized3(sMonSummaryScreen->windowIds[POKESUM_WIN_TRAINER_MEMO], FONT_NORMAL,
                                      57, 1,
-                                     sPrintMoveTextColors[0], TEXT_SKIP_DRAW,
+                                     sPrintMoveTextColors[2], TEXT_SKIP_DRAW,
                                      sMonSummaryScreen->summary.movePowerStrBufs[sMoveSelectionCursorPos]);
 
         AddTextPrinterParameterized3(sMonSummaryScreen->windowIds[POKESUM_WIN_TRAINER_MEMO], FONT_NORMAL,
                                      57, 15,
-                                     sPrintMoveTextColors[0], TEXT_SKIP_DRAW,
+                                     sPrintMoveTextColors[2], TEXT_SKIP_DRAW,
                                      sMonSummaryScreen->summary.moveAccuracyStrBufs[sMoveSelectionCursorPos]);
 
         AddTextPrinterParameterized4(sMonSummaryScreen->windowIds[POKESUM_WIN_TRAINER_MEMO], FONT_NORMAL,
                                      7, 42,
                                      0, 0,
-                                     sPrintMoveTextColors[0], TEXT_SKIP_DRAW,
+                                     sPrintMoveTextColors[2], TEXT_SKIP_DRAW,
                                      gMoveDescriptionPointers[sMonSummaryScreen->moveIds[sMoveSelectionCursorPos] - 1]);
     }
 }
@@ -2863,7 +2868,9 @@ static void PokeSum_PrintAbilityDataOrMoveTypes(void)
         break;
     case PSS_PAGE_MOVES:
     case PSS_PAGE_MOVES_INFO:
+        FillWindowPixelBuffer(sMonSummaryScreen->windowIds[5], 0);
         PokeSum_DrawMoveTypeIcons();
+        PokeSum_DrawMoveDamageCategoryIcons();
         break;
     }
 
@@ -2887,8 +2894,6 @@ static void PokeSum_DrawMoveTypeIcons(void)
 {
     u8 i;
 
-    FillWindowPixelBuffer(sMonSummaryScreen->windowIds[5], 0);
-
     for (i = 0; i < 4; i++)
     {
         if (sMonSummaryScreen->moveIds[i] == MOVE_NONE)
@@ -2899,6 +2904,22 @@ static void PokeSum_DrawMoveTypeIcons(void)
 
     if (sMonSummaryScreen->mode == PSS_MODE_SELECT_MOVE)
         BlitMenuInfoIcon(sMonSummaryScreen->windowIds[5], sMonSummaryScreen->moveTypes[4] + 1, 3, GetMoveNamePrinterYpos(4));
+}
+
+static void PokeSum_DrawMoveDamageCategoryIcons(void)
+{
+    u8 i;
+
+    for (i = 0; i < 4; i++)
+    {
+        if (sMonSummaryScreen->moveIds[i] == MOVE_NONE)
+            continue;
+
+        BlitMenuInfoIcon(sMonSummaryScreen->windowIds[5], GetMoveDamageCategoryIconId(sMonSummaryScreen->moveDamageCategories[i]), 3, GetMoveNamePrinterYpos(i) + 13);
+    }
+
+    if (sMonSummaryScreen->mode == PSS_MODE_SELECT_MOVE)
+        BlitMenuInfoIcon(sMonSummaryScreen->windowIds[5], GetMoveDamageCategoryIconId(sMonSummaryScreen->moveDamageCategories[4]), 3, GetMoveNamePrinterYpos(4) + 13);
 }
 
 static void PokeSum_PrintPageHeaderText(u8 curPageIndex)
@@ -5184,8 +5205,20 @@ static bool32 MapSecIsInKantoOrSevii(u8 mapSec)
     return FALSE;
 }
 
-// Unused
-static void ShowPokemonSummaryScreen_NullParty(void)
+static u8 GetMoveDamageCategoryIconId(u8 damageCategory)
 {
-    ShowPokemonSummaryScreen(NULL, 0, 0, CB2_ReturnToField, PSS_MODE_NORMAL);
+    switch (damageCategory)
+    {
+        case DAMAGE_CATEGORY_PHYSICAL:
+            return DAMAGE_CATEGORY_ICON_PHYSICAL;
+            break;
+        case DAMAGE_CATEGORY_SPECIAL:
+            return DAMAGE_CATEGORY_ICON_SPECIAL;
+            break;
+        case DAMAGE_CATEGORY_STATUS:
+            return DAMAGE_CATEGORY_ICON_STATUS;
+            break;
+        default:
+            return 0;
+    }
 }

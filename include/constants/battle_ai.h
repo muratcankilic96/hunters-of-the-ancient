@@ -33,6 +33,10 @@
 #define MOVE_NOT_MOST_POWERFUL  1
 #define MOVE_MOST_POWERFUL      2
 
+// physical or special
+#define AI_MOVE_DAMAGE_CATEGORY_PHYSICAL 0
+#define AI_MOVE_DAMAGE_CATEGORY_SPECIAL 1
+
 // script's table id to bit
 #define AI_SCRIPT_CHECK_BAD_MOVE (1 << 0)
 #define AI_SCRIPT_CHECK_VIABILITY (1 << 1)
