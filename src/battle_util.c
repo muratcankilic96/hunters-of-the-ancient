@@ -9,6 +9,7 @@
 #include "string_util.h"
 #include "field_weather.h"
 #include "event_data.h"
+#include "team_rocket_rank.h"
 #include "battle.h"
 #include "battle_anim.h"
 #include "battle_scripts.h"
@@ -3149,6 +3150,7 @@ u8 IsMonDisobedient(void)
 {
     s32 rnd;
     s32 calc;
+    u8 teamRocketRank = VarGet(VAR_TEAM_ROCKET_RANK);
     u8 obedienceLevel = 0;
 
     if ((gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_POKEDUDE)))
@@ -3160,16 +3162,16 @@ u8 IsMonDisobedient(void)
     {
         if (!IsOtherTrainer(gBattleMons[gBattlerAttacker].otId, gBattleMons[gBattlerAttacker].otName))
             return 0;
-        if (FlagGet(FLAG_ARTIFACT08_GET))
+        if (teamRocketRank >= TEAM_ROCKET_RANK_EXECUTIVE)
             return 0;
 
-        obedienceLevel = 10;
+        obedienceLevel = 20;
 
-        if (FlagGet(FLAG_ARTIFACT02_GET))
+        if (teamRocketRank == TEAM_ROCKET_RANK_MEMBER)
             obedienceLevel = 30;
-        if (FlagGet(FLAG_ARTIFACT04_GET))
+        if (teamRocketRank == TEAM_ROCKET_RANK_AGENT)
             obedienceLevel = 50;
-        if (FlagGet(FLAG_ARTIFACT06_GET))
+        if (teamRocketRank == TEAM_ROCKET_RANK_OFFICER)
             obedienceLevel = 70;
     }
 
