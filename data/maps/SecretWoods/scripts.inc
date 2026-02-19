@@ -8,15 +8,7 @@ SecretWoods_OnTransition::
 
 SecretWoods_Scientist::
 	msgbox SecretWoods_Text_WithNewTechnology, MSGBOX_NPC
-	msgbox Promote, MSGBOX_NPC
-	setflag FLAG_SYS_POKEMON_GET
-	setflag FLAG_SYS_POKEDEX_GET
-	givemon SPECIES_SKARMORY, 80
-	givemon SPECIES_ALAKAZAM, 80
 	end
-
-Promote::
-	.string "You have FAIRY types now!$"
 
 SecretWoods_FemaleRocket::
 	msgbox SecretWoods_Text_GreatPlaceToHide, MSGBOX_NPC
@@ -24,8 +16,6 @@ SecretWoods_FemaleRocket::
 	
 SecretWoods_MaleRocket::
 	msgbox SecretWoods_Text_WithoutPokemonYouCannotWander, MSGBOX_NPC
-	trainerbattle_no_intro TRAINER_TEAM_ROCKET_GRUNT_43, MtEmber_Exterior_Text_Grunt1Defeat
-	goto_if_set FLAG_SYS_POKEMON_GET, SecretWoods_MaleRocketAfterInvasion
 	end
 
 SecretWoods_MaleRocketAfterInvasion::
