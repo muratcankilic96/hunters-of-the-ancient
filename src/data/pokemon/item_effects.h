@@ -205,6 +205,47 @@ static const u8 sItemEffect_RareCandy[10] = {
     VITAMIN_FRIENDSHIP_CHANGE(7),
 };
 
+// TODO: Change them later to fit the practical use
+static const u8 sItemEffect_ExpCandyXS[10] = {
+    [3] = ITEM3_LEVEL_UP,
+    [4] = ITEM4_REVIVE | ITEM4_HEAL_HP,
+    [5] = ITEM5_FRIENDSHIP_ALL,
+    [6] = ITEM6_HEAL_HP_LVL_UP,
+    VITAMIN_FRIENDSHIP_CHANGE(7),
+};
+
+static const u8 sItemEffect_ExpCandyS[10] = {
+    [3] = ITEM3_LEVEL_UP,
+    [4] = ITEM4_REVIVE | ITEM4_HEAL_HP,
+    [5] = ITEM5_FRIENDSHIP_ALL,
+    [6] = ITEM6_HEAL_HP_LVL_UP,
+    VITAMIN_FRIENDSHIP_CHANGE(7),
+};
+
+static const u8 sItemEffect_ExpCandyM[10] = {
+    [3] = ITEM3_LEVEL_UP,
+    [4] = ITEM4_REVIVE | ITEM4_HEAL_HP,
+    [5] = ITEM5_FRIENDSHIP_ALL,
+    [6] = ITEM6_HEAL_HP_LVL_UP,
+    VITAMIN_FRIENDSHIP_CHANGE(7),
+};
+
+static const u8 sItemEffect_ExpCandyL[10] = {
+    [3] = ITEM3_LEVEL_UP,
+    [4] = ITEM4_REVIVE | ITEM4_HEAL_HP,
+    [5] = ITEM5_FRIENDSHIP_ALL,
+    [6] = ITEM6_HEAL_HP_LVL_UP,
+    VITAMIN_FRIENDSHIP_CHANGE(7),
+};
+
+static const u8 sItemEffect_ExpCandyXL[10] = {
+    [3] = ITEM3_LEVEL_UP,
+    [4] = ITEM4_REVIVE | ITEM4_HEAL_HP,
+    [5] = ITEM5_FRIENDSHIP_ALL,
+    [6] = ITEM6_HEAL_HP_LVL_UP,
+    VITAMIN_FRIENDSHIP_CHANGE(7),
+};
+
 static const u8 sItemEffect_PPUp[9] = {
     [4] = ITEM4_PP_UP,
     [5] = ITEM5_FRIENDSHIP_ALL,
@@ -374,6 +415,11 @@ const u8 *const gItemEffectTable[] =
     [ITEM_CARBOS - ITEM_POTION]        = sItemEffect_Carbos,
     [ITEM_CALCIUM - ITEM_POTION]       = sItemEffect_Calcium,
     [ITEM_RARE_CANDY - ITEM_POTION]    = sItemEffect_RareCandy,
+    [ITEM_EXP_CANDY_XS - ITEM_POTION]  = sItemEffect_ExpCandyXS,
+    [ITEM_EXP_CANDY_S - ITEM_POTION]   = sItemEffect_ExpCandyS,
+    [ITEM_EXP_CANDY_M - ITEM_POTION]   = sItemEffect_ExpCandyM,
+    [ITEM_EXP_CANDY_L - ITEM_POTION]   = sItemEffect_ExpCandyL,
+    [ITEM_EXP_CANDY_XL - ITEM_POTION]  = sItemEffect_ExpCandyXL,
     [ITEM_PP_UP - ITEM_POTION]         = sItemEffect_PPUp,
     [ITEM_ZINC - ITEM_POTION]          = sItemEffect_Zinc,
     [ITEM_PP_MAX - ITEM_POTION]        = sItemEffect_PPMax,

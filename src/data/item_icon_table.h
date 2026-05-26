@@ -125,12 +125,13 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_STAR_PIECE]     = {gItemIcon_StarPiece, gItemIconPalette_Star},
     [ITEM_NUGGET]         = {gItemIcon_Nugget, gItemIconPalette_Nugget},
     [ITEM_HEART_SCALE]    = {gItemIcon_HeartScale, gItemIconPalette_HeartScale},
+    // Exp. Candies
+    [ITEM_EXP_CANDY_XS]   = {gItemIcon_ExpCandy_XS, gItemIconPalette_ExpCandy},
+    [ITEM_EXP_CANDY_S]    = {gItemIcon_ExpCandy_S, gItemIconPalette_ExpCandy},
+    [ITEM_EXP_CANDY_M]    = {gItemIcon_ExpCandy_M, gItemIconPalette_ExpCandy},
+    [ITEM_EXP_CANDY_L]    = {gItemIcon_ExpCandy_L, gItemIconPalette_ExpCandy},
+    [ITEM_EXP_CANDY_XL]   = {gItemIcon_ExpCandy_XL, gItemIconPalette_ExpCandy},
     // ????????
-    [ITEM_070]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
-    [ITEM_071]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
-    [ITEM_072]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
-    [ITEM_073]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
-    [ITEM_074]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_075]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_076]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_077]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},

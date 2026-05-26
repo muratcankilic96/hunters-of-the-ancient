@@ -220,6 +220,13 @@ const u32 gItemIconPalette_Nugget[] = INCBIN_U32("graphics/items/icon_palettes/n
 const u32 gItemIcon_HeartScale[] = INCBIN_U32("graphics/items/icons/heart_scale.4bpp.lz");
 const u32 gItemIconPalette_HeartScale[] = INCBIN_U32("graphics/items/icon_palettes/heart_scale.gbapal.lz");
 
+const u32 gItemIcon_ExpCandy_XS[] = INCBIN_U32("graphics/items/icons/exp_candy_xs.4bpp.lz");
+const u32 gItemIcon_ExpCandy_S[] = INCBIN_U32("graphics/items/icons/exp_candy_s.4bpp.lz");
+const u32 gItemIcon_ExpCandy_M[] = INCBIN_U32("graphics/items/icons/exp_candy_m.4bpp.lz");
+const u32 gItemIcon_ExpCandy_L[] = INCBIN_U32("graphics/items/icons/exp_candy_l.4bpp.lz");
+const u32 gItemIcon_ExpCandy_XL[] = INCBIN_U32("graphics/items/icons/exp_candy_xl.4bpp.lz");
+const u32 gItemIconPalette_ExpCandy[] = INCBIN_U32("graphics/items/icon_palettes/exp_candy.gbapal.lz");
+
 // Mail
 
 const u32 gItemIcon_OrangeMail[] = INCBIN_U32("graphics/items/icons/orange_mail.4bpp.lz");

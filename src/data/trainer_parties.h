@@ -7562,11 +7562,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BikerJaren[] = {
 };
 
 // Test-case trainer
-static const struct TrainerMonNoItemDefaultMoves sParty_TeamRocketGrunt43[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_TeamRocketGrunt43[] = {
     {
         .iv = 0,
         .lvl = 80,
         .species = SPECIES_SKARMORY,
+        .moves = {MOVE_TOXIC, MOVE_THUNDER_WAVE, MOVE_TACKLE, MOVE_DOUBLE_SLAP},
     },
 };
 
