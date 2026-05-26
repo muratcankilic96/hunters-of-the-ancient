@@ -1057,7 +1057,7 @@ EventScript_HandOverItem::
 	return
 
 	.include "data/scripts/pokemon_league.inc"
-	.include "data/scripts/movement.inc"	
+	.include "data/scripts/movement.inc"
 	.include "data/scripts/flavor_text.inc"
 	.include "data/scripts/questionnaire.inc"
 

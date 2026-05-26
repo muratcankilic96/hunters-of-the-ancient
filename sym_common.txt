@@ -5,6 +5,7 @@
 	.include "window.o"
 	.include "text.o"
 	.include "sprite.o"
+	.include "sloopsvc.o"
 	.include "link.o"
 	.include "rtc.o"
 	.include "battle_main.o"
