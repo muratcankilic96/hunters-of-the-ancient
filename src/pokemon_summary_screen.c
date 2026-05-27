@@ -154,7 +154,7 @@ struct PokemonSummaryScreenData
     u8 ALIGNED(4) monIconSpriteId;
 
     u8 ALIGNED(4) inputHandlerTaskId;
-    u8 ALIGNED(4) inhibitPageFlipInput;
+    u8 ALIGNED(4) inhibitAllInput;
 
     u8 ALIGNED(4) numMonPicBounces;
 
@@ -1024,6 +1024,13 @@ void ShowPokemonSummaryScreen(struct Pokemon * party, u8 cursorPos, u8 lastIdx, 
         sMonSummaryScreen->isBoxMon = FALSE;
         sMonSummaryScreen->lockMovesFlag = TRUE;
         break;
+    case PSS_MODE_EXP_CANDY:
+        HelpSystem_Disable();
+        sMonSummaryScreen->curPageIndex = PSS_PAGE_SKILLS;
+        sMonSummaryScreen->isBoxMon = FALSE;
+        sMonSummaryScreen->lockMovesFlag = TRUE;
+        sMonSummaryScreen->inhibitAllInput = TRUE;
+        break;
     }
 
     sMonSummaryScreen->state3270 = 0;
@@ -1056,9 +1063,14 @@ void ShowSelectMovePokemonSummaryScreen(struct Pokemon * party, u8 cursorPos, u8
     sMonSummaryScreen->moveIds[4] = a4;
 }
 
+static u8 AllInputIsDisabled()
+{
+    return sMonSummaryScreen->inhibitAllInput;
+}
+
 static u8 PageFlipInputIsDisabled(u8 direction)
 {
-    if (sMonSummaryScreen->inhibitPageFlipInput == TRUE && sMonSummaryScreen->pageFlipDirection != direction)
+    if (AllInputIsDisabled() && sMonSummaryScreen->pageFlipDirection != direction)
         return TRUE;
 
     return FALSE;
@@ -1119,7 +1131,9 @@ static void Task_InputHandler_Info(u8 taskId)
         sMonSummaryScreen->state3270 = PSS_STATE3270_PLAYCRY;
         break;
     case PSS_STATE3270_HANDLEINPUT:
-        if (IsActiveOverworldLinkBusy() == TRUE)
+        if (AllInputIsDisabled() == TRUE) 
+            return;
+        else if (IsActiveOverworldLinkBusy() == TRUE)
             return;
         else if (IsLinkRecvQueueAtOverworldMax() == TRUE)
             return;
@@ -1243,7 +1257,7 @@ static void Task_PokeSum_FlipPages(u8 taskId)
         PokeSum_HideSpritesBeforePageFlip();
         PokeSum_ShowSpritesBeforePageFlip();
         sMonSummaryScreen->lockMovesFlag = TRUE;
-        sMonSummaryScreen->inhibitPageFlipInput = TRUE;
+        sMonSummaryScreen->inhibitAllInput = TRUE;
         PokeSum_UpdateWin1ActiveFlag(sMonSummaryScreen->curPageIndex);
         PokeSum_AddWindows(sMonSummaryScreen->curPageIndex);
         break;
@@ -1325,7 +1339,7 @@ static void Task_PokeSum_FlipPages(u8 taskId)
         DestroyTask(taskId);
         data[0] = 0;
         sMonSummaryScreen->lockMovesFlag = FALSE;
-        sMonSummaryScreen->inhibitPageFlipInput = FALSE;
+        sMonSummaryScreen->inhibitAllInput = FALSE;
         return;
     }
 
@@ -1338,7 +1352,7 @@ static void Task_FlipPages_FromInfo(u8 taskId)
     {
     case 0:
         sMonSummaryScreen->lockMovesFlag = TRUE;
-        sMonSummaryScreen->inhibitPageFlipInput = TRUE;
+        sMonSummaryScreen->inhibitAllInput = TRUE;
         PokeSum_AddWindows(sMonSummaryScreen->curPageIndex);
         break;
     case 1:
@@ -1435,7 +1449,7 @@ static void Task_FlipPages_FromInfo(u8 taskId)
         gTasks[sMonSummaryScreen->inputHandlerTaskId].func = Task_HandleInput_SelectMove;
         sMonSummaryScreen->state3284 = 0;
         sMonSummaryScreen->lockMovesFlag = FALSE;
-        sMonSummaryScreen->inhibitPageFlipInput = FALSE;
+        sMonSummaryScreen->inhibitAllInput = FALSE;
         return;
     }
 
@@ -1449,7 +1463,7 @@ static void Task_BackOutOfSelectMove(u8 taskId)
     {
     case 0:
         sMonSummaryScreen->lockMovesFlag = TRUE;
-        sMonSummaryScreen->inhibitPageFlipInput = TRUE;
+        sMonSummaryScreen->inhibitAllInput = TRUE;
         PokeSum_AddWindows(sMonSummaryScreen->curPageIndex);
         break;
     case 1:
@@ -1521,7 +1535,7 @@ static void Task_BackOutOfSelectMove(u8 taskId)
         gTasks[sMonSummaryScreen->inputHandlerTaskId].func = Task_InputHandler_Info;
         sMonSummaryScreen->state3284 = 0;
         sMonSummaryScreen->lockMovesFlag = FALSE;
-        sMonSummaryScreen->inhibitPageFlipInput = FALSE;
+        sMonSummaryScreen->inhibitAllInput = FALSE;
         return;
     }
 
@@ -1947,6 +1961,11 @@ static void CB2_SetUpPSS(void)
                 CopyToBgTilemapBuffer(sMonSummaryScreen->skillsPageBgNum, gSummaryScreen_PageMoves_Tilemap, 0, 0);
                 CopyToBgTilemapBuffer(sMonSummaryScreen->infoAndMovesPageBgNum, gSummaryScreen_PageMovesInfo_Tilemap, 0, 0);
             }
+            else if (sMonSummaryScreen->mode == PSS_MODE_EXP_CANDY) 
+            {
+                CopyToBgTilemapBuffer(sMonSummaryScreen->skillsPageBgNum, gSummaryScreen_PageSkills_Tilemap, 0, 0);
+                CopyToBgTilemapBuffer(sMonSummaryScreen->infoAndMovesPageBgNum, gSummaryScreen_PageMoves_Tilemap, 0, 0);
+            }
             else
             {
                 CopyToBgTilemapBuffer(sMonSummaryScreen->skillsPageBgNum, gSummaryScreen_PageInfo_Tilemap, 0, 0);
@@ -1989,6 +2008,19 @@ static void CB2_SetUpPSS(void)
             ShowOrHideBallIconObj(FALSE);
             ShowOrHideHpBarObjs(FALSE);
             ShowOrHideExpBarObjs(FALSE);
+        }
+
+        if (sMonSummaryScreen->mode == PSS_MODE_EXP_CANDY) {
+        int i;
+        for (i = 0; i < 11; i++)
+        {
+            sExpBarObjs->sprites[i]->oam.priority = 1;
+
+            if (i >= 9)
+                continue;
+
+            sHpBarObjs->sprites[i]->oam.priority = 1;
+         }
         }
 
         ShowOrHideStatusIcon(FALSE);

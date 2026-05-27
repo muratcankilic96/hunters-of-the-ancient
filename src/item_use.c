@@ -211,6 +211,12 @@ u8 CheckIfItemIsTMHMOrEvolutionStone(u16 itemId)
         return 0;
 }
 
+u8 CheckIfItemIsExpCandy(u16 itemId)
+{
+    if (ItemId_GetId(itemId) >= ITEM_EXP_CANDY_XS || ItemId_GetId(itemId) <= ITEM_EXP_CANDY_XL) return 1;
+    else return 0;
+}
+
 static void SetFieldCallback2ForItemUse(void)
 {
     gFieldCallback2 = FieldCB2_UseItemFromField;

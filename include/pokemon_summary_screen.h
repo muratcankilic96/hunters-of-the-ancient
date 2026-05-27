@@ -24,6 +24,7 @@ enum PokemonSummaryScreenMode
     PSS_MODE_FORGET_MOVE,
     PSS_MODE_TRADE,
     PSS_MODE_BOX,
+    PSS_MODE_EXP_CANDY,
 };
 
 enum PokemonSummaryScreenPage
