@@ -34,6 +34,7 @@
 #include "mon_markings.h"
 #include "pokemon_storage_system.h"
 #include "constants/sound.h"
+#include "m4a.h"
 
 // needs conflicting header to match (curIndex is s8 in the function, but has to be defined as u8 here)
 extern s16 SeekToNextMonInBox(struct BoxPokemon * boxMons, u8 curIndex, u8 maxIndex, u8 flags);
@@ -42,6 +43,7 @@ static void BufferSelectedMonData(struct Pokemon * mon);
 static void CB2_SetUpPSS(void);
 static void PokeSum_TryPlayMonCry(void);
 static void PokeSum_RemoveWindows(u8 curPageIndex);
+static void Task_GiveExpWithCandy(u8 taskId);
 static void Task_PokeSum_FlipPages(u8 taskId);
 static void Task_FlipPages_FromInfo(u8 taskId);
 static void Task_PokeSum_SwitchDisplayedPokemon(u8 taskId);
@@ -109,6 +111,7 @@ static void CB2_RunPokemonSummaryScreen(void);
 static void PrintInfoPage(void);
 static void PrintSkillsPage(void);
 static void PrintMovesPage(void);
+static void UpdateExpLabels(u8, u32, u32, u16);
 static void PokeSum_PrintMoveName(u8 i);
 static void PokeSum_PrintTrainerMemo(void);
 static void PokeSum_PrintExpPoints_NextLv(void);
@@ -133,6 +136,7 @@ static void SpriteCB_MoveSelectionCursor(struct Sprite *sprite);
 static void UpdateMonStatusIconObj(void);
 static void UpdateHpBarObjs(void);
 static void UpdateExpBarObjs(void);
+static void UpdateExpBarObjs_ExpCandy(u8, u32, u32, u32, u16);
 static void ShowPokerusIconObjIfHasOrHadPokerus(void);
 static void ShowShinyStarObjIfMonShiny(void);
 static void PokeSum_DestroyMonMarkingsSprite(void);
@@ -245,6 +249,7 @@ struct PokemonSummaryScreenData
     u8 ALIGNED(4) unk3304; /* 0x3304 */
 
     u16 moveDamageCategories[5]; /* 0x3308 */
+    u16 expCandyAmountToGive; /* 0x3312 */
 };
 
 struct Struct203B144
@@ -1061,6 +1066,12 @@ void ShowSelectMovePokemonSummaryScreen(struct Pokemon * party, u8 cursorPos, u8
 {
     ShowPokemonSummaryScreen(party, cursorPos, lastIdx, savedCallback, PSS_MODE_SELECT_MOVE);
     sMonSummaryScreen->moveIds[4] = a4;
+}
+
+void ShowExpCandyPokemonSummaryScreen(struct Pokemon * party, u8 cursorPos, u8 lastIdx, MainCallback savedCallback, u16 expToGive)
+{
+    ShowPokemonSummaryScreen(party, cursorPos, lastIdx, savedCallback, PSS_MODE_EXP_CANDY);
+    sMonSummaryScreen->expCandyAmountToGive = expToGive;
 }
 
 static u8 AllInputIsDisabled()
@@ -2427,14 +2438,96 @@ static void PokeSum_Setup_InitGpu(void)
     ShowBg(3);
 }
 
+#define tExpCandyTask_frames      data[10]
+#define tExpCandyTask_givenExp    data[4]
+
 static void PokeSum_FinishSetup(void)
 {
     if (sMonSummaryScreen->mode == PSS_MODE_SELECT_MOVE || sMonSummaryScreen->mode == PSS_MODE_FORGET_MOVE)
         sMonSummaryScreen->inputHandlerTaskId = CreateTask(Task_InputHandler_SelectOrForgetMove, 0);
+    else if (sMonSummaryScreen->mode == PSS_MODE_EXP_CANDY) 
+    {
+        sMonSummaryScreen->inputHandlerTaskId = CreateTask(Task_GiveExpWithCandy, 0); // As input handling is locked, we can use the input handler resources instead.
+        gTasks[sMonSummaryScreen->inputHandlerTaskId].tExpCandyTask_givenExp = 0;
+        gTasks[sMonSummaryScreen->inputHandlerTaskId].func = Task_GiveExpWithCandy;
+    } 
     else
         sMonSummaryScreen->inputHandlerTaskId = CreateTask(Task_InputHandler_Info, 0);
 
     SetMainCallback2(CB2_RunPokemonSummaryScreen);
+}
+
+static void Task_GiveExpWithCandy(u8 taskId)
+{
+    u16 increaseRate;
+    u8 frames;
+    u8 level;
+    u32 exp;
+    u32 nextLevelExp;
+    u32 expDiffBetweenLevels;
+    u32 curExpToNextLevel;
+    u16 species;
+    struct Pokemon * partyMons;
+    struct Pokemon * mon;
+
+    partyMons = sMonSummaryScreen->monList.mons;
+    mon = &partyMons[GetLastViewedMonIndex()];
+
+    frames = 13;
+
+    if (gTasks[taskId].tExpCandyTask_frames < frames)
+    {
+        ++gTasks[taskId].tExpCandyTask_frames;
+    }
+    else
+    {
+        PlaySE(SE_EXP);
+        exp = GetMonData(mon, MON_DATA_EXP);
+        level = GetMonData(mon, MON_DATA_LEVEL);
+        species = GetMonData(mon, MON_DATA_SPECIES);
+        nextLevelExp = gExperienceTables[gSpeciesInfo[species].growthRate][level + 1];
+        expDiffBetweenLevels = nextLevelExp - gExperienceTables[gSpeciesInfo[species].growthRate][level];
+        curExpToNextLevel = exp - gExperienceTables[gSpeciesInfo[species].growthRate][level];
+
+        m4aSongNumStop(SE_EXP);
+
+        increaseRate = 1;
+
+        if (gTasks[taskId].tExpCandyTask_givenExp >= 10000) {
+            increaseRate = 20;
+        }
+        else if (gTasks[taskId].tExpCandyTask_givenExp >= 3000) {
+            increaseRate = 10;
+        }
+        else if (gTasks[taskId].tExpCandyTask_givenExp >= 800) {
+            increaseRate = 5;
+        }
+        else if (gTasks[taskId].tExpCandyTask_givenExp >= 100) {
+            increaseRate = 2;
+        }
+
+        exp += increaseRate;
+        gTasks[taskId].tExpCandyTask_givenExp += increaseRate;
+
+        SetMonData(mon, MON_DATA_EXP, &exp);
+        UpdateExpBarObjs_ExpCandy(level, exp, expDiffBetweenLevels, curExpToNextLevel, species);
+        //UpdateExpLabels(level, exp, totalExpToNextLevel, species);
+
+        if (exp >= nextLevelExp) 
+        {
+            PlayFanfare(MUS_LEVEL_UP);
+            level++;
+            SetMonData(mon, MON_DATA_LEVEL, &level);
+            CalculateMonStats(mon);
+        }
+        if (gTasks[taskId].tExpCandyTask_givenExp >= sMonSummaryScreen->expCandyAmountToGive)
+        {
+            PlaySE(SE_EXP_MAX);
+            sMonSummaryScreen->switchMonTaskState = 0;
+            sMonSummaryScreen->state3270 = PSS_STATE3270_ATEXIT_FADEOUT;
+            gTasks[sMonSummaryScreen->inputHandlerTaskId].func = Task_InputHandler_Info;
+        }
+    }
 }
 
 static void PokeSum_PrintPageName(const u8 * str)
@@ -2540,6 +2633,25 @@ static void PrintSkillsPage(void)
     AddTextPrinterParameterized3(sMonSummaryScreen->windowIds[POKESUM_WIN_RIGHT_PANE], FONT_NORMAL, 50 + sMonSkillsPrinterXpos->spAStr, 48, sPrintMoveTextColors[0], TEXT_SKIP_DRAW, sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPA]);
     AddTextPrinterParameterized3(sMonSummaryScreen->windowIds[POKESUM_WIN_RIGHT_PANE], FONT_NORMAL, 50 + sMonSkillsPrinterXpos->spDStr, 61, sPrintMoveTextColors[0], TEXT_SKIP_DRAW, sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPD]);
     AddTextPrinterParameterized3(sMonSummaryScreen->windowIds[POKESUM_WIN_RIGHT_PANE], FONT_NORMAL, 50 + sMonSkillsPrinterXpos->speStr, 74, sPrintMoveTextColors[0], TEXT_SKIP_DRAW, sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPE]);
+    AddTextPrinterParameterized3(sMonSummaryScreen->windowIds[POKESUM_WIN_RIGHT_PANE], FONT_NORMAL, 15 + sMonSkillsPrinterXpos->expStr, 87, sPrintMoveTextColors[0], TEXT_SKIP_DRAW, sMonSummaryScreen->summary.expPointsStrBuf);
+    AddTextPrinterParameterized3(sMonSummaryScreen->windowIds[POKESUM_WIN_RIGHT_PANE], FONT_NORMAL, 15 + sMonSkillsPrinterXpos->toNextLevel, 100, sPrintMoveTextColors[0], TEXT_SKIP_DRAW, sMonSummaryScreen->summary.expToNextLevelStrBuf);
+}
+
+static void UpdateExpLabels(u8 level, u32 exp, u32 expToNextLevel, u16 species)
+{
+    FillWindowPixelRect(sMonSummaryScreen->windowIds[POKESUM_WIN_RIGHT_PANE], PIXEL_FILL(0), 15 + sMonSkillsPrinterXpos->expStr, 87, 10, 13);
+    FillWindowPixelRect(sMonSummaryScreen->windowIds[POKESUM_WIN_RIGHT_PANE], PIXEL_FILL(0), 15 + sMonSkillsPrinterXpos->expStr, 100, 10, 13);
+    ConvertIntToDecimalStringN(sMonSummaryScreen->summary.expPointsStrBuf, exp, STR_CONV_MODE_LEFT_ALIGN, 7);
+    sMonSkillsPrinterXpos->expStr = GetNumberRightAlign63(sMonSummaryScreen->summary.expPointsStrBuf);
+
+    if (level == 100)
+    {
+        expToNextLevel = 0;
+    }
+
+    ConvertIntToDecimalStringN(sMonSummaryScreen->summary.expToNextLevelStrBuf, expToNextLevel, STR_CONV_MODE_LEFT_ALIGN, 7);
+    sMonSkillsPrinterXpos->toNextLevel = GetNumberRightAlign63(sMonSummaryScreen->summary.expToNextLevelStrBuf);
+
     AddTextPrinterParameterized3(sMonSummaryScreen->windowIds[POKESUM_WIN_RIGHT_PANE], FONT_NORMAL, 15 + sMonSkillsPrinterXpos->expStr, 87, sPrintMoveTextColors[0], TEXT_SKIP_DRAW, sMonSummaryScreen->summary.expPointsStrBuf);
     AddTextPrinterParameterized3(sMonSummaryScreen->windowIds[POKESUM_WIN_RIGHT_PANE], FONT_NORMAL, 15 + sMonSkillsPrinterXpos->toNextLevel, 100, sPrintMoveTextColors[0], TEXT_SKIP_DRAW, sMonSummaryScreen->summary.expToNextLevelStrBuf);
 }
@@ -4689,6 +4801,60 @@ static void UpdateExpBarObjs(void)
     StartSpriteAnim(sExpBarObjs->sprites[1], 10);
     StartSpriteAnim(sExpBarObjs->sprites[10], 11);
 }
+
+static void UpdateExpBarObjs_ExpCandy(u8 level, u32 exp, u32 expDiffBetweenLevels, u32 curExpToNextLevel, u16 species)
+{
+    u8 numWholeExpBarTiles = 0;
+    u8 i;
+    s64 pointsPerTile;
+    s64 totalPoints;
+    u8 animNum;
+    u8 two = 2;
+
+    if (sMonSummaryScreen->isEgg)
+        return;
+
+    if (level < 100)
+    {
+        pointsPerTile = ((expDiffBetweenLevels << 2) / 8);
+        totalPoints = (curExpToNextLevel << 2);
+
+        while (TRUE)
+        {
+            if (totalPoints <= pointsPerTile)
+                break;
+            totalPoints -= pointsPerTile;
+            numWholeExpBarTiles++;
+        }
+
+        numWholeExpBarTiles += two;
+
+        for (i = two; i < numWholeExpBarTiles; i++)
+            StartSpriteAnim(sExpBarObjs->sprites[i], 8);
+
+        if (numWholeExpBarTiles >= 10)
+        {
+            if (expDiffBetweenLevels == curExpToNextLevel)
+                return;
+            else
+                StartSpriteAnim(sExpBarObjs->sprites[9], 7);
+        }
+
+        animNum = (totalPoints * 8) / pointsPerTile;
+        StartSpriteAnim(sExpBarObjs->sprites[numWholeExpBarTiles], animNum);
+
+        for (i = numWholeExpBarTiles + 1; i < 10; i++)
+            StartSpriteAnim(sExpBarObjs->sprites[i], 0);
+    }
+    else
+        for (i = two; i < 10; i++)
+            StartSpriteAnim(sExpBarObjs->sprites[i], 0);
+
+    StartSpriteAnim(sExpBarObjs->sprites[0], 9);
+    StartSpriteAnim(sExpBarObjs->sprites[1], 10);
+    StartSpriteAnim(sExpBarObjs->sprites[10], 11);
+}
+
 
 static void DestroyExpBarObjs(void)
 {

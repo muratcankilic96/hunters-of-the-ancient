@@ -280,7 +280,8 @@ static u8 GetPartySlotEntryStatus(s8 slot);
 static void Task_HandleSelectionMenuInput(u8 taskId);
 static void CB2_ShowPokemonSummaryScreen(void);
 static void CB2_ReturnToPartyMenuFromSummaryScreen(void);
-static void CB2_ShowSummaryScreenForExpCandy(void);
+static void CB2_ReturnToOverworldFromSummaryScreen(void);
+static void CB2_ShowExpCandySummaryScreenFor(void);
 static void UpdatePartyToBattleOrder(void);
 static void SlidePartyMenuBoxOneStep(u8 taskId);
 static void Task_SlideSelectedSlotsOffscreen(u8 taskId);
@@ -3115,9 +3116,16 @@ static void CB2_ReturnToPartyMenuFromSummaryScreen(void)
     InitPartyMenu(gPartyMenu.menuType, KEEP_PARTY_LAYOUT, gPartyMenu.action, TRUE, PARTY_MSG_DO_WHAT_WITH_MON, Task_TryCreateSelectionWindow, gPartyMenu.exitCallback);
 }
 
-static void CB2_ShowSummaryScreenForExpCandy(void)
+static void CB2_ReturnToOverworldFromSummaryScreen(void)
 {
-    ShowPokemonSummaryScreen(gPlayerParty, gPartyMenu.slotId, gPlayerPartyCount - 1, CB2_ReturnToPartyMenuFromSummaryScreen, PSS_MODE_EXP_CANDY);
+    gPaletteFade.bufferTransferDisabled = TRUE;
+    ExitPartyMenu();
+}
+
+static void CB2_ShowExpCandySummaryScreenFor(void)
+{
+    u16 expCandyAmount = ItemId_GetHoldEffectParam(gSpecialVar_ItemId);
+    ShowExpCandyPokemonSummaryScreen(gPlayerParty, gPartyMenu.slotId, gPlayerPartyCount - 1, CB2_ReturnToPartyMenuFromSummaryScreen, expCandyAmount);
 }
 
 static void CursorCB_Switch(u8 taskId)
@@ -4284,7 +4292,7 @@ static void CB2_DoUseItemAnim(void)
     }
     else if (CheckIfItemIsExpCandy(gSpecialVar_ItemId) == 1)
     {
-        StartUseItemAnim_Normal(gPartyMenu.slotId, gSpecialVar_ItemId, CB2_ShowSummaryScreenForExpCandy);
+        StartUseItemAnim_Normal(gPartyMenu.slotId, gSpecialVar_ItemId, CB2_ShowExpCandySummaryScreenFor);
     }
     else
         StartUseItemAnim_Normal(gPartyMenu.slotId, gSpecialVar_ItemId, CB2_UseItem);
