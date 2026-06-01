@@ -252,6 +252,7 @@ const u8 gText_PartyMenu_OK[] = _("OK");
 const u8 gText_Empty[] = _("");
 const u8 gText_PauseUntilPress[] = _("{PAUSE_UNTIL_PRESS}");
 const u8 gText_WontHaveEffect[] = _("It won't have any effect.{PAUSE_UNTIL_PRESS}");
+const u8 gText_UsedExpCandy[] = _("{STR_VAR_2} gained {STR_VAR_1} experience\nwith EXP CANDY.{PAUSE_UNTIL_PRESS}");
 const u8 gText_CantBeUsedOnPkmn[] = _("This can't be used on\nthat POKéMON.{PAUSE_UNTIL_PRESS}");
 const u8 gText_PkmnCantSwitchOut[] = _("{STR_VAR_1} can't be switched\nout!{PAUSE_UNTIL_PRESS}");
 const u8 gText_PkmnAlreadyInBattle[] = _("{STR_VAR_1} is already\nin battle!{PAUSE_UNTIL_PRESS}");

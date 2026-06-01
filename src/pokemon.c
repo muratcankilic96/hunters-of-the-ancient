@@ -2287,11 +2287,10 @@ static void GiveBoxMonInitialMoveset(struct BoxPokemon *boxMon)
     }
 }
 
-u16 MonTryLearningNewMove(struct Pokemon *mon, bool8 firstMove)
+u16 MonTryLearningNewMove_FromGivenLevel(struct Pokemon *mon, bool8 firstMove, u8 level) 
 {
     u32 retVal = MOVE_NONE;
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
-    u8 level = GetMonData(mon, MON_DATA_LEVEL, NULL);
 
     // since you can learn more than one move per level
     // the game needs to know whether you decided to
@@ -2317,6 +2316,12 @@ u16 MonTryLearningNewMove(struct Pokemon *mon, bool8 firstMove)
     }
 
     return retVal;
+}
+
+u16 MonTryLearningNewMove(struct Pokemon *mon, bool8 firstMove)
+{
+    u8 level = GetMonData(mon, MON_DATA_LEVEL, NULL);
+    MonTryLearningNewMove_FromGivenLevel(mon, firstMove, level);
 }
 
 void DeleteFirstMoveAndGiveMoveToMon(struct Pokemon *mon, u16 move)
