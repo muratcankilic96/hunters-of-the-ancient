@@ -881,7 +881,7 @@ void ItemUseOutOfBattle_EnigmaBerry(u8 taskId)
         break;
     default:
         gTasks[taskId].data[4] = 4;
-        FieldUseFunc_OakStopsYou(taskId);
+        FieldUseFunc_BossStopsYou(taskId);
     }
 }
 
@@ -907,11 +907,11 @@ void ItemUseInBattle_EnigmaBerry(u8 taskId)
         BattleUseFunc_Ether(taskId);
         break;
     default:
-        FieldUseFunc_OakStopsYou(taskId);
+        FieldUseFunc_BossStopsYou(taskId);
     }
 }
 
-void FieldUseFunc_OakStopsYou(u8 taskId)
+void FieldUseFunc_BossStopsYou(u8 taskId)
 {
     if (GetPocketByItemId(gSpecialVar_ItemId) == POCKET_BERRY_POUCH)
     {

@@ -4,6 +4,7 @@
 #include "rtc.h"
 #include "random.h"
 #include "overworld.h"
+#include "boss_pc.h"
 #include "constants/maps.h"
 #include "load_save.h"
 #include "item_menu.h"
@@ -125,6 +126,7 @@ void NewGameInitData(void)
     gSaveBlock2Ptr->specialSaveWarpFlags = 0;
     gSaveBlock2Ptr->gcnLinkFlags = 0;
     gSaveBlock2Ptr->dailyPokemonStolen = 0;
+    ResetTransferRequest();
     gSaveBlock2Ptr->unkFlag1 = TRUE;
     gSaveBlock2Ptr->unkFlag2 = FALSE;
     InitPlayerTrainerId();

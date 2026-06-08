@@ -791,7 +791,7 @@
 #define FLAG_GOT_FULL_RESTORE_FROM_THREE_ISLAND_DEFENDER 0x2FC
 #define FLAG_GOT_AMULET_COIN_FROM_OAKS_AIDE              0x2FD
 #define FLAG_FAINTED_BEFORE_POKEDEX                      0x2FE
-#define FLAG_OAKS_RATING_IS_VIA_PC                       0x2FF
+#define FLAG_POKEMON_TRANSFER_COMPLETE                   0x2FF
 
 // Unused?
 #define FLAG_0x300               0x300

@@ -3,6 +3,7 @@
 
 #include "global.h"
 #include "battle_util.h"
+#include "boss_pc.h"
 #include "clock.h"
 #include "event_data.h"
 #include "field_specials.h"
@@ -38,6 +39,7 @@ void UpdatePerDay(struct Time *localTime)
         daysSince = localTime->days - *days;
         *days = localTime->days;
         ResetDailyStolenPokemonCount();
+        ResetTransferRequest();
     }
 }
 

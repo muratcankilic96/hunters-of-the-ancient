@@ -202,7 +202,7 @@ SECTIONS {
         src/fldeff_dig.o(.text);
         src/fldeff_flash.o(.text);
         src/post_battle_event_funcs.o(.text);
-        src/prof_pc.o(.text);
+        src/boss_pc.o(.text);
         src/hof_pc.o(.text);
         src/field_specials.o(.text);
         src/battle_records.o(.text);

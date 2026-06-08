@@ -221,7 +221,7 @@ gSpecials::
 	def_special NullFieldSpecial
 	def_special NullFieldSpecial
 	def_special GetPokedexCount
-	def_special GetProfOaksRatingMessage
+	def_special GetRequestedPokemonForTransfer
 	def_special AnimatePcTurnOn
 	def_special AnimatePcTurnOff
 	def_special GetElevatorFloor

@@ -46,7 +46,7 @@ static void Task_PlaceMon(u8 taskId);
 static void Task_ShiftMon(u8 taskId);
 static void Task_WithdrawMon(u8 taskId);
 static void Task_DepositMenu(u8 taskId);
-static void Task_ReleaseMon(u8 taskId);
+static void Task_TransferMon(u8 taskId);
 static void Task_ShowMarkMenu(u8 taskId);
 static void Task_TakeItemForMoving(u8 taskId);
 static void Task_GiveMovingItemToMon(u8 taskId);
@@ -130,18 +130,18 @@ enum
     MSG_DEPOSIT_IN_WHICH_BOX,
     MSG_WAS_DEPOSITED,
     MSG_BOX_IS_FULL,
-    MSG_RELEASE_POKE,
-    MSG_WAS_RELEASED,
+    MSG_TRANSFER_POKE,
+    MSG_WAS_TRANSFERRED,
     MSG_BYE_BYE,
     MSG_MARK_POKE,
     MSG_LAST_POKE,
     MSG_PARTY_FULL,
     MSG_HOLDING_POKE,
     MSG_WHICH_ONE_WILL_TAKE,
-    MSG_CANT_RELEASE_EGG,
+    MSG_CANT_TRANSFER_EGG,
     MSG_CONTINUE_BOX,
     MSG_CAME_BACK,
-    MSG_WORRIED,
+    MSG_BOSS_REJECTED,
     MSG_SURPRISE,
     MSG_PLEASE_REMOVE_MAIL,
     MSG_IS_SELECTED2,
@@ -282,18 +282,18 @@ static const struct StorageMessage sMessages[] = {
     [MSG_DEPOSIT_IN_WHICH_BOX] = {gText_DepositInWhichBox,       MSG_FMT_NONE},
     [MSG_WAS_DEPOSITED]        = {gText_PkmnWasDeposited,        MSG_FMT_MON_NAME_1},
     [MSG_BOX_IS_FULL]          = {gText_BoxIsFull2,              MSG_FMT_NONE},
-    [MSG_RELEASE_POKE]         = {gText_ReleaseThisPokemon,      MSG_FMT_NONE},
-    [MSG_WAS_RELEASED]         = {gText_PkmnWasReleased,         MSG_FMT_RELEASE_MON_1},
+    [MSG_TRANSFER_POKE]        = {gText_TransferThisPokemon,     MSG_FMT_NONE},
+    [MSG_WAS_TRANSFERRED]      = {gText_PkmnWasTransferred,      MSG_FMT_RELEASE_MON_1},
     [MSG_BYE_BYE]              = {gText_ByeByePkmn,              MSG_FMT_RELEASE_MON_3},
     [MSG_MARK_POKE]            = {gText_MarkYourPkmn,            MSG_FMT_NONE},
     [MSG_LAST_POKE]            = {gText_ThatsYourLastPkmn,       MSG_FMT_NONE},
     [MSG_PARTY_FULL]           = {gText_YourPartysFull,          MSG_FMT_NONE},
     [MSG_HOLDING_POKE]         = {gText_YoureHoldingAPkmn,       MSG_FMT_NONE},
     [MSG_WHICH_ONE_WILL_TAKE]  = {gText_WhichOneWillYouTake,     MSG_FMT_NONE},
-    [MSG_CANT_RELEASE_EGG]     = {gText_YouCantReleaseAnEgg,     MSG_FMT_NONE},
+    [MSG_CANT_TRANSFER_EGG]    = {gText_YouCantTransferAnEgg,    MSG_FMT_NONE},
     [MSG_CONTINUE_BOX]         = {gText_ContinueBoxOperations,   MSG_FMT_NONE},
     [MSG_CAME_BACK]            = {gText_PkmnCameBack,            MSG_FMT_MON_NAME_1},
-    [MSG_WORRIED]              = {gText_WasItWorriedAboutYou,    MSG_FMT_NONE},
+    [MSG_BOSS_REJECTED]        = {gText_BossRejectedTransfer,    MSG_FMT_NONE},
     [MSG_SURPRISE]             = {gText_FourEllipsesExclamation, MSG_FMT_NONE},
     [MSG_PLEASE_REMOVE_MAIL]   = {gText_PleaseRemoveTheMail,     MSG_FMT_NONE},
     [MSG_IS_SELECTED2]         = {gText_PkmnIsSelected,          MSG_FMT_ITEM_NAME},
@@ -1005,7 +1005,7 @@ static void Task_OnSelectedMon(u8 taskId)
                 SetPokeStorageTask(Task_DepositMenu);
             }
             break;
-        case MENU_TEXT_RELEASE:
+        case MENU_TEXT_TRANSFER:
             if (CanMovePartyMon())
                 gStorage->state = 3;
             else if (gStorage->displayMonIsEgg)
@@ -1015,7 +1015,7 @@ static void Task_OnSelectedMon(u8 taskId)
             else
             {
                 PlaySE(SE_SELECT);
-                SetPokeStorageTask(Task_ReleaseMon);
+                SetPokeStorageTask(Task_TransferMon);
             }
             break;
         case MENU_TEXT_SUMMARY:
@@ -1055,7 +1055,7 @@ static void Task_OnSelectedMon(u8 taskId)
         break;
     case 5:
         PlaySE(SE_FAILURE);
-        PrintStorageMessage(MSG_CANT_RELEASE_EGG);
+        PrintStorageMessage(MSG_CANT_TRANSFER_EGG);
         gStorage->state = 6;
         break;
     case 4:
@@ -1252,12 +1252,12 @@ static void Task_DepositMenu(u8 taskId)
     }
 }
 
-static void Task_ReleaseMon(u8 taskId)
+static void Task_TransferMon(u8 taskId)
 {
     switch (gStorage->state)
     {
     case 0:
-        PrintStorageMessage(MSG_RELEASE_POKE);
+        PrintStorageMessage(MSG_TRANSFER_POKE);
         ShowYesNoWindow(1);
         gStorage->state++;
         // fallthrough
@@ -1301,7 +1301,7 @@ static void Task_ReleaseMon(u8 taskId)
     case 3:
         ReleaseMon();
         RefreshDisplayMonData();
-        PrintStorageMessage(MSG_WAS_RELEASED);
+        PrintStorageMessage(MSG_WAS_TRANSFERRED);
         gStorage->state++;
         break;
     case 4:
@@ -1339,7 +1339,7 @@ static void Task_ReleaseMon(u8 taskId)
         break;
     case 8:
         // Start "can't release" sequence
-        PrintStorageMessage(MSG_WAS_RELEASED);
+        PrintStorageMessage(MSG_WAS_TRANSFERRED);
         gStorage->state++;
         break;
     case 9:
@@ -1368,7 +1368,7 @@ static void Task_ReleaseMon(u8 taskId)
     case 12:
         if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
-            PrintStorageMessage(MSG_WORRIED);
+            PrintStorageMessage(MSG_BOSS_REJECTED);
             gStorage->state++;
         }
         break;

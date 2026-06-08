@@ -1071,7 +1071,7 @@ static void Task_BerryPouch_Use(u8 taskId)
     if (sStaticCnt.type == BERRYPOUCH_FROMBATTLE)
     {
         if (ItemId_GetBattleFunc(gSpecialVar_ItemId) == NULL)
-            FieldUseFunc_OakStopsYou(taskId);
+            FieldUseFunc_BossStopsYou(taskId);
         else
             ItemId_GetBattleFunc(gSpecialVar_ItemId)(taskId);
     }

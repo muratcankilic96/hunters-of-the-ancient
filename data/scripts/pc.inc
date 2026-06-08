@@ -29,7 +29,7 @@ EventScript_ChoosePCMenu::
 	switch VAR_RESULT
 	case 0, EventScript_AccessPokemonStorage
 	case 1, EventScript_AccessPlayersPC
-	case 2, EventScript_AccessProfOaksPC
+	case 2, EventScript_AccessBossPC
 	case 3, EventScript_AccessHallOfFame
 	case 4, EventScript_TurnOffPC
 	case SCR_MENU_CANCEL, EventScript_TurnOffPC
@@ -83,19 +83,21 @@ EventScript_AccessHallOfFame::
 	goto EventScript_ChoosePCMenu
 	end
 
-EventScript_AccessProfOaksPC::
+EventScript_AccessBossPC::
 	goto_if_unset FLAG_SYS_POKEDEX_GET, EventScript_TurnOffPC
 	playse SE_PC_LOGIN
-	msgbox Text_AccessedProfOaksPC
-	msgbox Text_HavePokedexRated, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EventScript_ExitOaksPC
-	setflag FLAG_OAKS_RATING_IS_VIA_PC
-	call PokedexRating_EventScript_Rate
-	clearflag FLAG_OAKS_RATING_IS_VIA_PC
-	goto EventScript_ExitOaksPC
+	msgbox Text_AccessedBossPC
+	goto_if_le VAR_TEAM_ROCKET_RANK, 1, EventScript_AccessDeniedBossPC
+	call TransferRequest_EventScript_Describe
+	goto EventScript_ExitBossPC
 	end
 
-EventScript_ExitOaksPC::
-	msgbox Text_ClosedLinkToProfOaksPC
+EventScript_AccessDeniedBossPC::
+	msgbox Text_UnauthorizedForBossPC
+	goto EventScript_ExitBossPC
+	end
+
+EventScript_ExitBossPC::
+	msgbox Text_ClosedLinkToBossPC
 	goto EventScript_PCMainMenu
 	end

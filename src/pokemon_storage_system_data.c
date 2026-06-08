@@ -1801,7 +1801,7 @@ static bool8 SetMenuTextsForMon(void)
     }
 
     SetMenuText(MENU_TEXT_MARK);
-    SetMenuText(MENU_TEXT_RELEASE);
+    SetMenuText(MENU_TEXT_TRANSFER);
     SetMenuText(MENU_TEXT_CANCEL);
     return TRUE;
 }
@@ -2032,7 +2032,7 @@ static const u8 *const sMenuTexts[] = {
     [MENU_TEXT_SHIFT]      = gPCText_Shift,
     [MENU_TEXT_PLACE]      = gPCText_Place,
     [MENU_TEXT_SUMMARY]    = gPCText_Summary,
-    [MENU_TEXT_RELEASE]    = gPCText_Release,
+    [MENU_TEXT_TRANSFER]   = gPCText_Transfer,
     [MENU_TEXT_MARK]       = gPCText_Mark,
     [MENU_TEXT_JUMP]       = gPCText_Jump,
     [MENU_TEXT_WALLPAPER]  = gPCText_Wallpaper,

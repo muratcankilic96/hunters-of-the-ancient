@@ -923,17 +923,17 @@ Text_ItNeedsCardKey::
 	.string "No!\n"
 	.string "It needs a CARD KEY!$"
 
-Text_AccessedProfOaksPC::
-	.string "Accessed PROF. OAK's PC…\p"
-	.string "Accessed the POKéDEX Rating\n"
-	.string "System…$"
+Text_AccessedBossPC::
+	.string "Accessed BOSS's PC…\p"
+	.string "Accessed the POKéMON Request\n"
+	.string "Board…$"
 
-Text_HavePokedexRated::
-	.string "Would you like to have your\n"
-	.string "POKéDEX rated?$"
+Text_UnauthorizedForBossPC::
+	.string "“Access denied. You do not have\n"
+	.string "sufficient privileges.”$"
 
-Text_ClosedLinkToProfOaksPC::
-	.string "Closed link to PROF. OAK's PC.$"
+Text_ClosedLinkToBossPC::
+	.string "Closed link to BOSS's PC.$"
 
 Text_VoiceRangOutDontRunAway::
 	.string "Someone's voice rang out,\n"
@@ -1036,8 +1036,8 @@ EventScript_WallTownMap::
 	releaseall
 	end
 
-	.include "data/text/pokedex_rating.inc"
-	.include "data/scripts/pokedex_rating.inc"
+	.include "data/text/transfer_request.inc"
+	.include "data/scripts/transfer_request.inc"
 	.include "data/scripts/cave_of_origin.inc"
 
 EventScript_ChangePokemonNickname::
