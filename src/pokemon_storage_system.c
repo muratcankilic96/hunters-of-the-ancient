@@ -1,5 +1,6 @@
 #include "global.h"
 #include "gflib.h"
+#include "constants/items.h"
 #include "pokemon_storage_system_internal.h"
 
 void BackupPokemonStorage(struct PokemonStorage * dest)
@@ -36,6 +37,27 @@ void SetBoxMonDataAt(u8 boxId, u8 boxPosition, s32 request, const void *value)
 {
     if (boxId < TOTAL_BOXES_COUNT && boxPosition < IN_BOX_COUNT)
         SetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], request, value);
+}
+
+u16 GetTransferReward(u8 level)
+{
+    if (level > 80) 
+    {
+        return ITEM_EXP_CANDY_XL;
+    }
+    else if (level > 50)
+    {
+        return ITEM_EXP_CANDY_L;
+    }
+    else if (level > 30)
+    {
+        return ITEM_EXP_CANDY_M;
+    }
+    else if (level > 10)
+    {
+        return ITEM_EXP_CANDY_S;
+    }
+    return ITEM_EXP_CANDY_XS;
 }
 
 u32 GetCurrentBoxMonData(u8 boxPosition, s32 request)

@@ -1,5 +1,6 @@
 #include "global.h"
 #include "gflib.h"
+#include "boss_pc.h"
 #include "data.h"
 #include "decompress.h"
 #include "dynamic_placeholder_text_util.h"
@@ -133,6 +134,9 @@ enum
     MSG_TRANSFER_POKE,
     MSG_WAS_TRANSFERRED,
     MSG_BYE_BYE,
+    MSG_GAINED_EXP_CANDY,
+    MSG_GAINED_EXP_CANDY_REQ1,
+    MSG_GAINED_EXP_CANDY_REQ2,
     MSG_MARK_POKE,
     MSG_LAST_POKE,
     MSG_PARTY_FULL,
@@ -148,6 +152,7 @@ enum
     MSG_GIVE_TO_MON,
     MSG_PLACED_IN_BAG,
     MSG_BAG_FULL,
+    MSG_SENT_TO_PC,
     MSG_PUT_IN_BAG,
     MSG_ITEM_IS_HELD,
     MSG_CHANGED_TO_ITEM,
@@ -160,9 +165,10 @@ enum
     MSG_FMT_MON_NAME_1,
     MSG_FMT_MON_NAME_2,
     MSG_FMT_MON_NAME_3,
-    MSG_FMT_RELEASE_MON_1,
-    MSG_FMT_RELEASE_MON_2,
-    MSG_FMT_RELEASE_MON_3,
+    MSG_FMT_TRANSFER_MON_1,
+    MSG_FMT_TRANSFER_MON_2,
+    MSG_FMT_TRANSFER_MON_3,
+    MSG_FMT_TRANSFER_MON_4,
     MSG_FMT_ITEM_NAME,
 };
 
@@ -273,37 +279,41 @@ static const struct SpriteTemplate sSpriteTemplate_DisplayMon = {
 };
 
 static const struct StorageMessage sMessages[] = {
-    [MSG_EXIT_BOX]             = {gText_ExitFromBox,             MSG_FMT_NONE},
-    [MSG_WHAT_YOU_DO]          = {gText_WhatDoYouWantToDo,       MSG_FMT_NONE},
-    [MSG_PICK_A_THEME]         = {gText_PleasePickATheme,        MSG_FMT_NONE},
-    [MSG_PICK_A_WALLPAPER]     = {gText_PickTheWallpaper,        MSG_FMT_NONE},
-    [MSG_IS_SELECTED]          = {gText_PkmnIsSelected,          MSG_FMT_MON_NAME_1},
-    [MSG_JUMP_TO_WHICH_BOX]    = {gText_JumpToWhichBox,          MSG_FMT_NONE},
-    [MSG_DEPOSIT_IN_WHICH_BOX] = {gText_DepositInWhichBox,       MSG_FMT_NONE},
-    [MSG_WAS_DEPOSITED]        = {gText_PkmnWasDeposited,        MSG_FMT_MON_NAME_1},
-    [MSG_BOX_IS_FULL]          = {gText_BoxIsFull2,              MSG_FMT_NONE},
-    [MSG_TRANSFER_POKE]        = {gText_TransferThisPokemon,     MSG_FMT_NONE},
-    [MSG_WAS_TRANSFERRED]      = {gText_PkmnWasTransferred,      MSG_FMT_RELEASE_MON_1},
-    [MSG_BYE_BYE]              = {gText_ByeByePkmn,              MSG_FMT_RELEASE_MON_3},
-    [MSG_MARK_POKE]            = {gText_MarkYourPkmn,            MSG_FMT_NONE},
-    [MSG_LAST_POKE]            = {gText_ThatsYourLastPkmn,       MSG_FMT_NONE},
-    [MSG_PARTY_FULL]           = {gText_YourPartysFull,          MSG_FMT_NONE},
-    [MSG_HOLDING_POKE]         = {gText_YoureHoldingAPkmn,       MSG_FMT_NONE},
-    [MSG_WHICH_ONE_WILL_TAKE]  = {gText_WhichOneWillYouTake,     MSG_FMT_NONE},
-    [MSG_CANT_TRANSFER_EGG]    = {gText_YouCantTransferAnEgg,    MSG_FMT_NONE},
-    [MSG_CONTINUE_BOX]         = {gText_ContinueBoxOperations,   MSG_FMT_NONE},
-    [MSG_CAME_BACK]            = {gText_PkmnCameBack,            MSG_FMT_MON_NAME_1},
-    [MSG_BOSS_REJECTED]        = {gText_BossRejectedTransfer,    MSG_FMT_NONE},
-    [MSG_SURPRISE]             = {gText_FourEllipsesExclamation, MSG_FMT_NONE},
-    [MSG_PLEASE_REMOVE_MAIL]   = {gText_PleaseRemoveTheMail,     MSG_FMT_NONE},
-    [MSG_IS_SELECTED2]         = {gText_PkmnIsSelected,          MSG_FMT_ITEM_NAME},
-    [MSG_GIVE_TO_MON]          = {gText_GiveToAPkmn,             MSG_FMT_NONE},
-    [MSG_PLACED_IN_BAG]        = {gText_PlacedItemInBag,         MSG_FMT_ITEM_NAME},
-    [MSG_BAG_FULL]             = {gText_BagIsFull2,              MSG_FMT_NONE},
-    [MSG_PUT_IN_BAG]           = {gText_PutItemInBag,            MSG_FMT_NONE},
-    [MSG_ITEM_IS_HELD]         = {gText_ItemIsNowHeld,           MSG_FMT_ITEM_NAME},
-    [MSG_CHANGED_TO_ITEM]      = {gText_ChangedToNewItem,        MSG_FMT_ITEM_NAME},
-    [MSG_CANT_STORE_MAIL]      = {gText_MailCantBeStored,        MSG_FMT_NONE},
+    [MSG_EXIT_BOX]              = {gText_ExitFromBox,             MSG_FMT_NONE},
+    [MSG_WHAT_YOU_DO]           = {gText_WhatDoYouWantToDo,       MSG_FMT_NONE},
+    [MSG_PICK_A_THEME]          = {gText_PleasePickATheme,        MSG_FMT_NONE},
+    [MSG_PICK_A_WALLPAPER]      = {gText_PickTheWallpaper,        MSG_FMT_NONE},
+    [MSG_IS_SELECTED]           = {gText_PkmnIsSelected,          MSG_FMT_MON_NAME_1},
+    [MSG_JUMP_TO_WHICH_BOX]     = {gText_JumpToWhichBox,          MSG_FMT_NONE},
+    [MSG_DEPOSIT_IN_WHICH_BOX]  = {gText_DepositInWhichBox,       MSG_FMT_NONE},
+    [MSG_WAS_DEPOSITED]         = {gText_PkmnWasDeposited,        MSG_FMT_MON_NAME_1},
+    [MSG_BOX_IS_FULL]           = {gText_BoxIsFull2,              MSG_FMT_NONE},
+    [MSG_TRANSFER_POKE]         = {gText_TransferThisPokemon,     MSG_FMT_NONE},
+    [MSG_WAS_TRANSFERRED]       = {gText_PkmnWasTransferred,      MSG_FMT_TRANSFER_MON_1},
+    [MSG_BYE_BYE]               = {gText_ByeByePkmn,              MSG_FMT_TRANSFER_MON_3},
+    [MSG_GAINED_EXP_CANDY]      = {gText_GainedExpCandy,          MSG_FMT_TRANSFER_MON_4},
+    [MSG_GAINED_EXP_CANDY_REQ1] = {gText_GainedExpCandyRequest1,  MSG_FMT_NONE},
+    [MSG_GAINED_EXP_CANDY_REQ2] = {gText_GainedExpCandyRequest2,  MSG_FMT_TRANSFER_MON_4},
+    [MSG_MARK_POKE]             = {gText_MarkYourPkmn,            MSG_FMT_NONE},
+    [MSG_LAST_POKE]             = {gText_ThatsYourLastPkmn,       MSG_FMT_NONE},
+    [MSG_PARTY_FULL]            = {gText_YourPartysFull,          MSG_FMT_NONE},
+    [MSG_HOLDING_POKE]          = {gText_YoureHoldingAPkmn,       MSG_FMT_NONE},
+    [MSG_WHICH_ONE_WILL_TAKE]   = {gText_WhichOneWillYouTake,     MSG_FMT_NONE},
+    [MSG_CANT_TRANSFER_EGG]     = {gText_YouCantTransferAnEgg,    MSG_FMT_NONE},
+    [MSG_CONTINUE_BOX]          = {gText_ContinueBoxOperations,   MSG_FMT_NONE},
+    [MSG_CAME_BACK]             = {gText_PkmnCameBack,            MSG_FMT_MON_NAME_1},
+    [MSG_BOSS_REJECTED]         = {gText_BossRejectedTransfer,    MSG_FMT_MON_NAME_1},
+    [MSG_SURPRISE]              = {gText_FourEllipsesExclamation, MSG_FMT_NONE},
+    [MSG_PLEASE_REMOVE_MAIL]    = {gText_PleaseRemoveTheMail,     MSG_FMT_NONE},
+    [MSG_IS_SELECTED2]          = {gText_PkmnIsSelected,          MSG_FMT_ITEM_NAME},
+    [MSG_GIVE_TO_MON]           = {gText_GiveToAPkmn,             MSG_FMT_NONE},
+    [MSG_PLACED_IN_BAG]         = {gText_PlacedItemInBag,         MSG_FMT_ITEM_NAME},
+    [MSG_BAG_FULL]              = {gText_BagIsFull2,              MSG_FMT_NONE},
+    [MSG_SENT_TO_PC]            = {gText_BagIsFull3,              MSG_FMT_NONE},
+    [MSG_PUT_IN_BAG]            = {gText_PutItemInBag,            MSG_FMT_NONE},
+    [MSG_ITEM_IS_HELD]          = {gText_ItemIsNowHeld,           MSG_FMT_ITEM_NAME},
+    [MSG_CHANGED_TO_ITEM]       = {gText_ChangedToNewItem,        MSG_FMT_ITEM_NAME},
+    [MSG_CANT_STORE_MAIL]       = {gText_MailCantBeStored,        MSG_FMT_NONE},
 };
 
 static const struct WindowTemplate sYesNoWindowTemplate = {
@@ -1271,35 +1281,36 @@ static void Task_TransferMon(u8 taskId)
             break;
         case 0:
             ClearBottomWindow();
-            InitCanReleaseMonVars();
-            InitReleaseMon();
+            InitCanTransferMonVars();
+            InitTransferMon();
             gStorage->state++;
             break;
         }
         break;
     case 2:
-        RunCanReleaseMon();
-        if (!TryHideReleaseMon())
+        RunCanTransferMon();
+        if (!TryHideTransferMon())
         {
             while (TRUE)
             {
-                // keep checking until status is no longer RELEASE_MON_UNDETERMINED
-                s8 canReleaseStatus = RunCanReleaseMon();
-                if (canReleaseStatus == RELEASE_MON_ALLOWED)
+                // keep checking until status is no longer TRANSFER_MON_UNDETERMINED
+                s8 canTransferStatus = RunCanTransferMon();
+                if (canTransferStatus == TRANSFER_MON_ALLOWED)
                 {
                     gStorage->state++;
                     break;
                 }
-                else if (canReleaseStatus == RELEASE_MON_NOT_ALLOWED)
+                else if (canTransferStatus == TRANSFER_MON_NOT_ALLOWED)
                 {
-                    gStorage->state = 8; // Can't release the mon.
+                    gStorage->state = 9; // Can't transfer the mon.
                     break;
                 }
             }
         }
         break;
     case 3:
-        ReleaseMon();
+        GetTransferMonVariables();
+        TransferMon();
         RefreshDisplayMonData();
         PrintStorageMessage(MSG_WAS_TRANSFERRED);
         gStorage->state++;
@@ -1314,6 +1325,32 @@ static void Task_TransferMon(u8 taskId)
     case 5:
         if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
+            gStorage->transferReward = GetTransferReward(gStorage->transferLevel);
+            if (gStorage->transferSpecies == GetRequestedPokemonForTransfer())
+            {
+                PrintStorageMessage(MSG_GAINED_EXP_CANDY_REQ1);
+                gTasks[taskId].data[0] = 50;
+                gStorage->state = 15;
+            }
+            else 
+            {
+                PrintStorageMessage(MSG_GAINED_EXP_CANDY);
+                gSpecialVar_Result = AddBagItem(gStorage->transferReward, 1);
+                if (!gSpecialVar_Result) 
+                {
+                    AddPCItem(gStorage->transferReward, 1);
+                    gStorage->state = 16;
+                }
+                else
+                {
+                    gStorage->state++;
+                }
+            }
+        }
+        break;
+    case 6:
+        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        {
             ClearBottomWindow();
             if (sInPartyMenu)
             {
@@ -1322,10 +1359,10 @@ static void Task_TransferMon(u8 taskId)
                 gStorage->state++;
             }
             else
-                gStorage->state = 7;
+                gStorage->state = 8;
         }
         break;
-    case 6:
+    case 7:
         if (GetNumPartySpritesCompacting() == 0)
         {
             DoTrySetDisplayMonData();
@@ -1334,49 +1371,76 @@ static void Task_TransferMon(u8 taskId)
             gStorage->state++;
         }
         break;
-    case 7:
+    case 8:
         SetPokeStorageTask(Task_PokeStorageMain);
         break;
-    case 8:
-        // Start "can't release" sequence
+    case 9:
+        // Start "can't transfer" sequence
         PrintStorageMessage(MSG_WAS_TRANSFERRED);
         gStorage->state++;
         break;
-    case 9:
+    case 10:
         if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             PrintStorageMessage(MSG_SURPRISE);
             gStorage->state++;
         }
         break;
-    case 10:
+    case 11:
         if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             ClearBottomWindow();
-            DoReleaseMonComeBackAnim();
+            DoTransferMonComeBackAnim();
             gStorage->state++;
         }
         break;
-    case 11:
-        if (!ResetReleaseMonSpritePtr())
+    case 12:
+        if (!ResetTransferMonSpritePtr())
         {
             TrySetCursorFistAnim();
             PrintStorageMessage(MSG_CAME_BACK);
             gStorage->state++;
         }
         break;
-    case 12:
+    case 13:
         if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             PrintStorageMessage(MSG_BOSS_REJECTED);
             gStorage->state++;
         }
         break;
-    case 13:
+    case 14:
         if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
         {
             ClearBottomWindow();
             SetPokeStorageTask(Task_PokeStorageMain);
+        }
+        break;
+    case 15:
+        if(gTasks[taskId].data[0] == 0) 
+        {
+            PrintStorageMessage(MSG_GAINED_EXP_CANDY_REQ2);
+            gSpecialVar_Result = AddBagItem(gStorage->transferReward, 2);
+            if (!gSpecialVar_Result) 
+            {
+                AddPCItem(gStorage->transferReward, 2);
+                gStorage->state++;
+            }
+            else 
+            {
+                gStorage->state = 6;
+            }
+        }
+        else
+        {
+            gTasks[taskId].data[0]--;
+        }
+        break;
+    case 16:
+        if (JOY_NEW(A_BUTTON | B_BUTTON | DPAD_ANY))
+        {
+            PrintStorageMessage(MSG_SENT_TO_PC);
+            gStorage->state = 6;
         }
         break;
     }
@@ -2564,10 +2628,13 @@ static void PrintStorageMessage(u8 id)
     case MSG_FMT_MON_NAME_3:
         DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gStorage->displayMonNickname);
         break;
-    case MSG_FMT_RELEASE_MON_1:
-    case MSG_FMT_RELEASE_MON_2:
-    case MSG_FMT_RELEASE_MON_3:
-        DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gStorage->releaseMonName);
+    case MSG_FMT_TRANSFER_MON_1:
+    case MSG_FMT_TRANSFER_MON_2:
+    case MSG_FMT_TRANSFER_MON_3:
+        DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gStorage->transferMonName);
+        break;
+    case MSG_FMT_TRANSFER_MON_4:
+        DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, ItemId_GetName(gStorage->transferReward));
         break;
     case MSG_FMT_ITEM_NAME:
         if (IsActiveItemMoving())

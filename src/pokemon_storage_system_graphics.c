@@ -60,20 +60,20 @@ static const struct OamData sOamData_MonIcon = {
     .paletteNum = 0
 };
 
-static const union AffineAnimCmd sAffineAnim_ReleaseMon_Release[] = {
-    AFFINEANIMCMD_FRAME(-2, -2, 0, 120),
+static const union AffineAnimCmd sAffineAnim_TransferMon_Transfer[] = {
+    AFFINEANIMCMD_FRAME(4, -4, 0, 60),
     AFFINEANIMCMD_END
 };
 
-static const union AffineAnimCmd sAffineAnim_ReleaseMon_ComeBack[] = {
+static const union AffineAnimCmd sAffineAnim_TransferMon_ComeBack[] = {
     AFFINEANIMCMD_FRAME(16, 16, 0,  0),
     AFFINEANIMCMD_FRAME(16, 16, 0, 15),
     AFFINEANIMCMD_END
 };
 
-static const union AffineAnimCmd *const sAffineAnims_ReleaseMon[] = {
-    [RELEASE_ANIM_RELEASE]   = sAffineAnim_ReleaseMon_Release,
-    [RELEASE_ANIM_COME_BACK] = sAffineAnim_ReleaseMon_ComeBack,
+static const union AffineAnimCmd *const sAffineAnims_TransferMon[] = {
+    [TRANSFER_ANIM_TRANSFER]   = sAffineAnim_TransferMon_Transfer,
+    [TRANSFER_ANIM_COME_BACK] = sAffineAnim_TransferMon_ComeBack,
 };
 
 static const u16 sWallpaperPalettes_Forest[][16] = INCBIN_U16("graphics/pokemon_storage/wallpapers/forest/tiles.gbapal");
@@ -860,69 +860,69 @@ bool8 ShiftMons(void)
     return TRUE;
 }
 
-void DoReleaseMonAnim(u8 mode, u8 position)
+void DoTransferMonAnim(u8 mode, u8 position)
 {
     switch (mode)
     {
     case MODE_PARTY:
-        gStorage->releaseMonSpritePtr = &gStorage->partySprites[position];
+        gStorage->transferMonSpritePtr = &gStorage->partySprites[position];
         break;
     case MODE_BOX:
-        gStorage->releaseMonSpritePtr = &gStorage->boxMonsSprites[position];
+        gStorage->transferMonSpritePtr = &gStorage->boxMonsSprites[position];
         break;
     case MODE_MOVE:
-        gStorage->releaseMonSpritePtr = &gStorage->movingMonSprite;
+        gStorage->transferMonSpritePtr = &gStorage->movingMonSprite;
         break;
     default:
         return;
     }
 
-    if (*gStorage->releaseMonSpritePtr != NULL)
+    if (*gStorage->transferMonSpritePtr != NULL)
     {
-        InitSpriteAffineAnim(*gStorage->releaseMonSpritePtr);
-        (*gStorage->releaseMonSpritePtr)->oam.affineMode = ST_OAM_AFFINE_NORMAL;
-        (*gStorage->releaseMonSpritePtr)->affineAnims = sAffineAnims_ReleaseMon;
-        StartSpriteAffineAnim(*gStorage->releaseMonSpritePtr, RELEASE_ANIM_RELEASE);
+        InitSpriteAffineAnim(*gStorage->transferMonSpritePtr);
+        (*gStorage->transferMonSpritePtr)->oam.affineMode = ST_OAM_AFFINE_NORMAL;
+        (*gStorage->transferMonSpritePtr)->affineAnims = sAffineAnims_TransferMon;
+        StartSpriteAffineAnim(*gStorage->transferMonSpritePtr, TRANSFER_ANIM_TRANSFER);
     }
 }
 
-bool8 TryHideReleaseMonSprite(void)
+bool8 TryHideTransferMonSprite(void)
 {
-    if (*gStorage->releaseMonSpritePtr == NULL || (*gStorage->releaseMonSpritePtr)->invisible)
+    if (*gStorage->transferMonSpritePtr == NULL || (*gStorage->transferMonSpritePtr)->invisible)
         return FALSE;
 
-    if ((*gStorage->releaseMonSpritePtr)->affineAnimEnded)
-        (*gStorage->releaseMonSpritePtr)->invisible = TRUE;
+    if ((*gStorage->transferMonSpritePtr)->affineAnimEnded)
+        (*gStorage->transferMonSpritePtr)->invisible = TRUE;
 
     return TRUE;
 }
 
-void DestroyReleaseMonIcon(void)
+void DestroyTransferMonIcon(void)
 {
-    if (*gStorage->releaseMonSpritePtr != NULL)
+    if (*gStorage->transferMonSpritePtr != NULL)
     {
-        FreeOamMatrix((*gStorage->releaseMonSpritePtr)->oam.matrixNum);
-        DestroyBoxMonIcon(*gStorage->releaseMonSpritePtr);
-        *gStorage->releaseMonSpritePtr = NULL;
+        FreeOamMatrix((*gStorage->transferMonSpritePtr)->oam.matrixNum);
+        DestroyBoxMonIcon(*gStorage->transferMonSpritePtr);
+        *gStorage->transferMonSpritePtr = NULL;
     }
 }
 
-void DoReleaseMonComeBackAnim(void)
+void DoTransferMonComeBackAnim(void)
 {
-    if (*gStorage->releaseMonSpritePtr != NULL)
+    if (*gStorage->transferMonSpritePtr != NULL)
     {
-        (*gStorage->releaseMonSpritePtr)->invisible = FALSE;
-        StartSpriteAffineAnim(*gStorage->releaseMonSpritePtr, RELEASE_ANIM_COME_BACK);
+        (*gStorage->transferMonSpritePtr)->invisible = FALSE;
+        StartSpriteAffineAnim(*gStorage->transferMonSpritePtr, TRANSFER_ANIM_COME_BACK);
     }
 }
 
-bool8 ResetReleaseMonSpritePtr(void)
+bool8 ResetTransferMonSpritePtr(void)
 {
-    if (gStorage->releaseMonSpritePtr == NULL)
+    if (gStorage->transferMonSpritePtr == NULL)
         return FALSE;
 
-    if ((*gStorage->releaseMonSpritePtr)->affineAnimEnded)
-        gStorage->releaseMonSpritePtr = NULL;
+    if ((*gStorage->transferMonSpritePtr)->affineAnimEnded)
+        gStorage->transferMonSpritePtr = NULL;
 
     return TRUE;
 }

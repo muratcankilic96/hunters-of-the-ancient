@@ -150,6 +150,32 @@ static u16 GetSpeciesAtCursorPosition(void)
     }
 }
 
+static u16 GetLevelAtCursorPosition(void)
+{
+    u16 species;
+    u32 exp;
+    s32 level = 1;
+
+    switch (sCursorArea)
+    {
+    case CURSOR_AREA_IN_PARTY:
+        species = GetMonData(&gPlayerParty[sCursorPosition], MON_DATA_SPECIES);
+        exp = GetMonData(&gPlayerParty[sCursorPosition], MON_DATA_EXP);
+        break;
+    case CURSOR_AREA_IN_BOX:
+        species = GetMonData(&gPlayerParty[sCursorPosition], MON_DATA_SPECIES);
+        exp = GetCurrentBoxMonData(sCursorPosition, MON_DATA_EXP);
+        break;
+    default:
+        return 0;
+    }
+
+    while (level <= MAX_LEVEL && gExperienceTables[gSpeciesInfo[species].growthRate][level] <= exp)
+        level++;
+
+    return level - 1;
+}
+
 bool8 UpdateCursorPos(void)
 {
     s16 tmp;
@@ -687,7 +713,7 @@ void ResetSelectionAfterDeposit(void)
     TrySetDisplayMonData();
 }
 
-void InitReleaseMon(void)
+void InitTransferMon(void)
 {
     u8 mode;
 
@@ -698,13 +724,13 @@ void InitReleaseMon(void)
     else
         mode = MODE_BOX;
 
-    DoReleaseMonAnim(mode, sCursorPosition);
-    StringCopy(gStorage->releaseMonName, gStorage->displayMonNickname);
+    DoTransferMonAnim(mode, sCursorPosition);
+    StringCopy(gStorage->transferMonName, gStorage->displayMonNickname);
 }
 
-bool8 TryHideReleaseMon(void)
+bool8 TryHideTransferMon(void)
 {
-    if (!TryHideReleaseMonSprite())
+    if (!TryHideTransferMonSprite())
     {
         StartSpriteAnim(gStorage->cursorSprite, 0);
         return FALSE;
@@ -713,11 +739,25 @@ bool8 TryHideReleaseMon(void)
         return TRUE;
 }
 
-void ReleaseMon(void)
+u8 GetBoxIdFromPartyOrStorage(void)
+{
+    if (sCursorArea == CURSOR_AREA_IN_PARTY)
+        return TOTAL_BOXES_COUNT;
+    else
+        return StorageGetCurrentBox(); 
+}
+
+void GetTransferMonVariables()
+{
+    gStorage->transferSpecies = GetSpeciesAtCursorPosition();
+    gStorage->transferLevel = GetLevelAtCursorPosition();
+}
+
+void TransferMon()
 {
     u8 boxId;
 
-    DestroyReleaseMonIcon();
+    DestroyTransferMonIcon();
     if (sIsMonBeingMoved)
         sIsMonBeingMoved = FALSE;
     else
@@ -725,7 +765,7 @@ void ReleaseMon(void)
         if (sCursorArea == CURSOR_AREA_IN_PARTY)
             boxId = TOTAL_BOXES_COUNT;
         else
-            boxId = StorageGetCurrentBox();
+            boxId = StorageGetCurrentBox(); 
 
         PurgeMonOrBoxMon(boxId, sCursorPosition);
     }
@@ -738,28 +778,28 @@ void TrySetCursorFistAnim(void)
         StartSpriteAnim(gStorage->cursorSprite, 3);
 }
 
-void InitCanReleaseMonVars(void)
+void InitCanTransferMonVars(void)
 {
     u16 knownMoveFlags;
     if (sIsMonBeingMoved)
     {
         gStorage->tempMon = gStorage->movingMon;
-        gStorage->releaseBoxId = -1;
-        gStorage->releaseBoxPos = -1;
+        gStorage->transferBoxId = -1;
+        gStorage->transferBoxPos = -1;
     }
     else
     {
         if (sCursorArea == CURSOR_AREA_IN_PARTY)
         {
             gStorage->tempMon = gPlayerParty[sCursorPosition];
-            gStorage->releaseBoxId = TOTAL_BOXES_COUNT;
+            gStorage->transferBoxId = TOTAL_BOXES_COUNT;
         }
         else
         {
             BoxMonAtToMon(StorageGetCurrentBox(), sCursorPosition, &gStorage->tempMon);
-            gStorage->releaseBoxId = StorageGetCurrentBox();
+            gStorage->transferBoxId = StorageGetCurrentBox();
         }
-        gStorage->releaseBoxPos = sCursorPosition;
+        gStorage->transferBoxPos = sCursorPosition;
     }
 
     gStorage->isSurfMon = FALSE;
@@ -771,30 +811,30 @@ void InitCanReleaseMonVars(void)
     gStorage->isSurfMon = knownMoveFlags & 1;
     gStorage->isDiveMon = (knownMoveFlags >> 1) & 1;
     if (gStorage->isSurfMon || gStorage->isDiveMon)
-        gStorage->releaseMonStatusResolved = FALSE;
+        gStorage->transferMonStatusResolved = FALSE;
     else
     {
-        gStorage->releaseMonStatusResolved = TRUE;
-        gStorage->releaseMonStatus = RELEASE_MON_ALLOWED;
+        gStorage->transferMonStatusResolved = TRUE;
+        gStorage->transferMonStatus = TRANSFER_MON_ALLOWED;
     }
 
-    gStorage->releaseCheckState = 0;
+    gStorage->transferCheckState = 0;
 }
 
-s8 RunCanReleaseMon(void)
+s8 RunCanTransferMon(void)
 {
     u16 i;
     u16 knownMoveFlags;
 
-    if (gStorage->releaseMonStatusResolved)
-        return gStorage->releaseMonStatus;
+    if (gStorage->transferMonStatusResolved)
+        return gStorage->transferMonStatus;
 
-    switch (gStorage->releaseCheckState)
+    switch (gStorage->transferCheckState)
     {
     case 0:
         for (i = 0; i < PARTY_SIZE; i++)
         {
-            if (gStorage->releaseBoxId != TOTAL_BOXES_COUNT || gStorage->releaseBoxPos != i)
+            if (gStorage->transferBoxId != TOTAL_BOXES_COUNT || gStorage->transferBoxPos != i)
             {
                 knownMoveFlags = GetMonData(&gPlayerParty[i], MON_DATA_KNOWN_MOVES, (u8 *)gStorage->restrictedMoveList);
                 if (knownMoveFlags & 1)
@@ -805,49 +845,49 @@ s8 RunCanReleaseMon(void)
         }
         if (!(gStorage->isSurfMon || gStorage->isDiveMon))
         {
-            gStorage->releaseMonStatusResolved = TRUE;
-            gStorage->releaseMonStatus = RELEASE_MON_ALLOWED;
+            gStorage->transferMonStatusResolved = TRUE;
+            gStorage->transferMonStatus = TRANSFER_MON_ALLOWED;
         }
         else
         {
-            gStorage->releaseCheckBoxId = 0;
-            gStorage->releaseCheckBoxPos = 0;
-            gStorage->releaseCheckState++;
+            gStorage->transferCheckBoxId = 0;
+            gStorage->transferCheckBoxPos = 0;
+            gStorage->transferCheckState++;
         }
         break;
     case 1:
         // for some reason, check only 5 mons in box each time this function is called
         for (i = 0; i < 5; i++)
         {
-            knownMoveFlags = GetAndCopyBoxMonDataAt(gStorage->releaseCheckBoxId, gStorage->releaseCheckBoxPos, MON_DATA_KNOWN_MOVES, (u8 *)gStorage->restrictedMoveList);
+            knownMoveFlags = GetAndCopyBoxMonDataAt(gStorage->transferCheckBoxId, gStorage->transferCheckBoxPos, MON_DATA_KNOWN_MOVES, (u8 *)gStorage->restrictedMoveList);
             if (knownMoveFlags != 0
-                && !(gStorage->releaseBoxId == gStorage->releaseCheckBoxId && gStorage->releaseBoxPos == gStorage->releaseCheckBoxPos))
+                && !(gStorage->transferBoxId == gStorage->transferCheckBoxId && gStorage->transferBoxPos == gStorage->transferCheckBoxPos))
             {
                 if (knownMoveFlags & 1)
                     gStorage->isSurfMon = FALSE;
                 if (knownMoveFlags & 2)
                     gStorage->isDiveMon = FALSE;
             }
-            if (++gStorage->releaseCheckBoxPos >= IN_BOX_COUNT)
+            if (++gStorage->transferCheckBoxPos >= IN_BOX_COUNT)
             {
-                gStorage->releaseCheckBoxPos = 0;
-                if (++gStorage->releaseCheckBoxId >= TOTAL_BOXES_COUNT)
+                gStorage->transferCheckBoxPos = 0;
+                if (++gStorage->transferCheckBoxId >= TOTAL_BOXES_COUNT)
                 {
-                    gStorage->releaseMonStatusResolved = TRUE;
-                    gStorage->releaseMonStatus = RELEASE_MON_NOT_ALLOWED;
+                    gStorage->transferMonStatusResolved = TRUE;
+                    gStorage->transferMonStatus = TRANSFER_MON_NOT_ALLOWED;
                     break;
                 }
             }
         }
         if (!(gStorage->isSurfMon || gStorage->isDiveMon))
         {
-            gStorage->releaseMonStatusResolved = TRUE;
-            gStorage->releaseMonStatus = RELEASE_MON_ALLOWED;
+            gStorage->transferMonStatusResolved = TRUE;
+            gStorage->transferMonStatus = TRANSFER_MON_ALLOWED;
         }
         break;
     }
 
-    return RELEASE_MON_UNDETERMINED;
+    return TRANSFER_MON_UNDETERMINED;
 }
 
 void SaveMovingMon(void)

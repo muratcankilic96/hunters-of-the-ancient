@@ -78,7 +78,7 @@ static u16 ShuffleNewPokemon(void)
     u16 randomSpeciesId;
     do 
     {
-        if (!IsNationalPokedexEnabled)
+        if (!IsNationalPokedexEnabled())
         {
             randomSpeciesId = (Random() % KANTO_SPECIES_END) + 1;
         }
@@ -88,7 +88,6 @@ static u16 ShuffleNewPokemon(void)
         }
     }
     while (IsForbiddenPokemon(randomSpeciesId) || IsInvalidPokemon(randomSpeciesId));
-    FlagClear(FLAG_POKEMON_TRANSFER_COMPLETE);
     return randomSpeciesId;
 }
 

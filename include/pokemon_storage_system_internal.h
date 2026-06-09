@@ -99,9 +99,9 @@ enum {
 
 enum
 {
-    RELEASE_MON_NOT_ALLOWED,
-    RELEASE_MON_ALLOWED,
-    RELEASE_MON_UNDETERMINED = -1,
+    TRANSFER_MON_NOT_ALLOWED,
+    TRANSFER_MON_ALLOWED,
+    TRANSFER_MON_UNDETERMINED = -1,
 };
 
 enum
@@ -196,8 +196,8 @@ enum {
 
 enum
 {
-    RELEASE_ANIM_RELEASE,
-    RELEASE_ANIM_COME_BACK,
+    TRANSFER_ANIM_TRANSFER,
+    TRANSFER_ANIM_COME_BACK,
 };
 
 // IDs for the item icons affine anims
@@ -305,7 +305,10 @@ struct PokemonStorageSystemData
     u16 scrollUnused4; // Never read
     u16 scrollUnused5; // Never read
     u16 scrollUnused6; // Never read
-    u8 filler1[22];
+    u16 transferReward;
+    u16 transferSpecies;
+    u8 transferLevel;
+    u8 filler1[17];
     u8 boxTitleTiles[512];
     u8 boxTitleUnused[512];
     u8 boxTitleCycleId;
@@ -333,7 +336,7 @@ struct PokemonStorageSystemData
     struct Sprite *partySprites[PARTY_SIZE];
     struct Sprite *boxMonsSprites[IN_BOX_COUNT];
     struct Sprite **shiftMonSpritePtr;
-    struct Sprite **releaseMonSpritePtr;
+    struct Sprite **transferMonSpritePtr;
     u16 numIconsPerSpecies[MAX_MON_ICONS];
     u16 iconSpeciesList[MAX_MON_ICONS];
     u16 boxSpecies[IN_BOX_COUNT];
@@ -392,15 +395,15 @@ struct PokemonStorageSystemData
     struct ChooseBoxMenu chooseBoxMenu;
     struct Pokemon movingMon;
     struct Pokemon tempMon;
-    s8 releaseMonStatus;
-    bool8 releaseMonStatusResolved;
+    s8 transferMonStatus;
+    bool8 transferMonStatusResolved;
     bool8 isSurfMon;
     bool8 isDiveMon;
-    s8 releaseCheckBoxId;
-    s8 releaseCheckBoxPos;
-    s8 releaseBoxId;
-    s8 releaseBoxPos;
-    u16 releaseCheckState;
+    s8 transferCheckBoxId;
+    s8 transferCheckBoxPos;
+    s8 transferBoxId;
+    s8 transferBoxPos;
+    u16 transferCheckState;
     u16 restrictedMoveList[3];
     u8 summaryLastIndex;
     u8 summaryCursorPos;
@@ -412,7 +415,7 @@ struct PokemonStorageSystemData
     } summaryMonPtr;
     u8 actionText[40];
     u8 boxTitleText[40];
-    u8 releaseMonName[POKEMON_NAME_LENGTH + 1];
+    u8 transferMonName[POKEMON_NAME_LENGTH + 1];
     u8 itemName[20];
     u8 inBoxMovingMode;
     u16 multiMoveWindowId;
@@ -451,6 +454,7 @@ void DestroyChooseBoxMenuSprites(void);
 u8 HandleBoxChooseSelectionInput(void);
 void LoadChooseBoxMenuGfx(struct ChooseBoxMenu *menu, u16 tileTag, u16 palTag, u8 subpriority, bool32 loadPal);
 void SetCurrentBoxMonData(u8 boxPosition, s32 request, const void *value);
+u16 GetTransferReward(u8 level);
 u32 GetCurrentBoxMonData(u8 boxPosition, s32 request);
 u32 GetAndCopyBoxMonDataAt(u8 boxId, u8 boxPosition, s32 request, void *dst);
 
@@ -464,8 +468,8 @@ void SaveCursorPos(void);
 u8 GetSavedCursorPos(void);
 void DoTrySetDisplayMonData(void);
 void ResetSelectionAfterDeposit(void);
-void InitReleaseMon(void);
-bool8 TryHideReleaseMon(void);
+void InitTransferMon(void);
+bool8 TryHideTransferMon(void);
 void TrySetCursorFistAnim(void);
 void SaveMovingMon(void);
 void LoadSavedMovingMon(void);
@@ -500,7 +504,7 @@ bool8 DoWallpaperGfxChange(void);
 u8 GetBoxCursorPosition(void);
 u16 GetMovingItem(void);
 u8 HandleInput(void);
-void InitCanReleaseMonVars(void);
+void InitCanTransferMonVars(void);
 void InitMonPlaceChange(u8 type);
 bool8 IsActiveItemMoving(void);
 bool8 IsCursorOnCloseBox(void);
@@ -509,9 +513,11 @@ void Item_FromMonToMoving(u8 cursorArea, u8 cursorPos);
 void Item_GiveMovingToMon(u8 cursorArea, u8 cursorPos);
 void Item_SwitchMonsWithMoving(u8 cursorArea, u8 cursorPos);
 void Item_TakeMons(u8 cursorArea, u8 cursorPos);
+u8 GetBoxIdFromPartyOrStorage(void);
 void PrintItemDescription(void);
-void ReleaseMon(void);
-s8 RunCanReleaseMon(void);
+void GetTransferMonVariables(void);
+void TransferMon(void);
+s8 RunCanTransferMon(void);
 bool8 ScrollToBox(void);
 void SetMonMarkings(u8 markings);
 void SetMovingMonPriority(u8 priority);
@@ -533,8 +539,8 @@ void CompactPartySprites(void);
 u8 GetNumPartySpritesCompacting(void);
 void MovePartySprites(s16 yDelta);
 void DestroyAllPartyMonIcons(void);
-void DoReleaseMonComeBackAnim(void);
-bool8 ResetReleaseMonSpritePtr(void);
+void DoTransferMonComeBackAnim(void);
+bool8 ResetTransferMonSpritePtr(void);
 void CreateInitBoxTask(u8 boxId);
 bool8 IsInitBoxActive(void);
 void AnimateBoxScrollArrows(bool8 species);
@@ -547,9 +553,9 @@ void DestroyPartyMonIcon(u8 partyId);
 void DestroyMovingMonIcon(void);
 s16 GetFirstFreeBoxSpot(u8 boxId);
 void CreateBoxMonIconAtPos(u8 boxPosition);
-void DoReleaseMonAnim(u8 mode, u8 position);
-bool8 TryHideReleaseMonSprite(void);
-void DestroyReleaseMonIcon(void);
+void DoTransferMonAnim(u8 mode, u8 position);
+bool8 TryHideTransferMonSprite(void);
+void DestroyTransferMonIcon(void);
 u8 CountPartyMons(void);
 u8 CountPartyAliveNonEggMonsExcept(u8 slotToIgnore);
 
