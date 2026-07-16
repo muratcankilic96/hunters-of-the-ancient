@@ -129,7 +129,7 @@ static void BuildCardTiles(u8 slot, u8 card, bool8 faceDown);
 static void OverlayCardLabel(u8 *cardTiles, const u8 *label);
 static void OverlayGlyphTile(u8 *dest, const u8 *src);
 static void FormatCardLabel(u8 card, bool8 faceDown, u8 *dest);
-static void PrintWindowLines(u8 windowId, const u8 *line0, const u8 *line1, const u8 *line2);
+static void PrintWindowLines(u8 windowId, const u8 *line0, const u8 *line1, const u8 *line2, bool8 rightAlignLine2);
 static u8 *AppendNumber(u8 *dest, u16 value);
 static u8 *AppendHandValue(u8 *dest, const struct BlackjackHand *hand);
 static u8 *AppendHandOutcome(u8 *dest, u8 handNumber, const struct BlackjackHand *hand);
@@ -172,6 +172,8 @@ static const u16 sTablePalette[] = {
     RGB(0, 0, 0), RGB(0, 0, 0), RGB(0, 0, 0), RGB(0, 0, 0),
     RGB(0, 0, 0), RGB(0, 0, 0), RGB(0, 0, 0), RGB(0, 0, 0),
 };
+
+static const u16 sHeaderFooterTextColor[] = { RGB(29, 26, 21) };
 
 static const struct BgTemplate sBgTemplates[] = {
     {
@@ -275,8 +277,8 @@ static const struct SpritePalette sSpritePaletteCards = {
 
 static const u8 sTextColors[] = {
     TEXT_COLOR_TRANSPARENT,
-    TEXT_COLOR_WHITE,
     TEXT_COLOR_DARK_GRAY,
+    TEXT_COLOR_LIGHT_GRAY,
 };
 
 static const u8 sTextBust[] = _("BUST");
@@ -445,6 +447,7 @@ static void InitBlackjackGraphics(void)
     InitWindows(sWindowTemplates);
     DeactivateAllTextPrinters();
     LoadStdWindowGfxOnBg(BLACKJACK_BG_UI, 1, BG_PLTT_ID(15));
+    LoadPalette(sHeaderFooterTextColor, BG_PLTT_ID(15) + TEXT_COLOR_WHITE, sizeof(sHeaderFooterTextColor));
 
     LoadSpritePalette(&sSpritePaletteCards);
     InitCardSpriteSheets();
@@ -537,7 +540,7 @@ static void DrawBlackjackHeader(void)
         {
             ptr = StringCopy(line2, sTextHand1);
             ptr = AppendHandValue(ptr, &sBlackjack->playerHands[0]);
-            StringCopy(ptr, sTextBetSuffix);
+            ptr = StringCopy(ptr, sTextBetSuffix);
             AppendNumber(ptr, sBlackjack->playerHands[0].bet);
         }
         else
@@ -549,7 +552,7 @@ static void DrawBlackjackHeader(void)
         }
     }
 
-    PrintWindowLines(BLACKJACK_WIN_HEADER, line0, line1, line2);
+    PrintWindowLines(BLACKJACK_WIN_HEADER, line0, line1, line2, sBlackjack->phase != BLACKJACK_PHASE_BETTING);
 }
 
 static void DrawBlackjackFooter(void)
@@ -686,27 +689,22 @@ static void BuildCardTiles(u8 slot, u8 card, bool8 faceDown)
 
 static void OverlayCardLabel(u8 *cardTiles, const u8 *label)
 {
-    u8 text[9];
-    u8 *ptr = text;
+    u8 textColors[3];
     u8 i;
 
-    *ptr++ = EXT_CTRL_CODE_BEGIN;
-    *ptr++ = EXT_CTRL_CODE_COLOR_HIGHLIGHT_SHADOW;
-    *ptr++ = TEXT_COLOR_DARK_GRAY;
-    *ptr++ = TEXT_COLOR_TRANSPARENT;
-    *ptr++ = TEXT_COLOR_DARK_GRAY;
-    StringCopy(ptr, label);
-
-    memset(sBlackjack->glyphTileBuffer, 0, sizeof(sBlackjack->glyphTileBuffer));
-    RenderTextHandleBold(sBlackjack->glyphTileBuffer, FONT_NORMAL, text, 0, 0, 0, 0, 0);
+    SaveTextColors(&textColors[0], &textColors[1], &textColors[2]);
+    GenerateFontHalfRowLookupTable(TEXT_COLOR_DARK_GRAY, TEXT_COLOR_TRANSPARENT, TEXT_COLOR_TRANSPARENT);
 
     for (i = 0; i < StringLength(label); i++)
     {
+        DecompressGlyph_Normal(label[i], FALSE);
         OverlayGlyphTile(cardTiles + i * TILE_SIZE_4BPP,
-                         sBlackjack->glyphTileBuffer + i * 2 * TILE_SIZE_4BPP);
+                         gGlyphInfo.pixels);
         OverlayGlyphTile(cardTiles + (3 + i) * TILE_SIZE_4BPP,
-                         sBlackjack->glyphTileBuffer + (i * 2 + 1) * TILE_SIZE_4BPP);
+                         gGlyphInfo.pixels + 2 * TILE_SIZE_4BPP);
     }
+
+    RestoreTextColors(&textColors[0], &textColors[1], &textColors[2]);
 }
 
 static void OverlayGlyphTile(u8 *dest, const u8 *src)
@@ -748,13 +746,22 @@ static void FormatCardLabel(u8 card, bool8 faceDown, u8 *dest)
     }
 }
 
-static void PrintWindowLines(u8 windowId, const u8 *line0, const u8 *line1, const u8 *line2)
+static void PrintWindowLines(u8 windowId, const u8 *line0, const u8 *line1, const u8 *line2, bool8 rightAlignLine2)
 {
+    u8 row2Y = 8;
+    u8 line2X = 50;
+
+    if (rightAlignLine2) 
+    {
+        row2Y = 0;
+        line2X = 28 * 8 - GetStringWidth(FONT_SMALL, line2, 0);
+    }
+
     FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
     PutWindowTilemap(windowId);
     AddTextPrinterParameterized4(windowId, FONT_SMALL, 0, 0, 0, 0, sTextColors, TEXT_SKIP_DRAW, line0);
     AddTextPrinterParameterized4(windowId, FONT_SMALL, 0, 8, 0, 0, sTextColors, TEXT_SKIP_DRAW, line1);
-    AddTextPrinterParameterized4(windowId, FONT_SMALL, 0, 16, 0, 0, sTextColors, TEXT_SKIP_DRAW, line2);
+    AddTextPrinterParameterized4(windowId, FONT_SMALL, line2X, row2Y, 0, 0, sTextColors, TEXT_SKIP_DRAW, line2);
     CopyWindowToVram(windowId, COPYWIN_FULL);
 }
 
