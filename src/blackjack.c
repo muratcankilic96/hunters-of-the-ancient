@@ -698,7 +698,7 @@ static void OverlayCardLabel(u8 *cardTiles, const u8 *label)
     StringCopy(ptr, label);
 
     memset(sBlackjack->glyphTileBuffer, 0, sizeof(sBlackjack->glyphTileBuffer));
-    FontFunc_Normal(sBlackjack->glyphTileBuffer);
+    RenderTextHandleBold(sBlackjack->glyphTileBuffer, FONT_NORMAL, text, 0, 0, 0, 0, 0);
 
     for (i = 0; i < StringLength(label); i++)
     {
