@@ -1135,8 +1135,8 @@
 	.byte \growthStage
 	.endm
 
-	@ In FRLG, this command is a nop. In RSE, opens the party menu to select a Pokemon for a contest.
-	.macro choosecontestmon
+	@ Starts up the blackjack minigame.
+	.macro playblackjack
 	.byte 0x8b
 	.endm
 

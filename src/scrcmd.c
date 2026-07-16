@@ -40,6 +40,7 @@
 #include "constants/maps.h"
 #include "constants/sound.h"
 #include "sloopsvc.h"
+#include "blackjack.h"
 
 extern u16 (*const gSpecials[])(void);
 extern u16 (*const gSpecialsEnd[])(void);
@@ -2007,10 +2008,9 @@ bool8 ScrCmd_getpokenewsactive(struct ScriptContext * ctx)
     return FALSE;
 }
 
-bool8 ScrCmd_choosecontestmon(struct ScriptContext * ctx)
+bool8 ScrCmd_playblackjack(struct ScriptContext * ctx)
 {
-//    ChooseContestMon();
-    ScriptContext_Stop();
+    PlayBlackjack(CB2_ReturnToFieldContinueScriptPlayMapMusic);
     return TRUE;
 }
 
