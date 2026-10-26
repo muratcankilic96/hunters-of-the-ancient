@@ -2710,6 +2710,7 @@ void DexScreen_PrintMonHeight(u8 windowId, u16 species, u8 x, u8 y)
     const u8 *labelText;
     u8 buffer[32];
     u8 i;
+    bool8 isMetric = gSaveBlock2Ptr->optionsMeasurement;
 
     species = SpeciesToNationalPokedexNum(species);
     height = gPokedexEntries[species].height;
@@ -2723,35 +2724,66 @@ void DexScreen_PrintMonHeight(u8 windowId, u16 species, u8 x, u8 y)
 
     if (DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, FALSE))
     {
-        inches = 10000 * height / 254; // actually tenths of inches here
-        if (inches % 10 >= 5)
-            inches += 10;
-        feet = inches / 120;
-        inches = (inches - (feet * 120)) / 10;
-        if (feet / 10 == 0)
+        if (!isMetric) 
         {
-            buffer[i++] = 0;
-            buffer[i++] = feet + CHAR_0;
+            inches = 10000 * height / 254; // actually tenths of inches here
+            if (inches % 10 >= 5)
+                inches += 10;
+            feet = inches / 120;
+            inches = (inches - (feet * 120)) / 10;
+            if (feet / 10 == 0)
+            {
+                buffer[i++] = 0;
+                buffer[i++] = feet + CHAR_0;
+            }
+            else
+            {
+                buffer[i++] = feet / 10 + CHAR_0;
+                buffer[i++] = feet % 10 + CHAR_0;
+            }
+            buffer[i++] = CHAR_SGL_QUOTE_RIGHT;
+            buffer[i++] = inches / 10 + CHAR_0;
+            buffer[i++] = inches % 10 + CHAR_0;
+            buffer[i++] = CHAR_DBL_QUOTE_RIGHT;
+            buffer[i++] = EOS;
         }
         else
         {
-            buffer[i++] = feet / 10 + CHAR_0;
-            buffer[i++] = feet % 10 + CHAR_0;
+            if (height > 100) 
+            {
+                buffer[i++] = height / 100 + CHAR_0;
+                buffer[i++] = ((height / 10) % 10) + CHAR_0;
+            }
+            else
+            {
+                buffer[i++] = height / 10 + CHAR_0;
+            }
+            buffer[i++] = CHAR_PERIOD;
+            buffer[i++] = height % 10 + CHAR_0;
+            buffer[i++] = CHAR_SPACE;
+            buffer[i++] = CHAR_m;
+            buffer[i++] = EOS;
         }
-        buffer[i++] = CHAR_SGL_QUOTE_RIGHT;
-        buffer[i++] = inches / 10 + CHAR_0;
-        buffer[i++] = inches % 10 + CHAR_0;
-        buffer[i++] = CHAR_DBL_QUOTE_RIGHT;
-        buffer[i++] = EOS;
     }
     else
     {
+        if (!isMetric) 
+        {
         buffer[i++] = CHAR_QUESTION_MARK;
         buffer[i++] = CHAR_QUESTION_MARK;
         buffer[i++] = CHAR_SGL_QUOTE_RIGHT;
         buffer[i++] = CHAR_QUESTION_MARK;
         buffer[i++] = CHAR_QUESTION_MARK;
         buffer[i++] = CHAR_DBL_QUOTE_RIGHT;
+        }
+        else
+        {
+        buffer[i++] = CHAR_QUESTION_MARK;
+        buffer[i++] = CHAR_PERIOD;
+        buffer[i++] = CHAR_QUESTION_MARK;
+        buffer[i++] = CHAR_SPACE;
+        buffer[i++] = CHAR_m;
+        }
     }
 
     buffer[i++] = EOS;
@@ -2766,15 +2798,16 @@ void DexScreen_PrintMonWeight(u8 windowId, u16 species, u8 x, u8 y)
     u32 lbs;
     bool8 output;
     const u8 * labelText;
-    const u8 * lbsText;
+    const u8 * unitText;
     u8 buffer[32];
     u8 i;
     u32 j;
+    bool8 isMetric = gSaveBlock2Ptr->optionsMeasurement;
 
     species = SpeciesToNationalPokedexNum(species);
     weight = gPokedexEntries[species].weight;
     labelText = gText_WT;
-    lbsText = gText_Lbs;
+    unitText = !isMetric ? gText_Lbs : gText_Kg;
 
     i = 0;
     buffer[i++] = EXT_CTRL_CODE_BEGIN;
@@ -2783,51 +2816,71 @@ void DexScreen_PrintMonWeight(u8 windowId, u16 species, u8 x, u8 y)
 
     if (DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, FALSE))
     {
-        lbs = (weight * 100000) / 4536; // Convert to hundredths of lb
-
-        // Round up to the nearest 0.1 lb
-        if (lbs % 10 >= 5)
-            lbs += 10;
-
-        output = FALSE;
-
-        if ((buffer[i] = (lbs / 100000) + CHAR_0) == CHAR_0 && !output)
+        if (!isMetric)
         {
-            buffer[i++] = CHAR_SPACE;
+            lbs = (weight * 100000) / 4536; // Convert to hundredths of lb
+
+            // Round up to the nearest 0.1 lb
+            if (lbs % 10 >= 5)
+                lbs += 10;
+
+            output = FALSE;
+
+            if ((buffer[i] = (lbs / 100000) + CHAR_0) == CHAR_0 && !output)
+            {
+                buffer[i++] = CHAR_SPACE;
+            }
+            else
+            {
+                output = TRUE;
+                i++;
+            }
+
+            lbs %= 100000;
+            if ((buffer[i] = (lbs / 10000) + CHAR_0) == CHAR_0 && !output)
+            {
+                buffer[i++] = CHAR_SPACE;
+            }
+            else
+            {
+                output = TRUE;
+                i++;
+            }
+
+            lbs %= 10000;
+            if ((buffer[i] = (lbs / 1000) + CHAR_0) == CHAR_0 && !output)
+            {
+                buffer[i++] = CHAR_SPACE;
+            }
+            else
+            {
+                output = TRUE;
+                i++;
+            }
+
+            lbs %= 1000;
+            buffer[i++] = (lbs / 100) + CHAR_0;
+            lbs %= 100;
+            buffer[i++] = CHAR_PERIOD;
+            buffer[i++] = (lbs / 10) + CHAR_0;
         }
         else
         {
-            output = TRUE;
-            i++;
+            if (weight > 1000) 
+            {
+                buffer[i++] = weight / 1000 + CHAR_0;
+                buffer[i++] = (weight / 100) % 10 + CHAR_0;
+                buffer[i++] = (weight / 10) % 10 + CHAR_0;
+            }
+            else if (weight > 100)
+            {
+                buffer[i++] = weight / 100 + CHAR_0;
+                buffer[i++] = ((weight / 10) % 10) + CHAR_0;
+            } 
+            else buffer[i++] = weight / 10 + CHAR_0;
+            buffer[i++] = CHAR_PERIOD;
+            buffer[i++] = weight % 10 + CHAR_0;
         }
-
-        lbs %= 100000;
-        if ((buffer[i] = (lbs / 10000) + CHAR_0) == CHAR_0 && !output)
-        {
-            buffer[i++] = CHAR_SPACE;
-        }
-        else
-        {
-            output = TRUE;
-            i++;
-        }
-
-        lbs %= 10000;
-        if ((buffer[i] = (lbs / 1000) + CHAR_0) == CHAR_0 && !output)
-        {
-            buffer[i++] = CHAR_SPACE;
-        }
-        else
-        {
-            output = TRUE;
-            i++;
-        }
-
-        lbs %= 1000;
-        buffer[i++] = (lbs / 100) + CHAR_0;
-        lbs %= 100;
-        buffer[i++] = CHAR_PERIOD;
-        buffer[i++] = (lbs / 10) + CHAR_0;
     }
     else
     {
@@ -2843,8 +2896,8 @@ void DexScreen_PrintMonWeight(u8 windowId, u16 species, u8 x, u8 y)
     buffer[i++] = EXT_CTRL_CODE_MIN_LETTER_SPACING;
     buffer[i++] = 0;
 
-    for (j = 0; j < 33 - i && lbsText[j] != EOS; j++)
-        buffer[i + j] = lbsText[j];
+    for (j = 0; j < 33 - i && unitText[j] != EOS; j++)
+        buffer[i + j] = unitText[j];
 
     buffer[i + j] = EOS;
     DexScreen_AddTextPrinterParameterized(windowId, FONT_SMALL, labelText, x, y, 0);
@@ -2857,12 +2910,18 @@ void DexScreen_PrintMonFlavorText(u8 windowId, u16 species, u8 x, u8 y)
     struct TextPrinterTemplate printerTemplate;
     u16 length;
     s32 xCenter;
+    bool8 isMetric = gSaveBlock2Ptr->optionsMeasurement;
+    const u8 *description;
 
     species = SpeciesToNationalPokedexNum(species);
 
     if (DexScreen_GetSetPokedexFlag(species, FLAG_GET_CAUGHT, FALSE))
     {
-        printerTemplate.currentChar = gPokedexEntries[species].description;
+        description = gPokedexEntries[species].description;
+        if (isMetric && gPokedexEntries[species].alternativeMetricDescription != NULL)
+            description = gPokedexEntries[species].alternativeMetricDescription;
+
+        printerTemplate.currentChar = description;
         printerTemplate.windowId = windowId;
         printerTemplate.fontId = FONT_NORMAL;
         printerTemplate.letterSpacing = 1;
@@ -2872,7 +2931,7 @@ void DexScreen_PrintMonFlavorText(u8 windowId, u16 species, u8 x, u8 y)
         printerTemplate.bgColor = 0;
         printerTemplate.shadowColor = 2;
 
-        length = GetStringWidth(FONT_NORMAL, gPokedexEntries[species].description, 0);
+        length = GetStringWidth(FONT_NORMAL, description, 0);
         xCenter = x + (240 - length) / 2;
 
         if (xCenter > 0)

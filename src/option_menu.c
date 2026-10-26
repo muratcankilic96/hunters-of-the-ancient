@@ -23,6 +23,7 @@ enum
     MENUITEM_SOUND,
     MENUITEM_BUTTONMODE,
     MENUITEM_FRAMETYPE,
+    MENUITEM_MEASUREMENT,
     MENUITEM_CANCEL,
     MENUITEM_COUNT
 };
@@ -38,10 +39,10 @@ enum
 struct OptionMenu
 {
     /*0x00*/ u16 option[MENUITEM_COUNT];
-    /*0x0E*/ u16 cursorPos;
-    /*0x10*/ u8 loadState;
-    /*0x11*/ u8 state;
-    /*0x12*/ u8 loadPaletteState;
+    /*0x10*/ u16 cursorPos;
+    /*0x12*/ u8 loadState;
+    /*0x14*/ u8 state;
+    /*0x16*/ u8 loadPaletteState;
 };
 
 static EWRAM_DATA struct OptionMenu *sOptionMenuPtr = NULL;
@@ -131,7 +132,7 @@ static const struct BgTemplate sOptionMenuBgTemplates[] =
 };
 
 static const u16 sOptionMenuPalette[] = INCBIN_U16("graphics/misc/option_menu.gbapal");
-static const u16 sOptionMenuItemCounts[MENUITEM_COUNT] = {3, 2, 2, 2, 3, 10, 0};
+static const u16 sOptionMenuItemCounts[MENUITEM_COUNT] = {3, 2, 2, 2, 3, 10, 2, 0};
 
 static const u8 *const sOptionMenuItemsNames[MENUITEM_COUNT] =
 {
@@ -141,6 +142,7 @@ static const u8 *const sOptionMenuItemsNames[MENUITEM_COUNT] =
     [MENUITEM_SOUND]       = gText_Sound,
     [MENUITEM_BUTTONMODE]  = gText_ButtonMode,
     [MENUITEM_FRAMETYPE]   = gText_Frame,
+    [MENUITEM_MEASUREMENT] = gText_Measurement,
     [MENUITEM_CANCEL]      = gText_OptionMenuCancel,
 };
 
@@ -174,6 +176,12 @@ static const u8 *const sButtonTypeOptions[] =
     gText_ButtonTypeHelp,
 	gText_ButtonTypeLR,
 	gText_ButtonTypeLEqualsA
+};
+
+static const u8 *const sMeasurementOptions[] =
+{
+    gText_MeasurementImperial,
+	gText_MeasurementMetric,
 };
 
 static const u8 sOptionMenuPickSwitchCancelTextColor[] = {TEXT_DYNAMIC_COLOR_6, TEXT_COLOR_WHITE, TEXT_COLOR_DARK_GRAY};
@@ -212,7 +220,8 @@ void CB2_OptionsMenuFromStartMenu(void)
     sOptionMenuPtr->option[MENUITEM_SOUND] = gSaveBlock2Ptr->optionsSound;
     sOptionMenuPtr->option[MENUITEM_BUTTONMODE] = gSaveBlock2Ptr->optionsButtonMode;
     sOptionMenuPtr->option[MENUITEM_FRAMETYPE] = gSaveBlock2Ptr->optionsWindowFrameType;
-    
+    sOptionMenuPtr->option[MENUITEM_MEASUREMENT] = gSaveBlock2Ptr->optionsMeasurement;
+
     for (i = 0; i < MENUITEM_COUNT - 1; i++)
     {
         if (sOptionMenuPtr->option[i] > (sOptionMenuItemCounts[i]) - 1)
@@ -472,31 +481,34 @@ static void BufferOptionMenuString(u8 selection)
     
     memcpy(dst, sOptionMenuTextColor, 3);
     x = 0x82;
-    y = ((GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_HEIGHT) - 1) * selection) + 2;
-    FillWindowPixelRect(1, 1, x, y, 0x46, GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_HEIGHT));
+    y = ((GetFontAttribute(FONT_SMALL, FONTATTR_MAX_LETTER_HEIGHT) - 1) * selection);
+    FillWindowPixelRect(1, 1, x, y, 0x46, GetFontAttribute(FONT_SMALL, FONTATTR_MAX_LETTER_HEIGHT));
 
     switch (selection)
     {
     case MENUITEM_TEXTSPEED:
-        AddTextPrinterParameterized3(1, FONT_NORMAL, x, y, dst, -1, sTextSpeedOptions[sOptionMenuPtr->option[selection]]);
+        AddTextPrinterParameterized3(1, FONT_SMALL, x, y, dst, -1, sTextSpeedOptions[sOptionMenuPtr->option[selection]]);
         break;
     case MENUITEM_BATTLESCENE:
-        AddTextPrinterParameterized3(1, FONT_NORMAL, x, y, dst, -1, sBattleSceneOptions[sOptionMenuPtr->option[selection]]);
+        AddTextPrinterParameterized3(1, FONT_SMALL, x, y, dst, -1, sBattleSceneOptions[sOptionMenuPtr->option[selection]]);
         break;
     case MENUITEM_BATTLESTYLE:
-        AddTextPrinterParameterized3(1, FONT_NORMAL, x, y, dst, -1, sBattleStyleOptions[sOptionMenuPtr->option[selection]]);
+        AddTextPrinterParameterized3(1, FONT_SMALL, x, y, dst, -1, sBattleStyleOptions[sOptionMenuPtr->option[selection]]);
         break;
     case MENUITEM_SOUND:
-        AddTextPrinterParameterized3(1, FONT_NORMAL, x, y, dst, -1, sSoundOptions[sOptionMenuPtr->option[selection]]);
+        AddTextPrinterParameterized3(1, FONT_SMALL, x, y, dst, -1, sSoundOptions[sOptionMenuPtr->option[selection]]);
         break;
     case MENUITEM_BUTTONMODE:
-        AddTextPrinterParameterized3(1, FONT_NORMAL, x, y, dst, -1, sButtonTypeOptions[sOptionMenuPtr->option[selection]]);
+        AddTextPrinterParameterized3(1, FONT_SMALL, x, y, dst, -1, sButtonTypeOptions[sOptionMenuPtr->option[selection]]);
         break;
     case MENUITEM_FRAMETYPE:
         StringCopy(str, gText_FrameType);
         ConvertIntToDecimalStringN(buf, sOptionMenuPtr->option[selection] + 1, 1, 2);
         StringAppendN(str, buf, 3);
-        AddTextPrinterParameterized3(1, FONT_NORMAL, x, y, dst, -1, str);
+        AddTextPrinterParameterized3(1, FONT_SMALL, x, y, dst, -1, str);
+        break;
+    case MENUITEM_MEASUREMENT:
+        AddTextPrinterParameterized3(1, FONT_SMALL, x, y, dst, -1, sMeasurementOptions[sOptionMenuPtr->option[selection]]);
         break;
     default:
         break;
@@ -516,6 +528,7 @@ static void CloseAndSaveOptionMenu(u8 taskId)
     gSaveBlock2Ptr->optionsSound = sOptionMenuPtr->option[MENUITEM_SOUND];
     gSaveBlock2Ptr->optionsButtonMode = sOptionMenuPtr->option[MENUITEM_BUTTONMODE];
     gSaveBlock2Ptr->optionsWindowFrameType = sOptionMenuPtr->option[MENUITEM_FRAMETYPE];
+    gSaveBlock2Ptr->optionsMeasurement = sOptionMenuPtr->option[MENUITEM_MEASUREMENT];
     SetPokemonCryStereo(gSaveBlock2Ptr->optionsSound);
     FREE_AND_SET_NULL(sOptionMenuPtr);
     DestroyTask(taskId);
@@ -560,7 +573,7 @@ static void LoadOptionMenuItemNames(void)
     FillWindowPixelBuffer(1, PIXEL_FILL(1));
     for (i = 0; i < MENUITEM_COUNT; i++)
     {
-        AddTextPrinterParameterized(WIN_OPTIONS, FONT_NORMAL, sOptionMenuItemsNames[i], 8, (u8)((i * (GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_HEIGHT))) + 2) - i, TEXT_SKIP_DRAW, NULL);    
+        AddTextPrinterParameterized(WIN_OPTIONS, FONT_SMALL, sOptionMenuItemsNames[i], 8, (u8)((i * (GetFontAttribute(FONT_SMALL, FONTATTR_MAX_LETTER_HEIGHT)))) - i, TEXT_SKIP_DRAW, NULL);    
     }
 }
 
@@ -568,8 +581,8 @@ static void UpdateSettingSelectionDisplay(u16 selection)
 {
     u16 maxLetterHeight, y;
     
-    maxLetterHeight = GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_HEIGHT);
+    maxLetterHeight = GetFontAttribute(FONT_SMALL, FONTATTR_MAX_LETTER_HEIGHT);
     y = selection * (maxLetterHeight - 1) + 0x3A;
-    SetGpuReg(REG_OFFSET_WIN0V, WIN_RANGE(y, y + maxLetterHeight));
+    SetGpuReg(REG_OFFSET_WIN0V, WIN_RANGE(y, y + maxLetterHeight - 3));
     SetGpuReg(REG_OFFSET_WIN0H, WIN_RANGE(0x10, 0xE0));
 }

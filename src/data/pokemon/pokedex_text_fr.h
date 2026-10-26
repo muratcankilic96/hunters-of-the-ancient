@@ -45,7 +45,10 @@ const u8 gCharizardPokedexText[] = _(
     "an altitude of 4,600 feet. It blows out\n"
     "fire at very high temperatures.");
 
-const u8 gCharizardPokedexTextUnused[] = _("");
+const u8 gCharizardPokedexText_AlternativeMetric[] = _(
+    "Its wings can carry this POKéMON close to\n"
+    "an altitude of 1,400 meters. It blows out\n"
+    "fire at very high temperatures.");
 
 const u8 gSquirtlePokedexText[] = _(
     "When it retracts its long neck into its\n"
@@ -94,7 +97,10 @@ const u8 gWeedlePokedexText[] = _(
     "It has a sharp, toxic barb of around two\n"
     "inches on top of its head.");
 
-const u8 gWeedlePokedexTextUnused[] = _("");
+const u8 gWeedlePokedexText_AlternativeMetric[] = _(
+    "Often found in forests and grasslands.\n"
+    "It has a sharp, toxic barb of around five\n"
+    "centimeters on top of its head.");
 
 const u8 gKakunaPokedexText[] = _(
     "This POKéMON is in a temporary stage\n"
@@ -122,7 +128,10 @@ const u8 gPidgeottoPokedexText[] = _(
     "It can carry prey such as an EXEGGCUTE\n"
     "to its nest over 60 miles away.");
 
-const u8 gPidgeottoPokedexTextUnused[] = _("");
+const u8 gPidgeottoPokedexText_AlternativeMetric[] = _(
+    "The claws on its feet are well developed.\n"
+    "It can carry prey such as an EXEGGCUTE\n"
+    "to its nest over 100 kilometers away.");
 
 const u8 gPidgeotPokedexText[] = _(
     "It spreads its gorgeous wings widely to\n"
@@ -255,7 +264,10 @@ const u8 gClefablePokedexText[] = _(
     "easily hear a pin being dropped nearly\n"
     "1,100 yards away.");
 
-const u8 gClefablePokedexTextUnused[] = _("");
+const u8 gClefablePokedexText_AlternativeMetric[] = _(
+    "It has an acute sense of hearing. It can\n"
+    "easily hear a pin being dropped nearly\n"
+    "1 km away.");
 
 const u8 gVulpixPokedexText[] = _(
     "While young, it has six gorgeous tails.\n"
@@ -297,7 +309,10 @@ const u8 gGolbatPokedexText[] = _(
     "sharp fangs and drains over 10 ounces of\n"
     "blood in one gulp.");
 
-const u8 gGolbatPokedexTextUnused[] = _("");
+const u8 gGolbatPokedexText_AlternativeMetric[] = _(
+    "It clamps down on its prey with needle-\n"
+    "sharp fangs and drains over 300\n"
+    "milliliters of blood in one gulp.");
 
 const u8 gOddishPokedexText[] = _(
     "Its scientific name is “Oddium Wanderus.”\n"
@@ -311,7 +326,10 @@ const u8 gGloomPokedexText[] = _(
     "The horrid stench can cause fainting at a\n"
     "distance of 1.25 miles.");
 
-const u8 gGloomPokedexTextUnused[] = _("");
+const u8 gGloomPokedexText_AlternativeMetric[] = _(
+    "Its pistils exude an incredibly foul odor.\n"
+    "The horrid stench can cause fainting at a\n"
+    "distance of 2 kilometers.");
 
 const u8 gVileplumePokedexText[] = _(
     "Its petals are the largest in the world.\n"
@@ -549,7 +567,10 @@ const u8 gRapidashPokedexText[] = _(
     "miles per hour. It can race as fast as a\n"
     "bullet train while ablaze.");
 
-const u8 gRapidashPokedexTextUnused[] = _("");
+const u8 gRapidashPokedexText_AlternativeMetric[] = _(
+    "It can gallop at a top speed of 240\n"
+    "kilometers per hour. It can race as fast\n"
+    "as a bullet train while ablaze.");
 
 const u8 gSlowpokePokedexText[] = _(
     "It is always vacantly lost in thought, but\n"
@@ -591,7 +612,10 @@ const u8 gDoduoPokedexText[] = _(
     "as a sudden mutation. It runs at a pace\n"
     "of over 60 miles per hour.");
 
-const u8 gDoduoPokedexTextUnused[] = _("");
+const u8 gDoduoPokedexText_AlternativeMetric[] = _(
+    "A two-headed POKéMON that was discovered\n"
+    "as a sudden mutation. It runs at a pace\n"
+    "of over 100 kilometers per hour.");
 
 const u8 gDodrioPokedexText[] = _(
     "An odd species that is rarely found.\n"
@@ -605,7 +629,10 @@ const u8 gSeelPokedexText[] = _(
     "thick and tough. It is active in bitter\n"
     "cold of minus 40 degrees Fahrenheit.");
 
-const u8 gSeelPokedexTextUnused[] = _("");
+const u8 gSeelPokedexText_AlternativeMetric[] = _(
+    "Covered with light blue fur, its hide is\n"
+    "thick and tough. It is active in bitter\n"
+    "cold of minus 40 degrees Celsius.");
 
 const u8 gDewgongPokedexText[] = _(
     "Its body is covered with a pure white\n"
@@ -668,7 +695,10 @@ const u8 gOnixPokedexText[] = _(
     "for food while boring its way through the\n"
     "ground at 50 miles per hour.");
 
-const u8 gOnixPokedexTextUnused[] = _("");
+const u8 gOnixPokedexText_AlternativeMetric[] = _(
+    "It usually lives underground. It searches\n"
+    "for food while boring its way through the\n"
+    "ground at 80 kilometers per hour.");
 
 const u8 gDrowzeePokedexText[] = _(
     "A descendent of the legendary animal\n"
@@ -885,7 +915,10 @@ const u8 gMagmarPokedexText[] = _(
     "This fire-breather's body temperature is\n"
     "nearly 2,200 degrees Fahrenheit.");
 
-const u8 gMagmarPokedexTextUnused[] = _("");
+const u8 gMagmarPokedexText_AlternativeMetric[] = _(
+    "Found near the mouth of a volcano.\n"
+    "This fire-breather's body temperature is\n"
+    "nearly 1,200 degrees Celsius.");
 
 const u8 gPinsirPokedexText[] = _(
     "Its two long pincer horns are powerful.\n"
@@ -955,7 +988,10 @@ const u8 gFlareonPokedexText[] = _(
     "inhaling deeply, it blows out flames of\n"
     "nearly 3,100 degrees Fahrenheit.");
 
-const u8 gFlareonPokedexTextUnused[] = _("");
+const u8 gFlareonPokedexText_AlternativeMetric[] = _(
+    "It has a flame bag inside its body. After\n"
+    "inhaling deeply, it blows out flames of\n"
+    "nearly 1,700 degrees Celsius.");
 
 const u8 gPorygonPokedexText[] = _(
     "Using the most advanced technologies,\n"
@@ -1004,7 +1040,10 @@ const u8 gSnorlaxPokedexText[] = _(
     "pounds of food every day. When it is done\n"
     "eating, it goes promptly to sleep.");
 
-const u8 gSnorlaxPokedexTextUnused[] = _("");
+const u8 gSnorlaxPokedexText_AlternativeMetric[] = _(
+    "It is not satisfied unless it eats over 400\n"
+    "kilograms of food every day. When it is\n"
+    "done eating, it goes promptly to sleep.");
 
 const u8 gArticunoPokedexText[] = _(
     "One of the legendary bird POKéMON.\n"
@@ -1032,7 +1071,10 @@ const u8 gDratiniPokedexText[] = _(
     "length. It grows larger by repeatedly\n"
     "shedding skin.");
 
-const u8 gDratiniPokedexTextUnused[] = _("");
+const u8 gDratiniPokedexText_AlternativeMetric[] = _(
+    "Even the young can exceed 2 meters in\n"
+    "length. It grows larger by repeatedly\n"
+    "shedding skin.");
 
 const u8 gDragonairPokedexText[] = _(
     "It is said to live in seas and lakes.\n"
@@ -1688,7 +1730,10 @@ const u8 gMagbyPokedexText[] = _(
     "heat exceeds 1,100 degrees Fahrenheit,\n"
     "so don't underestimate it.");
 
-const u8 gMagbyPokedexTextUnused[] = _("");
+const u8 gMagbyPokedexText_AlternativeMetric[] = _(
+    "It is found in volcanic craters. Its body\n"
+    "heat exceeds 600 degrees Celsius,\n"
+    "so don't underestimate it.");
 
 const u8 gMiltankPokedexText[] = _(
     "If it has just had a baby, the milk it\n"
@@ -1863,7 +1908,10 @@ const u8 gLinoonePokedexText[] = _(
     "60 miles per hour. However, it has a\n"
     "tough time with curved roads.");
 
-const u8 gLinoonePokedexTextUnused[] = _("");
+const u8 gLinoonePokedexText_AlternativeMetric[] = _(
+    "When running in a straight line, it can top\n"
+    "100 kilometers per hour. However, it has\n"
+    "a tough time with curved roads.");
 
 const u8 gWurmplePokedexText[] = _(
     "It lives amidst tall grass and in forests.\n"
@@ -1947,7 +1995,10 @@ const u8 gTaillowPokedexText[] = _(
     "other lands in search of warmth, flying\n"
     "over 180 miles a day.");
 
-const u8 gTaillowPokedexTextUnused[] = _("");
+const u8 gTaillowPokedexText_AlternativeMetric[] = _(
+    "It dislikes cold seasons. They migrate to\n"
+    "other lands in search of warmth, flying\n"
+    "over 300 kilometers a day.");
 
 const u8 gSwellowPokedexText[] = _(
     "If its two tail feathers are standing at\n"
@@ -2080,7 +2131,10 @@ const u8 gExploudPokedexText[] = _(
     "holes all over its body. Its loud cries\n"
     "can be heard from over six miles away.");
 
-const u8 gExploudPokedexTextUnused[] = _("");
+const u8 gExploudPokedexText_AlternativeMetric[] = _(
+    "It emits a variety of sounds from the\n"
+    "holes all over its body. Its loud cries\n"
+    "can be heard over 10 kilometers away.");
 
 const u8 gMakuhitaPokedexText[] = _(
     "It grows stronger by enduring harsh\n"
@@ -2269,7 +2323,10 @@ const u8 gNumelPokedexText[] = _(
     "courses through its body. When it grows\n"
     "cold, the magma hardens and slows it.");
 
-const u8 gNumelPokedexTextUnused[] = _("");
+const u8 gNumelPokedexText_AlternativeMetric[] = _(
+    "Magma of almost 1,200 degrees Celsius\n"
+    "courses through its body. When it grows\n"
+    "cold, the magma hardens and slows it.");
 
 const u8 gCameruptPokedexText[] = _(
     "If angered, the humps on its back erupt\n"
@@ -2542,7 +2599,10 @@ const u8 gSnoruntPokedexText[] = _(
     "SNORUNT will prosper. It can withstand\n"
     "cold of minus 150 degrees Fahrenheit.");
 
-const u8 gSnoruntPokedexTextUnused[] = _("");
+const u8 gSnoruntPokedexText_AlternativeMetric[] = _(
+    "It is said that a home visited by a\n"
+    "SNORUNT will prosper. It can withstand\n"
+    "cold of minus 100 degrees Celsius.");
 
 const u8 gGlaliePokedexText[] = _(
     "It has a body of ice that won't melt,\n"
